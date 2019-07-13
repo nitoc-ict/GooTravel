@@ -13,8 +13,8 @@ minSdkVersion 22
 
 ## 設計方針
 MVVM(予定)  
-### MVVMがどんなのか貼る
-### サンプル貼る
+// MVVMがどんなのか貼る
+// サンプル貼る
 
 ## GitHub運営方針
 Git Flowをベースにしたものを仕様  
