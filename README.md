@@ -47,6 +47,11 @@ for (i in 0..2) {
 for文は積極的には使わず、forEachなどでしましょう  
 objectはバグを生みやすくなってしまうのであまり使わずにいきましょう  
 
+#### サンプル
+https://github.com/mitohato/shugakuryokon/  
+https://github.com/mitohato/justodo  
+https://github.com/mitohato/MovieRecord  
+
 ## Lint
 かけるなら書く
 
