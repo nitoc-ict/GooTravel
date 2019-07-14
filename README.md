@@ -6,6 +6,10 @@ Kotlin 1.3.41
 minSdkVersion 22  
 
 ## コーディング規約
+基本的に以下のリンクのコーディング規約に従う  
+https://dogwood008.github.io/kotlin-web-site-ja/docs/reference/coding-conventions.html  
+
+
 変数名やメソッド名、クラス名などの命名はキャメルケースで書く  
 変数名とメソッド名は最初小文字  
 変数名は基本、名詞など  
