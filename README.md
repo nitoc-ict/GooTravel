@@ -63,6 +63,10 @@ MVVM(予定)
 
 // サンプル貼る
 
+## DataBinding
+[参考1](https://qiita.com/Omoti/items/a83910a990e64f4dbdf1)  
+[参考2](https://qiita.com/1coin178/items/9b91ca721faff192e272)  
+
 ## GitHub運営方針
 Git Flowをベースにしたものを仕様  
 基本、ブランチは以下の種類がありそれを利用する  
