@@ -57,7 +57,10 @@ https://github.com/mitohato/MovieRecord
 
 ## 設計方針
 MVVM(予定)  
-// MVVMがどんなのか貼る  
+[Wikipedia](https://ja.wikipedia.org/wiki/Model_View_ViewModel)  
+[参考1](http://blog.pionet.co.jp/experience/archives/2143)  
+[参考2](https://blog.excite.co.jp/exdev/28799157/)  
+
 // サンプル貼る
 
 ## GitHub運営方針
