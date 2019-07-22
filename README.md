@@ -47,6 +47,24 @@ for (i in 0..2) {
 for文は積極的には使わず、forEachなどでしましょう  
 objectはバグを生みやすくなってしまうのであまり使わずにいきましょう  
 
+メソッドに複数の引数がある場合は  
+```kotlin
+fun hoge(
+    a: Int,
+    b: String
+)
+
+hoge(
+    10,
+    "hoge"
+)
+
+fun foo(c: Int)
+```
+のようにすること  
+こうすることによって引数の数や型がぱっと見でわかりやすい  
+一つの場合はそのまま  
+
 #### サンプル
 https://github.com/mitohato/shugakuryokon/  
 https://github.com/mitohato/justodo  
