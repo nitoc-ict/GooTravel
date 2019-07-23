@@ -94,6 +94,7 @@ https://github.com/mitohato/MVVM-Sample
 - Koin
 - Navigation
 - ViewModel
+- Hyperion-Android
 
 ## GitHub運営方針
 Git Flowをベースにしたものを仕様  
