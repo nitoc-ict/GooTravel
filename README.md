@@ -86,6 +86,15 @@ https://github.com/mitohato/MVVM-Sample
 [参考1](https://qiita.com/Omoti/items/a83910a990e64f4dbdf1)  
 [参考2](https://qiita.com/1coin178/items/9b91ca721faff192e272)  
 
+## ライブラリ等
+- Groupie
+- Google Play Services
+- AncdroidX
+- DataBinding
+- Koin
+- Navigation
+- ViewModel
+
 ## GitHub運営方針
 Git Flowをベースにしたものを仕様  
 基本、ブランチは以下の種類がありそれを利用する  
