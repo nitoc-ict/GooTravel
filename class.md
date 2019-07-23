@@ -2,7 +2,7 @@
 
 
 ポイント地点登録画面(Point Register)  
-Activity: spot.register.ui.RegisterActivity
+Activity: spot.register.ui.RegisterActivity  
 Fragment・画面: spot.register.ui.RegisterFragment  
 ViewModel: spot.register.ui.RegisterViewModel  
 model: spot.model.RegisterPointData  
