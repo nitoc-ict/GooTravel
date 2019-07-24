@@ -4,7 +4,7 @@
 ※ 途中で変更になる可能性もありますが許してください＞＜
 
 ## ポイント地点登録画面(Point Register)  
-Activity: spot/register/ui/SpotActivity.kt  
+Activity: spot/activity/SpotActivity.kt  
 Fragment・画面: spot/register/ui/RegisterFragment.kt  
 ViewModel: spot/register/ui/RegisterViewModel.kt  
 model: spot/model/RegisterPointData.kt  
@@ -24,17 +24,21 @@ ViewModel: disaster/manual/ui/ManualViewModel.kt
 model: disaster/model/ManualData.kt  
 
 ## 近くの地点リスト表示(List)  
-Activity: spot/select/ui/SpotActivity.kt  
+Activity: spot/activity/SpotActivity.kt  
 Fragment・画面: spot/select/ui/ListFragment.kt  
 Row Item: spot/select/ui/ListRowItem.kt  
 ViewModel: spot/select/ui/ListViewModel.kt  
 model: spot/model/ListData.kt  
 
 ## レーダー画面
-Activity: spot/select/radar/ui/SpotActivity.kt  
+Activity: spot/activity/SpotActivity.kt  
 Fragment・画面: spot/select/radar/ui/RadarFragment.kt  
 Popup: spot/select/radar/ui/RadarPopup.kt  
 ViewModel: spot/select/radar/ui/RadarViewModel.kt  
+model: spot/model/SpotData.kt    
+
+## Navigate画面
+Activity: spot/activity/SpotActivity.kt  
+Fragment・画面: spot/navigate/ui/RadarFragment.kt  
+ViewModel: spot/navigate/ui/RadarViewModel.kt  
 model: spot/model/SpotData.kt  
-
-
