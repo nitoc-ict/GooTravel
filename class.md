@@ -48,3 +48,6 @@ Activity: spot/activity/SpotActivity.kt
 Fragment・画面: spot/select/search/ui/RadarFragment.kt  
 ViewModel: spot/select/search/ui/RadarViewModel.kt  
 model: spot/model/HistoryData.kt, spot/model/RegisterPointData.kt, MeetingPlaceData.kt  
+
+## Util
+SpotType.kt(enum)  
