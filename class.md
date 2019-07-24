@@ -12,7 +12,11 @@ model: spot/model/RegisterPointData.kt
 Alert(災害速報): disaster/notification/ui/NotificationAlertDialog.kt  
 model: disaster/model/NotificationModel.kt  
 
-## マニュアル表示画面(Manual) or 画面レイアウト作成　　
+## マニュアル表示画面(Manual)　　
+Activity: disaster/manual/ui/ManualActivity.kt  
+Fragment・画面: disaster/manual/ui/ManualFragment.kt  
+ViewModel: disaster/manual/ui/ManualViewModel.kt  
+model: disaster/model/ManualData.kt  
 
 
 ## 近くの地点リスト表示(List)  
