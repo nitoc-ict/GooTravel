@@ -1,6 +1,7 @@
 # クラス・ファイル一覧
 
-※/で区切ってあるのはフォルダの階層を表しています。例えば、`hoge/foo`の場合はhogeフォルダの中にfooがある  
+※ /で区切ってあるのはフォルダの階層を表しています。例えば、`hoge/foo`の場合はhogeフォルダの中にfooがある  
+※ 途中で変更になる可能性もありますが許してください＞＜
 
 ## ポイント地点登録画面(Point Register)  
 Activity: spot/register/ui/RegisterActivity.kt  
