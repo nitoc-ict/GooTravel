@@ -18,5 +18,9 @@ Fragment・画面: disaster/manual/ui/ManualFragment.kt
 ViewModel: disaster/manual/ui/ManualViewModel.kt  
 model: disaster/model/ManualData.kt  
 
-
 ## 近くの地点リスト表示(List)  
+Activity: spot/select/ui/ListActivity.kt  
+Fragment・画面: spot/select/ui/ListFragment.kt  
+Row Item: spot/select/ui/ListRowItem.kt  
+ViewModel: spot/select/ui/ListViewModel.kt  
+model: spot/model/ListData.kt  
