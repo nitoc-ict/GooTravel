@@ -51,3 +51,6 @@ model: spot/model/HistoryData.kt, spot/model/RegisterPointData.kt, MeetingPlaceD
 
 ## Util
 SpotType.kt(enum)  
+
+## Repository
+後で書きます><
