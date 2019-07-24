@@ -18,7 +18,8 @@ class ManualFragment : Fragment() {
     private lateinit var viewModel: ManualViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.manual_fragment, container, false)
@@ -29,5 +30,4 @@ class ManualFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(ManualViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }
