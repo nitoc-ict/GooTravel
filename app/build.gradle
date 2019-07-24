@@ -36,6 +36,11 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
 
+    //    Koin
+    implementation("org.koin:koin-android:$koin_version")
+    implementation("org.koin:koin-androidx-scope:$koin_version")
+    implementation("org.koin:koin-androidx-viewmodel:$koin_version")
+
     // Groupie
     implementation "com.xwray:groupie:$groupie_version"
     implementation "com.xwray:groupie-kotlin-android-extensions:$groupie_version"
