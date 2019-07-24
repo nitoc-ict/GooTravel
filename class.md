@@ -1,6 +1,7 @@
 # クラス・ファイル一覧
 
-※/で区切ってあるのはフォルダの階層を表しています。例えば、`hoge/foo`の場合はhogeフォルダの中にfooがある  
+※ /で区切ってあるのはフォルダの階層を表しています。例えば、`hoge/foo`の場合はhogeフォルダの中にfooがある  
+※ 途中で変更になる可能性もありますが許してください＞＜
 
 ## ポイント地点登録画面(Point Register)  
 Activity: spot/register/ui/RegisterActivity.kt  
@@ -9,8 +10,12 @@ ViewModel: spot/register/ui/RegisterViewModel.kt
 model: spot/model/RegisterPointData.kt  
 
 ## アラート周り(Alert、Wi-Fi auto Auth)  
+### 災害
 Alert(災害速報): disaster/notification/ui/NotificationAlertDialog.kt  
 model: disaster/model/NotificationModel.kt  
+### Wi-Fi
+Dialog: wifi/connect/ui/ConnectDialog.kt  
+model: wifi/connect/mode/DialogData.kt  
 
 ## マニュアル表示画面(Manual)　　
 Activity: disaster/manual/ui/ManualActivity.kt  
