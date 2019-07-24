@@ -33,5 +33,4 @@ class RegisterFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(RegisterViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }
