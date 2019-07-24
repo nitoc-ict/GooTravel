@@ -36,20 +36,26 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-extensions:2.0.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0")
 
+    // Navigation
+    // for move screen
     implementation("androidx.navigation:navigation-common-ktx:$navigation_version")
     implementation("androidx.navigation:navigation-fragment-ktx:$navigation_version")
     implementation("androidx.navigation:navigation-ui-ktx:$navigation_version")
 
     //    Koin
+    // for DI
     implementation("org.koin:koin-android:$koin_version")
     implementation("org.koin:koin-androidx-scope:$koin_version")
     implementation("org.koin:koin-androidx-viewmodel:$koin_version")
 
     // Groupie
+    // for RecyclerView
     implementation("com.xwray:groupie:$groupie_version")
     implementation("com.xwray:groupie-kotlin-android-extensions:$groupie_version")
     implementation("com.xwray:groupie-databinding:$groupie_version")
 
+    // room
+    // for save data to app
     implementation("androidx.room:room-runtime:$room_version")
     implementation("androidx.room:room-rxjava2:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
@@ -58,8 +64,10 @@ dependencies {
 
     implementation("com.google.android.gms:play-services-location:17.0.0")
 
+    // for csv
     implementation("org.apache.commons:commons-csv:1.6")
 
+    // for test
     testImplementation("junit:junit:4.12")
     androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
