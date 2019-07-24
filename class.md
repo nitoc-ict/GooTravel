@@ -10,8 +10,12 @@ ViewModel: spot/register/ui/RegisterViewModel.kt
 model: spot/model/RegisterPointData.kt  
 
 ## アラート周り(Alert、Wi-Fi auto Auth)  
+### 災害
 Alert(災害速報): disaster/notification/ui/NotificationAlertDialog.kt  
 model: disaster/model/NotificationModel.kt  
+### Wi-Fi
+Dialog: wifi/connect/ui/ConnectDialog.kt  
+model: wifi/connect/mode/DialogData.kt  
 
 ## マニュアル表示画面(Manual)　　
 Activity: disaster/manual/ui/ManualActivity.kt  
