@@ -14,7 +14,7 @@
             android:theme="@style/AppTheme">
         <activity android:name=".spot.activity.SpotActivity">
         </activity>
-        <activity android:name=".spot.select.ui.ListActivity">
+        <activity android:name="com.ict.mito.gootravel.spot.select.list.ui.ListActivity">
         </activity>
         <activity android:name=".disaster.manual.ui.ManualActivity">
         </activity>
