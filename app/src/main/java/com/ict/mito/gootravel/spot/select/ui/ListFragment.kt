@@ -1,12 +1,11 @@
 package com.ict.mito.gootravel.spot.select.ui
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.ict.mito.gootravel.R
 
 class ListFragment : Fragment() {
@@ -22,7 +21,11 @@ class ListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.list_fragment, container, false)
+        return inflater.inflate(
+            R.layout.list_fragment,
+            container,
+            false
+        )
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
