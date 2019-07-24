@@ -39,14 +39,14 @@ model: spot/model/SpotData.kt
 
 ## Navigate画面
 Activity: spot/activity/SpotActivity.kt  
-Fragment・画面: spot/navigate/ui/RadarFragment.kt  
-ViewModel: spot/navigate/ui/RadarViewModel.kt  
+Fragment・画面: spot/navigate/ui/NavigateFragment.kt  
+ViewModel: spot/navigate/ui/NavigateViewModel.kt  
 model: spot/model/SpotData.kt  
 
 ## search画面
 Activity: spot/activity/SpotActivity.kt  
-Fragment・画面: spot/select/search/ui/RadarFragment.kt  
-ViewModel: spot/select/search/ui/RadarViewModel.kt  
+Fragment・画面: spot/select/search/ui/SearchFragment.kt  
+ViewModel: spot/select/search/ui/SearchViewModel.kt  
 model: spot/model/HistoryData.kt, spot/model/RegisterPointData.kt, MeetingPlaceData.kt  
 
 ## Util
