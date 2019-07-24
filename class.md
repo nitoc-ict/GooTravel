@@ -33,7 +33,7 @@ model: spot/model/ListData.kt
 ## レーダー画面
 Activity: spot/select/radar/ui/RadarActivity.kt  
 Fragment・画面: spot/select/radar/ui/RadarFragment.kt  
-Popup: spot/select/radar/ui/RadarPopup.kt
+Popup: spot/select/radar/ui/RadarPopup.kt  
 ViewModel: spot/select/radar/ui/RadarViewModel.kt  
 model: spot/model/SpotData.kt  
 
