@@ -10,10 +10,6 @@ import com.ict.mito.gootravel.R
 
 class ManualFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = ManualFragment()
-    }
-
     private lateinit var viewModel: ManualViewModel
 
     override fun onCreateView(

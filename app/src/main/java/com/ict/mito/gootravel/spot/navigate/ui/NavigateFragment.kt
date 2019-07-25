@@ -1,19 +1,14 @@
 package com.ict.mito.gootravel.spot.navigate.ui
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.ict.mito.gootravel.R
 
 class NavigateFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = NavigateFragment()
-    }
 
     private lateinit var viewModel: NavigateViewModel
 

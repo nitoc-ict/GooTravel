@@ -12,10 +12,6 @@ import kotlinx.android.synthetic.main.list_fragment.*
 
 class ListFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = ListFragment()
-    }
-
     private lateinit var viewModel: ListViewModel
 
     override fun onCreateView(

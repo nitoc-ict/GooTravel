@@ -14,10 +14,6 @@ import kotlinx.android.synthetic.main.radar_fragment.*
 
 class RadarFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = RadarFragment()
-    }
-
     private lateinit var viewModel: RadarViewModel
 
     override fun onCreateView(

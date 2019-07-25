@@ -10,10 +10,6 @@ import com.ict.mito.gootravel.R
 
 class RegisterFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = RegisterFragment()
-    }
-
     private lateinit var viewModel: RegisterViewModel
 
     override fun onCreateView(
