@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
+import kotlinx.android.synthetic.main.list_fragment.*
 
 class ListFragment : Fragment() {
 
@@ -32,5 +34,17 @@ class ListFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
         // TODO: Use the ViewModel
+        button_to_radar.setOnClickListener {
+            findNavController().navigate(R.id.action_listFragment_to_radarFragment)
+        }
+        button_to_search.setOnClickListener {
+            findNavController().navigate(R.id.action_listFragment_to_searchFragment)
+        }
+        button_to_navigate.setOnClickListener {
+            findNavController().navigate(R.id.action_listFragment_to_navigateFragment)
+        }
+        button_to_register.setOnClickListener {
+            findNavController().navigate(R.id.action_listFragment_to_registerFragment)
+        }
     }
 }
