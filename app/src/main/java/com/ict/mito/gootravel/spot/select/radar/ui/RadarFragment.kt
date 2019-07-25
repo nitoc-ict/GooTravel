@@ -1,5 +1,6 @@
 package com.ict.mito.gootravel.spot.select.radar.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
+import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
 import kotlinx.android.synthetic.main.radar_fragment.*
 
 class RadarFragment : Fragment() {
@@ -40,6 +42,9 @@ class RadarFragment : Fragment() {
         }
         button_to_register.setOnClickListener {
             findNavController().navigate(R.id.action_radarFragment_to_registerFragment)
+        }
+        button_to_manual.setOnClickListener {
+            startActivity(Intent(context, ManualActivity::class.java))
         }
     }
 

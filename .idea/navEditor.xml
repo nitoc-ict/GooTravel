@@ -33,12 +33,6 @@
                   <entry key="listFragment">
                     <value>
                       <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="17" />
-                            <option name="y" value="-273" />
-                          </Point>
-                        </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_listFragment_to_navigateFragment">
@@ -46,12 +40,12 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_listFragment_to_navigateFragment2">
+                            <entry key="action_listFragment_to_radarFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_listFragment_to_radarFragment">
+                            <entry key="action_listFragment_to_registerFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -68,25 +62,12 @@
                   </entry>
                   <entry key="navigateFragment">
                     <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="361" />
-                            <option name="y" value="-191" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
+                      <LayoutPositions />
                     </value>
                   </entry>
                   <entry key="radarFragment">
                     <value>
                       <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="39" />
-                            <option name="y" value="45" />
-                          </Point>
-                        </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_radarFragment_to_listFragment">
@@ -95,6 +76,11 @@
                               </value>
                             </entry>
                             <entry key="action_radarFragment_to_navigateFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_radarFragment_to_registerFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -111,25 +97,12 @@
                   </entry>
                   <entry key="registerFragment">
                     <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="54" />
-                            <option name="y" value="343" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
+                      <LayoutPositions />
                     </value>
                   </entry>
                   <entry key="searchFragment">
                     <value>
                       <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="365" />
-                            <option name="y" value="90" />
-                          </Point>
-                        </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_searchFragment_to_radarFragment">
