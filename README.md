@@ -117,6 +117,7 @@ Git Flowをベースにしたものを仕様
 ### feature/hoge
 ある機能を作成中のアプリが置かれる  
 基本的に、このブランチをdevelopから生やして開発を進めていく  
+`git commit -b feature/hogeなどのブランチ名`←Developブランチやmaster以外の別ブランチに居る状態で行う  
 hogeの部分は今開発中の機能名が来る(feature/searchなど)  
 一番最初のcommitはこのブランチでは何をするかがメッセージとして書かれた空コミット(下のコマンドそのままでできます)   
 `git commit --allow-empty -m "メッセージ(searchなど)"`
