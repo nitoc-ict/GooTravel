@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import com.ict.mito.gootravel.R
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NavigateFragment : Fragment() {
 
-    private lateinit var viewModel: NavigateViewModel
+    private val viewModel: NavigateViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -18,11 +18,5 @@ class NavigateFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.navigate_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(NavigateViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 }
