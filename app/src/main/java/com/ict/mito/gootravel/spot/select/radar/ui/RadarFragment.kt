@@ -21,7 +21,8 @@ class RadarFragment : Fragment() {
     private lateinit var viewModel: RadarViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.radar_fragment, container, false)
@@ -47,5 +48,4 @@ class RadarFragment : Fragment() {
             startActivity(Intent(context, ManualActivity::class.java))
         }
     }
-
 }

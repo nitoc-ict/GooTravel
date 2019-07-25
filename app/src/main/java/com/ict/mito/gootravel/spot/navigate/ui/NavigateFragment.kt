@@ -18,7 +18,8 @@ class NavigateFragment : Fragment() {
     private lateinit var viewModel: NavigateViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.navigate_fragment, container, false)
@@ -29,5 +30,4 @@ class NavigateFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(NavigateViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }

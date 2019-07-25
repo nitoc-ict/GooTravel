@@ -19,7 +19,8 @@ class SearchFragment : Fragment() {
     private lateinit var viewModel: SearchViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.search_fragment, container, false)
@@ -33,5 +34,4 @@ class SearchFragment : Fragment() {
             findNavController().navigate(R.id.action_searchFragment_to_radarFragment)
         }
     }
-
 }
