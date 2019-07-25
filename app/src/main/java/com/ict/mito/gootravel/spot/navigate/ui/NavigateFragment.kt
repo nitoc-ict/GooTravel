@@ -17,6 +17,10 @@ class NavigateFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.navigate_fragment, container, false)
+        return inflater.inflate(
+            R.layout.navigate_fragment,
+            container,
+            false
+        )
     }
 }
