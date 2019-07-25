@@ -1,13 +1,14 @@
 package com.ict.mito.gootravel.spot.select.search.ui
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
+import kotlinx.android.synthetic.main.search_fragment.*
 
 class SearchFragment : Fragment() {
 
@@ -28,6 +29,9 @@ class SearchFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(SearchViewModel::class.java)
         // TODO: Use the ViewModel
+        button_to_radar.setOnClickListener {
+            findNavController().navigate(R.id.action_searchFragment_to_radarFragment)
+        }
     }
 
 }
