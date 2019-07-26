@@ -1,5 +1,6 @@
 package com.ict.mito.gootravel.spot.navigate.ui
 
+import android.location.LocationListener
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.ict.mito.gootravel.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class NavigateFragment : Fragment() {
+class NavigateFragment : Fragment(), LocationListener {
 
     private val viewModel: NavigateViewModel by viewModel()
 
@@ -22,5 +23,21 @@ class NavigateFragment : Fragment() {
             container,
             false
         )
+    }
+
+    override fun onLocationChanged(location: Location?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onProviderEnabled(provider: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onProviderDisabled(provider: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
