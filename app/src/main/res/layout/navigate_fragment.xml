@@ -14,7 +14,7 @@
 
         <TextView
                 android:id="@+id/latitude_text"
-                android:text=""
+                android:text="@{viewmodel.latitude}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tool:layout_constraintTop_toTopOf="parent"
@@ -24,6 +24,7 @@
 
         <TextView
                 android:id="@+id/longitude_text"
+                android:text="@{viewmodel.longitude}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tool:layout_constraintTop_toBottomOf="@id/latitude_text"
