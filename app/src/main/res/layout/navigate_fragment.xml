@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tool="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".spot.navigate.ui.NavigateFragment">
 
     <data>
         <variable name="viewmodel" type="com.ict.mito.gootravel.spot.navigate.ui.NavigateViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".spot.navigate.ui.NavigateFragment">
+            android:layout_height="match_parent">
 
+        <TextView
+                android:id="@+id/latitude_text"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tool:layout_constraintTop_toTopOf="parent"
+                tool:layout_constraintStart_toStartOf="parent"
+                tool:layout_constraintEnd_toEndOf="parent"
+                tools:text="fooooo"/>
+
+        <TextView
+                android:id="@+id/longitude_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tool:layout_constraintTop_toBottomOf="@id/latitude_text"
+                tool:layout_constraintStart_toStartOf="parent"
+                tool:layout_constraintEnd_toEndOf="parent"
+                tools:text="fooooo"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
