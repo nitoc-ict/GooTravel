@@ -67,7 +67,11 @@ class NavigateFragment : Fragment(), LocationListener {
         binding?.notifyChange()
     }
 
-    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+    override fun onStatusChanged(
+        provider: String?,
+        status: Int,
+        extras: Bundle?
+    ) {
     }
 
     override fun onProviderEnabled(provider: String?) {
