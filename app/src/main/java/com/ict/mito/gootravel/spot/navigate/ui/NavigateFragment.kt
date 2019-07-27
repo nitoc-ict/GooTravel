@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -35,6 +36,20 @@ class NavigateFragment : Fragment(), LocationListener {
 
         )
 
+        viewModel.latitude.observe(
+            this,
+            Observer {
+                binding?.viewmodel = viewModel
+                binding?.notifyChange()
+            }
+        )
+        viewModel.longitude.observe(
+            this,
+            Observer {
+                binding?.viewmodel = viewModel
+                binding?.notifyChange()
+            }
+        )
         binding?.viewmodel = viewModel
 
         locationManager = activity?.getSystemService(Activity.LOCATION_SERVICE) as LocationManager
