@@ -36,19 +36,18 @@ class NavigateFragment : Fragment(), LocationListener {
 
         )
 
+        val viewmodelObserver = Observer<String> {
+            binding?.viewmodel = viewModel
+            binding?.notifyChange()
+        }
+
         viewModel.latitude.observe(
             this,
-            Observer {
-                binding?.viewmodel = viewModel
-                binding?.notifyChange()
-            }
+            viewmodelObserver
         )
         viewModel.longitude.observe(
             this,
-            Observer {
-                binding?.viewmodel = viewModel
-                binding?.notifyChange()
-            }
+            viewmodelObserver
         )
         binding?.viewmodel = viewModel
 
