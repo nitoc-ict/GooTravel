@@ -37,6 +37,6 @@ fun calcDirection(
         by,
         results
     )
-  
+
     return results[1].toDouble()
 }

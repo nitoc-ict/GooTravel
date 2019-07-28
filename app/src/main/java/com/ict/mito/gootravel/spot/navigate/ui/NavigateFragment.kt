@@ -89,5 +89,4 @@ class NavigateFragment : Fragment() {
         super.onDestroy()
         binding = null
     }
-
 }
