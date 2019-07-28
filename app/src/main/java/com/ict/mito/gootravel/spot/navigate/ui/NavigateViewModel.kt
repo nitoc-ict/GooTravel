@@ -4,8 +4,8 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
-import com.ict.mito.gootravel.util.calcDirection
 import com.ict.mito.gootravel.util.calcDirectDistance
+import com.ict.mito.gootravel.util.calcDirection
 
 class NavigateViewModel : ViewModel() {
     var latitude: MutableLiveData<Double> = MutableLiveData()
@@ -25,11 +25,12 @@ class NavigateViewModel : ViewModel() {
             )
             distance.postValue(
                 calcDirectDistance(
-                    latitudeNonNull,
-                    longitudeNonNull,
+                    latitude.value ?: 0.0,
+                    longitude.value ?: 0.0,
                     0.0,
                     0.0
-            ).toString()
+                ).toString()
+            )
         }
         direction.addSource(
             latitude,
@@ -39,7 +40,7 @@ class NavigateViewModel : ViewModel() {
             longitude,
             observer
         )
-              
+
         distance.addSource(
             latitude,
             observer
