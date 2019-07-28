@@ -64,11 +64,7 @@ class NavigateFragment : Fragment() {
             }
         }
 
-        viewModel.latitude.observe(
-            this,
-            viewmodelObserver
-        )
-        viewModel.longitude.observe(
+        viewModel.distance.observe(
             this,
             viewmodelObserver
         )
