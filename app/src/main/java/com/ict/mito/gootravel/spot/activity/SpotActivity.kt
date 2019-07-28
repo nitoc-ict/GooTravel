@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.PermissionChecker
 import com.ict.mito.gootravel.R
 
 class SpotActivity : AppCompatActivity() {
@@ -23,14 +24,13 @@ class SpotActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     fun checkPermission() {
         if (
-            checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-            checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+            PermissionChecker.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
         ) {
             requestPermissions(
-                arrayOf(
-                    Manifest.permission.ACCESS_COARSE_LOCATION,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                ),
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                 0
             )
         }
