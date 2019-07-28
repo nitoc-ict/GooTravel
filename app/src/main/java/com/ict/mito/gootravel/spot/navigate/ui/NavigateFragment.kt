@@ -42,14 +42,6 @@ class NavigateFragment : Fragment(), LocationListener {
         }
 
         viewModel.also {
-            it.latitude.observe(
-                this,
-                viewmodelObserver
-            )
-            it.longitude.observe(
-                this,
-                viewmodelObserver
-            )
             it.distance.observe(
                 this,
                 viewmodelObserver
@@ -68,8 +60,8 @@ class NavigateFragment : Fragment(), LocationListener {
     }
 
     override fun onLocationChanged(location: Location?) {
-        viewModel.latitude.postValue(location?.latitude.toString())
-        viewModel.longitude.postValue(location?.longitude.toString())
+        viewModel.latitude.postValue(location?.latitude)
+        viewModel.longitude.postValue(location?.longitude)
         binding?.notifyChange()
     }
 

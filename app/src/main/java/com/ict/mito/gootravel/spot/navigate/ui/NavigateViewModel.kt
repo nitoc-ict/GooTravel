@@ -7,12 +7,12 @@ import androidx.lifecycle.ViewModel
 import com.ict.mito.gootravel.util.Calc
 
 class NavigateViewModel : ViewModel() {
-    var latitude: MutableLiveData<String> = MutableLiveData()
-    var longitude: MutableLiveData<String> = MutableLiveData()
+    var latitude: MutableLiveData<Double> = MutableLiveData()
+    var longitude: MutableLiveData<Double> = MutableLiveData()
     var distance: MediatorLiveData<String> = MediatorLiveData()
 
     init {
-        val observer = Observer<String> {
+        val observer = Observer<Double> {
             val latitudeNonNull = latitude.value?.toDouble() ?: 0.0
             val longitudeNonNull = latitude.value?.toDouble() ?: 0.0
             distance.value = Calc().directDistance(
