@@ -24,8 +24,8 @@ class NavigateFragment : Fragment() {
 
     private val locationListener = object : LocationListener {
         override fun onLocationChanged(location: Location?) {
-            viewModel.latitude.value = location?.latitude
-            viewModel.longitude.value = location?.longitude
+            viewModel.latitude.postValue(location?.latitude)
+            viewModel.longitude.postValue(location?.longitude)
             binding?.notifyChange()
         }
 
