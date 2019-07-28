@@ -56,8 +56,8 @@ class NavigateFragment : Fragment(), LocationListener {
         locationManager = activity?.getSystemService(Activity.LOCATION_SERVICE) as LocationManager
         locationManager?.requestLocationUpdates(
             LocationManager.GPS_PROVIDER,
-            1000L,
-            50f,
+            10L,
+            1f,
             this
         )
         return binding?.root
