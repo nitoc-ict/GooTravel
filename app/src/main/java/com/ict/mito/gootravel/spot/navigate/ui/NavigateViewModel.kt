@@ -4,6 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class NavigateViewModel : ViewModel() {
-    var latitude: MutableLiveData<String> = MutableLiveData()
-    var longitude: MutableLiveData<String> = MutableLiveData()
+    var latitude: MutableLiveData<Double> = MutableLiveData()
+    var longitude: MutableLiveData<Double> = MutableLiveData()
 }
