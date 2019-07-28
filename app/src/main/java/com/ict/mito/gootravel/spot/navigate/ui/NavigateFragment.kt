@@ -41,12 +41,10 @@ class NavigateFragment : Fragment(), LocationListener {
             binding?.notifyChange()
         }
 
-        viewModel.also {
-            it.distance.observe(
-                this,
-                viewmodelObserver
-            )
-        }
+        viewModel.distance.observe(
+            this,
+            viewmodelObserver
+        )
         binding?.viewmodel = viewModel
 
         locationManager = activity?.getSystemService(Activity.LOCATION_SERVICE) as LocationManager
