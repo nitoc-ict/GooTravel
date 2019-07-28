@@ -14,10 +14,10 @@ class NavigateViewModel : ViewModel() {
     init {
         val observer = Observer<String> {
             val latitudeNonNull = latitude.value?.toDouble() ?: 0.0
-            val longtideNonNull = latitude.value?.toDouble() ?: 0.0
+            val longitudeNonNull = latitude.value?.toDouble() ?: 0.0
             distance.value = Calc().directDistance(
                 latitudeNonNull,
-                longtideNonNull,
+                longitudeNonNull,
                 0.0,
                 0.0
             ).toString()
