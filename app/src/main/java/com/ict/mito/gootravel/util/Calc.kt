@@ -20,6 +20,6 @@ fun calcDirection(
         by,
         results
     )
-    return results[2].toDouble()
+    return results[1].toDouble()
 }
 
