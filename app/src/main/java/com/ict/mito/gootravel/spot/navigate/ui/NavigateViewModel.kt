@@ -4,7 +4,7 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
-import com.ict.mito.gootravel.util.Calc
+import com.ict.mito.gootravel.util.calcDirection
 
 class NavigateViewModel : ViewModel() {
     var latitude: MutableLiveData<Double> = MutableLiveData()
@@ -14,7 +14,7 @@ class NavigateViewModel : ViewModel() {
     init {
         val observer = Observer<Double> {
             direction.postValue(
-                Calc().direction(
+                calcDirection(
                     latitude.value ?: 0.0,
                     longitude.value ?: 0.0,
                     0.0,
