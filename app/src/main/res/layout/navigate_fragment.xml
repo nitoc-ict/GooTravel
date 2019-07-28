@@ -12,24 +12,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <!--<TextView-->
-                <!--android:id="@+id/latitude_text"-->
-                <!--android:text="@{viewmodel.latitude}"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--tool:layout_constraintTop_toTopOf="parent"-->
-                <!--tool:layout_constraintStart_toStartOf="parent"-->
-                <!--tool:layout_constraintEnd_toEndOf="parent"-->
-                <!--tools:text="fooooo"/>-->
-<!---->
-        <!--<TextView-->
-                <!--android:id="@+id/longitude_text"-->
-                <!--android:text="@{viewmodel.longitude}"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--tool:layout_constraintTop_toBottomOf="@id/latitude_text"-->
-                <!--tool:layout_constraintStart_toStartOf="parent"-->
-                <!--tool:layout_constraintEnd_toEndOf="parent"-->
-                <!--tools:text="fooooo"/>-->
+        <TextView
+                android:id="@+id/direction_text"
+                android:text="@{viewmodel.direction}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tool:layout_constraintTop_toTopOf="parent"
+                tool:layout_constraintStart_toStartOf="parent"
+                tool:layout_constraintEnd_toEndOf="parent"
+                tools:text="fooooo"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
