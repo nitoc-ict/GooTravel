@@ -81,4 +81,10 @@ class NavigateFragment : Fragment(), LocationListener {
 
     override fun onProviderDisabled(provider: String?) {
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
+
 }
