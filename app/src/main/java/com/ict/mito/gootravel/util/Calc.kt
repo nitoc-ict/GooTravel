@@ -1,9 +1,6 @@
 package com.ict.mito.gootravel.util
 
-import kotlin.math.atan
-import kotlin.math.cos
-import kotlin.math.sin
-import kotlin.math.tan
+import android.location.Location
 
 /**
  * Created by mitohato14 on 2019-07-28.
@@ -16,7 +13,15 @@ class Calc {
         bx: Double,
         by: Double
     ): Double {
-        return (90 - atan(2 * ((sin((bx - ax))) / (cos(ay) * tan(by) - sin((ay) * cos(bx - ax))))))
+        val results = FloatArray(3)
+        Location.distanceBetween(
+            ax,
+            ay,
+            bx,
+            by,
+            results
+        )
+        return results[2].toDouble()
     }
 
 }
