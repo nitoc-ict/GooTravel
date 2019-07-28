@@ -22,5 +22,6 @@
                 tool:layout_constraintStart_toStartOf="parent"
                 tool:layout_constraintEnd_toEndOf="parent"
                 tools:text="fooooo"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
