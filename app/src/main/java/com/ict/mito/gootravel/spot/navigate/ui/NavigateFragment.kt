@@ -16,11 +16,32 @@ import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class NavigateFragment : Fragment(), LocationListener {
+class NavigateFragment : Fragment() {
 
     private val viewModel: NavigateViewModel by viewModel()
     private var locationManager: LocationManager? = null
     private var binding: NavigateFragmentBinding? = null
+
+    private val locationListener = object : LocationListener {
+        override fun onLocationChanged(location: Location?) {
+            viewModel.latitude.value = location?.latitude
+            viewModel.longitude.value = location?.longitude
+            binding?.notifyChange()
+        }
+
+        override fun onStatusChanged(
+            provider: String?,
+            status: Int,
+            extras: Bundle?
+        ) {
+        }
+
+        override fun onProviderEnabled(provider: String?) {
+        }
+
+        override fun onProviderDisabled(provider: String?) {
+        }
+    }
 
     @SuppressLint("MissingPermission")
     override fun onCreateView(
@@ -58,28 +79,9 @@ class NavigateFragment : Fragment(), LocationListener {
             LocationManager.GPS_PROVIDER,
             10L,
             1f,
-            this
+            locationListener
         )
         return binding?.root
-    }
-
-    override fun onLocationChanged(location: Location?) {
-        viewModel.latitude.value = location?.latitude
-        viewModel.longitude.value = location?.longitude
-        binding?.notifyChange()
-    }
-
-    override fun onStatusChanged(
-        provider: String?,
-        status: Int,
-        extras: Bundle?
-    ) {
-    }
-
-    override fun onProviderEnabled(provider: String?) {
-    }
-
-    override fun onProviderDisabled(provider: String?) {
     }
 
     override fun onDestroy() {
