@@ -57,12 +57,17 @@ class NavigateFragment : Fragment() {
 
         )
 
-        val viewmodelObserver = Observer<Double> {
+        val viewmodelObserver = Observer<String> {
             binding?.let {
                 it.viewmodel = viewModel
                 it.notifyChange()
             }
         }
+
+        viewModel.direction.observe(
+            this,
+            viewmodelObserver
+        )
 
         viewModel.distance.observe(
             this,
