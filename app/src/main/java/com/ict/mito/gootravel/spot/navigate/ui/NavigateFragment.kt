@@ -85,6 +85,11 @@ class NavigateFragment : Fragment() {
         return binding?.root
     }
 
+    override fun onStop() {
+        super.onStop()
+        locationManager?.removeUpdates(locationListener)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         binding = null
