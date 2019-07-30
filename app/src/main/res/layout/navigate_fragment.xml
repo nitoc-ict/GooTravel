@@ -27,8 +27,7 @@
                 android:text="@{viewmodel.distance}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tool:layout_constraintTop_toTopOf="parent"
-                tool:layout_constraintBottom_toBottomOf="parent"
+                tool:layout_constraintTop_toBottomOf="@id/direction_text"
                 tool:layout_constraintStart_toStartOf="parent"
                 tool:layout_constraintEnd_toEndOf="parent"
                 tools:text="fooooo"/>
