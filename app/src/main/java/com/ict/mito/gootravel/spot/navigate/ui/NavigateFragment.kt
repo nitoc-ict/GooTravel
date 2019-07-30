@@ -54,7 +54,8 @@ class NavigateFragment : Fragment() {
         createLocationRequest()
         val locationClient = LocationServices.getFusedLocationProviderClient(context!!)
         locationClient.requestLocationUpdates(
-            locationRequest, object : LocationCallback() {
+            locationRequest,
+            object : LocationCallback() {
                 override fun onLocationResult(p0: LocationResult?) {
                     super.onLocationResult(p0)
                     Timber.d("onLocationResult")
