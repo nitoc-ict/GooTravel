@@ -21,6 +21,22 @@ class NavigateFragment : Fragment() {
     private val viewModel: NavigateViewModel by viewModel()
     private var locationManager: LocationManager? = null
     private var binding: NavigateFragmentBinding? = null
+    private lateinit var googleApiClient: GoogleApiClient
+    private val googleConnectionFailedListener = GoogleApiClient.OnConnectionFailedListener {
+        Timber.d("ConnectionFailed")
+        Timber.d(it.errorCode.toString())
+    }
+
+    private val googleApiClientConnectionCallbacks = object : GoogleApiClient.ConnectionCallbacks {
+        override fun onConnected(p0: Bundle?) {
+            Timber.d("onConnected")
+        }
+
+        override fun onConnectionSuspended(p0: Int) {
+            Timber.d("onConnectionSuspended")
+            googleApiClient.connect()
+        }
+    }
 
     private val locationListener = object : LocationListener {
         override fun onLocationChanged(location: Location?) {
