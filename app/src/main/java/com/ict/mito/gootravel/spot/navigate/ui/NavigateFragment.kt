@@ -73,8 +73,10 @@ class NavigateFragment : Fragment() {
     private fun updateLocationInfo(location: Location) {
         Timber.d("latitude:${location.latitude}")
         Timber.d("longitude:${location.longitude}")
-        viewModel.latitude.postValue(location.latitude)
-        viewModel.longitude.postValue(location.longitude)
+        viewModel.also {
+            it.latitude.postValue(location.latitude)
+            it.longitude.postValue(location.longitude)
+        }
         binding?.notifyChange()
     }
 
@@ -107,15 +109,17 @@ class NavigateFragment : Fragment() {
             }
         }
 
-        viewModel.direction.observe(
-            this,
-            viewmodelObserver
-        )
+        viewModel.also {
+            it.direction.observe(
+                this,
+                viewmodelObserver
+            )
+            it.distance.observe(
+                this,
+                viewmodelObserver
+            )
+        }
 
-        viewModel.distance.observe(
-            this,
-            viewmodelObserver
-        )
         binding?.viewmodel = viewModel
 
         return binding?.root

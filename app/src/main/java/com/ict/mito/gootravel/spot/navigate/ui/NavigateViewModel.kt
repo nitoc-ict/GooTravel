@@ -32,22 +32,26 @@ class NavigateViewModel : ViewModel() {
                 ).toString()
             )
         }
-        direction.addSource(
-            latitude,
-            observer
-        )
-        direction.addSource(
-            longitude,
-            observer
-        )
+        direction.apply {
+            addSource(
+                latitude,
+                observer
+            )
+            addSource(
+                longitude,
+                observer
+            )
+        }
 
-        distance.addSource(
-            latitude,
-            observer
-        )
-        distance.addSource(
-            longitude,
-            observer
-        )
+        distance.apply {
+            addSource(
+                latitude,
+                observer
+            )
+            addSource(
+                longitude,
+                observer
+            )
+        }
     }
 }

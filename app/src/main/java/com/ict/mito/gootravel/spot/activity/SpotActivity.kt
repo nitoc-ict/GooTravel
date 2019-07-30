@@ -17,7 +17,6 @@ class SpotActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_spot)
 
-
         val resultCode = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this)
         val requestCode = 10001
         if (resultCode != ConnectionResult.SUCCESS) {
