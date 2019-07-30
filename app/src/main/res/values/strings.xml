@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GooTravel</string>
+    <string name="navigatearrow">NavigateArrow</string>
 </resources>
