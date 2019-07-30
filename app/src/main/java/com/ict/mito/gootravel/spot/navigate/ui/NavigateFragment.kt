@@ -12,9 +12,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationServices
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class NavigateFragment : Fragment() {
 
@@ -57,6 +61,16 @@ class NavigateFragment : Fragment() {
 
         override fun onProviderDisabled(provider: String?) {
         }
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        googleApiClient = GoogleApiClient.Builder(context!!)
+            .addConnectionCallbacks(googleApiClientConnectionCallbacks)
+            .addOnConnectionFailedListener(googleConnectionFailedListener)
+            .addApi(LocationServices.API)
+            .build()
+
     }
 
     @SuppressLint("MissingPermission")
