@@ -73,6 +73,16 @@ class NavigateFragment : Fragment() {
             .addApi(LocationServices.API)
             .build()
 
+        createLocationRequest()
+    }
+
+    fun createLocationRequest() {
+        locationRequest = LocationRequest()
+        locationRequest.also {
+            it.interval = 1000
+            it.fastestInterval = 500
+            it.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        }
     }
 
     @SuppressLint("MissingPermission")
