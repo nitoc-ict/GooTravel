@@ -59,7 +59,6 @@ class NavigateFragment : Fragment() {
             object : LocationCallback() {
                 override fun onLocationResult(p0: LocationResult?) {
                     super.onLocationResult(p0)
-                    Timber.d("onLocationResult")
                     p0?.let { updateLocationInfo(it.lastLocation) }
                 }
             },
@@ -67,13 +66,13 @@ class NavigateFragment : Fragment() {
         )
         locationClient.lastLocation
             .addOnSuccessListener {
-                Timber.d("latitude:${it.latitude}")
-                Timber.d("longitude:${it.longitude}")
                 updateLocationInfo(it)
             }
     }
 
     private fun updateLocationInfo(location: Location) {
+        Timber.d("latitude:${location.latitude}")
+        Timber.d("longitude:${location.longitude}")
         viewModel.latitude.postValue(location.latitude)
         viewModel.longitude.postValue(location.longitude)
         binding?.notifyChange()
