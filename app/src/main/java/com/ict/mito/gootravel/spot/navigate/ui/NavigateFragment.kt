@@ -26,6 +26,8 @@ class NavigateFragment : Fragment() {
     private var locationManager: LocationManager? = null
     private var binding: NavigateFragmentBinding? = null
     private lateinit var googleApiClient: GoogleApiClient
+    private lateinit var locationRequest: LocationRequest
+
     private val googleConnectionFailedListener = GoogleApiClient.OnConnectionFailedListener {
         Timber.d("ConnectionFailed")
         Timber.d(it.errorCode.toString())
@@ -115,8 +117,14 @@ class NavigateFragment : Fragment() {
         return binding?.root
     }
 
+    override fun onStart() {
+        super.onStart()
+        googleApiClient.connect()
+    }
+
     override fun onStop() {
         super.onStop()
+        googleApiClient.disconnect()
         locationManager?.removeUpdates(locationListener)
     }
 
