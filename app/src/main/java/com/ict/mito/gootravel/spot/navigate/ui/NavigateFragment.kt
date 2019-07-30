@@ -1,6 +1,7 @@
 package com.ict.mito.gootravel.spot.navigate.ui
 
 import android.annotation.SuppressLint
+import android.location.Location
 import android.os.Bundle
 import android.os.Looper
 import android.view.LayoutInflater
@@ -59,9 +60,7 @@ class NavigateFragment : Fragment() {
                 override fun onLocationResult(p0: LocationResult?) {
                     super.onLocationResult(p0)
                     Timber.d("onLocationResult")
-                    viewModel.latitude.postValue(p0?.lastLocation?.latitude)
-                    viewModel.longitude.postValue(p0?.lastLocation?.longitude)
-                    binding?.notifyChange()
+                    p0?.let { updateLocationInfo(it.lastLocation) }
                 }
             },
             Looper.myLooper()
@@ -70,10 +69,14 @@ class NavigateFragment : Fragment() {
             .addOnSuccessListener {
                 Timber.d("latitude:${it.latitude}")
                 Timber.d("longitude:${it.longitude}")
-                viewModel.latitude.postValue(it.latitude)
-                viewModel.longitude.postValue(it.longitude)
-                binding?.notifyChange()
+                updateLocationInfo(it)
             }
+    }
+
+    private fun updateLocationInfo(location: Location) {
+        viewModel.latitude.postValue(location.latitude)
+        viewModel.longitude.postValue(location.longitude)
+        binding?.notifyChange()
     }
 
     private fun createLocationRequest() {
