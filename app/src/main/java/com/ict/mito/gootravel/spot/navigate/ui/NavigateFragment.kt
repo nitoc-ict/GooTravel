@@ -1,6 +1,9 @@
 package com.ict.mito.gootravel.spot.navigate.ui
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Matrix
 import android.location.Location
 import android.os.Bundle
 import android.os.Looper
@@ -77,6 +80,7 @@ class NavigateFragment : Fragment() {
             it.latitude.postValue(location.latitude)
             it.longitude.postValue(location.longitude)
         }
+        rotateImage(viewModel.direction.value?.toDouble() ?: 0.0)
         binding?.notifyChange()
     }
 
@@ -123,6 +127,29 @@ class NavigateFragment : Fragment() {
         binding?.viewmodel = viewModel
 
         return binding?.root
+    }
+
+    private fun rotateImage(angle: Double) {
+        val image = BitmapFactory.decodeResource(
+            resources,
+            R.drawable.arrow
+        )
+        val matrix = Matrix()
+        matrix.setRotate(
+            angle.toFloat(),
+            image.width / 2f,
+            image.height / 4f
+        )
+        val afterImage = Bitmap.createBitmap(
+            image,
+            0,
+            0,
+            image.width,
+            image.height,
+            matrix,
+            true
+        )
+        binding?.arrowImage?.setImageBitmap(afterImage)
     }
 
     override fun onStart() {
