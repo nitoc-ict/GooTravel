@@ -51,7 +51,10 @@ class NavigateFragment : Fragment() {
                 Sensor.TYPE_MAGNETIC_FIELD -> magnetic = event.values.clone()
             }
 
-            if (accell != null && magnetic != null) {
+            if (
+                accell != null &&
+                magnetic != null
+            ) {
                 val inR = FloatArray(9)
                 SensorManager.getRotationMatrix(
                     inR,
