@@ -75,7 +75,7 @@ class NavigateFragment : Fragment() {
         createLocationRequest()
     }
 
-    fun createLocationRequest() {
+    private fun createLocationRequest() {
         locationRequest = LocationRequest()
         locationRequest.also {
             it.interval = 1000
