@@ -25,8 +25,7 @@ class SpotActivity : AppCompatActivity() {
                 this,
                 resultCode,
                 requestCode
-            )
-                .show()
+            ).show()
         }
 
         // API 23 or more?
