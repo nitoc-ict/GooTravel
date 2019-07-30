@@ -1,9 +1,14 @@
 package com.ict.mito.gootravel.spot.navigate.ui
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.location.Location
 import android.os.Bundle
 import android.os.Looper
@@ -31,6 +36,8 @@ class NavigateFragment : Fragment() {
     private lateinit var locationRequest: LocationRequest
     private lateinit var sensorManager: SensorManager
 
+    private var accell: FloatArray? = null
+    private var magnetic: FloatArray? = null
     private val sensorEventListener: SensorEventListener = object : SensorEventListener {
         override fun onAccuracyChanged(
             sensor: Sensor?,
@@ -39,6 +46,35 @@ class NavigateFragment : Fragment() {
         }
 
         override fun onSensorChanged(event: SensorEvent?) {
+            when (event?.sensor?.type) {
+                Sensor.TYPE_ACCELEROMETER -> accell = event.values.clone()
+                Sensor.TYPE_MAGNETIC_FIELD -> magnetic = event.values.clone()
+            }
+
+            if (accell != null && magnetic != null) {
+                val inR = FloatArray(9)
+                SensorManager.getRotationMatrix(
+                    inR,
+                    null,
+                    accell,
+                    magnetic
+                )
+                val outR = FloatArray(9)
+                SensorManager.remapCoordinateSystem(
+                    inR,
+                    SensorManager.AXIS_X,
+                    SensorManager.AXIS_Y,
+                    outR
+                )
+                val fAttitude = FloatArray(3)
+                SensorManager.getOrientation(
+                    outR,
+                    fAttitude
+                )
+
+                viewModel.direction.postValue(rad2deg(fAttitude[0]).toString())
+                rotateImage((viewModel.direction.value?.toDouble() ?: 0.0) * -1)
+            }
         }
     }
 
@@ -98,7 +134,7 @@ class NavigateFragment : Fragment() {
             it.latitude.postValue(location.latitude)
             it.longitude.postValue(location.longitude)
         }
-        rotateImage(viewModel.direction.value?.toDouble() ?: 0.0)
+//        rotateImage(viewModel.direction.value?.toDouble() ?: 0.0)
         binding?.notifyChange()
     }
 
