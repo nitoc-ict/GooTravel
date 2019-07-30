@@ -1,7 +1,6 @@
 package com.ict.mito.gootravel.spot.navigate.ui
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
@@ -117,13 +116,15 @@ class NavigateFragment : Fragment() {
         )
         binding?.viewmodel = viewModel
 
-        locationManager = activity?.getSystemService(Activity.LOCATION_SERVICE) as LocationManager
-        locationManager?.requestLocationUpdates(
-            LocationManager.GPS_PROVIDER,
-            10L,
-            1f,
-            locationListener
-        )
+        val locationClient = LocationServices.getFusedLocationProviderClient(context!!)
+        locationClient.lastLocation
+            .addOnSuccessListener {
+                Timber.d("latitude:${it.latitude}")
+                Timber.d("longitude:${it.longitude}")
+                viewModel.latitude.postValue(it.latitude)
+                viewModel.longitude.postValue(it.longitude)
+                binding?.notifyChange()
+            }
         return binding?.root
     }
 
