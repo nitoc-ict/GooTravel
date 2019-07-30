@@ -29,6 +29,22 @@ class NavigateFragment : Fragment() {
     private var binding: NavigateFragmentBinding? = null
     private lateinit var googleApiClient: GoogleApiClient
     private lateinit var locationRequest: LocationRequest
+    private lateinit var sensorManager: SensorManager
+
+    private val sensorEventListener: SensorEventListener = object : SensorEventListener {
+        override fun onAccuracyChanged(
+            sensor: Sensor?,
+            accuracy: Int
+        ) {
+        }
+
+        override fun onSensorChanged(event: SensorEvent?) {
+        }
+    }
+
+    private fun rad2deg(rad: Float): Float {
+        return rad * 180.0.toFloat() / Math.PI.toFloat()
+    }
 
     private val googleConnectionFailedListener = GoogleApiClient.OnConnectionFailedListener {
         Timber.d("ConnectionFailed")
@@ -71,6 +87,8 @@ class NavigateFragment : Fragment() {
             .addOnSuccessListener {
                 updateLocationInfo(it)
             }
+
+        sensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     }
 
     private fun updateLocationInfo(location: Location) {
@@ -155,11 +173,24 @@ class NavigateFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         googleApiClient.connect()
+
+        sensorManager.registerListener(
+            sensorEventListener,
+            sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+            SensorManager.SENSOR_DELAY_UI
+        )
+        sensorManager.registerListener(
+            sensorEventListener,
+            sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
+            SensorManager.SENSOR_DELAY_UI
+        )
     }
 
     override fun onStop() {
         super.onStop()
         googleApiClient.disconnect()
+
+        sensorManager.unregisterListener(sensorEventListener)
     }
 
     override fun onDestroy() {
