@@ -2,6 +2,7 @@ package com.ict.mito.gootravel.spot.navigate.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
@@ -39,6 +42,7 @@ class NavigateFragment : Fragment() {
         }
     }
 
+    @SuppressLint("MissingPermission")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         googleApiClient = GoogleApiClient.Builder(context!!)
@@ -48,6 +52,27 @@ class NavigateFragment : Fragment() {
             .build()
 
         createLocationRequest()
+        val locationClient = LocationServices.getFusedLocationProviderClient(context!!)
+        locationClient.requestLocationUpdates(
+            locationRequest, object : LocationCallback() {
+                override fun onLocationResult(p0: LocationResult?) {
+                    super.onLocationResult(p0)
+                    Timber.d("onLocationResult")
+                    viewModel.latitude.postValue(p0?.lastLocation?.latitude)
+                    viewModel.longitude.postValue(p0?.lastLocation?.longitude)
+                    binding?.notifyChange()
+                }
+            },
+            Looper.myLooper()
+        )
+        locationClient.lastLocation
+            .addOnSuccessListener {
+                Timber.d("latitude:${it.latitude}")
+                Timber.d("longitude:${it.longitude}")
+                viewModel.latitude.postValue(it.latitude)
+                viewModel.longitude.postValue(it.longitude)
+                binding?.notifyChange()
+            }
     }
 
     private fun createLocationRequest() {
@@ -59,7 +84,6 @@ class NavigateFragment : Fragment() {
         }
     }
 
-    @SuppressLint("MissingPermission")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -91,15 +115,6 @@ class NavigateFragment : Fragment() {
         )
         binding?.viewmodel = viewModel
 
-        val locationClient = LocationServices.getFusedLocationProviderClient(context!!)
-        locationClient.lastLocation
-            .addOnSuccessListener {
-                Timber.d("latitude:${it.latitude}")
-                Timber.d("longitude:${it.longitude}")
-                viewModel.latitude.postValue(it.latitude)
-                viewModel.longitude.postValue(it.longitude)
-                binding?.notifyChange()
-            }
         return binding?.root
     }
 
