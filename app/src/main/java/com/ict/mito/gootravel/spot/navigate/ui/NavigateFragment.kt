@@ -1,9 +1,6 @@
 package com.ict.mito.gootravel.spot.navigate.ui
 
 import android.annotation.SuppressLint
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +19,6 @@ import timber.log.Timber
 class NavigateFragment : Fragment() {
 
     private val viewModel: NavigateViewModel by viewModel()
-    private var locationManager: LocationManager? = null
     private var binding: NavigateFragmentBinding? = null
     private lateinit var googleApiClient: GoogleApiClient
     private lateinit var locationRequest: LocationRequest
@@ -40,27 +36,6 @@ class NavigateFragment : Fragment() {
         override fun onConnectionSuspended(p0: Int) {
             Timber.d("onConnectionSuspended")
             googleApiClient.connect()
-        }
-    }
-
-    private val locationListener = object : LocationListener {
-        override fun onLocationChanged(location: Location?) {
-            viewModel.latitude.postValue(location?.latitude)
-            viewModel.longitude.postValue(location?.longitude)
-            binding?.notifyChange()
-        }
-
-        override fun onStatusChanged(
-            provider: String?,
-            status: Int,
-            extras: Bundle?
-        ) {
-        }
-
-        override fun onProviderEnabled(provider: String?) {
-        }
-
-        override fun onProviderDisabled(provider: String?) {
         }
     }
 
@@ -136,7 +111,6 @@ class NavigateFragment : Fragment() {
     override fun onStop() {
         super.onStop()
         googleApiClient.disconnect()
-        locationManager?.removeUpdates(locationListener)
     }
 
     override fun onDestroy() {
