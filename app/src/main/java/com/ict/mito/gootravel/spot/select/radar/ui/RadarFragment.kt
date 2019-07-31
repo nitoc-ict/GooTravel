@@ -6,15 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
 import kotlinx.android.synthetic.main.radar_fragment.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RadarFragment : Fragment() {
 
-    private lateinit var viewModel: RadarViewModel
+    private val viewModel: RadarViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,7 +30,6 @@ class RadarFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(RadarViewModel::class.java)
         // TODO: Use the ViewModel
         button_to_list.setOnClickListener {
             findNavController().navigate(R.id.action_radarFragment_to_listFragment)
