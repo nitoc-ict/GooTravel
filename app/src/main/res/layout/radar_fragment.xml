@@ -10,6 +10,16 @@
             android:layout_height="match_parent">
 
         <Button
+                android:id="@+id/wifi_spot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/wifi_spot"/>
+
+        <Button
                 android:id="@+id/button_to_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
