@@ -37,9 +37,6 @@ class RadarFragment : Fragment() {
         button_to_search.setOnClickListener {
             findNavController().navigate(R.id.action_radarFragment_to_searchFragment)
         }
-        button_to_navigate.setOnClickListener {
-            findNavController().navigate(R.id.action_radarFragment_to_navigateFragment)
-        }
         button_to_register.setOnClickListener {
             findNavController().navigate(R.id.action_radarFragment_to_registerFragment)
         }
