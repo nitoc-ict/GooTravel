@@ -1,11 +1,6 @@
 package com.ict.mito.gootravel.spot.navigate.ui
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.hardware.Sensor
-import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
-import android.hardware.SensorManager
 import android.location.Location
 import android.os.Bundle
 import android.os.Looper
@@ -32,53 +27,6 @@ class NavigateFragment : Fragment() {
     private var binding: NavigateFragmentBinding? = null
     private lateinit var googleApiClient: GoogleApiClient
     private lateinit var locationRequest: LocationRequest
-    private lateinit var sensorManager: SensorManager
-
-    private var accell: FloatArray? = null
-    private var magnetic: FloatArray? = null
-    private val sensorEventListener: SensorEventListener = object : SensorEventListener {
-        override fun onAccuracyChanged(
-            sensor: Sensor?,
-            accuracy: Int
-        ) {
-        }
-
-        override fun onSensorChanged(event: SensorEvent?) {
-            when (event?.sensor?.type) {
-                Sensor.TYPE_ACCELEROMETER -> accell = event.values.clone()
-                Sensor.TYPE_MAGNETIC_FIELD -> magnetic = event.values.clone()
-            }
-
-            if (
-                accell != null &&
-                magnetic != null
-            ) {
-                val inR = FloatArray(9)
-                SensorManager.getRotationMatrix(
-                    inR,
-                    null,
-                    accell,
-                    magnetic
-                )
-                val outR = FloatArray(9)
-                SensorManager.remapCoordinateSystem(
-                    inR,
-                    SensorManager.AXIS_X,
-                    SensorManager.AXIS_Y,
-                    outR
-                )
-                val fAttitude = FloatArray(3)
-                SensorManager.getOrientation(
-                    outR,
-                    fAttitude
-                )
-
-                viewModel.direction.postValue(rad2deg(fAttitude[0]).toInt().toString())
-                val image = rotateImage(resources, (viewModel.direction.value?.toDouble() ?: 0.0) * -1)
-                binding?.arrowImage?.setImageBitmap(image)
-            }
-        }
-    }
 
     private fun rad2deg(rad: Float): Float {
         return rad * 180.0.toFloat() / Math.PI.toFloat()
@@ -126,7 +74,6 @@ class NavigateFragment : Fragment() {
                 updateLocationInfo(it)
             }
 
-        sensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     }
 
     private fun updateLocationInfo(location: Location) {
@@ -178,6 +125,17 @@ class NavigateFragment : Fragment() {
                 this,
                 viewmodelObserver
             )
+            it.orientationLiveData.observe(
+                this,
+                Observer { orientation ->
+                    viewModel.direction.postValue(rad2deg(orientation.azimuth).toInt().toString())
+                    val image = rotateImage(
+                        resources,
+                        (viewModel.direction.value?.toDouble() ?: 0.0) * -1
+                    )
+                    binding?.arrowImage?.setImageBitmap(image)
+                }
+            )
         }
 
         binding?.viewmodel = viewModel
@@ -188,24 +146,11 @@ class NavigateFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         googleApiClient.connect()
-
-        sensorManager.registerListener(
-            sensorEventListener,
-            sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-            SensorManager.SENSOR_DELAY_UI
-        )
-        sensorManager.registerListener(
-            sensorEventListener,
-            sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
-            SensorManager.SENSOR_DELAY_UI
-        )
     }
 
     override fun onStop() {
         super.onStop()
         googleApiClient.disconnect()
-
-        sensorManager.unregisterListener(sensorEventListener)
     }
 
     override fun onDestroy() {
