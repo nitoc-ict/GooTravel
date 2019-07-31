@@ -14,8 +14,8 @@
 
         <ImageView
                 android:id="@+id/arrow_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 tool:layout_constraintStart_toStartOf="parent"
                 tool:layout_constraintEnd_toEndOf="parent"
                 tool:layout_constraintTop_toTopOf="parent"

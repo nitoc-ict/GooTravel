@@ -17,6 +17,8 @@ import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
+import com.ict.mito.gootravel.util.rad2deg
+import com.ict.mito.gootravel.util.rotateImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
@@ -77,6 +79,7 @@ class NavigateFragment : Fragment() {
             it.latitude.postValue(location.latitude)
             it.longitude.postValue(location.longitude)
         }
+//        rotateImage(viewModel.direction.value?.toDouble() ?: 0.0)
         binding?.notifyChange()
     }
 
@@ -117,6 +120,17 @@ class NavigateFragment : Fragment() {
             it.distance.observe(
                 this,
                 viewmodelObserver
+            )
+            it.orientationLiveData.observe(
+                this,
+                Observer { orientation ->
+                    viewModel.direction.postValue(rad2deg(orientation.azimuth).toInt().toString())
+                    val image = rotateImage(
+                        resources,
+                        (viewModel.direction.value?.toDouble() ?: 0.0) * -1
+                    )
+                    binding?.arrowImage?.setImageBitmap(image)
+                }
             )
         }
 

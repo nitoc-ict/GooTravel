@@ -2,6 +2,7 @@ package com.ict.mito.gootravel
 
 import android.app.Application
 import com.ict.mito.gootravel.disaster.manual.ui.ManualViewModel
+import com.ict.mito.gootravel.spot.model.OrientationLiveData
 import com.ict.mito.gootravel.spot.navigate.ui.NavigateViewModel
 import com.ict.mito.gootravel.spot.register.ui.RegisterViewModel
 import com.ict.mito.gootravel.spot.select.list.ui.ListViewModel
@@ -21,16 +22,25 @@ class App : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@App)
-            modules(viewModelModule)
+            modules(
+                arrayListOf(
+                    viewModelModule,
+                    liveDataModule
+                )
+            )
         }
     }
 
     private val viewModelModule: Module = module {
         viewModel { ManualViewModel() }
-        viewModel { NavigateViewModel() }
+        viewModel { NavigateViewModel(get()) }
         viewModel { RegisterViewModel() }
         viewModel { ListViewModel() }
         viewModel { RadarViewModel() }
         viewModel { SearchViewModel() }
+    }
+
+    private val liveDataModule: Module = module {
+        factory { OrientationLiveData(applicationContext) }
     }
 }
