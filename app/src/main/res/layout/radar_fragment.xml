@@ -24,19 +24,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/button_to_list"/>
         <Button
-                android:id="@+id/button_to_navigate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NAVIGATE"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/button_to_search"/>
-        <Button
                 android:id="@+id/button_to_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="REGISTER"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/button_to_navigate"/>
+                app:layout_constraintStart_toEndOf="@id/button_to_search"/>
         <Button
                 android:id="@+id/button_to_manual"
                 android:layout_width="wrap_content"
