@@ -18,7 +18,6 @@ class OrientationLiveData(
     private var accelerometerReadingArray = FloatArray(3)
     private var magnetometerReadingArray = FloatArray(3)
 
-    private val rotationMatrix = FloatArray(9)
     private val orientationAngles = FloatArray(3)
 
     private val sensorEventListener = object : SensorEventListener {
@@ -67,6 +66,7 @@ class OrientationLiveData(
     }
 
     private fun updateOrientationAngles() {
+        val rotationMatrix = FloatArray(9)
         SensorManager.getRotationMatrix(
             rotationMatrix,
             null,
