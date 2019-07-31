@@ -31,6 +31,8 @@ class RadarFragment : Fragment() {
             false
         )
 
+        binding?.viewmodel = viewModel
+
         return binding?.root
     }
 
