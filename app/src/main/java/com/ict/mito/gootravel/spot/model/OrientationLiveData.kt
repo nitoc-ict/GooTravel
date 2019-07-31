@@ -42,7 +42,6 @@ class OrientationLiveData(
         }
     }
 
-
     override fun onActive() {
         super.onActive()
 

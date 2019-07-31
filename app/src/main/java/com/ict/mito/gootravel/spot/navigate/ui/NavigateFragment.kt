@@ -70,7 +70,6 @@ class NavigateFragment : Fragment() {
             .addOnSuccessListener {
                 updateLocationInfo(it)
             }
-
     }
 
     private fun updateLocationInfo(location: Location) {
