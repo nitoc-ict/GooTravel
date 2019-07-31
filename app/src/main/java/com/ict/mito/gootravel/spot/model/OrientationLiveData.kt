@@ -73,8 +73,15 @@ class OrientationLiveData(
             accelerometerReadingArray,
             magnetometerReadingArray
         )
-        SensorManager.getOrientation(
+        val remapCoordinateArray = FloatArray(9)
+        SensorManager.remapCoordinateSystem(
             rotationMatrix,
+            SensorManager.AXIS_X,
+            SensorManager.AXIS_Y,
+            remapCoordinateArray
+        )
+        SensorManager.getOrientation(
+            remapCoordinateArray,
             orientationAngles
         )
     }
