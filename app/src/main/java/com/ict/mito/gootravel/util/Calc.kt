@@ -60,7 +60,7 @@ fun rotateImage(
         image.width / 2f,
         image.height / 4f
     )
-    val afterImage = Bitmap.createBitmap(
+    return Bitmap.createBitmap(
         image,
         0,
         0,
@@ -69,7 +69,6 @@ fun rotateImage(
         matrix,
         true
     )
-    return afterImage
 }
 
 fun rad2deg(rad: Float): Float {
