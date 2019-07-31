@@ -17,6 +17,7 @@ import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
+import com.ict.mito.gootravel.util.rad2deg
 import com.ict.mito.gootravel.util.rotateImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -27,10 +28,6 @@ class NavigateFragment : Fragment() {
     private var binding: NavigateFragmentBinding? = null
     private lateinit var googleApiClient: GoogleApiClient
     private lateinit var locationRequest: LocationRequest
-
-    private fun rad2deg(rad: Float): Float {
-        return rad * 180.0.toFloat() / Math.PI.toFloat()
-    }
 
     private val googleConnectionFailedListener = GoogleApiClient.OnConnectionFailedListener {
         Timber.d("ConnectionFailed")

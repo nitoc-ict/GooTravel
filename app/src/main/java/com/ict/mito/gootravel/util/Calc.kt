@@ -71,3 +71,8 @@ fun rotateImage(
     )
     return afterImage
 }
+
+fun rad2deg(rad: Float): Float {
+    return rad * 180.0.toFloat() / Math.PI.toFloat()
+}
+
