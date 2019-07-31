@@ -22,7 +22,12 @@ class App : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@App)
-            modules(viewModelModule)
+            modules(
+                arrayListOf(
+                    viewModelModule,
+                    liveDataModule
+                )
+            )
         }
     }
 
