@@ -31,7 +31,10 @@ class RadarFragment : Fragment() {
             false
         )
 
-        binding?.viewmodel = viewModel
+//        binding?.viewmodel = viewModel
+        binding?.wifiSpot?.setOnClickListener {
+            findNavController().navigate(R.id.action_radarFragment_to_navigateFragment)
+        }
 
         return binding?.root
     }
