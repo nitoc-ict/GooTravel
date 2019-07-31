@@ -8,7 +8,7 @@ import com.ict.mito.gootravel.spot.model.OrientationLiveData
 import com.ict.mito.gootravel.util.calcDirectDistance
 import com.ict.mito.gootravel.util.calcDirection
 
-class NavigateViewModel(orientationLiveData: OrientationLiveData) : ViewModel() {
+class NavigateViewModel(val orientationLiveData: OrientationLiveData) : ViewModel() {
     var latitude: MutableLiveData<Double> = MutableLiveData()
     var longitude: MutableLiveData<Double> = MutableLiveData()
     var direction: MediatorLiveData<String> = MediatorLiveData()
