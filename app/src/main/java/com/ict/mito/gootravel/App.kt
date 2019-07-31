@@ -33,7 +33,7 @@ class App : Application() {
 
     private val viewModelModule: Module = module {
         viewModel { ManualViewModel() }
-        viewModel { NavigateViewModel() }
+        viewModel { NavigateViewModel(get()) }
         viewModel { RegisterViewModel() }
         viewModel { ListViewModel() }
         viewModel { RadarViewModel() }
