@@ -2,9 +2,6 @@ package com.ict.mito.gootravel.spot.navigate.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Matrix
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -25,6 +22,7 @@ import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
+import com.ict.mito.gootravel.util.rotateImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
@@ -75,8 +73,9 @@ class NavigateFragment : Fragment() {
                     fAttitude
                 )
 
-                viewModel.direction.postValue(rad2deg(fAttitude[0]).toString())
-                rotateImage((viewModel.direction.value?.toDouble() ?: 0.0) * -1)
+                viewModel.direction.postValue(rad2deg(fAttitude[0]).toInt().toString())
+                val image = rotateImage(resources, (viewModel.direction.value?.toDouble() ?: 0.0) * -1)
+                binding?.arrowImage?.setImageBitmap(image)
             }
         }
     }
@@ -184,29 +183,6 @@ class NavigateFragment : Fragment() {
         binding?.viewmodel = viewModel
 
         return binding?.root
-    }
-
-    private fun rotateImage(angle: Double) {
-        val image = BitmapFactory.decodeResource(
-            resources,
-            R.drawable.arrow
-        )
-        val matrix = Matrix()
-        matrix.setRotate(
-            angle.toFloat(),
-            image.width / 2f,
-            image.height / 4f
-        )
-        val afterImage = Bitmap.createBitmap(
-            image,
-            0,
-            0,
-            image.width,
-            image.height,
-            matrix,
-            true
-        )
-        binding?.arrowImage?.setImageBitmap(afterImage)
     }
 
     override fun onStart() {
