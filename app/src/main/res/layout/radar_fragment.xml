@@ -43,6 +43,17 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:background="@drawable/shop_spot"/>
 
+        <ImageView
+                android:id="@+id/my_location"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_my_location_48dp"
+                android:contentDescription="@string/my_location"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
         <Button
                 android:id="@+id/button_to_list"
                 android:layout_width="wrap_content"
