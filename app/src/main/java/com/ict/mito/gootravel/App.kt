@@ -2,6 +2,7 @@ package com.ict.mito.gootravel
 
 import android.app.Application
 import com.ict.mito.gootravel.disaster.manual.ui.ManualViewModel
+import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.OrientationLiveData
 import com.ict.mito.gootravel.spot.navigate.ui.NavigateViewModel
 import com.ict.mito.gootravel.spot.register.ui.RegisterViewModel
@@ -42,5 +43,6 @@ class App : Application() {
 
     private val liveDataModule: Module = module {
         factory { OrientationLiveData(applicationContext) }
+        factory { LocationLiveData(applicationContext) }
     }
 }
