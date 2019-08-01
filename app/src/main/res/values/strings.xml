@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GooTravel</string>
+    <string name="my_location">MyLocation</string>
+    <string name="radar_oval">RadarOval</string>
 </resources>
