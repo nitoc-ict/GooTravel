@@ -34,7 +34,10 @@ class App : Application() {
 
     private val viewModelModule: Module = module {
         viewModel { ManualViewModel() }
-        viewModel { NavigateViewModel(get()) }
+        viewModel { NavigateViewModel(
+            get(),
+            get()
+        ) }
         viewModel { RegisterViewModel() }
         viewModel { ListViewModel() }
         viewModel { RadarViewModel() }
