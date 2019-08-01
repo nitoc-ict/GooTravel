@@ -1,5 +1,6 @@
 package com.ict.mito.gootravel.spot.model
 
+import android.content.Context
 import android.location.Location
 import android.os.Bundle
 import androidx.lifecycle.LiveData
@@ -10,7 +11,9 @@ import timber.log.Timber
 /**
  * Created by mitohato14 on 2019-08-01.
  */
-class LocationLiveData : LiveData<Location>() {
+class LocationLiveData(
+    val context: Context
+) : LiveData<Location>() {
     private lateinit var googleApiClient: GoogleApiClient
     private lateinit var locationRequest: LocationRequest
 
