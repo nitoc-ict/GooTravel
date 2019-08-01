@@ -41,14 +41,14 @@ class LocationLiveData(
     @SuppressLint("MissingPermission")
     override fun onActive() {
         super.onActive()
-        googleApiClient = GoogleApiClient.Builder(context!!)
+        googleApiClient = GoogleApiClient.Builder(context)
             .addConnectionCallbacks(googleApiClientConnectionCallbacks)
             .addOnConnectionFailedListener(googleConnectionFailedListener)
             .addApi(LocationServices.API)
             .build()
 
         createLocationRequest()
-        val locationClient = LocationServices.getFusedLocationProviderClient(context!!)
+        val locationClient = LocationServices.getFusedLocationProviderClient(context)
         locationClient.requestLocationUpdates(
             locationRequest,
             object : LocationCallback() {
