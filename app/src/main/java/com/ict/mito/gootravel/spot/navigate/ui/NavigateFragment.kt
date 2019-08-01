@@ -55,7 +55,9 @@ class NavigateFragment : Fragment() {
             it.orientationLiveData.observe(
                 this,
                 Observer { orientation ->
-                    viewModel.azimuth.postValue(rad2deg(orientation.azimuth))
+                    it.azimuth.postValue(rad2deg(orientation.azimuth))
+                }
+            )
             it.locationLiveData.observe(
                 this,
                 Observer { location ->
