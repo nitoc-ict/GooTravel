@@ -82,5 +82,46 @@
                 android:text="MANUAL"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/button_to_register"/>
+
+        <ImageView
+                android:id="@+id/oval1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/oval"
+                android:contentDescription="@string/radar_oval"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+                android:id="@+id/oval2"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/oval2"
+                android:contentDescription="@string/radar_oval"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+                android:id="@+id/oval3"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:src="@drawable/oval3"
+                android:contentDescription="@string/radar_oval"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+                android:id="@+id/oval4"
+                android:layout_width="400dp"
+                android:layout_height="400dp"
+                android:src="@drawable/oval4"
+                android:contentDescription="@string/radar_oval"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
