@@ -35,6 +35,12 @@ class RadarFragment : Fragment() {
         binding?.wifiSpot?.setOnClickListener {
             findNavController().navigate(R.id.action_radarFragment_to_navigateFragment)
         }
+        binding?.foodSpot?.setOnClickListener {
+            findNavController().navigate(R.id.action_radarFragment_to_navigateFragment)
+        }
+        binding?.shopSpot?.setOnClickListener {
+            findNavController().navigate(R.id.action_radarFragment_to_navigateFragment)
+        }
 
         return binding?.root
     }

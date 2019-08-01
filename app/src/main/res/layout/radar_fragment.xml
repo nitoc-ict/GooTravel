@@ -17,11 +17,31 @@
                 android:id="@+id/wifi_spot"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="250dp"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:background="@drawable/wifi_spot"/>
+
+        <Button
+                android:id="@+id/food_spot"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="150dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/food_spot"/>
+
+        <Button
+                android:id="@+id/shop_spot"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="400dp"
+                android:layout_marginEnd="100dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/shop_spot"/>
 
         <Button
                 android:id="@+id/button_to_list"
