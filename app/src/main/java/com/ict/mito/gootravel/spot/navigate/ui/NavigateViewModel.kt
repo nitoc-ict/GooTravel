@@ -18,12 +18,12 @@ class NavigateViewModel(val orientationLiveData: OrientationLiveData) : ViewMode
     init {
         val observer = Observer<Double> {
             direction.postValue(
-                calcDirection(
+                (calcDirection(
                     latitude.value ?: 0.0,
                     longitude.value ?: 0.0,
                     0.0,
                     0.0
-                ).toString()
+                ) - (azimuth.value ?: 0.0)).toString()
             )
             distance.postValue(
                 calcDirectDistance(
@@ -34,16 +34,20 @@ class NavigateViewModel(val orientationLiveData: OrientationLiveData) : ViewMode
                 ).toString()
             )
         }
-//        direction.apply {
-//            addSource(
-//                latitude,
-//                observer
-//            )
-//            addSource(
-//                longitude,
-//                observer
-//            )
-//        }
+        direction.apply {
+            addSource(
+                latitude,
+                observer
+            )
+            addSource(
+                longitude,
+                observer
+            )
+            addSource(
+                azimuth,
+                observer
+            )
+        }
 
         distance.apply {
             addSource(

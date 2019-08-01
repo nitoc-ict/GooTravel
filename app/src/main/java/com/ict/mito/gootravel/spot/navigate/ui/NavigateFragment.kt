@@ -79,8 +79,6 @@ class NavigateFragment : Fragment() {
             it.latitude.postValue(location.latitude)
             it.longitude.postValue(location.longitude)
         }
-//        rotateImage(viewModel.direction.value?.toDouble() ?: 0.0)
-        binding?.notifyChange()
     }
 
     private fun createLocationRequest() {
@@ -107,6 +105,11 @@ class NavigateFragment : Fragment() {
 
         val viewmodelObserver = Observer<String> {
             binding?.let {
+                val image = rotateImage(
+                    resources,
+                    viewModel.direction.value?.toDouble() ?: 0.0
+                )
+                binding?.arrowImage?.setImageBitmap(image)
                 it.viewmodel = viewModel
                 it.notifyChange()
             }
@@ -124,12 +127,7 @@ class NavigateFragment : Fragment() {
             it.orientationLiveData.observe(
                 this,
                 Observer { orientation ->
-                    viewModel.direction.postValue(rad2deg(orientation.azimuth).toInt().toString())
-                    val image = rotateImage(
-                        resources,
-                        (viewModel.direction.value?.toDouble() ?: 0.0) * -1
-                    )
-                    binding?.arrowImage?.setImageBitmap(image)
+                    viewModel.azimuth.postValue(rad2deg(orientation.azimuth))
                 }
             )
         }
