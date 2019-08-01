@@ -85,5 +85,4 @@ class LocationLiveData(
             it.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         }
     }
-
 }
