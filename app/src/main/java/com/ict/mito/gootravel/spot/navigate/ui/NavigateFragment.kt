@@ -1,33 +1,86 @@
 package com.ict.mito.gootravel.spot.navigate.ui
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.ict.mito.gootravel.R
+import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
+import com.ict.mito.gootravel.spot.model.SpotData
+import com.ict.mito.gootravel.util.rad2deg
+import com.ict.mito.gootravel.util.rotateImage
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NavigateFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = NavigateFragment()
-    }
-
-    private lateinit var viewModel: NavigateViewModel
+    private val viewModel: NavigateViewModel by viewModel()
+    private var binding: NavigateFragmentBinding? = null
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.navigate_fragment, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.navigate_fragment,
+            container,
+            false
+
+        )
+
+        val viewmodelObserver = Observer<String> {
+            binding?.let {
+                val image = rotateImage(
+                    resources,
+                    viewModel.direction.value?.toDouble() ?: 0.0
+                )
+                binding?.arrowImage?.setImageBitmap(image)
+                it.viewmodel = viewModel
+                it.notifyChange()
+            }
+        }
+
+        viewModel.also {
+            it.direction.observe(
+                this,
+                viewmodelObserver
+            )
+            it.distance.observe(
+                this,
+                viewmodelObserver
+            )
+            it.orientationLiveData.observe(
+                this,
+                Observer { orientation ->
+                    it.azimuth.postValue(rad2deg(orientation.azimuth))
+                }
+            )
+            it.locationLiveData.observe(
+                this,
+                Observer { location ->
+                    it.latitude.postValue(location.latitude)
+                    it.longitude.postValue(location.longitude)
+                }
+            )
+            it.spotData = SpotData(
+                10,
+                "Dummy",
+                0.0,
+                0.0
+            )
+        }
+
+        binding?.viewmodel = viewModel
+
+        return binding?.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(NavigateViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
-
 }
