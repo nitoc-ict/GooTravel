@@ -23,24 +23,23 @@
                 android:src="@drawable/arrow"
                 android:contentDescription="@string/navigatearrow"/>
         <TextView
-
-                android:id="@+id/direction_text"
-                android:text="@{viewmodel.direction}"
+                android:id="@+id/distance_text"
+                android:text="@{viewmodel.distance}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tool:layout_constraintTop_toTopOf="parent"
                 tool:layout_constraintStart_toStartOf="parent"
                 tool:layout_constraintEnd_toEndOf="parent"
                 tools:text="fooooo"/>
+
         <TextView
-                android:id="@+id/distance_text"
-                android:text="@{viewmodel.distance}"
+                android:id="@+id/spot_name_text"
+                android:text="@{viewmodel.spotData.name}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tool:layout_constraintTop_toBottomOf="@id/direction_text"
+                tool:layout_constraintTop_toBottomOf="@id/distance_text"
                 tool:layout_constraintStart_toStartOf="parent"
                 tool:layout_constraintEnd_toEndOf="parent"
                 tools:text="fooooo"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
