@@ -28,16 +28,16 @@ class NavigateViewModel(
                 (calcDirection(
                     latitude.value ?: 0.0,
                     longitude.value ?: 0.0,
-                    0.0,
-                    0.0
+                    spotData.latitude,
+                    spotData.longitude
                 ) - (azimuth.value ?: 0.0)).toString()
             )
             distance.postValue(
                 calcDirectDistance(
                     latitude.value ?: 0.0,
                     longitude.value ?: 0.0,
-                    0.0,
-                    0.0
+                    spotData.latitude,
+                    spotData.longitude
                 ).toString()
             )
         }
