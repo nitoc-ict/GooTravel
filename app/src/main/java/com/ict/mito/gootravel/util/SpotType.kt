@@ -7,5 +7,6 @@ enum class SpotType {
     WiFi,
     Food,
     Store,
-    Shelter
+    Shelter,
+    BusStop
 }
