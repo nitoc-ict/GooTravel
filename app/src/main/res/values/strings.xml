@@ -3,4 +3,7 @@
     <string name="navigatearrow">NavigateArrow</string>
     <string name="my_location">MyLocation</string>
     <string name="radar_oval">RadarOval</string>
+    <string name="appbar_list_title">List</string>
+    <string name="appbar_search_title">Search</string>
+    <string name="appbar_other_title">Other</string>
 </resources>
