@@ -4,19 +4,20 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.view.Menu
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.PermissionChecker
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.ict.mito.gootravel.R
+import kotlinx.android.synthetic.main.activity_spot.*
 
 class SpotActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_spot)
+        bottom_appbar.replaceMenu(R.menu.bottomappbar_menu)
 
         val resultCode = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this)
         val requestCode = 10001
@@ -47,14 +48,5 @@ class SpotActivity : AppCompatActivity() {
                 0
             )
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(
-            R.menu.bottomappbar_menu,
-            menu
-        )
-        return true
     }
 }
