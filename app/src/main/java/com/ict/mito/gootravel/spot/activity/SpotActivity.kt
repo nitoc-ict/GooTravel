@@ -17,7 +17,7 @@ class SpotActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_spot)
-        bottom_appbar.replaceMenu(R.menu.bottomappbar_menu)
+        bottom_appbar.replaceMenu(R.menu.radar_bottomappbar_menu)
 
         val resultCode = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this)
         val requestCode = 10001
