@@ -7,7 +7,7 @@
 [このREADME](https://github.com/mitohato/GooTravel/blob/master/README.md)  
 [Kotlinの文法(written by mito)](https://github.com/mitohato/kotlin-form-zero/)  
 [Kotlin文法](https://qiita.com/k5n/items/cc0377b75d8537ef8a85)  
-[Android概要(ちょっと難しめ？)](https://developer.android.com/guide?hl=ja)
+[Android概要(ちょっと難しめ？)](https://developer.android.com/guide?hl=ja)  
 ↑に読む順番は(基本)ありません  
 
 ## 環境
