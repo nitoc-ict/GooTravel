@@ -9,6 +9,7 @@ Javaでも可(参考文献の数とか諸々考えるとこっちも良き)
 ## コーディング規約
 基本的に以下のリンクのコーディング規約に従う  
 https://dogwood008.github.io/kotlin-web-site-ja/docs/reference/coding-conventions.html  
+ここのコーディング規約はKotlinで書いていますが、Javaの場合も同じようにお願いします(valなどはないですが)  
 
 
 変数名やメソッド名、クラス名などの命名はキャメルケースで書く  
