@@ -1,5 +1,15 @@
 # GooTravel
 
+## (できれば)読んで欲しいもの
+[オブジェクト指向](http://pg-kura.hatenablog.com/entry/20111222/1324557014)  
+[オブジェクト指向](https://eng-entrance.com/what-oop)  
+[オブジェクト指向を少し知った人向け](https://qiita.com/tutinoco/items/6952b01e5fc38914ec4e)  
+[このREADME](https://github.com/mitohato/GooTravel/blob/master/README.md)  
+[Kotlinの文法(written by mito)](https://github.com/mitohato/kotlin-form-zero/)  
+[Kotlin文法](https://qiita.com/k5n/items/cc0377b75d8537ef8a85)  
+[Android概要(ちょっと難しめ？)](https://developer.android.com/guide?hl=ja)
+↑に読む順番は(基本)ありません  
+
 ## 環境
 Android Studio 3.4.2  
 Kotlin 1.3.41  
