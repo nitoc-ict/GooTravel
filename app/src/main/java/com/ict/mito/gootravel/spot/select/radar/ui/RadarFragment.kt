@@ -67,12 +67,6 @@ class RadarFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         // TODO: Use the ViewModel
-        button_to_list.setOnClickListener {
-            findNavController().navigate(R.id.action_radarFragment_to_listFragment)
-        }
-        button_to_search.setOnClickListener {
-            findNavController().navigate(R.id.action_radarFragment_to_searchFragment)
-        }
         button_to_register.setOnClickListener {
             findNavController().navigate(R.id.action_radarFragment_to_registerFragment)
         }
