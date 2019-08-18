@@ -44,12 +44,6 @@ class ListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        button_to_radar.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_radarFragment)
-        }
-        button_to_search.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_searchFragment)
-        }
         button_to_navigate.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_navigateFragment)
         }
