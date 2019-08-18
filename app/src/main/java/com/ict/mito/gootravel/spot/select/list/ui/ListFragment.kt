@@ -21,8 +21,20 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        activity?.bottom_appbar?.replaceMenu(R.menu.list_bottomappbar_menu)
-
+        activity?.bottom_appbar?.let {
+            it.replaceMenu(R.menu.list_bottomappbar_menu)
+            it.setOnMenuItemClickListener { menu ->
+                when (menu.itemId) {
+                    R.id.appbar_radar -> {
+                        findNavController().navigate(R.id.action_listFragment_to_radarFragment)
+                    }
+                    R.id.appbar_search -> {
+                        findNavController().navigate(R.id.action_listFragment_to_searchFragment)
+                    }
+                }
+                true
+            }
+        }
         return inflater.inflate(
             R.layout.list_fragment,
             container,
