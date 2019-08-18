@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RadarFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
+import kotlinx.android.synthetic.main.activity_spot.*
 import kotlinx.android.synthetic.main.radar_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -24,6 +25,9 @@ class RadarFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        activity?.bottom_appbar?.replaceMenu(R.menu.radar_bottomappbar_menu)
+
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.radar_fragment,

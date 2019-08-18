@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
+import kotlinx.android.synthetic.main.activity_spot.*
 import kotlinx.android.synthetic.main.list_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -19,6 +20,9 @@ class ListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        activity?.bottom_appbar?.replaceMenu(R.menu.list_bottomappbar_menu)
+
         return inflater.inflate(
             R.layout.list_fragment,
             container,
