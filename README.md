@@ -8,7 +8,8 @@
 [Kotlinの文法(written by mito)](https://github.com/mitohato/kotlin-form-zero/)  
 [Kotlin文法](https://qiita.com/k5n/items/cc0377b75d8537ef8a85)  
 [Android概要(ちょっと難しめ？)](https://developer.android.com/guide?hl=ja)  
-[プルリク](https://qiita.com/ikuwow/items/fb52a54c086398eb5b92)  
+[プルリク1](https://qiita.com/ikuwow/items/fb52a54c086398eb5b92)  
+[プルリク2](https://qiita.com/tom-ock/items/32a102ef38f037d61493)  
 ↑に読む順番は(基本)ありません  
 
 ## 環境
