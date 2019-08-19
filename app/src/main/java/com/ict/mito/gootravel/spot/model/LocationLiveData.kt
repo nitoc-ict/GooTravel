@@ -13,6 +13,7 @@ import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
+import com.ict.mito.gootravel.util.LocationRequestAlertDialog
 import timber.log.Timber
 
 /**
@@ -64,6 +65,7 @@ class LocationLiveData(
 
         val locationManager = context.getSystemService(Activity.LOCATION_SERVICE) as LocationManager?
         if (locationManager?.isProviderEnabled(LocationManager.GPS_PROVIDER) != true) {
+            LocationRequestAlertDialog().showsDialog
         }
         locationClient.lastLocation.addOnSuccessListener {
             it?.let { updateLocationInfo(it) }
