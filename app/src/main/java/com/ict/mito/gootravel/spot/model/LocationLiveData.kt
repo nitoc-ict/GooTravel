@@ -60,7 +60,7 @@ class LocationLiveData(
             Looper.myLooper()
         )
         locationClient.lastLocation.addOnSuccessListener {
-            updateLocationInfo(it)
+            it?.let { updateLocationInfo(it) }
         }
 
         googleApiClient.connect()
