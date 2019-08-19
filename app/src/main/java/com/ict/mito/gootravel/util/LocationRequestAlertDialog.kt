@@ -6,4 +6,9 @@ import androidx.fragment.app.DialogFragment
  * Created by mitohato14 on 2019-08-19.
  */
 class LocationRequestAlertDialog : DialogFragment() {
+
+    override fun onPause() {
+        super.onPause()
+        dismiss()
+    }
 }
