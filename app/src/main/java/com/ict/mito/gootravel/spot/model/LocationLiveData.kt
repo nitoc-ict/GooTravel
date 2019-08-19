@@ -1,8 +1,10 @@
 package com.ict.mito.gootravel.spot.model
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.location.Location
+import android.location.LocationManager
 import android.os.Bundle
 import android.os.Looper
 import androidx.lifecycle.LiveData
@@ -59,6 +61,10 @@ class LocationLiveData(
             },
             Looper.myLooper()
         )
+
+        val locationManager = context.getSystemService(Activity.LOCATION_SERVICE) as LocationManager?
+        if (locationManager?.isProviderEnabled(LocationManager.GPS_PROVIDER) != true) {
+        }
         locationClient.lastLocation.addOnSuccessListener {
             it?.let { updateLocationInfo(it) }
         }
