@@ -134,7 +134,10 @@ Git Flowをベースにしたものを仕様
 `git checkout -b feature/hogeなどのブランチ名`←Developブランチやmaster以外の別ブランチに居る状態で行う  
 hogeの部分は今開発中の機能名が来る(feature/searchなど)  
 一番最初のcommitはこのブランチでは何をするかがメッセージとして書かれた空コミット(下のコマンドそのままでできます)   
-`git commit --allow-empty -m "メッセージ(searchなど)"`
+`git commit --allow-empty -m "メッセージ(searchなど)"`  
+2019/8/22 追記  
+feature/は正直なくてもどっちでも良いです  
+ただ、ある作業ブランチからブランチを生やしてやりたいときは、{今いるブランチ名}/{作業したい内容のブランチ名}にしてくれると、どの機能で何に必要なブランチというのがわかるので、して欲しいです  
 
 ### Pull Request(PR,プルリク)
 feature/hogeブランチを作成して空コミットを作成した段階でpush、プルリクの作成をする(ただしDraft状態)  
