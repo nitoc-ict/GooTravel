@@ -13,7 +13,7 @@
 
 
         <ImageView
-            android:id="@+id/hinan_image"
+            android:id="@+id/manual_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:srcCompat="@mipmap/ic_launcher" />
