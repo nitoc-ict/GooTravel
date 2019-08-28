@@ -11,5 +11,5 @@ import androidx.room.RoomDatabase
     version = 1,
     exportSchema = false
 )
-abstract class RoomDataBase : RoomDatabase() {
+abstract class RegisterDataRoomDataBase : RoomDatabase() {
 }
