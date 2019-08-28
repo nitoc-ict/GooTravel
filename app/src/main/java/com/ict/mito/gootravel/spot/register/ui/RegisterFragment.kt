@@ -1,26 +1,55 @@
 package com.ict.mito.gootravel.spot.register.ui
 
+import android.content.ContentValues.TAG
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+
 import com.ict.mito.gootravel.R
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import kotlinx.android.synthetic.main.register_fragment.*
 
 class RegisterFragment : Fragment() {
 
-    private val viewModel: RegisterViewModel by viewModel()
+    companion object {
+        fun newInstance() = RegisterFragment()
+    }
+
+    private lateinit var viewModel: RegisterViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(
-            R.layout.register_fragment,
-            container,
-            false
-        )
+        return inflater.inflate(R.layout.register_fragment, container, false)
     }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(RegisterViewModel::class.java)
+        // TODO: Use the ViewModel
+    }
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        SignIn.setOnClickListener{
+            var name: String = Name.text.toString()
+            var memo: String = Memo.text.toString()
+
+            if(Name.length() != 0 && Memo.length() != 0){
+
+                Log.d("memo", memo)
+                Log.d("name", name)
+
+            }
+        }
+    }
+
+
+
 }
