@@ -27,7 +27,8 @@ class App : Application() {
             modules(
                 arrayListOf(
                     viewModelModule,
-                    liveDataModule
+                    liveDataModule,
+                    databaseModule
                 )
             )
         }
