@@ -1,6 +1,7 @@
 package com.ict.mito.gootravel.db
 
 import androidx.room.Database
+import androidx.room.RoomDatabase
 
 /**
  * Created by mitohato14 on 2019-08-28.
@@ -10,5 +11,5 @@ import androidx.room.Database
     version = 1,
     exportSchema = false
 )
-abstract class RoomDataBase {
+abstract class RoomDataBase : RoomDatabase() {
 }
