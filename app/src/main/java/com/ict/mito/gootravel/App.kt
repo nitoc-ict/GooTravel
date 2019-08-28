@@ -1,6 +1,7 @@
 package com.ict.mito.gootravel
 
 import android.app.Application
+import com.ict.mito.gootravel.db.RegisterDataRoomDataBase
 import com.ict.mito.gootravel.disaster.manual.ui.ManualViewModel
 import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.OrientationLiveData
@@ -49,5 +50,10 @@ class App : Application() {
     private val liveDataModule: Module = module {
         factory { OrientationLiveData(applicationContext) }
         factory { LocationLiveData(applicationContext) }
+    }
+
+    private val databaseModule: Module = module {
+        single { RegisterDataRoomDataBase.getDataBase(applicationContext) }
+        single { get<RegisterDataRoomDataBase>().dao() }
     }
 }
