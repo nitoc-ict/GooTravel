@@ -13,9 +13,4 @@
             android:title="@string/appbar_search_title"
             app:showAsAction="ifRoom"/>
 
-    <item
-            android:id="@+id/app_bar_other"
-            android:title="@string/appbar_other_title"
-            app:showAsAction="never"/>
-
 </menu>
