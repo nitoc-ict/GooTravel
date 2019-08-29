@@ -137,6 +137,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_searchFragment_to_listFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_searchFragment_to_radarFragment">
                               <value>
                                 <LayoutPositions />

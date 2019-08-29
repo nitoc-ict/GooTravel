@@ -66,17 +66,6 @@ class RadarFragment : Fragment() {
         return binding?.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        // TODO: Use the ViewModel
-        button_to_register.setOnClickListener {
-            findNavController().navigate(R.id.action_radarFragment_to_registerFragment)
-        }
-        button_to_manual.setOnClickListener {
-            startActivity(Intent(context, ManualActivity::class.java))
-        }
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         binding = null

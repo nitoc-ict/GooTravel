@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import kotlinx.android.synthetic.main.activity_spot.*
-import kotlinx.android.synthetic.main.list_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ListFragment : Fragment() {
@@ -42,15 +41,5 @@ class ListFragment : Fragment() {
             container,
             false
         )
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        button_to_navigate.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_navigateFragment)
-        }
-        button_to_register.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_registerFragment)
-        }
     }
 }
