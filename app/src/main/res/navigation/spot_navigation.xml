@@ -22,6 +22,9 @@
               android:name="com.ict.mito.gootravel.spot.select.search.ui.SearchFragment" android:label="search_fragment"
               tools:layout="@layout/search_fragment">
         <action android:id="@+id/action_searchFragment_to_radarFragment" app:destination="@id/radarFragment"/>
+        <action
+                android:id="@+id/action_searchFragment_to_listFragment"
+                app:destination="@id/listFragment" />
     </fragment>
     <fragment android:id="@+id/navigateFragment" android:name="com.ict.mito.gootravel.spot.navigate.ui.NavigateFragment"
               android:label="navigate_fragment" tools:layout="@layout/navigate_fragment"/>

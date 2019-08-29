@@ -7,36 +7,4 @@
         android:layout_height="match_parent"
         tools:context=".spot.select.list.ui.ListFragment">
 
-    <Button
-            android:id="@+id/button_to_radar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="RADAR"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    <Button
-            android:id="@+id/button_to_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SEARCH"
-            app:layout_constraintTop_toBottomOf="@id/button_to_radar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    <Button
-            android:id="@+id/button_to_navigate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NAVIGATE"
-            app:layout_constraintTop_toBottomOf="@id/button_to_search"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    <Button
-            android:id="@+id/button_to_register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="REGISTER"
-            app:layout_constraintTop_toBottomOf="@id/button_to_navigate"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

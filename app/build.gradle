@@ -67,6 +67,9 @@ dependencies {
     // for csv
     implementation("org.apache.commons:commons-csv:1.6")
 
+    // Add material for BottomAppBar
+    implementation("com.google.android.material:material:1.0.0-alpha1")
+
     // for test
     testImplementation("junit:junit:4.12")
     androidTestImplementation("androidx.test:runner:1.2.0")
