@@ -1,5 +1,6 @@
 package com.ict.mito.gootravel.spot.select.search.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
+import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -30,6 +32,12 @@ class SearchFragment : Fragment() {
                         findNavController().navigate(R.id.action_searchFragment_to_listFragment)
                     }
                     R.id.app_bar_manual -> {
+                        startActivity(
+                            Intent(
+                                context,
+                                ManualActivity::class.java
+                            )
+                        )
                     }
                 }
                 true
