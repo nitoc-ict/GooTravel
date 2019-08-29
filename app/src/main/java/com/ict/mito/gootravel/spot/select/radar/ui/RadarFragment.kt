@@ -35,6 +35,8 @@ class RadarFragment : Fragment() {
                     R.id.appbar_search -> {
                         findNavController().navigate(R.id.action_radarFragment_to_searchFragment)
                     }
+                    R.id.app_bar_manual -> {
+                    }
                     else -> {
                         findNavController().navigate(R.id.action_radarFragment_to_registerFragment)
                     }

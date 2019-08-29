@@ -30,6 +30,8 @@ class SearchFragment : Fragment() {
                     R.id.appbar_list -> {
                         findNavController().navigate(R.id.action_searchFragment_to_listFragment)
                     }
+                    R.id.app_bar_manual -> {
+                    }
                 }
                 true
             }
