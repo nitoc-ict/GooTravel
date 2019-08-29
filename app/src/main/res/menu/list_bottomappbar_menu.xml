@@ -14,8 +14,9 @@
             app:showAsAction="ifRoom"/>
 
     <item
-            android:id="@+id/app_bar_other"
-            android:title="@string/appbar_other_title"
-            app:showAsAction="never"/>
+            android:id="@+id/app_bar_manual"
+            android:icon="@drawable/ic_description_black_36dp"
+            android:title="@string/appbar_manual_title"
+            app:showAsAction="ifRoom"/>
 
 </menu>
