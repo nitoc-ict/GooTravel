@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import com.ict.mito.gootravel.R
 import kotlinx.android.synthetic.main.register_fragment.*
@@ -31,10 +32,7 @@ class RegisterFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(RegisterViewModel::class.java)
         // TODO: Use the ViewModel
-    }
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         SignIn.setOnClickListener{
@@ -45,11 +43,13 @@ class RegisterFragment : Fragment() {
 
                 Log.d("memo", memo)
                 Log.d("name", name)
-
+                Name.setText("")
+                Memo.setText("")
+                val toast = Toast.makeText(context, "入力が完了しました", Toast.LENGTH_SHORT)
+                toast.show()
             }
         }
     }
-
 
 
 }
