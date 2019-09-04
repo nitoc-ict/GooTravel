@@ -14,5 +14,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tool:text="Name" />
+
+        <TextView
+                android:id="@+id/spot_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spot_name"
+                tool:text="convenience store" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
