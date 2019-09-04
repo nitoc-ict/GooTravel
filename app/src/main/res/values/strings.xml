@@ -8,4 +8,5 @@
     <string name="appbar_search_title">Search</string>
     <string name="appbar_manual_title">Manual</string>
     <string name="appbar_other_title">Other</string>
+    <string name="register">REGISTER</string>
 </resources>
