@@ -43,10 +43,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/popup_register_button_style"
                 android:drawableStart="@drawable/ic_location_popup_24dp"
                 android:text="@string/register"
                 android:textColor="@color/colorSub"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/go_button"
                 app:layout_constraintTop_toBottomOf="@id/spot_type" />
 
@@ -56,10 +58,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/popup_go_button_style"
                 android:drawableStart="@drawable/ic_directions_white_24dp"
                 android:text="@string/go"
                 android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spot_type" />
     </androidx.constraintlayout.widget.ConstraintLayout>
