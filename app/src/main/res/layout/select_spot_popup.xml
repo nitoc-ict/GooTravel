@@ -41,7 +41,7 @@
                 android:id="@+id/register_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/popup_button_style"
+                android:background="@drawable/popup_register_button_style"
                 android:drawableStart="@drawable/ic_location_popup_24dp"
                 android:text="@string/register"
                 android:textColor="@color/colorSub"
