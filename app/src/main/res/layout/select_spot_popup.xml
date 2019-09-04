@@ -45,7 +45,7 @@
                 android:drawableStart="@drawable/ic_location_popup_24dp"
                 android:text="@string/register"
                 android:textColor="@color/colorSub"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/go_button"
                 app:layout_constraintTop_toBottomOf="@id/spot_type" />
 
         <Button
@@ -56,7 +56,7 @@
                 android:drawableStart="@drawable/ic_directions_white_24dp"
                 android:text="@string/go"
                 android:textColor="@color/colorWhite"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spot_type" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
