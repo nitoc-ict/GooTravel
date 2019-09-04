@@ -44,6 +44,7 @@
                 android:background="@drawable/popup_button_style"
                 android:drawableStart="@drawable/ic_location_popup_24dp"
                 android:text="@string/register"
+                android:textColor="@color/colorSub"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spot_type" />
 
