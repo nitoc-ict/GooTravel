@@ -22,5 +22,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spot_name"
                 tool:text="convenience store" />
+
+        <TextView
+                android:id="@+id/distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/spot_name"
+                app:layout_constraintTop_toTopOf="parent"
+                tool:text="250m" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
