@@ -18,18 +18,18 @@ import com.ict.mito.gootravel.spot.model.SpotData
     version = 1,
     exportSchema = false
 )
-abstract class RegisterDataRoomDataBase : RoomDatabase() {
+abstract class GooTravelDataRoomDataBase : RoomDatabase() {
     abstract fun dao(): RegisterDataDAO
 
     companion object {
         @Volatile
-        private var INSTANCE: RegisterDataRoomDataBase? = null
+        private var INSTANCE: GooTravelDataRoomDataBase? = null
 
-        fun getDataBase(context: Context): RegisterDataRoomDataBase {
+        fun getDataBase(context: Context): GooTravelDataRoomDataBase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    RegisterDataRoomDataBase::class.java,
+                    GooTravelDataRoomDataBase::class.java,
                     "gootravel_db"
                 )
                     .allowMainThreadQueries()
