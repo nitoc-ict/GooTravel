@@ -30,7 +30,8 @@ class App : Application() {
                 arrayListOf(
                     viewModelModule,
                     liveDataModule,
-                    databaseModule
+                    databaseModule,
+                    repositoryModule
                 )
             )
         }
