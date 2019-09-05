@@ -3,6 +3,8 @@ package com.ict.mito.gootravel
 import android.app.Application
 import com.ict.mito.gootravel.db.RegisterDataRoomDataBase
 import com.ict.mito.gootravel.disaster.manual.ui.ManualViewModel
+import com.ict.mito.gootravel.repo.Repository
+import com.ict.mito.gootravel.repo.impl.RepositoryImpl
 import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.OrientationLiveData
 import com.ict.mito.gootravel.spot.navigate.ui.NavigateViewModel
@@ -56,5 +58,9 @@ class App : Application() {
     private val databaseModule: Module = module {
         single { RegisterDataRoomDataBase.getDataBase(applicationContext) }
         single { get<RegisterDataRoomDataBase>().dao() }
+    }
+
+    private val repositoryModule: Module = module {
+        single { RepositoryImpl() as Repository }
     }
 }
