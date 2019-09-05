@@ -8,12 +8,14 @@ import androidx.databinding.DataBindingUtil
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.SelectSpotBottomSheetBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * Created by mitohato14 on 2019-09-05.
  */
 class SelectSpotBottomSheet : BottomSheetDialogFragment() {
     private var binding: SelectSpotBottomSheetBinding? = null
+    private val viewmodel: SelectSpotBottomSheetViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
