@@ -1,6 +1,7 @@
 package com.ict.mito.gootravel.repo.impl
 
 import com.ict.mito.gootravel.db.RoomRegisterLocation
+import com.ict.mito.gootravel.db.dao.RegisterDataDAO
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.SpotData
 import io.reactivex.Maybe
@@ -9,7 +10,7 @@ import io.reactivex.Single
 /**
  * Created by mitohato14 on 2019-09-05.
  */
-class RepositoryImpl : Repository {
+class RepositoryImpl(private val dao: RegisterDataDAO) : Repository {
     override fun add(spotData: SpotData) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
