@@ -12,4 +12,6 @@ class SelectSpotBottomSheetViewModel : ViewModel() {
     private val _spotData: MutableLiveData<SpotData> = MutableLiveData()
     val spotData: LiveData<SpotData>
         get() = _spotData
+
+    val distance: String = "0m"
 }
