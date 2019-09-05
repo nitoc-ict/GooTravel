@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.ict.mito.gootravel.R
-import com.ict.mito.gootravel.databinding.SelectSpotPopupBinding
+import com.ict.mito.gootravel.databinding.SelectSpotBottomSheetBinding
 
 /**
  * Created by mitohato14 on 2019-09-05.
  */
 class SelectSpotBottomSheet : BottomSheetDialogFragment() {
-    private var binding: SelectSpotPopupBinding? = null
+    private var binding: SelectSpotBottomSheetBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,7 +22,7 @@ class SelectSpotBottomSheet : BottomSheetDialogFragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.select_spot_popup,
+            R.layout.select_spot_bottom_sheet,
             container,
             false
         )
