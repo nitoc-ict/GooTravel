@@ -17,7 +17,7 @@ interface RegisterDataDAO {
     fun insert(location: RoomRegisterLocation)
 
     @Query("SELECT * FROM gootravel_table")
-    fun getAll(): Single<List<RoomRegisterLocation>>
+    fun getAllRegister(): Single<List<RoomRegisterLocation>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(spotData: SpotData)
