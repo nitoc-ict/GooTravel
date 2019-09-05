@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RadarFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
-import com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheet
+import com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetFragment
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -65,7 +65,7 @@ class RadarFragment : Fragment() {
                 "spotId",
                 it.id
             )
-            val bottomSheet = SelectSpotBottomSheet()
+            val bottomSheet = SelectSpotBottomSheetFragment()
             bottomSheet.arguments = args
             bottomSheet.show(
                 fragmentManager!!,

@@ -13,7 +13,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 /**
  * Created by mitohato14 on 2019-09-05.
  */
-class SelectSpotBottomSheet : BottomSheetDialogFragment() {
+class SelectSpotBottomSheetFragment : BottomSheetDialogFragment() {
     private var binding: SelectSpotBottomSheetBinding? = null
     private val viewmodel: SelectSpotBottomSheetViewModel by viewModel()
 
