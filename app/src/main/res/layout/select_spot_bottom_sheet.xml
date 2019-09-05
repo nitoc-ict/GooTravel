@@ -3,6 +3,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tool="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+                name="viewmodel"
+                type="com.ict.mito.gootravel.spot.select.radar.ui.dailog.SelectSpotBottomSheetViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
