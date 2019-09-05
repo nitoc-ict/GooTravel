@@ -27,6 +27,8 @@ class SelectSpotBottomSheet : BottomSheetDialogFragment() {
             false
         )
 
+        val id: Int = arguments?.getInt("spotId") ?: 0
+
         return binding?.root
     }
 
