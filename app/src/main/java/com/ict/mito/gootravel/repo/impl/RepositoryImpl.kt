@@ -11,13 +11,9 @@ import io.reactivex.Single
  * Created by mitohato14 on 2019-09-05.
  */
 class RepositoryImpl(private val dao: RegisterDataDAO) : Repository {
-    override fun add(spotData: SpotData) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun add(spotData: SpotData) = dao.insert(spotData)
 
-    override fun add(roomRegisterLocation: RoomRegisterLocation) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun add(roomRegisterLocation: RoomRegisterLocation) = dao.insert(roomRegisterLocation)
 
     override fun getSpotDataById(id: Long): Maybe<SpotData> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
