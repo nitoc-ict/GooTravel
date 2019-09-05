@@ -1,4 +1,4 @@
-package com.ict.mito.gootravel.spot.select.radar.ui.dailog
+package com.ict.mito.gootravel.spot.select.radar.ui.dialog
 
 import android.os.Bundle
 import android.view.LayoutInflater

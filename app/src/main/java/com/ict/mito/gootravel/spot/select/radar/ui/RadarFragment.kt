@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RadarFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
-import com.ict.mito.gootravel.spot.select.radar.ui.dailog.SelectSpotBottomSheet
+import com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheet
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

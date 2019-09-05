@@ -7,7 +7,7 @@
 
         <variable
                 name="viewmodel"
-                type="com.ict.mito.gootravel.spot.select.radar.ui.dailog.SelectSpotBottomSheetViewModel" />
+                type="com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
