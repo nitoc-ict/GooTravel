@@ -11,8 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RadarFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
+import com.ict.mito.gootravel.spot.select.radar.ui.dailog.SelectSpotBottomSheet
 import kotlinx.android.synthetic.main.activity_spot.*
-import kotlinx.android.synthetic.main.radar_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RadarFragment : Fragment() {
@@ -60,7 +60,11 @@ class RadarFragment : Fragment() {
 
 //        binding?.viewmodel = viewModel
         binding?.wifiSpot?.setOnClickListener {
-            findNavController().navigate(R.id.action_radarFragment_to_navigateFragment)
+            val bottomSheet = SelectSpotBottomSheet()
+            bottomSheet.show(
+                fragmentManager!!,
+                bottomSheet.tag
+            )
         }
         binding?.foodSpot?.setOnClickListener {
             findNavController().navigate(R.id.action_radarFragment_to_navigateFragment)
