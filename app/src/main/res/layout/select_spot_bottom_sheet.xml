@@ -3,6 +3,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tool="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+                name="viewmodel"
+                type="com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -13,6 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base_margin"
+                android:text="@{viewmodel.spotData.name}"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -23,6 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base_margin"
+                android:text="@{viewmodel.spotData.spotTypeDetail}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spot_name"
                 tool:text="convenience store" />
@@ -32,6 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base_margin"
+                android:text="@{viewmodel.distance}"
                 app:layout_constraintBottom_toBottomOf="@id/spot_name"
                 app:layout_constraintStart_toEndOf="@id/spot_name"
                 app:layout_constraintTop_toTopOf="@id/spot_name"
