@@ -4,6 +4,7 @@
         xmlns:tool="http://schemas.android.com/tools">
 
     <data>
+
         <variable
                 name="viewmodel"
                 type="com.ict.mito.gootravel.spot.select.radar.ui.dailog.SelectSpotBottomSheetViewModel" />
@@ -19,6 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base_margin"
+                android:text="@{viewmodel.spotData.name}"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
