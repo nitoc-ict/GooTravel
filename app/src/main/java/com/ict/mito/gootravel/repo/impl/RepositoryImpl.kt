@@ -19,15 +19,11 @@ class RepositoryImpl(private val dao: RegisterDataDAO) : Repository {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getAllSpotData(): Single<List<SpotData>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getAllSpotData(): Single<List<SpotData>> = dao.getAllSpotData()
 
     override fun getRegisterLocationById(id: Long): Maybe<RoomRegisterLocation> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getAllRegisterLocation(): Single<List<RoomRegisterLocation>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getAllRegisterLocation(): Single<List<RoomRegisterLocation>> = dao.getAll()
 }
