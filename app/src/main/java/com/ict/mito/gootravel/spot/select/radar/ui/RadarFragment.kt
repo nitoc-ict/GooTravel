@@ -60,7 +60,13 @@ class RadarFragment : Fragment() {
 
 //        binding?.viewmodel = viewModel
         binding?.wifiSpot?.setOnClickListener {
+            val args = Bundle()
+            args.putInt(
+                "spotId",
+                it.id
+            )
             val bottomSheet = SelectSpotBottomSheet()
+            bottomSheet.arguments = args
             bottomSheet.show(
                 fragmentManager!!,
                 bottomSheet.tag
