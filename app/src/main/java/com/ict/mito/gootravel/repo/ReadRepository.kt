@@ -1,5 +1,6 @@
 package com.ict.mito.gootravel.repo
 
+import com.ict.mito.gootravel.db.RoomRegisterLocation
 import com.ict.mito.gootravel.spot.model.SpotData
 import io.reactivex.Maybe
 import io.reactivex.Single
@@ -10,4 +11,7 @@ import io.reactivex.Single
 interface ReadRepository {
     fun getSpotDataById(id: Long): Maybe<SpotData>
     fun getAllSpotData(): Single<List<SpotData>>
+
+    fun getRegisterLocationById(id: Long): Maybe<RoomRegisterLocation>
+    fun getAllRegisterLocation(): Single<List<RoomRegisterLocation>>
 }
