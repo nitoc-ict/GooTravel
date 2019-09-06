@@ -15,7 +15,7 @@ class RepositoryImpl(
     private val registerDataDAO: RegisterDataDAO,
     private val spotDataDAO: SpotDataDAO
 ) : Repository {
-    override fun add(spotData: SpotData) = registerDataDAO.insert(spotData)
+    override fun add(spotData: SpotData) = spotDataDAO.insert(spotData)
 
     override fun add(roomRegisterLocation: RoomRegisterLocation) =
         registerDataDAO.insert(roomRegisterLocation)
@@ -24,7 +24,7 @@ class RepositoryImpl(
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getAllSpotData(): Single<List<SpotData>> = registerDataDAO.getAllSpotData()
+    override fun getAllSpotData(): Single<List<SpotData>> = spotDataDAO.getAllSpotData()
 
     override fun getRegisterLocationById(id: Long): Maybe<RoomRegisterLocation> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
