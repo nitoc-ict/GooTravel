@@ -32,6 +32,8 @@ class SelectSpotBottomSheetFragment : BottomSheetDialogFragment() {
         val id: Int = arguments?.getInt("spotId") ?: 0
         viewmodel.setId(id)
 
+        binding?.viewmodel = viewmodel
+
         return binding?.root
     }
 
