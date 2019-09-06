@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.ict.mito.gootravel.db.RoomRegisterLocation
-import com.ict.mito.gootravel.spot.model.SpotData
 import io.reactivex.Single
 
 /**
@@ -18,10 +17,4 @@ interface RegisterDataDAO {
 
     @Query("SELECT * FROM gootravel_table")
     fun getAllRegister(): Single<List<RoomRegisterLocation>>
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(spotData: SpotData)
-
-    @Query("SELECT * FROM spotdata")
-    fun getAllSpotData(): Single<List<SpotData>>
 }
