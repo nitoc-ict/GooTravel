@@ -11,6 +11,7 @@ import com.ict.mito.gootravel.spot.navigate.ui.NavigateViewModel
 import com.ict.mito.gootravel.spot.register.ui.RegisterViewModel
 import com.ict.mito.gootravel.spot.select.list.ui.ListViewModel
 import com.ict.mito.gootravel.spot.select.radar.ui.RadarViewModel
+import com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetViewModel
 import com.ict.mito.gootravel.spot.select.search.ui.SearchViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -49,6 +50,7 @@ class App : Application() {
         viewModel { ListViewModel() }
         viewModel { RadarViewModel() }
         viewModel { SearchViewModel() }
+        viewModel { SelectSpotBottomSheetViewModel() }
     }
 
     private val liveDataModule: Module = module {

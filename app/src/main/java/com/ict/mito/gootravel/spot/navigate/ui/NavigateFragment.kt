@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
 import com.ict.mito.gootravel.spot.model.SpotData
+import com.ict.mito.gootravel.util.SpotType
 import com.ict.mito.gootravel.util.rad2deg
 import com.ict.mito.gootravel.util.rotateImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -69,7 +70,9 @@ class NavigateFragment : Fragment() {
             it.spotData = SpotData(
                 "Dummy",
                 0.0,
-                0.0
+                0.0,
+                SpotType.WiFi,
+                ""
             )
         }
 
