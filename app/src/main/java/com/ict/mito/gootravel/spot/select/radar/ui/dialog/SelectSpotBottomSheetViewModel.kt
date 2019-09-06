@@ -16,6 +16,6 @@ class SelectSpotBottomSheetViewModel : ViewModel() {
     val distance: String = "0m"
 
     fun setId(id: Int) {
-        _spotData.postValue(_spotData.value?.copy(id = id))
+        TODO("Get spot data by id")
     }
 }
