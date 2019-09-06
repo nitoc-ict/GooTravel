@@ -63,6 +63,11 @@ class App : Application() {
     }
 
     private val repositoryModule: Module = module {
-        single { RepositoryImpl(get()) as Repository }
+        single {
+            RepositoryImpl(
+                get(),
+                get()
+            ) as Repository
+        }
     }
 }
