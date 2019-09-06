@@ -59,15 +59,17 @@ class RadarFragment : Fragment() {
 
         viewModel.fragmentManager = fragmentManager!!
 
-        binding?.viewmodel = viewModel
-        binding?.wifiSpot?.setOnClickListener {
-            viewModel.onClickSpot(it)
-        }
-        binding?.foodSpot?.setOnClickListener {
-            viewModel.onClickSpot(it)
-        }
-        binding?.shopSpot?.setOnClickListener {
-            viewModel.onClickSpot(it)
+        binding?.let {
+            it.viewmodel = viewModel
+            it.wifiSpot?.setOnClickListener {
+                viewModel.onClickSpot(it)
+            }
+            it.foodSpot?.setOnClickListener {
+                viewModel.onClickSpot(it)
+            }
+            it.shopSpot?.setOnClickListener {
+                viewModel.onClickSpot(it)
+            }
         }
 
         return binding?.root
