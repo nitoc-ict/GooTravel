@@ -50,7 +50,7 @@ class App : Application() {
         viewModel { ListViewModel() }
         viewModel { RadarViewModel() }
         viewModel { SearchViewModel() }
-        viewModel { SelectSpotBottomSheetViewModel() }
+        viewModel { SelectSpotBottomSheetViewModel(get()) }
     }
 
     private val liveDataModule: Module = module {
