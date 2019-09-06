@@ -9,7 +9,7 @@ import com.ict.mito.gootravel.spot.model.SpotData
 /**
  * Created by mitohato14 on 2019-09-05.
  */
-class SelectSpotBottomSheetViewModel(repository: Repository) : ViewModel() {
+class SelectSpotBottomSheetViewModel(private val repository: Repository) : ViewModel() {
     private val _spotData: MutableLiveData<SpotData> = MutableLiveData()
     val spotData: LiveData<SpotData>
         get() = _spotData
@@ -17,6 +17,5 @@ class SelectSpotBottomSheetViewModel(repository: Repository) : ViewModel() {
     val distance: String = "0m"
 
     fun setId(id: Int) {
-        TODO("Get spot data by id")
     }
 }
