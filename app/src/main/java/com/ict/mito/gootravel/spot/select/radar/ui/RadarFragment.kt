@@ -70,6 +70,7 @@ class RadarFragment : Fragment() {
             it.shopSpot?.setOnClickListener { view ->
                 viewModel.onClickSpot(view)
             }
+            it.lifecycleOwner = this
         }
 
         return binding?.root

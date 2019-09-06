@@ -75,8 +75,10 @@ class NavigateFragment : Fragment() {
             )
         }
 
-        binding?.viewmodel = viewModel
-
+        binding?.let {
+            it.viewmodel = viewModel
+            it.lifecycleOwner = this
+        }
         return binding?.root
     }
 
