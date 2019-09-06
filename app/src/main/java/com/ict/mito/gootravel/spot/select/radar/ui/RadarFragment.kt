@@ -59,7 +59,7 @@ class RadarFragment : Fragment() {
 
         viewModel.fragmentManager = fragmentManager!!
 
-//        binding?.viewmodel = viewModel
+        binding?.viewmodel = viewModel
         binding?.wifiSpot?.setOnClickListener {
             viewModel.onClickSpot(it)
         }
