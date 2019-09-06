@@ -59,6 +59,7 @@ class App : Application() {
     private val databaseModule: Module = module {
         single { GooTravelDataRoomDataBase.getDataBase(applicationContext) }
         single { get<GooTravelDataRoomDataBase>().registerDataDAO() }
+        single { get<GooTravelDataRoomDataBase>().spotDataDAO() }
     }
 
     private val repositoryModule: Module = module {
