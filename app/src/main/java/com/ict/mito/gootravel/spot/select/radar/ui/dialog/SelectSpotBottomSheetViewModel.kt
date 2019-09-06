@@ -16,6 +16,6 @@ class SelectSpotBottomSheetViewModel(private val repository: Repository) : ViewM
 
     val distance: String = "0m"
 
-    fun setId(id: Int) {
+    fun setId(id: Long) {
     }
 }
