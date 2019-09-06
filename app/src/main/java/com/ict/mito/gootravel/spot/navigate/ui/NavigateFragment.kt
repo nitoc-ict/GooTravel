@@ -68,7 +68,6 @@ class NavigateFragment : Fragment() {
                 }
             )
             it.spotData = SpotData(
-                10,
                 "Dummy",
                 0.0,
                 0.0,
