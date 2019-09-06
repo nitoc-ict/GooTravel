@@ -60,17 +60,7 @@ class RadarFragment : Fragment() {
 
 //        binding?.viewmodel = viewModel
         binding?.wifiSpot?.setOnClickListener {
-            val args = Bundle()
-            args.putInt(
-                "spotId",
-                it.id
-            )
-            val bottomSheet = SelectSpotBottomSheetFragment()
-            bottomSheet.arguments = args
-            bottomSheet.show(
-                fragmentManager!!,
-                bottomSheet.tag
-            )
+            viewModel.onClickSpot(it)
         }
         binding?.foodSpot?.setOnClickListener {
             findNavController().navigate(R.id.action_radarFragment_to_navigateFragment)
