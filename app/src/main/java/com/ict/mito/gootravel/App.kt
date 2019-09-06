@@ -1,7 +1,7 @@
 package com.ict.mito.gootravel
 
 import android.app.Application
-import com.ict.mito.gootravel.db.RegisterDataRoomDataBase
+import com.ict.mito.gootravel.db.GooTravelDataRoomDataBase
 import com.ict.mito.gootravel.disaster.manual.ui.ManualViewModel
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.repo.impl.RepositoryImpl
@@ -57,11 +57,17 @@ class App : Application() {
     }
 
     private val databaseModule: Module = module {
-        single { RegisterDataRoomDataBase.getDataBase(applicationContext) }
-        single { get<RegisterDataRoomDataBase>().dao() }
+        single { GooTravelDataRoomDataBase.getDataBase(applicationContext) }
+        single { get<GooTravelDataRoomDataBase>().registerDataDAO() }
+        single { get<GooTravelDataRoomDataBase>().spotDataDAO() }
     }
 
     private val repositoryModule: Module = module {
-        single { RepositoryImpl(get()) as Repository }
+        single {
+            RepositoryImpl(
+                get(),
+                get()
+            ) as Repository
+        }
     }
 }
