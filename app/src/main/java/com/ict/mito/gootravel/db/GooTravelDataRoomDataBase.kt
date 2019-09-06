@@ -19,7 +19,7 @@ import com.ict.mito.gootravel.spot.model.SpotData
     exportSchema = false
 )
 abstract class GooTravelDataRoomDataBase : RoomDatabase() {
-    abstract fun dao(): RegisterDataDAO
+    abstract fun registerDataDAO(): RegisterDataDAO
 
     companion object {
         @Volatile
