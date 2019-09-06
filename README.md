@@ -92,6 +92,7 @@ MVVM(予定)
 [Wikipedia](https://ja.wikipedia.org/wiki/Model_View_ViewModel)  
 [参考1](http://blog.pionet.co.jp/experience/archives/2143)  
 [参考2](https://blog.excite.co.jp/exdev/28799157/)  
+[参考3](https://qiita.com/s_emoto/items/08e46b18f72c3b303b12)  
 
 // サンプル貼る  
 https://github.com/mitohato/MVVM-Sample  
