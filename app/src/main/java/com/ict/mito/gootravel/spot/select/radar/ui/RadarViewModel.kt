@@ -12,4 +12,9 @@ class RadarViewModel : ViewModel() {
     fun onClickWiFi(view: View) {
         navController.navigate(R.id.action_radarFragment_to_navigateFragment)
     }
+
+    fun onClickSpot(view: View) {
+        
+
+    }
 }
