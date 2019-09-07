@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.SelectSpotBottomSheetBinding
@@ -30,8 +31,15 @@ class SelectSpotBottomSheetFragment : BottomSheetDialogFragment() {
         )
 
         val id: Int = arguments?.getInt("spotId") ?: 0
-        viewmodel.setId(id.toLong())
-
+        viewmodel.also {
+            it.setId(id.toLong())
+            it.spotData.observe(
+                this,
+                Observer {
+                    binding?.notifyChange()
+                }
+            )
+        }
         binding?.let {
             it.viewmodel = viewmodel
             it.lifecycleOwner = this
