@@ -20,7 +20,7 @@ class CSVReader {
             val bufferReader = BufferedReader(inputStreamReader as Reader?)
 
             while (true) {
-                val line = bufferReader.readLine()
+                val line = bufferReader.readLine() ?: break
                 val stringTokenizer = StringTokenizer(
                     line,
                     ","
