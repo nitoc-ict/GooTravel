@@ -13,4 +13,6 @@ interface ReadRepository {
 
     fun getRegisterLocationById(id: Long): Single<RoomRegisterLocation>
     fun getAllRegisterLocation(): Single<List<RoomRegisterLocation>>
+
+    fun getSpotDataByCSV(): Single<List<SpotData>>
 }
