@@ -70,6 +70,7 @@ class App : Application() {
         single {
             RepositoryImpl(
                 get(),
+                get(),
                 get()
             ) as Repository
         }
