@@ -40,8 +40,7 @@ class CSVReader {
                 arrayList.add(spotData)
             }
             bufferReader.close()
-            arrayList.toList()
-
+            it.onSuccess(arrayList.toList())
         } catch (e: Exception) {
             e.printStackTrace()
         }
