@@ -13,32 +13,37 @@ import java.util.*
 class CSVReader {
     fun getSpotDataList(): Single<List<SpotData>> = Single.create {
         val arrayList: ArrayList<SpotData> = arrayListOf()
-        val inputStream =
+        try {
+            val inputStream =
 
-        val inputStreamReader = InputStreamReader(inputStream)
-        val bufferReader = BufferedReader(inputStreamReader as Reader?)
+            val inputStreamReader = InputStreamReader(inputStream)
+            val bufferReader = BufferedReader(inputStreamReader as Reader?)
 
-        while (true) {
-            val line = bufferReader.readLine()
-            val stringTokenizer = StringTokenizer(
-                line,
-                ","
-            )
+            while (true) {
+                val line = bufferReader.readLine()
+                val stringTokenizer = StringTokenizer(
+                    line,
+                    ","
+                )
 
-            if (line == "") break
+                if (line == "") break
 
-            val id = stringTokenizer.nextToken().toLong()
-            val spotData = SpotData(
-                latitude = stringTokenizer.nextToken().toDouble(),
-                longitude = stringTokenizer.nextToken().toDouble(),
-                name = stringTokenizer.nextToken(),
-                spotType = stringTokenizer.nextToken().toInt(),
-                spotTypeDetail = stringTokenizer.nextToken()
-            )
-            spotData.id = id
-            arrayList.add(spotData)
+                val id = stringTokenizer.nextToken().toLong()
+                val spotData = SpotData(
+                    latitude = stringTokenizer.nextToken().toDouble(),
+                    longitude = stringTokenizer.nextToken().toDouble(),
+                    name = stringTokenizer.nextToken(),
+                    spotType = stringTokenizer.nextToken().toInt(),
+                    spotTypeDetail = stringTokenizer.nextToken()
+                )
+                spotData.id = id
+                arrayList.add(spotData)
+            }
+            bufferReader.close()
+            arrayList.toList()
+
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-        bufferReader.close()
-        arrayList.toList()
     }
 }
