@@ -33,7 +33,8 @@ class App : Application() {
                     viewModelModule,
                     liveDataModule,
                     databaseModule,
-                    repositoryModule
+                    repositoryModule,
+                    readerModule
                 )
             )
         }
