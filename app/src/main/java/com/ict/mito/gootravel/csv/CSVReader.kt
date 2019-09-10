@@ -38,6 +38,7 @@ class CSVReader {
             spotData.id = id
             arrayList.add(spotData)
         }
+        bufferReader.close()
         arrayList.toList()
     }
 }
