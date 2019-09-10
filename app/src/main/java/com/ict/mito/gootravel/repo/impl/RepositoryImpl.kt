@@ -14,6 +14,10 @@ class RepositoryImpl(
     private val registerDataDAO: RegisterDataDAO,
     private val spotDataDAO: SpotDataDAO
 ) : Repository {
+    override fun getSpotDataByCSV(): Single<List<SpotData>> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun add(spotData: SpotData) = spotDataDAO.insert(spotData)
 
     override fun add(roomRegisterLocation: RoomRegisterLocation) =
