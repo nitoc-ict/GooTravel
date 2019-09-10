@@ -1,5 +1,6 @@
 package com.ict.mito.gootravel.csv
 
+import android.content.Context
 import com.ict.mito.gootravel.spot.model.SpotData
 import io.reactivex.Single
 import java.io.BufferedReader
@@ -10,7 +11,7 @@ import java.util.*
 /**
  * Created by mitohato14 on 2019-09-09.
  */
-class CSVReader {
+class CSVReader(private val context: Context) {
     fun getSpotDataList(): Single<List<SpotData>> = Single.create {
         val arrayList: ArrayList<SpotData> = arrayListOf()
         try {
