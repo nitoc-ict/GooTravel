@@ -27,8 +27,6 @@ class CSVReader(private val context: Context) {
                     ","
                 )
 
-                if (line == "") break
-
                 val id = stringTokenizer.nextToken().toLong()
                 val spotData = SpotData(
                     latitude = stringTokenizer.nextToken().toDouble(),
