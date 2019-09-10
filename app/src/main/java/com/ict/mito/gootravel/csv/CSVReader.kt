@@ -12,7 +12,7 @@ import java.util.*
  */
 class CSVReader {
     fun getSpotDataList(): Single<List<SpotData>> = Single.create {
-        var arrayList: ArrayList<SpotData> = arrayListOf()
+        val arrayList: ArrayList<SpotData> = arrayListOf()
         val inputStream =
 
         val inputStreamReader = InputStreamReader(inputStream)
