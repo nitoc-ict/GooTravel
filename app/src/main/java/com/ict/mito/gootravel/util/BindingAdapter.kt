@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 /**
  * Created by mitohato14 on 2019-09-11.
  */
-class BindingAdapter {
+object BindingAdapter {
     @BindingAdapter("android:src")
     fun setImageResource(
         imageView: ImageView,
