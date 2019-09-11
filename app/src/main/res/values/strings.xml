@@ -5,4 +5,11 @@
     <string name="radar_oval">RadarOval</string>
     <string name="location_request_dialog_title">位置情報サービスが無効です</string>
     <string name="location_request_dialog_body">GooTravelでは現在地情報を使用します。位置情報サービスを有効にしてください。</string>
+    <string name="appbar_list_title">List</string>
+    <string name="appbar_radar_title">Radar</string>
+    <string name="appbar_search_title">Search</string>
+    <string name="appbar_manual_title">Manual</string>
+    <string name="appbar_other_title">Other</string>
+    <string name="register">REGISTER</string>
+    <string name="go">GO</string>
 </resources>

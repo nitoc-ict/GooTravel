@@ -1,13 +1,18 @@
 package com.ict.mito.gootravel
 
 import android.app.Application
+import com.ict.mito.gootravel.csv.CSVReader
+import com.ict.mito.gootravel.db.GooTravelDataRoomDataBase
 import com.ict.mito.gootravel.disaster.manual.ui.ManualViewModel
+import com.ict.mito.gootravel.repo.Repository
+import com.ict.mito.gootravel.repo.impl.RepositoryImpl
 import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.OrientationLiveData
 import com.ict.mito.gootravel.spot.navigate.ui.NavigateViewModel
 import com.ict.mito.gootravel.spot.register.ui.RegisterViewModel
 import com.ict.mito.gootravel.spot.select.list.ui.ListViewModel
 import com.ict.mito.gootravel.spot.select.radar.ui.RadarViewModel
+import com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetViewModel
 import com.ict.mito.gootravel.spot.select.search.ui.SearchViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -26,7 +31,10 @@ class App : Application() {
             modules(
                 arrayListOf(
                     viewModelModule,
-                    liveDataModule
+                    liveDataModule,
+                    databaseModule,
+                    repositoryModule,
+                    readerModule
                 )
             )
         }
@@ -44,10 +52,31 @@ class App : Application() {
         viewModel { ListViewModel() }
         viewModel { RadarViewModel() }
         viewModel { SearchViewModel() }
+        viewModel { SelectSpotBottomSheetViewModel(get()) }
     }
 
     private val liveDataModule: Module = module {
         factory { OrientationLiveData(applicationContext) }
         factory { LocationLiveData(applicationContext) }
+    }
+
+    private val databaseModule: Module = module {
+        single { GooTravelDataRoomDataBase.getDataBase(applicationContext) }
+        single { get<GooTravelDataRoomDataBase>().registerDataDAO() }
+        single { get<GooTravelDataRoomDataBase>().spotDataDAO() }
+    }
+
+    private val repositoryModule: Module = module {
+        single {
+            RepositoryImpl(
+                get(),
+                get(),
+                get()
+            ) as Repository
+        }
+    }
+
+    private val readerModule: Module = module {
+        single { CSVReader(applicationContext) }
     }
 }

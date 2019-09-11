@@ -38,7 +38,7 @@ class NavigateFragment : Fragment() {
                     resources,
                     viewModel.direction.value?.toDouble() ?: 0.0
                 )
-                binding?.arrowImage?.setImageBitmap(image)
+                it.arrowImage?.setImageBitmap(image)
                 it.viewmodel = viewModel
                 it.notifyChange()
             }
@@ -67,15 +67,18 @@ class NavigateFragment : Fragment() {
                 }
             )
             it.spotData = SpotData(
-                10,
                 "Dummy",
                 0.0,
-                0.0
+                0.0,
+                0,
+                ""
             )
         }
 
-        binding?.viewmodel = viewModel
-
+        binding?.let {
+            it.viewmodel = viewModel
+            it.lifecycleOwner = this
+        }
         return binding?.root
     }
 

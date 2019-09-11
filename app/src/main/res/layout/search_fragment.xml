@@ -7,13 +7,4 @@
         android:layout_height="match_parent"
         tools:context=".spot.select.search.ui.SearchFragment">
 
-    <Button
-            android:id="@+id/button_to_radar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="RADAR"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

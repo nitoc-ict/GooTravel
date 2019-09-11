@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RadarFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
-import kotlinx.android.synthetic.main.radar_fragment.*
+import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RadarFragment : Fragment() {
@@ -24,6 +24,32 @@ class RadarFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        activity?.bottom_appbar?.let {
+            it.replaceMenu(R.menu.radar_bottomappbar_menu)
+            activity?.bottom_appbar?.setOnMenuItemClickListener { menu ->
+                when (menu.itemId) {
+                    R.id.appbar_list -> {
+                        findNavController().navigate(R.id.action_radarFragment_to_listFragment)
+                    }
+                    R.id.appbar_search -> {
+                        findNavController().navigate(R.id.action_radarFragment_to_searchFragment)
+                    }
+                    R.id.app_bar_manual -> {
+                        startActivity(
+                            Intent(
+                                context,
+                                ManualActivity::class.java
+                            )
+                        )
+                    }
+                    else -> {
+                        findNavController().navigate(R.id.action_radarFragment_to_registerFragment)
+                    }
+                }
+                true
+            }
+        }
+
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.radar_fragment,
@@ -31,35 +57,23 @@ class RadarFragment : Fragment() {
             false
         )
 
-//        binding?.viewmodel = viewModel
-        binding?.wifiSpot?.setOnClickListener {
-            findNavController().navigate(R.id.action_radarFragment_to_navigateFragment)
-        }
-        binding?.foodSpot?.setOnClickListener {
-            findNavController().navigate(R.id.action_radarFragment_to_navigateFragment)
-        }
-        binding?.shopSpot?.setOnClickListener {
-            findNavController().navigate(R.id.action_radarFragment_to_navigateFragment)
+        viewModel.fragmentManager = fragmentManager!!
+
+        binding?.let {
+            it.viewmodel = viewModel
+            it.wifiSpot?.setOnClickListener { view ->
+                viewModel.onClickSpot(view)
+            }
+            it.foodSpot?.setOnClickListener { view ->
+                viewModel.onClickSpot(view)
+            }
+            it.shopSpot?.setOnClickListener { view ->
+                viewModel.onClickSpot(view)
+            }
+            it.lifecycleOwner = this
         }
 
         return binding?.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        // TODO: Use the ViewModel
-        button_to_list.setOnClickListener {
-            findNavController().navigate(R.id.action_radarFragment_to_listFragment)
-        }
-        button_to_search.setOnClickListener {
-            findNavController().navigate(R.id.action_radarFragment_to_searchFragment)
-        }
-        button_to_register.setOnClickListener {
-            findNavController().navigate(R.id.action_radarFragment_to_registerFragment)
-        }
-        button_to_manual.setOnClickListener {
-            startActivity(Intent(context, ManualActivity::class.java))
-        }
     }
 
     override fun onDestroy() {
