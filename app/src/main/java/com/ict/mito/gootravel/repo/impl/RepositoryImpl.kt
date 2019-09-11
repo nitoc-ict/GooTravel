@@ -1,5 +1,6 @@
 package com.ict.mito.gootravel.repo.impl
 
+import com.ict.mito.gootravel.csv.CSVReader
 import com.ict.mito.gootravel.db.RoomRegisterLocation
 import com.ict.mito.gootravel.db.dao.RegisterDataDAO
 import com.ict.mito.gootravel.db.dao.SpotDataDAO
@@ -12,8 +13,11 @@ import io.reactivex.Single
  */
 class RepositoryImpl(
     private val registerDataDAO: RegisterDataDAO,
-    private val spotDataDAO: SpotDataDAO
+    private val spotDataDAO: SpotDataDAO,
+    private val csvReader: CSVReader
 ) : Repository {
+    override fun getSpotDataByCSV(): Single<List<SpotData>> = csvReader.getSpotDataList()
+
     override fun add(spotData: SpotData) = spotDataDAO.insert(spotData)
 
     override fun add(roomRegisterLocation: RoomRegisterLocation) =

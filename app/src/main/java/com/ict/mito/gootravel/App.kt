@@ -1,6 +1,7 @@
 package com.ict.mito.gootravel
 
 import android.app.Application
+import com.ict.mito.gootravel.csv.CSVReader
 import com.ict.mito.gootravel.db.GooTravelDataRoomDataBase
 import com.ict.mito.gootravel.disaster.manual.ui.ManualViewModel
 import com.ict.mito.gootravel.repo.Repository
@@ -32,7 +33,8 @@ class App : Application() {
                     viewModelModule,
                     liveDataModule,
                     databaseModule,
-                    repositoryModule
+                    repositoryModule,
+                    readerModule
                 )
             )
         }
@@ -68,8 +70,13 @@ class App : Application() {
         single {
             RepositoryImpl(
                 get(),
+                get(),
                 get()
             ) as Repository
         }
+    }
+
+    private val readerModule: Module = module {
+        single { CSVReader(applicationContext) }
     }
 }
