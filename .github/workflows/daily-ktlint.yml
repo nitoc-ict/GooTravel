@@ -32,5 +32,3 @@ jobs:
           COMMIT_MESSAGE: Auto-modify files by daily ktlint
           PULL_REQUEST_TITLE: Changes from daily ktlint
           PULL_REQUEST_BODY: This is an auto-generated PR with changes from daily ktlint
-          AUTHOR_EMAIL: ********@email.com
-          AUTHOR_NAME: your-name
