@@ -17,8 +17,8 @@ class SelectSpotBottomSheetViewModel(private val repository: Repository) : ViewM
     val distance: String = "0m"
 
     fun setId(id: Long) {
-        repository.getSpotDataById(id).map {
-            _spotData.postValue(it)
-        }.subscribe()
+//        repository.getSpotDataById(id).map {
+//            _spotData.postValue(it)
+//        }.subscribe()
     }
 }
