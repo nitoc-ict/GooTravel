@@ -9,10 +9,9 @@ import androidx.databinding.BindingAdapter
 object BindingAdapter {
     @BindingAdapter("android:src")
     @JvmStatic
-    fun setImageResource(
-        imageView: ImageView,
+    fun ImageView.imageResource(
         resource: Int
     ) {
-        imageView.setImageResource(resource)
+        this.setImageResource(resource)
     }
 }
