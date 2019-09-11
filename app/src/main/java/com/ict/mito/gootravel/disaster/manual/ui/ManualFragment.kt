@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.ict.mito.gootravel.R
+import com.ict.mito.gootravel.databinding.ManualFragmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ManualFragment : Fragment() {
 
+    private var binding: ManualFragmentBinding? = null
     private val viewModel: ManualViewModel by viewModel()
 
     override fun onCreateView(
