@@ -3,4 +3,6 @@
     <string name="navigatearrow">NavigateArrow</string>
     <string name="my_location">MyLocation</string>
     <string name="radar_oval">RadarOval</string>
+    <string name="location_request_dialog_title">位置情報サービスが無効です</string>
+    <string name="location_request_dialog_body">GooTravelでは現在地情報を使用します。位置情報サービスを有効にしてください。</string>
 </resources>
