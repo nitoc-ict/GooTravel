@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.ManualFragmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ManualFragment : Fragment() {
-
     private var binding: ManualFragmentBinding? = null
     private val viewModel: ManualViewModel by viewModel()
 
@@ -19,6 +19,12 @@ class ManualFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.manual_fragment,
+            container,
+            false
+        )
         return inflater.inflate(
             R.layout.manual_fragment,
             container,
