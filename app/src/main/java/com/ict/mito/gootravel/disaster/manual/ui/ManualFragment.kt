@@ -29,10 +29,6 @@ class ManualFragment : Fragment() {
             it.viewmodel = viewModel
             it.lifecycleOwner = this
         }
-        return inflater.inflate(
-            R.layout.manual_fragment,
-            container,
-            false
-        )
+        return binding?.root
     }
 }
