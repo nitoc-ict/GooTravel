@@ -11,3 +11,5 @@ class TestDialogFragment:DialogFragment() {
                     override fun onClick(dialog:DialogInterface, id:Int) {}
                 })
             return builder.create()
+        }
+}
