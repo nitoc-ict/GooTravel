@@ -1,5 +1,5 @@
 class TestDialogFragment:DialogFragment() {
-        fun onCreateDialog(savedInstanceState:Bundle):Dialog {
+        fun onCreateDialog(savedInstanceState:Bundle?):Dialog {
             val builder = AlertDialog.Builder(getActivity())
             builder.setTitle("Earthquake")
                 .setMessage("massage")
