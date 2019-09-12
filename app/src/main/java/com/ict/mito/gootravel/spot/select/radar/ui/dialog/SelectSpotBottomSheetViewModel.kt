@@ -31,5 +31,6 @@ class SelectSpotBottomSheetViewModel(private val repository: Repository) : ViewM
 
     fun spotClick(view: View) {
         navController?.navigate(R.id.action_radarFragment_to_navigateFragment)
+        dialog?.dismiss()
     }
 }
