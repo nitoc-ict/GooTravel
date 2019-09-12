@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.SpotData
@@ -20,6 +21,7 @@ class SelectSpotBottomSheetViewModel(private val repository: Repository) : ViewM
     val distance: String = "0m"
 
     var navController: NavController? = null
+    var dialog: BottomSheetDialogFragment? = null
 
     fun setId(id: Long) {
 //        repository.getSpotDataById(id).map {
