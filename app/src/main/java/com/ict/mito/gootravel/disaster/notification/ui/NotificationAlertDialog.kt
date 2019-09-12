@@ -1,7 +1,4 @@
-        val newFragment = TestDialogFragment()
-        newFragment.show(getSupportFragmentManager(), "test")
-    }
-    class TestDialogFragment:DialogFragment() {
+class TestDialogFragment:DialogFragment() {
         fun onCreateDialog(savedInstanceState:Bundle):Dialog {
             val builder = AlertDialog.Builder(getActivity())
             builder.setTitle("Earthquake")
@@ -14,6 +11,3 @@
                     override fun onClick(dialog:DialogInterface, id:Int) {}
                 })
             return builder.create()
-        }
-    }
-}
