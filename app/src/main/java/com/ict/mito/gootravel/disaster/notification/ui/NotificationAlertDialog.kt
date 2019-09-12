@@ -12,6 +12,7 @@ class MainActivity:AppCompatActivity() {
         setContentView(R.layout.fragment)
         val newFragment = TestDialogFragment()
         newFragment.show(getSupportFragmentManager(), "test")
+
     }
     class TestDialogFragment:DialogFragment() {
         fun onCreateDialog(savedInstanceState:Bundle):Dialog {
