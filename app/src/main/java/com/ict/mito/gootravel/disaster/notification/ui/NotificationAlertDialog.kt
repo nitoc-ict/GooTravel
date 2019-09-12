@@ -1,4 +1,5 @@
 package com.ict.mito.gootravel.disaster.notification.ui
+
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
@@ -12,11 +13,11 @@ class NotificationAlertDialog: DialogFragment() {
         builder.setTitle("Earthquake")
             .setMessage("massage")
             .setIcon(R.mipmap.ic_launcher)
-            .setPositiveButton("REFUGE", object: DialogInterface.OnClickListener {
-                override fun onClick(dialog:DialogInterface, id:Int) {}
+            .setPositiveButton("REFUGE", object : DialogInterface.OnClickListener {
+                override fun onClick(dialog : DialogInterface, id : Int) {}
             })
-            .setNegativeButton("MANUAL", object: DialogInterface.OnClickListener {
-                override fun onClick(dialog:DialogInterface, id:Int) {}
+            .setNegativeButton("MANUAL", object : DialogInterface.OnClickListener {
+                override fun onClick(dialog : DialogInterface, id : Int) {}
             })
         return builder.create()
     }
