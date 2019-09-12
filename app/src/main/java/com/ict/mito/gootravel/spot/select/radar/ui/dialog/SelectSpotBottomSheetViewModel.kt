@@ -3,6 +3,7 @@ package com.ict.mito.gootravel.spot.select.radar.ui.dialog
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.SpotData
 
@@ -15,6 +16,8 @@ class SelectSpotBottomSheetViewModel(private val repository: Repository) : ViewM
         get() = _spotData
 
     val distance: String = "0m"
+
+    var navController: NavController? = null
 
     fun setId(id: Long) {
 //        repository.getSpotDataById(id).map {
