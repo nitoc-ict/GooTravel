@@ -1,15 +1,3 @@
-package com.ict.mito.gootravel.disaster.notification.ui
-
-import android.app.AlertDialog
-import android.app.Dialog
-import android.content.DialogInterface
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.DialogFragment
-class MainActivity:AppCompatActivity() {
-    protected fun onCreate(savedInstanceState:Bundle) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment)
         val newFragment = TestDialogFragment()
         newFragment.show(getSupportFragmentManager(), "test")
     }
