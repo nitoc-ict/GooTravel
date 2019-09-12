@@ -1,5 +1,5 @@
 package com.ict.mito.gootravel.disaster.notification.ui
-class NotificationAlertDialog.kt:DialogFragment() {
+class NotificationAlertDialog:DialogFragment() {
 override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(getActivity())
         builder.setTitle("Earthquake")
