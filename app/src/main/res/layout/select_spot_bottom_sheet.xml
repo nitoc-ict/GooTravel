@@ -71,6 +71,7 @@
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/popup_go_button_style"
                 android:drawableStart="@drawable/ic_directions_white_24dp"
+                android:onClick="@{viewmodel::spotClick}"
                 android:text="@string/go"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintBottom_toBottomOf="parent"
