@@ -63,7 +63,14 @@ class OrientationLiveData(
 
     override fun onInactive() {
         super.onInactive()
-        sensorManager.unregisterListener(sensorEventListener)
+        sensorManager.unregisterListener(
+            sensorEventListener,
+            accelerometerSensor
+        )
+        sensorManager.unregisterListener(
+            sensorEventListener,
+            magnetometerSensor
+        )
     }
 
     private fun updateOrientationAngles() {
