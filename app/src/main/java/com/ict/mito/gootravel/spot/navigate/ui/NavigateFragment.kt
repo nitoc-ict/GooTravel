@@ -10,7 +10,6 @@ import androidx.lifecycle.Observer
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
 import com.ict.mito.gootravel.spot.model.SpotData
-import com.ict.mito.gootravel.util.rad2deg
 import com.ict.mito.gootravel.util.rotateImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -56,7 +55,7 @@ class NavigateFragment : Fragment() {
             it.orientationLiveData.observe(
                 this,
                 Observer { orientation ->
-                    it.azimuth.postValue(rad2deg(orientation.azimuth))
+                    it.azimuth.postValue(orientation.azimuth.toDouble())
                 }
             )
             it.locationLiveData.observe(
