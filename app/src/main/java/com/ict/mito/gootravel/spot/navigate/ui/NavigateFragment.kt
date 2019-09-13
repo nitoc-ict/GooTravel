@@ -32,7 +32,7 @@ class NavigateFragment : Fragment() {
 
         )
 
-        val viewmodelObserver = Observer<String> {
+        val viewmodelObserver = Observer<Double> {
             binding?.let {
                 val image = rotateImage(
                     resources,
