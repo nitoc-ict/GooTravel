@@ -11,6 +11,7 @@ import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
 import com.ict.mito.gootravel.spot.model.SpotData
 import com.ict.mito.gootravel.util.rotateImage
+import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NavigateFragment : Fragment() {
@@ -23,6 +24,8 @@ class NavigateFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        activity?.bottom_appbar?.replaceMenu(R.menu.empty_menu)
+
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.navigate_fragment,
