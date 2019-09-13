@@ -16,21 +16,21 @@ class NavigateViewModel(
 ) : ViewModel() {
     var latitude: MutableLiveData<Double> = MutableLiveData()
     var longitude: MutableLiveData<Double> = MutableLiveData()
-    var azimuth: MutableLiveData<Double> = MediatorLiveData()
-    var direction: MediatorLiveData<String> = MediatorLiveData()
-    var distance: MediatorLiveData<String> = MediatorLiveData()
+    var azimuth: MutableLiveData<Double> = MutableLiveData()
+    var direction: MediatorLiveData<Double> = MediatorLiveData()
+    var distance: MediatorLiveData<Double> = MediatorLiveData()
 
     lateinit var spotData: SpotData
 
     init {
         val observer = Observer<Double> {
             direction.postValue(
-                (calcDirection(
+                calcDirection(
                     latitude.value ?: 0.0,
                     longitude.value ?: 0.0,
                     spotData.latitude,
                     spotData.longitude
-                ) - (azimuth.value ?: 0.0)).toString()
+                ) - (azimuth.value ?: 0.0)
             )
             distance.postValue(
                 calcDirectDistance(
@@ -38,7 +38,7 @@ class NavigateViewModel(
                     longitude.value ?: 0.0,
                     spotData.latitude,
                     spotData.longitude
-                ).toString()
+                )
             )
         }
         direction.apply {

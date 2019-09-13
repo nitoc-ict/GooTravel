@@ -6,6 +6,8 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import androidx.lifecycle.LiveData
+import com.ict.mito.gootravel.util.normalizeRange
+import com.ict.mito.gootravel.util.rad2deg
 
 /**
  * Created by mitohato14 on 2019-07-31.
@@ -14,6 +16,8 @@ class OrientationLiveData(
     context: Context
 ) : LiveData<OrientationData>() {
     private val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+    private val accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+    private val magnetometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
 
     private var accelerometerReadingArray = FloatArray(3)
     private var magnetometerReadingArray = FloatArray(3)
@@ -47,13 +51,13 @@ class OrientationLiveData(
 
         sensorManager.registerListener(
             sensorEventListener,
-            sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+            accelerometerSensor,
             SensorManager.SENSOR_DELAY_NORMAL,
             SensorManager.SENSOR_DELAY_UI
         )
         sensorManager.registerListener(
             sensorEventListener,
-            sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
+            magnetometerSensor,
             SensorManager.SENSOR_DELAY_NORMAL,
             SensorManager.SENSOR_DELAY_UI
         )
@@ -61,7 +65,14 @@ class OrientationLiveData(
 
     override fun onInactive() {
         super.onInactive()
-        sensorManager.unregisterListener(sensorEventListener)
+        sensorManager.unregisterListener(
+            sensorEventListener,
+            accelerometerSensor
+        )
+        sensorManager.unregisterListener(
+            sensorEventListener,
+            magnetometerSensor
+        )
     }
 
     private fun updateOrientationAngles() {
@@ -83,5 +94,7 @@ class OrientationLiveData(
             remapCoordinateArray,
             orientationAngles
         )
+        val angle = rad2deg(orientationAngles[0])
+        orientationAngles[0] = normalizeRange(angle)
     }
 }
