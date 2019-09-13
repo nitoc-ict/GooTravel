@@ -38,7 +38,6 @@ class NavigateFragment : Fragment() {
                     viewModel.direction.value?.toDouble() ?: 0.0
                 )
                 it.arrowImage?.setImageBitmap(image)
-                it.viewmodel = viewModel
                 it.notifyChange()
             }
         }
