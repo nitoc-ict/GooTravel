@@ -16,7 +16,7 @@ class NavigateViewModel(
 ) : ViewModel() {
     var latitude: MutableLiveData<Double> = MutableLiveData()
     var longitude: MutableLiveData<Double> = MutableLiveData()
-    var azimuth: MutableLiveData<Double> = MediatorLiveData()
+    var azimuth: MutableLiveData<Double> = MutableLiveData()
     var direction: MediatorLiveData<String> = MediatorLiveData()
     var distance: MediatorLiveData<String> = MediatorLiveData()
 
