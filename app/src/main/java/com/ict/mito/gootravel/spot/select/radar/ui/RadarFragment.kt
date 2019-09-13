@@ -61,13 +61,13 @@ class RadarFragment : Fragment() {
 
         binding?.let {
             it.viewmodel = viewModel
-            it.wifiSpot?.setOnClickListener { view ->
+            it.wifiSpot.setOnClickListener { view ->
                 viewModel.onClickSpot(view)
             }
-            it.foodSpot?.setOnClickListener { view ->
+            it.foodSpot.setOnClickListener { view ->
                 viewModel.onClickSpot(view)
             }
-            it.shopSpot?.setOnClickListener { view ->
+            it.shopSpot.setOnClickListener { view ->
                 viewModel.onClickSpot(view)
             }
             it.lifecycleOwner = this
