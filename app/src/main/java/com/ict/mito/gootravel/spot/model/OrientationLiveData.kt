@@ -6,6 +6,8 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import androidx.lifecycle.LiveData
+import com.ict.mito.gootravel.util.normalizeRange
+import com.ict.mito.gootravel.util.rad2deg
 
 /**
  * Created by mitohato14 on 2019-07-31.
@@ -92,5 +94,7 @@ class OrientationLiveData(
             remapCoordinateArray,
             orientationAngles
         )
+        val angle = rad2deg(orientationAngles[0])
+        orientationAngles[0] = normalizeRange(angle)
     }
 }
