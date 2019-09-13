@@ -24,7 +24,7 @@
                 android:contentDescription="@string/navigatearrow"/>
         <TextView
                 android:id="@+id/distance_text"
-                android:text="@{viewmodel.distance}"
+                android:text="@{viewmodel.distance.toString()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tool:layout_constraintTop_toTopOf="parent"
