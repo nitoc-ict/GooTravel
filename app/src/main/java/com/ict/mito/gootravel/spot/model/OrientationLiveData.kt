@@ -49,13 +49,13 @@ class OrientationLiveData(
 
         sensorManager.registerListener(
             sensorEventListener,
-            sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+            accelerometerSensor,
             SensorManager.SENSOR_DELAY_NORMAL,
             SensorManager.SENSOR_DELAY_UI
         )
         sensorManager.registerListener(
             sensorEventListener,
-            sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
+            magnetometerSensor,
             SensorManager.SENSOR_DELAY_NORMAL,
             SensorManager.SENSOR_DELAY_UI
         )
