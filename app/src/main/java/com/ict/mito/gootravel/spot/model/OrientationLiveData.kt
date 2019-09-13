@@ -15,7 +15,7 @@ class OrientationLiveData(
 ) : LiveData<OrientationData>() {
     private val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     private val accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-    private val magnetometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+    private val magnetometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
 
     private var accelerometerReadingArray = FloatArray(3)
     private var magnetometerReadingArray = FloatArray(3)
