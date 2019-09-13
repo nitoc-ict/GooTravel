@@ -74,3 +74,14 @@ fun rotateImage(
 fun rad2deg(rad: Float): Float {
     return (rad * 180.0f / Math.PI).toFloat()
 }
+
+fun normalizeRange(angle: Float): Float {
+    val f = angle / 360f
+    val i = if (f >= 0.0f) {
+        f.toInt()
+    } else {
+        f.toInt() - 1
+    }
+
+    return (f - i.toFloat()) * 360f
+}
