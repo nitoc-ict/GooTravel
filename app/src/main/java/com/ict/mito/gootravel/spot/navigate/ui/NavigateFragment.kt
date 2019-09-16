@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.RotateAnimation
+import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -37,22 +38,7 @@ class NavigateFragment : Fragment() {
 
         val viewmodelObserver = Observer<Double> {
             binding?.let {
-                val currentRotation = viewModel.direction.value?.toInt() ?: 0
-                val rotate = RotateAnimation(
-                    prevRotation.toFloat(),
-                    currentRotation.toFloat(),
-                    RotateAnimation.RELATIVE_TO_SELF,
-                    0.5f,
-                    RotateAnimation.RELATIVE_TO_SELF,
-                    0.7f
-                )
-
-                rotate.fillAfter = true
-                rotate.duration = 100
-
-                it.arrowImage.startAnimation(rotate)
-                prevRotation = currentRotation
-
+                rotateImage(it.arrowImage)
                 it.notifyChange()
             }
         }
@@ -93,6 +79,24 @@ class NavigateFragment : Fragment() {
             it.lifecycleOwner = this
         }
         return binding?.root
+    }
+
+    private fun rotateImage(view: ImageView) {
+        val currentRotation = viewModel.direction.value?.toInt() ?: 0
+        val rotate = RotateAnimation(
+            prevRotation.toFloat(),
+            currentRotation.toFloat(),
+            RotateAnimation.RELATIVE_TO_SELF,
+            0.5f,
+            RotateAnimation.RELATIVE_TO_SELF,
+            0.7f
+        )
+
+        rotate.fillAfter = true
+        rotate.duration = 100
+
+        view.startAnimation(rotate)
+        prevRotation = currentRotation
     }
 
     override fun onDestroy() {
