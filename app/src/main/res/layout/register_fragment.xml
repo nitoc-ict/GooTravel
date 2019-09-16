@@ -9,16 +9,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content"
                                                        android:layout_height="wrap_content">
         <TextView
+                android:id="@+id/NameView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="NAME"
                 android:textSize="12pt"
-                app:layout_constraintBottom_toTopOf="@id/Name"
+                app:layout_constraintBottom_toTopOf="@id/NameInput"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="10dp"/>
 
         <EditText
-                android:id="@+id/Name"
+                android:id="@+id/NameInput"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
@@ -38,20 +39,21 @@
 
 
         <EditText
-                android:id="@+id/Memo"
+                android:id="@+id/MemoInput"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/Name"
+                app:layout_constraintTop_toBottomOf="@id/NameInput"
                 android:layout_marginTop="200dp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="10dp"/>
 
         <TextView
+                android:id="@+id/MemoView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="MEMO"
                 android:textSize="12pt"
-                app:layout_constraintBottom_toTopOf="@id/Memo"
+                app:layout_constraintBottom_toTopOf="@id/MemoInput"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="10dp"/>
 
@@ -61,13 +63,13 @@
                 android:layout_height="wrap_content"
                 android:text="IMAGE BUTTON"
                 android:textSize="12pt"
-                app:layout_constraintTop_toTopOf="@id/Name"
+                app:layout_constraintTop_toTopOf="@id/NameInput"
                 android:layout_marginTop="70dp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="10dp"/>
 
         <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/ImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/textView"
@@ -79,7 +81,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/Memo"
+                app:layout_constraintTop_toBottomOf="@id/MemoInput"
                 android:layout_marginTop="80dp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="10dp"
@@ -87,7 +89,7 @@
                 android:textSize="12pt" />
 
         <Button
-                android:id="@+id/Time"
+                android:id="@+id/TimePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TIME"
