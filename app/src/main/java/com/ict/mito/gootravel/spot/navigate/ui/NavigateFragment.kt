@@ -38,7 +38,7 @@ class NavigateFragment : Fragment() {
 
         val viewmodelObserver = Observer<Double> {
             binding?.let {
-                rotateImage(it.arrowImage)
+                rotateNavigateImageView(it.arrowImage)
                 it.notifyChange()
             }
         }
@@ -81,7 +81,7 @@ class NavigateFragment : Fragment() {
         return binding?.root
     }
 
-    private fun rotateImage(view: ImageView) {
+    private fun rotateNavigateImageView(view: ImageView) {
         val currentRotation = viewModel.direction.value?.toInt() ?: 0
         val rotate = RotateAnimation(
             prevRotation.toFloat(),
