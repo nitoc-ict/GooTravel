@@ -6,7 +6,7 @@ import io.reactivex.Single
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.Reader
-import java.util.StringTokenizer
+import java.util.*
 
 /**
  * Created by mitohato14 on 2019-09-09.
@@ -33,7 +33,8 @@ class CSVReader(private val context: Context) {
                     longitude = stringTokenizer.nextToken().toDouble(),
                     name = stringTokenizer.nextToken(),
                     spotType = stringTokenizer.nextToken().toInt(),
-                    spotTypeDetail = stringTokenizer.nextToken()
+                    spotTypeDetail = stringTokenizer.nextToken(),
+                    address = ""
                 )
                 spotData.id = id
                 arrayList.add(spotData)
