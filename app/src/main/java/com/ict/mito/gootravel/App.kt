@@ -77,6 +77,6 @@ class App : Application() {
     }
 
     private val readerModule: Module = module {
-        single { CSVReader(applicationContext) }
+        single { CSVReader(applicationContext.resources.assets) }
     }
 }
