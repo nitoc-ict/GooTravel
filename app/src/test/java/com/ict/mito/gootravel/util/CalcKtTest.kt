@@ -28,25 +28,21 @@ class CalcKtTest {
 
     @Test
     fun rad2deg() {
-        val actual1 = rad2deg(1f)
         assertEquals(
             57.29578f,
-            actual1
+            rad2deg(1f)
         )
-        val actual2 = rad2deg(0f)
         assertEquals(
             0f,
-            actual2
+            rad2deg(0f)
         )
-        val actual3 = rad2deg(2f)
         assertEquals(
             114.59156f,
-            actual3
+            rad2deg(2f)
         )
-        val actual4 = rad2deg(-1f)
         assertEquals(
             -57.29578f,
-            actual4
+            rad2deg(-1f)
         )
     }
 
