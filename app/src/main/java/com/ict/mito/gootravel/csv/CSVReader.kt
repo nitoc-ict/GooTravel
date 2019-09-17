@@ -20,6 +20,7 @@ class CSVReader(private val context: Context) {
             val inputStreamReader = InputStreamReader(inputStream)
             val bufferReader = BufferedReader(inputStreamReader as Reader?)
 
+            var id = 1L
             while (true) {
                 val line = bufferReader.readLine() ?: break
                 val stringTokenizer = StringTokenizer(
@@ -27,7 +28,6 @@ class CSVReader(private val context: Context) {
                     ","
                 )
 
-                val id = stringTokenizer.nextToken().toLong()
                 val spotData = SpotData(
                     name = stringTokenizer.nextToken(),
                     address = stringTokenizer.nextToken(),
@@ -37,6 +37,7 @@ class CSVReader(private val context: Context) {
                     spotTypeDetail = ""
                 )
                 spotData.id = id
+                id++
                 arrayList.add(spotData)
             }
             bufferReader.close()
