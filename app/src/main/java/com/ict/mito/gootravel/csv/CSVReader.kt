@@ -28,6 +28,8 @@ class CSVReader(private val context: Context) {
                     ","
                 )
 
+                if (stringTokenizer.countTokens() == 0) break
+
                 val spotData = SpotData(
                     name = stringTokenizer.nextToken(),
                     address = stringTokenizer.nextToken(),
