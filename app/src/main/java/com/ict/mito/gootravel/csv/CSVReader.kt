@@ -29,12 +29,12 @@ class CSVReader(private val context: Context) {
 
                 val id = stringTokenizer.nextToken().toLong()
                 val spotData = SpotData(
+                    name = stringTokenizer.nextToken(),
+                    address = stringTokenizer.nextToken(),
                     latitude = stringTokenizer.nextToken().toDouble(),
                     longitude = stringTokenizer.nextToken().toDouble(),
-                    name = stringTokenizer.nextToken(),
-                    spotType = stringTokenizer.nextToken().toInt(),
-                    spotTypeDetail = stringTokenizer.nextToken(),
-                    address = ""
+                    spotType = 0,
+                    spotTypeDetail = ""
                 )
                 spotData.id = id
                 arrayList.add(spotData)
