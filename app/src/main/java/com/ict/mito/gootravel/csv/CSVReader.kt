@@ -6,7 +6,8 @@ import io.reactivex.Single
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.Reader
-import java.util.*
+import java.util.StringTokenizer
+import kotlin.collections.ArrayList
 
 /**
  * Created by mitohato14 on 2019-09-09.
