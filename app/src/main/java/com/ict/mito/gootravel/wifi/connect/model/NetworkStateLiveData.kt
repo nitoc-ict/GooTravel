@@ -2,6 +2,7 @@ package com.ict.mito.gootravel.wifi.connect.model
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import androidx.lifecycle.LiveData
@@ -12,6 +13,13 @@ import androidx.lifecycle.LiveData
 class NetworkStateLiveData(private val context: Context) : LiveData<Boolean>() {
     private val connectivityManager =
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+    private val networkCallback = object : ConnectivityManager.NetworkCallback() {
+        override fun onAvailable(network: Network?) {
+            super.onAvailable(network)
+            
+        }
+    }
 
     override fun onActive() {
         super.onActive()
