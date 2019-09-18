@@ -14,6 +14,7 @@ import com.ict.mito.gootravel.spot.select.list.ui.ListViewModel
 import com.ict.mito.gootravel.spot.select.radar.ui.RadarViewModel
 import com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetViewModel
 import com.ict.mito.gootravel.spot.select.search.ui.SearchViewModel
+import com.ict.mito.gootravel.wifi.connect.model.NetworkStateLiveData
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -58,6 +59,7 @@ class App : Application() {
     private val liveDataModule: Module = module {
         factory { OrientationLiveData(applicationContext) }
         factory { LocationLiveData(applicationContext) }
+        factory { NetworkStateLiveData(applicationContext) }
     }
 
     private val databaseModule: Module = module {
