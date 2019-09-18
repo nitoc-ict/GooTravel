@@ -15,7 +15,7 @@ class CSVReader(private val assets: AssetManager) {
     fun getSpotDataList(): Single<List<SpotData>> = Single.create {
         val arrayList: ArrayList<SpotData> = arrayListOf()
         try {
-            val inputStream = assets.open("test.csv")
+            val inputStream = assets.open("spotdata.csv")
 
             val inputStreamReader = InputStreamReader(inputStream)
             val bufferReader = BufferedReader(inputStreamReader as Reader?)
