@@ -17,7 +17,7 @@ class NetworkStateLiveData(private val context: Context) : LiveData<Boolean>() {
     private val networkCallback = object : ConnectivityManager.NetworkCallback() {
         override fun onAvailable(network: Network?) {
             super.onAvailable(network)
-            
+            postValue(true)
         }
     }
 
