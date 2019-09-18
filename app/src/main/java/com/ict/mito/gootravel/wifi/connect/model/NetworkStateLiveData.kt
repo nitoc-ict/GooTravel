@@ -41,5 +41,9 @@ class NetworkStateLiveData(private val context: Context) : LiveData<Boolean>() {
 
     override fun onInactive() {
         super.onInactive()
+
+        connectivityManager.unregisterNetworkCallback(
+            networkCallback
+        )
     }
 }
