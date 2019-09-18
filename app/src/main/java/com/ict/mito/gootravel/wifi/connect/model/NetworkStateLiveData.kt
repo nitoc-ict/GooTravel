@@ -19,6 +19,11 @@ class NetworkStateLiveData(private val context: Context) : LiveData<Boolean>() {
             super.onAvailable(network)
             postValue(true)
         }
+
+        override fun onLost(network: Network?) {
+            super.onLost(network)
+            postValue(false)
+        }
     }
 
     override fun onActive() {
