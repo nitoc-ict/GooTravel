@@ -30,21 +30,29 @@ class CSVReader(private val assets: AssetManager) {
 
                 if (stringTokenizer.countTokens() == 0) break
 
-                val spotData = SpotData(
-                    name = stringTokenizer.nextToken(),
-                    address = stringTokenizer.nextToken(),
-                    latitude = stringTokenizer.nextToken().toDouble(),
-                    longitude = stringTokenizer.nextToken().toDouble(),
-                    spotType = 0,
-                    spotTypeDetail = ""
-                )
-                spotData.id = id
-                id++
-                arrayList.add(spotData)
                 val name = stringTokenizer.nextToken()
                 val address = stringTokenizer.nextToken()
                 val latitude = stringTokenizer.nextToken()
                 val longitude = stringTokenizer.nextToken()
+
+                if (
+                    name != null &&
+                    address != null &&
+                    latitude.isNotEmpty() &&
+                    longitude.isNotEmpty()
+                ) {
+                    val spotData = SpotData(
+                        name = name,
+                        address = address,
+                        latitude = latitude.toDouble(),
+                        longitude = longitude.toDouble(),
+                        spotType = 0,
+                        spotTypeDetail = ""
+                    )
+                    spotData.id = id
+                    id++
+                    arrayList.add(spotData)
+                }
             }
             bufferReader.close()
             it.onSuccess(arrayList.toList())
