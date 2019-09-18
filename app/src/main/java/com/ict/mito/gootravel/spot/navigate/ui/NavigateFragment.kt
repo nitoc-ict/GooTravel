@@ -70,6 +70,7 @@ class NavigateFragment : Fragment() {
                 0.0,
                 0.0,
                 0,
+                "",
                 ""
             )
         }

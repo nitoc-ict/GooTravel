@@ -12,7 +12,8 @@ data class SpotData(
     val latitude: Double,
     val longitude: Double,
     val spotType: Int,
-    val spotTypeDetail: String
+    val spotTypeDetail: String,
+    val address: String
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0
