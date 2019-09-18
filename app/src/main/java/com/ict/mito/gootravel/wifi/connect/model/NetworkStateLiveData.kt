@@ -32,6 +32,11 @@ class NetworkStateLiveData(private val context: Context) : LiveData<Boolean>() {
         val request = NetworkRequest.Builder()
             .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
             .build()
+
+        connectivityManager.registerNetworkCallback(
+            request,
+            networkCallback
+        )
     }
 
     override fun onInactive() {
