@@ -41,6 +41,10 @@ class CSVReader(private val assets: AssetManager) {
                 spotData.id = id
                 id++
                 arrayList.add(spotData)
+                val name = stringTokenizer.nextToken()
+                val address = stringTokenizer.nextToken()
+                val latitude = stringTokenizer.nextToken()
+                val longitude = stringTokenizer.nextToken()
             }
             bufferReader.close()
             it.onSuccess(arrayList.toList())
