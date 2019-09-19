@@ -12,10 +12,8 @@ class NotificationAlertDialog : DialogFragment() {
         builder.setTitle("Earthquake")
             .setMessage("massage")
             .setIcon(R.mipmap.ic_launcher)
-            .setPositiveButton("REFUGE"
-            ) { _, _ -> }
-            .setNegativeButton("MANUAL"
-            ) { _, _ -> }
+            .setPositiveButton("REFUGE") { _, _ -> }
+            .setNegativeButton("MANUAL") { _, _ -> }
         return builder.create()
     }
 }
