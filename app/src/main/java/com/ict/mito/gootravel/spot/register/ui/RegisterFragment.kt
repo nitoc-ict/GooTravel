@@ -80,7 +80,7 @@ class RegisterFragment : Fragment() {
             }
         })
 
-        val READ_REQUEST_CODE = 42
+         val READ_REQUEST_CODE = 42
 
         ImageInput.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
