@@ -20,7 +20,7 @@
             app:showAsAction="ifRoom"/>
 
     <item
-            android:id="@+id/language"
+            android:id="@+id/app_bar_language"
             android:title="@string/appbar_language_title"
             app:showAsAction="ifRoom" />
 
