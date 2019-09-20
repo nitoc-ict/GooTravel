@@ -10,10 +10,6 @@ import com.ict.mito.gootravel.R
 
 class LanguageSettingFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = LanguageSettingFragment()
-    }
-
     private lateinit var viewModel: LanguageSettingViewModel
 
     override fun onCreateView(
