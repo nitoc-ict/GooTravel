@@ -12,4 +12,8 @@
     <string name="appbar_other_title">Other</string>
     <string name="register">REGISTER</string>
     <string name="go">GO</string>
+    <string name="refuge">REFUGE</string>
+    <string name="manual">MANUAL</string>
+    <string name="connect">CONNECT</string>
+    <string name="cancel">CANCEL</string>
 </resources>
