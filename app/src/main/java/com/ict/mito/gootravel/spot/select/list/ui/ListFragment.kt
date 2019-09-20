@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
+import com.ict.mito.gootravel.setting.activity.SettingActivity
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -39,6 +40,15 @@ class ListFragment : Fragment() {
                                 ManualActivity::class.java
                             )
                         )
+                    }
+                    R.id.app_bar_language -> {
+                        startActivity(
+                            Intent(
+                                context,
+                                SettingActivity::class.java
+                            )
+                        )
+
                     }
                 }
                 true

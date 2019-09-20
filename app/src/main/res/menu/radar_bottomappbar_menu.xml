@@ -17,4 +17,9 @@
             android:icon="@drawable/ic_manual_black_24dp"
             android:title="@string/appbar_manual_title"
             app:showAsAction="ifRoom"/>
+
+    <item
+            android:id="@+id/app_bar_language"
+            android:title="@string/appbar_language_title"
+            app:showAsAction="ifRoom" />
 </menu>
