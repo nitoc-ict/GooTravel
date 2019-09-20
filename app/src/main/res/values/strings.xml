@@ -16,4 +16,5 @@
     <string name="manual">MANUAL</string>
     <string name="connect">CONNECT</string>
     <string name="cancel">CANCEL</string>
+    <string name="appbar_language_title">Language</string>
 </resources>
