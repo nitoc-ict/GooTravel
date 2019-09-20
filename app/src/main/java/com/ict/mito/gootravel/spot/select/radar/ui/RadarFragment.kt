@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RadarFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
+import com.ict.mito.gootravel.setting.activity.SettingActivity
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -41,6 +42,15 @@ class RadarFragment : Fragment() {
                                 ManualActivity::class.java
                             )
                         )
+                    }
+                    R.id.app_bar_language -> {
+                        startActivity(
+                            Intent(
+                                context,
+                                SettingActivity::class.java
+                            )
+                        )
+
                     }
                     else -> {
                         findNavController().navigate(R.id.action_radarFragment_to_registerFragment)
