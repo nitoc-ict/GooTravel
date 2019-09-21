@@ -23,15 +23,8 @@ class SpotViewModel(private val repository: Repository) : ViewModel() {
     }
 
     private fun addSpotDataToRoomFromCSV() {
-        repository.getSpotDataByCSV().subscribeBy(
-            onSuccess = { spots ->
-                spots.forEach {
-                    repository.add(it)
-                }
-            },
-            onError = {
-                Timber.d("Error in getCSV")
-            }
-        )
+        repository.getSpotDataByCSV().forEach {
+            repository.add(it)
+        }
     }
 }
