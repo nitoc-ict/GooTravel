@@ -32,10 +32,13 @@ class RegisterFragment : Fragment() {
     private lateinit var viewModel: RegisterViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.register_fragment, container, false)
+        return inflater.inflate(R.layout.register_fragment,
+            container,
+            false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -45,22 +48,21 @@ class RegisterFragment : Fragment() {
 
         super.onCreate(savedInstanceState)
 
-        SignIn.setOnClickListener {
-            var name: String = NameInput.text.toString()
-            var memo: String = MemoInput.text.toString()
+        register.setOnClickListener {
+            val name: String = name_input.text.toString()
+            val memo: String = memo_input.text.toString()
 
-            if (NameInput.length() != 0 && MemoInput.length() != 0) {
+            if (name_input.length() != 0 && memo_input.length() != 0) {
 
                 Log.d("memo", memo)
                 Log.d("name", name)
-                NameInput.setText("")
-                MemoInput.setText("")
-                val toast = Toast.makeText(context, "入力が完了しました", Toast.LENGTH_SHORT)
-                toast.show()
+                name_input.setText("")
+                memo_input.setText("")
+                Toast.makeText(context, "入力が完了しました", Toast.LENGTH_SHORT).show()
             }
         }
 
-        TimePicker.setOnClickListener(object : View.OnClickListener {
+        time_pick.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
                 val calendar = Calendar.getInstance()
                 val hour = calendar.get(Calendar.HOUR_OF_DAY)
@@ -68,7 +70,9 @@ class RegisterFragment : Fragment() {
                 val dialog = TimePickerDialog(
                     context,
                     object : TimePickerDialog.OnTimeSetListener {
-                        override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {}
+                        override fun onTimeSet(view: TimePicker,
+                                               hourOfDay: Int,
+                                               minute: Int) {}
                     },
                     hour, minute, true
                 )
@@ -78,7 +82,7 @@ class RegisterFragment : Fragment() {
 
          val READ_REQUEST_CODE = 42
 
-        ImageInput.setOnClickListener(object : View.OnClickListener {
+        image_input.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
                 intent.addCategory(Intent.CATEGORY_OPENABLE)
@@ -90,16 +94,14 @@ class RegisterFragment : Fragment() {
 
     val READ_REQUEST_CODE = 42
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-        if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            val uri: Uri?
-            if (resultData != null) {
-                uri = resultData.getData()
-                try {
-                    val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
-                    ViewImage.setImageBitmap(bitmap)
-                } catch (e: IOException) {
-                    e.printStackTrace()
+    override fun onActivityResult(requestCode: Int,
+                                  resultCode: Int,
+                                  resultData: Intent?) {
+        if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK) { val uri: Uri?
+            if (resultData != null) { uri = resultData.getData()
+                try { val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
+                    image_view.setImageBitmap(bitmap)
+                } catch (e: IOException) { e.printStackTrace()
                 }
             }
         }

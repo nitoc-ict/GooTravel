@@ -6,20 +6,22 @@
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".spot.register.ui.RegisterFragment">
-    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
-                                                       android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
         <TextView
-                android:id="@+id/NameView"
+                android:id="@+id/name_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="NAME"
                 android:textSize="12pt"
-                app:layout_constraintBottom_toTopOf="@id/NameInput"
+                app:layout_constraintBottom_toTopOf="@id/name_input"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="10dp"/>
 
         <EditText
-                android:id="@+id/NameInput"
+                android:id="@+id/name_input"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
@@ -28,90 +30,86 @@
                 android:layout_marginStart="10dp"/>
 
         <Button
-                android:id="@+id/SignIn"
+                android:id="@+id/register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SIGNIN"
+                android:text="REGISTER"
                 android:textSize="12pt"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-        />
+                app:layout_constraintEnd_toEndOf="parent"/>
 
 
         <EditText
-                android:id="@+id/MemoInput"
+                android:id="@+id/memo_input"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/NameInput"
+                app:layout_constraintTop_toBottomOf="@id/name_input"
                 android:layout_marginTop="200dp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="10dp"/>
 
         <TextView
-                android:id="@+id/MemoView"
+                android:id="@+id/memo_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="MEMO"
                 android:textSize="12pt"
-                app:layout_constraintBottom_toTopOf="@id/MemoInput"
+                app:layout_constraintBottom_toTopOf="@id/memo_input"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="10dp"/>
 
         <ImageButton
-                android:id="@+id/ImageInput"
+                android:id="@+id/image_input"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="21dp"
                 android:background="@drawable/photo_image"
                 android:textSize="12pt"
-                app:layout_constraintTop_toBottomOf="@id/TimePicker"
+                app:layout_constraintTop_toBottomOf="@id/time_pick"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                 />
+                android:layout_marginTop="20dp"/>
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageInput"
+                android:id="@+id/image_input_view"
                 android:text="Add image"
                 android:textSize="12pt"
                 android:background="#F9F9F9"
                 android:textColor="#B3B3B3"
-                app:layout_constraintStart_toEndOf="@id/ImageInput"
-                app:layout_constraintTop_toBottomOf="@id/alertInput"
+                app:layout_constraintStart_toEndOf="@id/image_input"
+                app:layout_constraintTop_toBottomOf="@id/alert_input"
                 android:layout_marginTop="38dp"
-                android:layout_marginStart="15dp"
-        />
+                android:layout_marginStart="15dp"/>
 
         <TextView
-                android:id="@+id/alertInput"
+                android:id="@+id/alert_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Add notification timer"
                 android:textSize="12pt"
                 android:background="#F9F9F9"
                 android:textColor="#B3B3B3"
-                app:layout_constraintStart_toEndOf="@id/TimePicker"
-                app:layout_constraintTop_toBottomOf="@id/NameInput"
+                app:layout_constraintStart_toEndOf="@id/time_pick"
+                app:layout_constraintTop_toBottomOf="@id/name_input"
                 android:layout_marginTop="25dp"
-                android:layout_marginStart="15dp"
-        />
+                android:layout_marginStart="15dp"/>
 
 
         <ImageView
-                android:id="@+id/ViewImage"
+                android:id="@+id/image_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/imageView"
+                app:layout_constraintTop_toBottomOf="@id/image_view_view"
                 android:layout_marginBottom="50dp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="10dp"/>
 
         <TextView
-                android:id="@+id/imageView"
+                android:id="@+id/image_view_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/MemoInput"
+                app:layout_constraintTop_toBottomOf="@id/memo_input"
                 android:layout_marginTop="80dp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="10dp"
@@ -119,15 +117,14 @@
                 android:textSize="12pt" />
 
         <ImageButton
-                android:id="@+id/TimePicker"
+                android:id="@+id/time_pick"
                 android:background="@drawable/alert_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/NameInput"
+                app:layout_constraintTop_toBottomOf="@id/name_input"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-        />
+                android:layout_marginTop="20dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
