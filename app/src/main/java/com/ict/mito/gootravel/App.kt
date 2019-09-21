@@ -54,7 +54,7 @@ class App : Application() {
         viewModel { RadarViewModel() }
         viewModel { SearchViewModel() }
         viewModel { SelectSpotBottomSheetViewModel(get()) }
-        viewModel { SpotViewModel() }
+        viewModel { SpotViewModel(get()) }
     }
 
     private val liveDataModule: Module = module {
