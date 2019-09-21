@@ -16,7 +16,7 @@ class RepositoryImpl(
     private val spotDataDAO: SpotDataDAO,
     private val csvReader: CSVReader
 ) : Repository {
-    override fun getSpotDataByCSV(): Single<List<SpotData>> = csvReader.getSpotDataList()
+    override fun getSpotDataByCSV(): List<SpotData> = csvReader.getSpotDataList()
 
     override fun add(spotData: SpotData) = spotDataDAO.insert(spotData)
 
