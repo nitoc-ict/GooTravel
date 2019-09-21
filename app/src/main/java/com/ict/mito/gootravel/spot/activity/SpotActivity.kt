@@ -34,6 +34,8 @@ class SpotActivity : AppCompatActivity(R.layout.activity_spot) {
         if (Build.VERSION.SDK_INT >= 23) {
             checkPermission()
         }
+
+        viewmodel.syncSpotData()
     }
 
     @RequiresApi(Build.VERSION_CODES.M)

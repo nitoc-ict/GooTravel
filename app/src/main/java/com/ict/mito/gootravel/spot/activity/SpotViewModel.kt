@@ -9,7 +9,8 @@ import timber.log.Timber
  * Created by mitohato14 on 2019-09-21.
  */
 class SpotViewModel(private val repository: Repository) : ViewModel() {
-    init {
+
+    fun syncSpotData() {
         repository.getAllSpotData().subscribeBy(
             onSuccess = {
                 if (it.isEmpty()) {
