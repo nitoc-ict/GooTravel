@@ -8,6 +8,15 @@ import io.reactivex.rxkotlin.subscribeBy
  * Created by mitohato14 on 2019-09-21.
  */
 class SpotViewModel(private val repository: Repository) : ViewModel() {
+    init {
+        repository.getAllSpotData().subscribeBy(
+            onSuccess = {
+                if (it.isEmpty()) {
+                    addSpotDataToRoomFromCSV()
+                }
+            }
+        )
+    }
 
     private fun addSpotDataToRoomFromCSV() {
         repository.getSpotDataByCSV().subscribeBy(
