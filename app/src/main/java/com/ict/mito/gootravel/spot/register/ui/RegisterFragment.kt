@@ -29,10 +29,6 @@ import kotlin.coroutines.coroutineContext
 
 class RegisterFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = RegisterFragment()
-    }
-
     private lateinit var viewModel: RegisterViewModel
 
     override fun onCreateView(
