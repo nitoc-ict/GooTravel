@@ -10,7 +10,7 @@ import com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetF
 import io.reactivex.rxkotlin.subscribeBy
 
 class RadarViewModel(private val repository: Repository) : ViewModel() {
-    private var spotdataList: List<SpotData> = listOf()
+    var spotdataList: List<SpotData> = listOf()
 
     init {
         repository.getAllSpotData().subscribeBy(
