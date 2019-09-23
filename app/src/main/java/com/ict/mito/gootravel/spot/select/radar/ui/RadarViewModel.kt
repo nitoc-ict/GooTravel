@@ -29,10 +29,12 @@ class RadarViewModel(private val repository: Repository) : ViewModel() {
             view.id
         )
         val bottomSheet = SelectSpotBottomSheetFragment()
-        bottomSheet.arguments = args
-        bottomSheet.show(
-            fragmentManager,
-            bottomSheet.tag
-        )
+        bottomSheet.also {
+            it.arguments = args
+            it.show(
+                fragmentManager,
+                bottomSheet.tag
+            )
+        }
     }
 }
