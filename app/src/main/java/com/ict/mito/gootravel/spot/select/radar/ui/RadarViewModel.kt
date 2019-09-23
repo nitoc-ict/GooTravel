@@ -4,9 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
+import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetFragment
 
-class RadarViewModel : ViewModel() {
+class RadarViewModel(private val repository: Repository) : ViewModel() {
     lateinit var fragmentManager: FragmentManager
 
     fun onClickSpot(view: View) {
