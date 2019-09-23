@@ -77,6 +77,9 @@ dependencies {
     // Add material for BottomAppBar
     implementation("com.google.android.material:material:1.0.0-alpha1")
 
+    //    anko
+    implementation("org.jetbrains.anko:anko:$anko_version")
+
     // for test
     testImplementation("junit:junit:4.12")
     androidTestImplementation("androidx.test:runner:1.2.0")
