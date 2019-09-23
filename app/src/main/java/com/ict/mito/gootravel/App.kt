@@ -51,7 +51,7 @@ class App : Application() {
         }
         viewModel { RegisterViewModel() }
         viewModel { ListViewModel() }
-        viewModel { RadarViewModel() }
+        viewModel { RadarViewModel(get()) }
         viewModel { SearchViewModel() }
         viewModel { SelectSpotBottomSheetViewModel(get()) }
         viewModel { SpotViewModel(get()) }
