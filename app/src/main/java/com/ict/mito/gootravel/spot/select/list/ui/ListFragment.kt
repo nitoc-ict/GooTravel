@@ -48,7 +48,6 @@ class ListFragment : Fragment() {
                                 SettingActivity::class.java
                             )
                         )
-
                     }
                 }
                 true

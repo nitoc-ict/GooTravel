@@ -6,6 +6,7 @@ import com.ict.mito.gootravel.db.GooTravelDataRoomDataBase
 import com.ict.mito.gootravel.disaster.manual.ui.ManualViewModel
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.repo.impl.RepositoryImpl
+import com.ict.mito.gootravel.spot.activity.SpotViewModel
 import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.OrientationLiveData
 import com.ict.mito.gootravel.spot.navigate.ui.NavigateViewModel
@@ -53,6 +54,7 @@ class App : Application() {
         viewModel { RadarViewModel() }
         viewModel { SearchViewModel() }
         viewModel { SelectSpotBottomSheetViewModel(get()) }
+        viewModel { SpotViewModel(get()) }
     }
 
     private val liveDataModule: Module = module {

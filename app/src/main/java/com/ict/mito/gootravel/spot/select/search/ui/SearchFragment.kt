@@ -47,7 +47,6 @@ class SearchFragment : Fragment() {
                                 SettingActivity::class.java
                             )
                         )
-
                     }
                 }
                 true

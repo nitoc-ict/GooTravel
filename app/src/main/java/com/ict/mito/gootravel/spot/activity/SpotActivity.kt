@@ -11,8 +11,10 @@ import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.ict.mito.gootravel.R
 import kotlinx.android.synthetic.main.activity_spot.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SpotActivity : AppCompatActivity(R.layout.activity_spot) {
+    private val viewmodel: SpotViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +34,8 @@ class SpotActivity : AppCompatActivity(R.layout.activity_spot) {
         if (Build.VERSION.SDK_INT >= 23) {
             checkPermission()
         }
+
+        viewmodel.syncSpotData()
     }
 
     @RequiresApi(Build.VERSION_CODES.M)

@@ -50,7 +50,6 @@ class RadarFragment : Fragment() {
                                 SettingActivity::class.java
                             )
                         )
-
                     }
                     else -> {
                         findNavController().navigate(R.id.action_radarFragment_to_registerFragment)

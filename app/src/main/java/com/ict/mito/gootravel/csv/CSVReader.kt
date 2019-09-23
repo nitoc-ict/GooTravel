@@ -2,7 +2,6 @@ package com.ict.mito.gootravel.csv
 
 import android.content.res.AssetManager
 import com.ict.mito.gootravel.spot.model.SpotData
-import io.reactivex.Single
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.Reader
@@ -13,7 +12,7 @@ import kotlin.collections.ArrayList
  * Created by mitohato14 on 2019-09-09.
  */
 class CSVReader(private val assets: AssetManager) {
-    fun getSpotDataList(): Single<List<SpotData>> = Single.create {
+    fun getSpotDataList(): List<SpotData> {
         val arrayList: ArrayList<SpotData> = arrayListOf()
         try {
             val inputStream = assets.open("spotdata.csv")
@@ -56,9 +55,9 @@ class CSVReader(private val assets: AssetManager) {
                 }
             }
             bufferReader.close()
-            it.onSuccess(arrayList.toList())
         } catch (e: Exception) {
             e.printStackTrace()
         }
+        return arrayList.toList()
     }
 }
