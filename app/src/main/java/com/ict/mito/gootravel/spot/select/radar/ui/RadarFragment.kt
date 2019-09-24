@@ -133,7 +133,7 @@ class RadarFragment : Fragment() {
                 spotButton.id,
                 ConstraintSet.TOP,
                 binding?.myLocation?.id ?: 0,
-                ConstraintSet.BOTTOM,
+                ConstraintSet.TOP,
                 context?.dip(heightMargin) ?: 0
             )
         }
