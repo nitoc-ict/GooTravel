@@ -90,7 +90,7 @@ class RadarFragment : Fragment() {
         }
 
         val constraintLayout: ConstraintLayout = binding?.root as ConstraintLayout
-        val constraintSet =  ConstraintSet()
+        val constraintSet = ConstraintSet()
         constraintSet.clone(constraintLayout)
 
         val spotButton = Button(context)
