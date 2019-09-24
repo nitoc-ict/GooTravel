@@ -26,6 +26,8 @@ class RadarFragment : Fragment() {
     private val viewModel: RadarViewModel by viewModel()
     private var binding: RadarFragmentBinding? = null
 
+    lateinit var constraintLayout: ConstraintLayout
+    val constraintSet = ConstraintSet()
     private val onMenuItemClickListener = Toolbar.OnMenuItemClickListener { menu ->
         when (menu.itemId) {
             R.id.appbar_list -> {
@@ -91,10 +93,12 @@ class RadarFragment : Fragment() {
             it.lifecycleOwner = this
         }
 
-        val constraintLayout: ConstraintLayout = binding?.root as ConstraintLayout
-        val constraintSet = ConstraintSet()
+        constraintLayout = binding?.root as ConstraintLayout
         constraintSet.clone(constraintLayout)
 
+
+        return binding?.root
+    }
         val spotButton = Button(context)
         spotButton.apply {
             id = 1
