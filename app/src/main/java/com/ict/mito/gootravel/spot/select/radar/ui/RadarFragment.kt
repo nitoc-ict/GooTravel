@@ -1,6 +1,5 @@
 package com.ict.mito.gootravel.spot.select.radar.ui
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -28,6 +27,7 @@ class RadarFragment : Fragment() {
 
     lateinit var constraintLayout: ConstraintLayout
     val constraintSet = ConstraintSet()
+
     private val onMenuItemClickListener = Toolbar.OnMenuItemClickListener { menu ->
         when (menu.itemId) {
             R.id.appbar_list -> {
@@ -59,7 +59,6 @@ class RadarFragment : Fragment() {
         true
     }
 
-    @SuppressLint("ResourceType")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -96,46 +95,49 @@ class RadarFragment : Fragment() {
         constraintLayout = binding?.root as ConstraintLayout
         constraintSet.clone(constraintLayout)
 
+        constraintSet.applyTo(constraintLayout)
 
         return binding?.root
     }
-        val spotButton = Button(context)
-        spotButton.apply {
-            id = 1
-            setBackgroundResource(R.drawable.wifi_spot)
-        }
-            constraintLayout.addView(spotButton)
-            constraintSet.connect(
-                1,
-                ConstraintSet.START,
-                R.id.wifi_spot,
-                ConstraintSet.END
-            constraintSet.constrainHeight(
-                spotButton.id,
-                context?.dip(30) ?: 0
-            )
-            constraintSet.constrainWidth(
-                spotButton.id,
-                context?.dip(30) ?: 0
-            )
-            constraintSet.connect(
-                1,
-                ConstraintSet.TOP,
-                R.id.wifi_spot,
-                ConstraintSet.BOTTOM
-            )
-            constraintSet.applyTo(constraintLayout)
-//        viewModel.spotdataList.forEach {
-//            val spotButton = Button(context)
-//            spotButton.apply {
-//                id = it.id.toInt()
-//                width = dip(10)
-//                height = dip(10)
-//                setBackgroundResource(R.drawable.wifi_spot)
-//                constraintLayout.addView(spotButton)
-//            }
 
-        return binding?.root
+    fun addWiFiSpotButton(
+        id: Int,
+        heightMargin: Int,
+        widthMargin: Int
+    ) {
+        val spotButton = Button(context)
+        spotButton.also {
+            it.id = id
+            it.setBackgroundResource(R.drawable.wifi_spot)
+        }
+
+        constraintLayout.addView(spotButton)
+
+        constraintSet.apply {
+            constrainHeight(
+                spotButton.id,
+                context?.dip(30) ?: 0
+            )
+            constrainWidth(
+                spotButton.id,
+                context?.dip(30) ?: 0
+            )
+            connect(
+                spotButton.id,
+                ConstraintSet.START,
+                binding?.myLocation?.id ?: 0,
+                ConstraintSet.START,
+                context?.dip(widthMargin) ?: 0
+            )
+            connect(
+                spotButton.id,
+                ConstraintSet.TOP,
+                binding?.myLocation?.id ?: 0,
+                ConstraintSet.BOTTOM,
+                context?.dip(heightMargin) ?: 0
+            )
+        }
+
     }
 
     override fun onDestroy() {
