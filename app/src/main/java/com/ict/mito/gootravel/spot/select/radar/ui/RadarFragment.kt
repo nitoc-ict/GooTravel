@@ -95,7 +95,6 @@ class RadarFragment : Fragment() {
 
         val spotButton = Button(context)
         spotButton.apply {
-            layoutParams = ConstraintLayout.LayoutParams(dip(30), dip(30))
             id = 1
             setBackgroundResource(R.drawable.wifi_spot)
             constraintLayout.addView(spotButton)
@@ -104,6 +103,13 @@ class RadarFragment : Fragment() {
                 ConstraintSet.START,
                 R.id.wifi_spot,
                 ConstraintSet.END
+            constraintSet.constrainHeight(
+                id,
+                dip(30)
+            )
+            constraintSet.constrainWidth(
+                id,
+                dip(30)
             )
             constraintSet.connect(
                 1,
