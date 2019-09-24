@@ -25,8 +25,8 @@ class RadarFragment : Fragment() {
     private val viewModel: RadarViewModel by viewModel()
     private var binding: RadarFragmentBinding? = null
 
-    lateinit var constraintLayout: ConstraintLayout
-    val constraintSet = ConstraintSet()
+    private lateinit var constraintLayout: ConstraintLayout
+    private val constraintSet = ConstraintSet()
 
     private val onMenuItemClickListener = Toolbar.OnMenuItemClickListener { menu ->
         when (menu.itemId) {
