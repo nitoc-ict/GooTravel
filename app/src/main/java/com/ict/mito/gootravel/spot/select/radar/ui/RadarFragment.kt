@@ -137,7 +137,6 @@ class RadarFragment : Fragment() {
                 context?.dip(heightMargin) ?: 0
             )
         }
-
     }
 
     override fun onDestroy() {
