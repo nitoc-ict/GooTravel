@@ -137,6 +137,10 @@ class RadarFragment : Fragment() {
                 context?.dip(heightMargin) ?: 0
             )
         }
+
+        spotButton.setOnClickListener {
+            viewModel.onClickSpot(it)
+        }
     }
 
     override fun onDestroy() {
