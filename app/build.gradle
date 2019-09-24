@@ -29,14 +29,14 @@ android {
 dependencies {
     implementation(fileTree(dir: "libs", include: ["*.jar"]))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version")
-    implementation("androidx.appcompat:appcompat:1.1.0-rc01")
-    implementation("androidx.core:core-ktx:1.0.2")
+    implementation('androidx.appcompat:appcompat:1.1.0')
+    implementation('androidx.core:core-ktx:1.1.0')
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("androidx.lifecycle:lifecycle-extensions:2.0.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0")
+    implementation('androidx.lifecycle:lifecycle-extensions:2.1.0')
+    implementation('androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha05')
     implementation("androidx.activity:activity-ktx:1.1.0-alpha03")
-    implementation("androidx.fragment:fragment-ktx:1.2.0-alpha03")
+    implementation('androidx.fragment:fragment-ktx:1.2.0-alpha04')
 
     // Navigation
     // for move screen
@@ -72,10 +72,10 @@ dependencies {
     implementation("com.google.android.gms:play-services-location:17.0.0")
 
     // for csv
-    implementation("org.apache.commons:commons-csv:1.6")
+    implementation('org.apache.commons:commons-csv:1.7')
 
     // Add material for BottomAppBar
-    implementation("com.google.android.material:material:1.0.0-alpha1")
+    implementation('com.google.android.material:material:1.1.0-alpha10')
 
     // for test
     testImplementation("junit:junit:4.12")
