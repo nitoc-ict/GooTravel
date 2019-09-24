@@ -99,6 +99,7 @@ class RadarFragment : Fragment() {
         spotButton.apply {
             id = 1
             setBackgroundResource(R.drawable.wifi_spot)
+        }
             constraintLayout.addView(spotButton)
             constraintSet.connect(
                 1,
@@ -106,12 +107,12 @@ class RadarFragment : Fragment() {
                 R.id.wifi_spot,
                 ConstraintSet.END
             constraintSet.constrainHeight(
-                id,
-                dip(30)
+                spotButton.id,
+                context?.dip(30) ?: 0
             )
             constraintSet.constrainWidth(
-                id,
-                dip(30)
+                spotButton.id,
+                context?.dip(30) ?: 0
             )
             constraintSet.connect(
                 1,
@@ -129,7 +130,6 @@ class RadarFragment : Fragment() {
 //                setBackgroundResource(R.drawable.wifi_spot)
 //                constraintLayout.addView(spotButton)
 //            }
-        }
 
         return binding?.root
     }
