@@ -100,7 +100,7 @@ class RadarFragment : Fragment() {
         return binding?.root
     }
 
-    fun addWiFiSpotButton(
+    private fun addWiFiSpotButton(
         id: Int,
         heightMargin: Int,
         widthMargin: Int
