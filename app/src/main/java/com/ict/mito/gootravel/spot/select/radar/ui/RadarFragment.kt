@@ -138,8 +138,8 @@ class RadarFragment : Fragment() {
             )
         }
 
-        spotButton.setOnClickListener {
-            viewModel.onClickSpot(it)
+        spotButton.setOnClickListener { view ->
+            viewModel.onClickSpot(view)
         }
     }
 
