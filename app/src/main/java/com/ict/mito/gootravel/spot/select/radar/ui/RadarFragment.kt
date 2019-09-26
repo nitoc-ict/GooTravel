@@ -77,16 +77,21 @@ class RadarFragment : Fragment() {
             false
         )
 
+        constraintLayout = binding?.root as ConstraintLayout
+        constraintSet.clone(constraintLayout)
+
         viewModel.also {
             it.fragmentManager = fragmentManager!!
             it.locationLiveData.observe(
                 this,
                 Observer {
+                    constraintSet.applyTo(constraintLayout)
                 }
             )
             it.orientationLiveData.observe(
                 this,
                 Observer {
+                    constraintSet.applyTo(constraintLayout)
                 }
             )
         }
@@ -104,11 +109,6 @@ class RadarFragment : Fragment() {
             }
             it.lifecycleOwner = this
         }
-
-        constraintLayout = binding?.root as ConstraintLayout
-        constraintSet.clone(constraintLayout)
-
-        constraintSet.applyTo(constraintLayout)
 
         return binding?.root
     }
