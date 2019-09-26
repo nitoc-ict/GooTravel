@@ -12,7 +12,7 @@ import com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetF
 import io.reactivex.rxkotlin.subscribeBy
 
 class RadarViewModel(
-    private val repository: Repository,
+    repository: Repository,
     val orientationLiveData: OrientationLiveData,
     val locationLiveData: LocationLiveData
 ) : ViewModel() {
