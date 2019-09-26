@@ -17,6 +17,7 @@ class RadarViewModel(
     val locationLiveData: LocationLiveData
 ) : ViewModel() {
     var spotdataList: List<SpotData> = listOf()
+    var showSpotDataList: List<SpotData> = listOf()
 
     init {
         repository.getAllSpotData().subscribeBy(
