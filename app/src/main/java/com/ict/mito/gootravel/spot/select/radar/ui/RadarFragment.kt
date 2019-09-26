@@ -91,7 +91,7 @@ class RadarFragment : Fragment() {
             it.orientationLiveData.observe(
                 this,
                 Observer {
-                    constraintSet.applyTo(constraintLayout)
+//                    constraintSet.applyTo(constraintLayout)
                 }
             )
         }
