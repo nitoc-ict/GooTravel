@@ -13,8 +13,8 @@ import io.reactivex.rxkotlin.subscribeBy
 
 class RadarViewModel(
     private val repository: Repository,
-    private val orientationLiveData: OrientationLiveData,
-    private val locationLiveData: LocationLiveData
+    val orientationLiveData: OrientationLiveData,
+    val locationLiveData: LocationLiveData
 ) : ViewModel() {
     var spotdataList: List<SpotData> = listOf()
 
