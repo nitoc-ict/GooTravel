@@ -1,6 +1,7 @@
 package com.ict.mito.gootravel.spot.select.radar.ui
 
 import android.content.Intent
+import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -87,14 +88,7 @@ class RadarFragment : Fragment() {
             it.locationLiveData.observe(
                 this,
                 Observer { value ->
-                    val latitudeRange =
-                        value.latitude - RADAR_DISPLAY_RANGE..value.latitude + RADAR_DISPLAY_RANGE
-                    val longitudeRange =
-                        value.longitude - RADAR_DISPLAY_RANGE..value.longitude + RADAR_DISPLAY_RANGE
-                    val array = viewModel.spotdataList.filter { spot ->
-                        spot.latitude in latitudeRange &&
-                        spot.longitude in longitudeRange
-                    }
+                    val array = filterSpotData(value)
                     constraintSet.applyTo(constraintLayout)
                 }
             )
@@ -121,6 +115,17 @@ class RadarFragment : Fragment() {
         }
 
         return binding?.root
+    }
+
+    private fun filterSpotData(location: Location): List<SpotData> {
+        val latitudeRange =
+            location.latitude - RADAR_DISPLAY_RANGE..location.latitude + RADAR_DISPLAY_RANGE
+        val longitudeRange =
+            location.longitude - RADAR_DISPLAY_RANGE..location.longitude + RADAR_DISPLAY_RANGE
+        return viewModel.spotdataList.filter { spot ->
+            spot.latitude in latitudeRange &&
+            spot.longitude in longitudeRange
+        }
     }
 
     private fun addWiFiSpotButton(
