@@ -17,6 +17,8 @@ import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RadarFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
 import com.ict.mito.gootravel.setting.activity.SettingActivity
+import com.ict.mito.gootravel.spot.model.SpotData
+import com.ict.mito.gootravel.util.RADAR_DISPLAY_RANGE
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.jetbrains.anko.dip
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -84,7 +86,20 @@ class RadarFragment : Fragment() {
             it.fragmentManager = fragmentManager!!
             it.locationLiveData.observe(
                 this,
-                Observer {
+                Observer { value ->
+                    val latitudeRange =
+                        value.latitude - RADAR_DISPLAY_RANGE..value.latitude + RADAR_DISPLAY_RANGE
+                    val longitudeRange =
+                        value.longitude - RADAR_DISPLAY_RANGE..value.longitude + RADAR_DISPLAY_RANGE
+                    val arrayList = arrayListOf<SpotData>()
+                    viewModel.spotdataList.forEach { spot ->
+                        if (
+                            spot.latitude in latitudeRange &&
+                            spot.longitude in longitudeRange
+                        ) {
+                            arrayList.add(spot)
+                        }
+                    }
                     constraintSet.applyTo(constraintLayout)
                 }
             )
