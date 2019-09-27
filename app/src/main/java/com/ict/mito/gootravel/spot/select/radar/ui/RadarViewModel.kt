@@ -18,18 +18,7 @@ class RadarViewModel(
 ) : ViewModel() {
     var spotdataList: List<SpotData> = listOf()
     var showSpotDataList: List<SpotData> = listOf()
-
-    init {
-        repository.getAllSpotData().subscribeBy(
-            onSuccess = {
-                spotdataList = it
-            }
-        )
-    }
-
-    lateinit var fragmentManager: FragmentManager
-
-    fun onClickSpot(view: View) {
+    val spotClickListener = View.OnClickListener { view ->
         val args = Bundle()
         args.putInt(
             "spotId",
@@ -44,4 +33,14 @@ class RadarViewModel(
             )
         }
     }
+
+    init {
+        repository.getAllSpotData().subscribeBy(
+            onSuccess = {
+                spotdataList = it
+            }
+        )
+    }
+
+    lateinit var fragmentManager: FragmentManager
 }
