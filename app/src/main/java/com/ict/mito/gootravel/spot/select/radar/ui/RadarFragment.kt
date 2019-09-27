@@ -95,16 +95,16 @@ class RadarFragment : Fragment() {
                     val array = filterSpotData(value)
                     array.forEach { spot ->
                         val distance = calcDirectDistance(
-                            spot.latitude,
                             spot.longitude,
-                            value.latitude,
-                            value.longitude
+                            spot.latitude,
+                            value.longitude,
+                            value.latitude
                         )
                         val direction = calcDirection(
-                            spot.latitude,
                             spot.longitude,
-                            value.latitude,
-                            value.longitude
+                            spot.latitude,
+                            value.longitude,
+                            value.latitude
                         )
                         addWiFiSpotButton(
                             spot.id.toInt(),
