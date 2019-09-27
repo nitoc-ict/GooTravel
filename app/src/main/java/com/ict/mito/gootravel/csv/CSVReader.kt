@@ -28,7 +28,7 @@ class CSVReader(private val assets: AssetManager) {
                     ","
                 )
 
-                if (stringTokenizer.countTokens() == 0) break
+                if (stringTokenizer.countTokens() != 4) continue
 
                 val name = stringTokenizer.nextToken()
                 val address = stringTokenizer.nextToken()
