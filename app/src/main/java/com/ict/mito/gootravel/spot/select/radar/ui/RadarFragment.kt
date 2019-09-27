@@ -102,15 +102,9 @@ class RadarFragment : Fragment() {
 
         binding?.let {
             it.viewmodel = viewModel
-            it.wifiSpot.setOnClickListener { view ->
-                viewModel.onClickSpot(view)
-            }
-            it.foodSpot.setOnClickListener { view ->
-                viewModel.onClickSpot(view)
-            }
-            it.shopSpot.setOnClickListener { view ->
-                viewModel.onClickSpot(view)
-            }
+            it.wifiSpot.setOnClickListener(viewModel.spotClickListener)
+            it.foodSpot.setOnClickListener(viewModel.spotClickListener)
+            it.shopSpot.setOnClickListener(viewModel.spotClickListener)
             it.lifecycleOwner = this
         }
 
@@ -166,9 +160,7 @@ class RadarFragment : Fragment() {
             )
         }
 
-        spotButton.setOnClickListener { view ->
-            viewModel.onClickSpot(view)
-        }
+        spotButton.setOnClickListener(viewModel.spotClickListener)
     }
 
     override fun onDestroy() {
