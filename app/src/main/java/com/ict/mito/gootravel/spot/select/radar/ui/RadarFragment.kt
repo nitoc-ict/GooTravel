@@ -89,6 +89,13 @@ class RadarFragment : Fragment() {
                 this,
                 Observer { value ->
                     val array = filterSpotData(value)
+                    array.forEach { spot ->
+                        addWiFiSpotButton(
+                            spot.id.toInt(),
+                            ((spot.longitude - value.longitude) / RADAR_DISPLAY_RANGE * 400).toInt(),
+                            ((spot.latitude - value.latitude) / RADAR_DISPLAY_RANGE * 400).toInt()
+                        )
+                    }
                     constraintSet.applyTo(constraintLayout)
                 }
             )
