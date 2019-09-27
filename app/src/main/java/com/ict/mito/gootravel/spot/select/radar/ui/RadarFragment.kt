@@ -92,13 +92,9 @@ class RadarFragment : Fragment() {
                     val longitudeRange =
                         value.longitude - RADAR_DISPLAY_RANGE..value.longitude + RADAR_DISPLAY_RANGE
                     val arrayList = arrayListOf<SpotData>()
-                    viewModel.spotdataList.forEach { spot ->
-                        if (
-                            spot.latitude in latitudeRange &&
-                            spot.longitude in longitudeRange
-                        ) {
-                            arrayList.add(spot)
-                        }
+                    val array = viewModel.spotdataList.filter { spot ->
+                        spot.latitude in latitudeRange &&
+                        spot.longitude in longitudeRange
                     }
                     constraintSet.applyTo(constraintLayout)
                 }
