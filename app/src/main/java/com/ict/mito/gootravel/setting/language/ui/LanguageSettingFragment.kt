@@ -24,7 +24,7 @@ class LanguageSettingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(
-            com.ict.mito.gootravel.R.layout.language_setting_fragment,
+            R.layout.language_setting_fragment,
             container,
             false
         )
