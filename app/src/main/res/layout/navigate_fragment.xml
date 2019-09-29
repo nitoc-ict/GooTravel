@@ -30,7 +30,7 @@
                 android:id="@+id/distance_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="55dp"
                 android:text="@{viewmodel.distance.toString()}"
                 tool:layout_constraintBottom_toBottomOf="@id/arrow_image"
                 tool:layout_constraintEnd_toEndOf="@id/arrow_image"
