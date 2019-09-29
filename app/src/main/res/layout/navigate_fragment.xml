@@ -11,6 +11,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+        <ImageView
+                android:id="@+id/arrow_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tool:layout_constraintStart_toStartOf="parent"
+                tool:layout_constraintEnd_toEndOf="parent"
+                tool:layout_constraintTop_toTopOf="parent"
+                tool:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/arrow"
+                android:contentDescription="@string/navigatearrow"/>
 
         <TextView
                 android:id="@+id/distance_text"
@@ -22,17 +32,6 @@
                 tool:layout_constraintEnd_toEndOf="@id/arrow_image"
                 tool:layout_constraintBottom_toBottomOf="@id/arrow_image"
                 tools:text="fooooo"/>
-
-        <ImageView
-                android:id="@+id/arrow_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tool:layout_constraintStart_toStartOf="parent"
-                tool:layout_constraintEnd_toEndOf="parent"
-                tool:layout_constraintTop_toTopOf="parent"
-                tool:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/arrow"
-                android:contentDescription="@string/navigatearrow"/>
 
         <TextView
                 android:id="@+id/spot_name_text"
