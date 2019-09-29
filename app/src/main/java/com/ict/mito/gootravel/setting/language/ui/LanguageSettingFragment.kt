@@ -34,17 +34,6 @@ class LanguageSettingFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(LanguageSettingViewModel::class.java)
         // TODO: Use the ViewModel
-        class LanguageSettingFragment : Fragment() {
-            public override fun onCreate(savedInstanceState: Bundle?) {
-                super.onCreate(savedInstanceState)
-
-                setContentView(com.ict.mito.gootravel.R.layout.language_setting_fragment)
-            }
-
-            private fun setContentView(languageSettingFragment: Int) {
-
-
-            }
-        }
+       
     }
 }
