@@ -92,6 +92,9 @@ class RadarFragment : Fragment() {
             it.locationLiveData.observe(
                 this,
                 Observer { value ->
+                    viewModel.showSpotViewList.forEach { button ->
+                        constraintLayout.removeView(button)
+                    }
                     val array = filterSpotData(value)
                     array.forEach { spot ->
                         val distance = calcDirectDistance(
