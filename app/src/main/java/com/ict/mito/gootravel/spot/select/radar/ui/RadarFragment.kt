@@ -139,7 +139,7 @@ class RadarFragment : Fragment() {
             (location.latitude - RADAR_DISPLAY_RANGE)..(location.latitude + RADAR_DISPLAY_RANGE)
         val longitudeRange =
             (location.longitude - RADAR_DISPLAY_RANGE)..(location.longitude + RADAR_DISPLAY_RANGE)
-        return viewModel.spotdataList.filter { spot ->
+        return viewModel.spotSpotDataList.filter { spot ->
             spot.latitude in latitudeRange &&
             spot.longitude in longitudeRange
         }
