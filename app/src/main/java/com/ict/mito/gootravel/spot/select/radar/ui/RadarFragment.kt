@@ -95,6 +95,7 @@ class RadarFragment : Fragment() {
                     viewModel.showSpotViewList.forEach { button ->
                         constraintLayout.removeView(button)
                     }
+                    viewModel.showSpotViewList.clear()
                     val array = filterSpotData(value)
                     array.forEach { spot ->
                         val distance = calcDirectDistance(
