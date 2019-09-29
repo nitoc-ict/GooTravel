@@ -16,8 +16,7 @@ class RadarViewModel(
     val orientationLiveData: OrientationLiveData,
     val locationLiveData: LocationLiveData
 ) : ViewModel() {
-    var spotSpotDataList: List<SpotData> = listOf()
-    var spotSpotViewList: List<View> = listOf()
+    var spotdataList: List<SpotData> = listOf()
     var showSpotDataList: List<SpotData> = listOf()
     val spotClickListener = View.OnClickListener { view ->
         val args = Bundle()
@@ -38,7 +37,7 @@ class RadarViewModel(
     init {
         repository.getAllSpotData().subscribeBy(
             onSuccess = {
-                spotSpotDataList = it
+                spotdataList = it
             }
         )
     }
