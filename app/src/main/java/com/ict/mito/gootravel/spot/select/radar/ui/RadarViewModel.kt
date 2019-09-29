@@ -17,7 +17,7 @@ class RadarViewModel(
     val locationLiveData: LocationLiveData
 ) : ViewModel() {
     var spotdataList: List<SpotData> = listOf()
-    var showSpotDataList: List<SpotData> = listOf()
+    var showSpotViewList: List<View> = listOf()
     val spotClickListener = View.OnClickListener { view ->
         val args = Bundle()
         args.putInt(
