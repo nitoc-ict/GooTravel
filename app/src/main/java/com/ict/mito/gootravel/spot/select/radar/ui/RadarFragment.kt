@@ -88,7 +88,7 @@ class RadarFragment : Fragment() {
         constraintSet.clone(constraintLayout)
 
         viewModel.also {
-            it.fragmentManager = fragmentManager!!
+            it.fragmentManager = parentFragmentManager
             it.locationLiveData.observe(
                 this,
                 Observer { value ->
