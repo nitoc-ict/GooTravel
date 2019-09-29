@@ -184,6 +184,7 @@ class RadarFragment : Fragment() {
         }
 
         spotButton.setOnClickListener(viewModel.spotClickListener)
+        viewModel.showSpotViewList.add(spotButton)
     }
 
     override fun onDestroy() {
