@@ -13,7 +13,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RadarFragmentBinding
@@ -126,20 +125,7 @@ class RadarFragment : Fragment() {
         }
         handler.post(runnable)
 
-        viewModel.also {
-            it.fragmentManager = parentFragmentManager
-            it.locationLiveData.observe(
-                this,
-                Observer { value ->
-                }
-            )
-            it.orientationLiveData.observe(
-                this,
-                Observer {
-//                    constraintSet.applyTo(constraintLayout)
-                }
-            )
-        }
+        viewModel.fragmentManager = parentFragmentManager
 
         binding?.let {
             it.viewmodel = viewModel
