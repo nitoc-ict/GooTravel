@@ -25,6 +25,9 @@ class NavigateViewModel(
     lateinit var destination: SpotData
 
     fun setId(id: Long) {
+        repository.getSpotDataById(id).map {
+            destination = it
+        }.subscribe()
     }
 
     init {
