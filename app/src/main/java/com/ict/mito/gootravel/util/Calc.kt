@@ -45,6 +45,10 @@ fun rad2deg(rad: Float): Float {
     return (rad * 180.0f / Math.PI).toFloat()
 }
 
+fun deg2rad(deg: Float): Float {
+    return deg * (Math.PI / 180f).toFloat()
+}
+
 fun normalizeRange(angle: Float): Float {
     val f = angle / 360f
     val i = if (f >= 0.0f) {
