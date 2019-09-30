@@ -18,12 +18,16 @@ class RadarViewModel(
 ) : ViewModel() {
     var spotdataList: List<SpotData> = listOf()
     var showSpotViewList: ArrayList<View> = arrayListOf()
+
+    lateinit var fragmentManager: FragmentManager
+
     val spotClickListener = View.OnClickListener { view ->
         val args = Bundle()
         args.putInt(
             "spotId",
             view.id
         )
+
         val bottomSheet = SelectSpotBottomSheetFragment()
         bottomSheet.also {
             it.arguments = args
@@ -41,6 +45,4 @@ class RadarViewModel(
             }
         )
     }
-
-    lateinit var fragmentManager: FragmentManager
 }
