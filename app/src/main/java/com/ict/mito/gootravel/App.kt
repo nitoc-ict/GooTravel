@@ -46,6 +46,7 @@ class App : Application() {
         viewModel {
             NavigateViewModel(
                 get(),
+                get(),
                 get()
             )
         }

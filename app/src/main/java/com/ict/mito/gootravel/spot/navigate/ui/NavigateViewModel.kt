@@ -4,6 +4,7 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
+import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.OrientationLiveData
 import com.ict.mito.gootravel.spot.model.SpotData
@@ -12,7 +13,8 @@ import com.ict.mito.gootravel.util.calcDirection
 
 class NavigateViewModel(
     val orientationLiveData: OrientationLiveData,
-    val locationLiveData: LocationLiveData
+    val locationLiveData: LocationLiveData,
+    private val repository: Repository
 ) : ViewModel() {
     var latitude: MutableLiveData<Double> = MutableLiveData()
     var longitude: MutableLiveData<Double> = MutableLiveData()
@@ -21,6 +23,9 @@ class NavigateViewModel(
     var distance: MediatorLiveData<Double> = MediatorLiveData()
 
     lateinit var destination: SpotData
+
+    fun setId(id: Long) {
+    }
 
     init {
         val observer = Observer<Double> {
