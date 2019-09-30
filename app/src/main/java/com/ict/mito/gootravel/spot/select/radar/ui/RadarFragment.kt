@@ -92,7 +92,6 @@ class RadarFragment : Fragment() {
         constraintLayout = binding?.root as ConstraintLayout
         constraintSet.clone(constraintLayout)
 
-
         runnable = Runnable {
             viewModel.showSpotViewList.forEach { button ->
                 constraintLayout.removeView(button)
