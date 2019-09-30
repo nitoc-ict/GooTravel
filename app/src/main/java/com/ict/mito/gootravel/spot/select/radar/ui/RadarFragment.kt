@@ -211,6 +211,7 @@ class RadarFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+        handler.removeCallbacks(runnable)
         binding = null
     }
 }
