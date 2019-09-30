@@ -27,7 +27,12 @@
                 app:destination="@id/listFragment" />
     </fragment>
     <fragment android:id="@+id/navigateFragment" android:name="com.ict.mito.gootravel.spot.navigate.ui.NavigateFragment"
-              android:label="navigate_fragment" tools:layout="@layout/navigate_fragment"/>
+              android:label="navigate_fragment" tools:layout="@layout/navigate_fragment">
+            <argument
+                    android:name="spot_id"
+                    app:argType="long"
+                    android:defaultValue="0" />
+    </fragment>
     <fragment android:id="@+id/registerFragment" android:name="com.ict.mito.gootravel.spot.register.ui.RegisterFragment"
               android:label="register_fragment" tools:layout="@layout/register_fragment"/>
 </navigation>
