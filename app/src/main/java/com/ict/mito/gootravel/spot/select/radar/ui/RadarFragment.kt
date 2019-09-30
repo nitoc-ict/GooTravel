@@ -3,6 +3,7 @@ package com.ict.mito.gootravel.spot.select.radar.ui
 import android.content.Intent
 import android.location.Location
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +36,10 @@ class RadarFragment : Fragment() {
 
     private lateinit var constraintLayout: ConstraintLayout
     private val constraintSet = ConstraintSet()
+
+    private val handler = Handler()
+    private val runnable = Runnable {
+    }
 
     private val onMenuItemClickListener = Toolbar.OnMenuItemClickListener { menu ->
         when (menu.itemId) {
