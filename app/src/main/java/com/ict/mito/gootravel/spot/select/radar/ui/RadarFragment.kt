@@ -99,16 +99,16 @@ class RadarFragment : Fragment() {
             }
             viewModel.showSpotViewList.clear()
             val array = filterSpotData(viewModel.locationLiveData.value)
-            array.forEach { spot ->
+            array.forEach { destinationSpot ->
                 val distance = calcDirectDistance(
-                    spot.longitude,
-                    spot.latitude,
+                    destinationSpot.longitude,
+                    destinationSpot.latitude,
                     viewModel.locationLiveData.value?.longitude ?: 0.0,
                     viewModel.locationLiveData.value?.latitude ?: 0.0
                 )
                 val direction = calcDirection(
-                    spot.longitude,
-                    spot.latitude,
+                    destinationSpot.longitude,
+                    destinationSpot.latitude,
                     viewModel.locationLiveData.value?.longitude ?: 0.0,
                     viewModel.locationLiveData.value?.latitude ?: 0.0
                 )
@@ -117,7 +117,7 @@ class RadarFragment : Fragment() {
                             (viewModel.orientationLiveData.value?.azimuth ?: 0f)
                 )
                 addWiFiSpotButton(
-                    spot.id.toInt(),
+                    destinationSpot.id.toInt(),
                     (distance * sin(directionRad)).toInt(),
                     (distance * cos(directionRad)).toInt()
                 )
