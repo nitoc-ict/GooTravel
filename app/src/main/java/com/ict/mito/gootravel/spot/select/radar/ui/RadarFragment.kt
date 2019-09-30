@@ -112,7 +112,10 @@ class RadarFragment : Fragment() {
                     viewModel.locationLiveData.value?.longitude ?: 0.0,
                     viewModel.locationLiveData.value?.latitude ?: 0.0
                 )
-                val directionRad = deg2rad(direction.toFloat())
+                val directionRad = deg2rad(
+                    direction.toFloat() +
+                            (viewModel.orientationLiveData.value?.azimuth ?: 0f)
+                )
                 addWiFiSpotButton(
                     spot.id.toInt(),
                     (distance * sin(directionRad)).toInt(),
