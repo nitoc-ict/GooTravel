@@ -79,7 +79,7 @@ class RadarFragment : Fragment() {
     ): View? {
         activity?.bottom_appbar?.let {
             it.replaceMenu(R.menu.radar_bottomappbar_menu)
-            activity?.bottom_appbar?.setOnMenuItemClickListener(onMenuItemClickListener)
+            it.setOnMenuItemClickListener(onMenuItemClickListener)
         }
 
         binding = DataBindingUtil.inflate(
