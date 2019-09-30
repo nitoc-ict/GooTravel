@@ -24,9 +24,9 @@ class SelectSpotBottomSheetViewModel(private val repository: Repository) : ViewM
     var dialog: BottomSheetDialogFragment? = null
 
     fun setId(id: Long) {
-//        repository.getSpotDataById(id).map {
-//            _spotData.postValue(it)
-//        }.subscribe()
+        repository.getSpotDataById(id).map {
+            _spotData.postValue(it)
+        }.subscribe()
     }
 
     fun spotClick(view: View) {
