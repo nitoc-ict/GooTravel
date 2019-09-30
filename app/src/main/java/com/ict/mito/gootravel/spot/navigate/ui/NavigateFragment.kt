@@ -68,7 +68,7 @@ class NavigateFragment : Fragment() {
                     it.longitude.postValue(location.longitude)
                 }
             )
-            it.spotData = SpotData(
+            it.destination = SpotData(
                 0,
                 "Dummy",
                 0.0,

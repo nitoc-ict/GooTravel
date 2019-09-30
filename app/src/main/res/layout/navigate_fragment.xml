@@ -52,7 +52,7 @@
                 android:id="@+id/spot_name_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{viewmodel.spotData.name}"
+                android:text="@{viewmodel.destination.name}"
                 android:layout_marginTop="20dp"
                 tool:layout_constraintEnd_toEndOf="parent"
                 tool:layout_constraintStart_toStartOf="parent"
