@@ -15,6 +15,6 @@ data class SpotData(
     val spotTypeDetail: String,
     val address: String
 ) {
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     var id: Long = 0
 }
