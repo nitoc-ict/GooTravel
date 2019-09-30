@@ -35,15 +35,15 @@ class NavigateFragment : Fragment() {
 
         )
 
-        val args = arguments ?: return null
-        val safeArgs = NavigateFragmentArgs.fromBundle(args)
-
         val viewmodelObserver = Observer<Double> {
             binding?.let {
                 rotateNavigateImageView(it.arrowImage)
                 it.notifyChange()
             }
         }
+
+        val args = arguments ?: return null
+        val safeArgs = NavigateFragmentArgs.fromBundle(args)
 
         viewModel.also {
             it.direction.observe(
