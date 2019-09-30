@@ -92,6 +92,8 @@ class RadarFragment : Fragment() {
         constraintLayout = binding?.root as ConstraintLayout
         constraintSet.clone(constraintLayout)
 
+        handler.post(runnable)
+
         viewModel.also {
             it.fragmentManager = parentFragmentManager
             it.locationLiveData.observe(
