@@ -3,6 +3,7 @@ package com.ict.mito.gootravel.spot.select.radar.ui
 import android.content.Intent
 import android.location.Location
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,7 @@ import com.ict.mito.gootravel.spot.model.SpotData
 import com.ict.mito.gootravel.util.RADAR_DISPLAY_RANGE
 import com.ict.mito.gootravel.util.calcDirectDistance
 import com.ict.mito.gootravel.util.calcDirection
+import com.ict.mito.gootravel.util.deg2rad
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.jetbrains.anko.dip
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -35,6 +37,9 @@ class RadarFragment : Fragment() {
 
     private lateinit var constraintLayout: ConstraintLayout
     private val constraintSet = ConstraintSet()
+
+    private val handler = Handler()
+    private var runnable: Runnable? = null
 
     private val onMenuItemClickListener = Toolbar.OnMenuItemClickListener { menu ->
         when (menu.itemId) {
@@ -87,43 +92,51 @@ class RadarFragment : Fragment() {
         constraintLayout = binding?.root as ConstraintLayout
         constraintSet.clone(constraintLayout)
 
+
+        runnable = Runnable {
+            viewModel.showSpotViewList.forEach { button ->
+                constraintLayout.removeView(button)
+            }
+            viewModel.showSpotViewList.clear()
+            val array = filterSpotData(viewModel.locationLiveData.value)
+            array.forEach { spot ->
+                val distance = calcDirectDistance(
+                    spot.longitude,
+                    spot.latitude,
+                    viewModel.locationLiveData.value?.longitude ?: 0.0,
+                    viewModel.locationLiveData.value?.latitude ?: 0.0
+                )
+                val direction = calcDirection(
+                    spot.longitude,
+                    spot.latitude,
+                    viewModel.locationLiveData.value?.longitude ?: 0.0,
+                    viewModel.locationLiveData.value?.latitude ?: 0.0
+                )
+                val directionRad = deg2rad(direction.toFloat())
+                addWiFiSpotButton(
+                    spot.id.toInt(),
+                    (distance * sin(directionRad)).toInt(),
+                    (distance * cos(directionRad)).toInt()
+                )
+            }
+            constraintSet.applyTo(constraintLayout)
+
+            handler.postDelayed(
+                runnable,
+                5000
+            )
+        }
+        handler.post(runnable)
+
         viewModel.also {
             it.fragmentManager = parentFragmentManager
             it.locationLiveData.observe(
                 this,
-                Observer { value ->
-                    viewModel.showSpotViewList.forEach { button ->
-                        constraintLayout.removeView(button)
-                    }
-                    viewModel.showSpotViewList.clear()
-                    val array = filterSpotData(value)
-                    array.forEach { spot ->
-                        val distance = calcDirectDistance(
-                            spot.longitude,
-                            spot.latitude,
-                            value.longitude,
-                            value.latitude
-                        )
-                        val direction = calcDirection(
-                            spot.longitude,
-                            spot.latitude,
-                            value.longitude,
-                            value.latitude
-                        )
-                        addWiFiSpotButton(
-                            spot.id.toInt(),
-                            (distance * sin(direction)).toInt(),
-                            (distance * cos(direction)).toInt()
-                        )
-                    }
-                    constraintSet.applyTo(constraintLayout)
-                }
+                Observer { }
             )
             it.orientationLiveData.observe(
                 this,
-                Observer {
-//                    constraintSet.applyTo(constraintLayout)
-                }
+                Observer { }
             )
         }
 
@@ -135,7 +148,8 @@ class RadarFragment : Fragment() {
         return binding?.root
     }
 
-    private fun filterSpotData(location: Location): List<SpotData> {
+    private fun filterSpotData(location: Location?): List<SpotData> {
+        if (location == null) return emptyList()
         val latitudeRange =
             (location.latitude - RADAR_DISPLAY_RANGE)..(location.latitude + RADAR_DISPLAY_RANGE)
         val longitudeRange =
