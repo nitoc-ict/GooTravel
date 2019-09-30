@@ -38,33 +38,7 @@ class RadarFragment : Fragment() {
     private val constraintSet = ConstraintSet()
 
     private val handler = Handler()
-    private val runnable = Runnable {
-        viewModel.showSpotViewList.forEach { button ->
-            constraintLayout.removeView(button)
-        }
-        viewModel.showSpotViewList.clear()
-        val array = filterSpotData(viewModel.locationLiveData.value)
-        array.forEach { spot ->
-            val distance = calcDirectDistance(
-                spot.longitude,
-                spot.latitude,
-                viewModel.locationLiveData.value?.longitude ?: 0.0,
-                viewModel.locationLiveData.value?.latitude ?: 0.0
-            )
-            val direction = calcDirection(
-                spot.longitude,
-                spot.latitude,
-                viewModel.locationLiveData.value?.longitude ?: 0.0,
-                viewModel.locationLiveData.value?.latitude ?: 0.0
-            )
-            addWiFiSpotButton(
-                spot.id.toInt(),
-                (distance * sin(direction)).toInt(),
-                (distance * cos(direction)).toInt()
-            )
-        }
-        constraintSet.applyTo(constraintLayout)
-    }
+    private var runnable: Runnable? = null
 
     private val onMenuItemClickListener = Toolbar.OnMenuItemClickListener { menu ->
         when (menu.itemId) {
@@ -117,6 +91,39 @@ class RadarFragment : Fragment() {
         constraintLayout = binding?.root as ConstraintLayout
         constraintSet.clone(constraintLayout)
 
+
+        runnable = Runnable {
+            viewModel.showSpotViewList.forEach { button ->
+                constraintLayout.removeView(button)
+            }
+            viewModel.showSpotViewList.clear()
+            val array = filterSpotData(viewModel.locationLiveData.value)
+            array.forEach { spot ->
+                val distance = calcDirectDistance(
+                    spot.longitude,
+                    spot.latitude,
+                    viewModel.locationLiveData.value?.longitude ?: 0.0,
+                    viewModel.locationLiveData.value?.latitude ?: 0.0
+                )
+                val direction = calcDirection(
+                    spot.longitude,
+                    spot.latitude,
+                    viewModel.locationLiveData.value?.longitude ?: 0.0,
+                    viewModel.locationLiveData.value?.latitude ?: 0.0
+                )
+                addWiFiSpotButton(
+                    spot.id.toInt(),
+                    (distance * sin(direction)).toInt(),
+                    (distance * cos(direction)).toInt()
+                )
+            }
+            constraintSet.applyTo(constraintLayout)
+
+            handler.postDelayed(
+                runnable,
+                5000
+            )
+        }
         handler.post(runnable)
 
         viewModel.also {
