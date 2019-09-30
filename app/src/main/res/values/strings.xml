@@ -17,4 +17,5 @@
     <string name="connect">CONNECT</string>
     <string name="cancel">CANCEL</string>
     <string name="appbar_language_title">Language</string>
+    <string name="spot_image">Spot image</string>
 </resources>
