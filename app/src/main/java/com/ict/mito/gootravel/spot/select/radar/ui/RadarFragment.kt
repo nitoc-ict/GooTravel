@@ -25,6 +25,7 @@ import com.ict.mito.gootravel.util.calcDirectDistance
 import com.ict.mito.gootravel.util.calcDirection
 import com.ict.mito.gootravel.util.deg2rad
 import kotlinx.android.synthetic.main.activity_spot.*
+import org.jetbrains.anko.dip
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.math.cos
 import kotlin.math.sin
