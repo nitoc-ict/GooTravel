@@ -67,6 +67,7 @@ class NavigateFragment : Fragment() {
                     it.longitude.postValue(location.longitude)
                 }
             )
+            it.setId(safeArgs.spotId)
         }
 
         binding?.let {
