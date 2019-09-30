@@ -22,6 +22,7 @@ import com.ict.mito.gootravel.spot.model.SpotData
 import com.ict.mito.gootravel.util.RADAR_DISPLAY_RANGE
 import com.ict.mito.gootravel.util.calcDirectDistance
 import com.ict.mito.gootravel.util.calcDirection
+import com.ict.mito.gootravel.util.deg2rad
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.jetbrains.anko.dip
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -110,10 +111,11 @@ class RadarFragment : Fragment() {
                     viewModel.locationLiveData.value?.longitude ?: 0.0,
                     viewModel.locationLiveData.value?.latitude ?: 0.0
                 )
+                val directionRad = deg2rad(direction.toFloat())
                 addWiFiSpotButton(
                     spot.id.toInt(),
-                    (distance * sin(direction)).toInt(),
-                    (distance * cos(direction)).toInt()
+                    (distance * sin(directionRad)).toInt(),
+                    (distance * cos(directionRad)).toInt()
                 )
             }
             constraintSet.applyTo(constraintLayout)
