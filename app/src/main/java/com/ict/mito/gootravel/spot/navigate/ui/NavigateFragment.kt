@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
-import com.ict.mito.gootravel.spot.model.SpotData
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -43,6 +42,9 @@ class NavigateFragment : Fragment() {
             }
         }
 
+        val args = arguments ?: return null
+        val safeArgs = NavigateFragmentArgs.fromBundle(args)
+
         viewModel.also {
             it.direction.observe(
                 this,
@@ -65,14 +67,7 @@ class NavigateFragment : Fragment() {
                     it.longitude.postValue(location.longitude)
                 }
             )
-            it.spotData = SpotData(
-                "Dummy",
-                0.0,
-                0.0,
-                0,
-                "",
-                ""
-            )
+            it.setId(safeArgs.spotId)
         }
 
         binding?.let {
