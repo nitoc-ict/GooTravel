@@ -81,6 +81,10 @@ dependencies {
     //    anko
     implementation("org.jetbrains.anko:anko:$anko_version")
 
+    //    work manager
+    implementation("androidx.work:work-runtime:2.2.0")
+    implementation("androidx.work:work-runtime-ktx:2.2.0")
+
     // for test
     testImplementation("junit:junit:4.12")
     androidTestImplementation("androidx.test:runner:1.2.0")
