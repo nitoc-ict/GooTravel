@@ -9,7 +9,7 @@
         <action android:id="@+id/action_radarFragment_to_listFragment" app:destination="@id/listFragment"/>
         <action android:id="@+id/action_radarFragment_to_searchFragment" app:destination="@id/searchFragment"/>
         <action android:id="@+id/action_radarFragment_to_navigateFragment" app:destination="@id/navigateFragment">
-                <argument android:defaultValue="0" android:name="spotId" />
+                <argument android:defaultValue="0L" android:name="spotId" />
         </action>
         <action android:id="@+id/action_radarFragment_to_registerFragment" app:destination="@id/registerFragment"/>
     </fragment>
@@ -33,7 +33,7 @@
             <argument
                     android:name="spotId"
                     app:argType="long"
-                    android:defaultValue="0" />
+                    android:defaultValue="0L" />
     </fragment>
     <fragment android:id="@+id/registerFragment" android:name="com.ict.mito.gootravel.spot.register.ui.RegisterFragment"
               android:label="register_fragment" tools:layout="@layout/register_fragment"/>
