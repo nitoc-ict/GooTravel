@@ -29,7 +29,7 @@ class SelectSpotBottomSheetViewModel(private val repository: Repository) : ViewM
         }.subscribe()
     }
 
-    fun spotClick(view: View) {
+    fun goClick(view: View) {
         val action =
             RadarFragmentDirections.actionRadarFragmentToNavigateFragment(_spotData.value?.id ?: 0)
         navController?.navigate(action)
