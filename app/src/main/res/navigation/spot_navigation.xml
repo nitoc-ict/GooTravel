@@ -10,6 +10,7 @@
         <action android:id="@+id/action_radarFragment_to_searchFragment" app:destination="@id/searchFragment"/>
         <action android:id="@+id/action_radarFragment_to_navigateFragment" app:destination="@id/navigateFragment">
                 <argument android:defaultValue="0L" android:name="spotId" />
+                <argument android:defaultValue="0" android:name="distance" />
         </action>
         <action android:id="@+id/action_radarFragment_to_registerFragment" app:destination="@id/registerFragment"/>
     </fragment>
