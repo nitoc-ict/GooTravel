@@ -39,7 +39,7 @@ class RadarViewModel(
         }
     }
 
-    private fun filterSpotData(): List<SpotData> {
+    fun filterSpotData(): List<SpotData> {
         val location = locationLiveData.value ?: return emptyList()
 
         val latitudeRange =
