@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="45dp"
                 android:textSize="24sp"
-                android:text="@{viewmodel.distance.toString()}"
+                android:text="@{viewmodel.distance.toString() + 'm'}"
                 tool:layout_constraintBottom_toBottomOf="@id/arrow_image"
                 tool:layout_constraintEnd_toEndOf="@id/arrow_image"
                 tool:layout_constraintStart_toStartOf="@id/arrow_image"
