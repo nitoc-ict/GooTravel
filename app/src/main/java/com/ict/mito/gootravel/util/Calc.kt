@@ -1,10 +1,35 @@
 package com.ict.mito.gootravel.util
 
 import android.location.Location
+import com.ict.mito.gootravel.spot.model.SpotData
 
 /**
  * Created by mitohato14 on 2019-07-28.
  */
+
+fun calcDirection(
+    destinationSpot: SpotData,
+    location: Location
+) {
+    calcDirection(
+        destinationSpot.longitude,
+        destinationSpot.latitude,
+        location.longitude,
+        location.latitude
+    )
+}
+
+fun calcDirectDistance(
+    destinationSpot: SpotData,
+    location: Location
+) {
+    calcDirectDistance(
+        destinationSpot.longitude,
+        destinationSpot.latitude,
+        location.longitude,
+        location.latitude
+    )
+}
 
 fun calcDirectDistance(
     ax: Double,
