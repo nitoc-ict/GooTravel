@@ -18,7 +18,7 @@ class SelectSpotBottomSheetViewModel(private val repository: Repository) : ViewM
     val spotData: LiveData<SpotData>
         get() = _spotData
 
-    val distance: String = "0m"
+    var distance: String = "0m"
 
     var navController: NavController? = null
     var dialog: BottomSheetDialogFragment? = null

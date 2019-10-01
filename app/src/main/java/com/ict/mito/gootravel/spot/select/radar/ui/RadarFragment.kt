@@ -1,7 +1,6 @@
 package com.ict.mito.gootravel.spot.select.radar.ui
 
 import android.content.Intent
-import android.location.Location
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -19,8 +18,6 @@ import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RadarFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
 import com.ict.mito.gootravel.setting.activity.SettingActivity
-import com.ict.mito.gootravel.spot.model.SpotData
-import com.ict.mito.gootravel.util.RADAR_DISPLAY_RANGE
 import com.ict.mito.gootravel.util.calcDirectDistance
 import com.ict.mito.gootravel.util.calcDirection
 import com.ict.mito.gootravel.util.deg2rad
@@ -98,19 +95,15 @@ class RadarFragment : Fragment() {
             }
             viewModel.showSpotViewList.clear()
 
-            val displaySpotList = filterSpotData(viewModel.locationLiveData.value)
+            val displaySpotList = viewModel.filterSpotData()
             displaySpotList.forEach { destinationSpot ->
                 val distance = calcDirectDistance(
-                    destinationSpot.longitude,
-                    destinationSpot.latitude,
-                    viewModel.locationLiveData.value?.longitude ?: 0.0,
-                    viewModel.locationLiveData.value?.latitude ?: 0.0
+                    destinationSpot,
+                    viewModel.locationLiveData.value
                 )
                 val direction = calcDirection(
-                    destinationSpot.longitude,
-                    destinationSpot.latitude,
-                    viewModel.locationLiveData.value?.longitude ?: 0.0,
-                    viewModel.locationLiveData.value?.latitude ?: 0.0
+                    destinationSpot,
+                    viewModel.locationLiveData.value
                 )
 
                 val directionRad = deg2rad(
@@ -151,20 +144,6 @@ class RadarFragment : Fragment() {
         }
 
         return binding?.root
-    }
-
-    private fun filterSpotData(location: Location?): List<SpotData> {
-        if (location == null) return emptyList()
-
-        val latitudeRange =
-            (location.latitude - RADAR_DISPLAY_RANGE)..(location.latitude + RADAR_DISPLAY_RANGE)
-        val longitudeRange =
-            (location.longitude - RADAR_DISPLAY_RANGE)..(location.longitude + RADAR_DISPLAY_RANGE)
-
-        return viewModel.spotdataList.filter { spot ->
-            spot.latitude in latitudeRange &&
-            spot.longitude in longitudeRange
-        }
     }
 
     private fun addWiFiSpotButton(
