@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <array name="listview_items">
-        <item>英語</item>
-        <item>中国語(繫体字)</item>
-        <item>中国語(簡体字)</item>
-        <item>韓国語</item>
-    </array>
-</resources>
