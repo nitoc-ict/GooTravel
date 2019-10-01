@@ -34,18 +34,18 @@ class NavigateViewModel(
         val observer = Observer<Double> {
             direction.postValue(
                 calcDirection(
-                    latitude.value ?: 0.0,
-                    longitude.value ?: 0.0,
+                    destination.longitude,
                     destination.latitude,
-                    destination.longitude
+                    longitude.value ?: 0.0,
+                    latitude.value ?: 0.0
                 ) - (azimuth.value ?: 0.0)
             )
             distance.postValue(
                 calcDirectDistance(
-                    latitude.value ?: 0.0,
-                    longitude.value ?: 0.0,
+                    destination.longitude,
                     destination.latitude,
-                    destination.longitude
+                    longitude.value ?: 0.0,
+                    latitude.value ?: 0.0
                 )
             )
         }
