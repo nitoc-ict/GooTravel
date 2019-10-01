@@ -4,22 +4,45 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
+import com.ict.mito.gootravel.repo.Repository
+import com.ict.mito.gootravel.spot.model.LocationLiveData
+import com.ict.mito.gootravel.spot.model.OrientationLiveData
+import com.ict.mito.gootravel.spot.model.SpotData
 import com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetFragment
+import io.reactivex.rxkotlin.subscribeBy
 
-class RadarViewModel : ViewModel() {
+class RadarViewModel(
+    repository: Repository,
+    val orientationLiveData: OrientationLiveData,
+    val locationLiveData: LocationLiveData
+) : ViewModel() {
+    var spotdataList: List<SpotData> = listOf()
+    var showSpotViewList: ArrayList<View> = arrayListOf()
+
     lateinit var fragmentManager: FragmentManager
 
-    fun onClickSpot(view: View) {
+    val spotClickListener = View.OnClickListener { view ->
         val args = Bundle()
         args.putInt(
             "spotId",
             view.id
         )
+
         val bottomSheet = SelectSpotBottomSheetFragment()
-        bottomSheet.arguments = args
-        bottomSheet.show(
-            fragmentManager,
-            bottomSheet.tag
+        bottomSheet.also {
+            it.arguments = args
+            it.show(
+                fragmentManager,
+                bottomSheet.tag
+            )
+        }
+    }
+
+    init {
+        repository.getAllSpotData().subscribeBy(
+            onSuccess = {
+                spotdataList = it
+            }
         )
     }
 }
