@@ -37,9 +37,11 @@ class SelectSpotBottomSheetFragment : BottomSheetDialogFragment() {
         }
 
         val id: Int = arguments?.getInt("spotId") ?: 0
+        val distance = arguments?.getInt("distance") ?: 0
         viewmodel.also {
             it.navController = findNavController()
             it.dialog = this
+            it.distance = "${distance}m"
             it.setId(id.toLong())
             it.spotData.observe(
                 this,
