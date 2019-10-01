@@ -35,24 +35,27 @@ class NavigateFragment : Fragment() {
 
         )
 
-        val viewmodelObserver = Observer<Double> {
-            binding?.let {
-                rotateNavigateImageView(it.arrowImage)
-                it.notifyChange()
-            }
-        }
-
         val args = arguments ?: return null
         val safeArgs = NavigateFragmentArgs.fromBundle(args)
 
         viewModel.also {
             it.direction.observe(
                 this,
-                viewmodelObserver
+                Observer {
+                    binding?.let { binding ->
+                        rotateNavigateImageView(binding.arrowImage)
+                        binding.notifyChange()
+                    }
+                }
             )
             it.distance.observe(
                 this,
-                viewmodelObserver
+                Observer {
+                    binding?.let { binding ->
+                        rotateNavigateImageView(binding.arrowImage)
+                        binding.notifyChange()
+                    }
+                }
             )
             it.orientationLiveData.observe(
                 this,

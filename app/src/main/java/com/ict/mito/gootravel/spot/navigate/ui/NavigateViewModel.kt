@@ -20,7 +20,7 @@ class NavigateViewModel(
     var longitude: MutableLiveData<Double> = MutableLiveData()
     var azimuth: MutableLiveData<Double> = MutableLiveData()
     var direction: MediatorLiveData<Double> = MediatorLiveData()
-    var distance: MediatorLiveData<Double> = MediatorLiveData()
+    var distance: MediatorLiveData<Int> = MediatorLiveData()
 
     lateinit var destination: SpotData
 
@@ -46,7 +46,7 @@ class NavigateViewModel(
                     destination.latitude,
                     longitude.value ?: 0.0,
                     latitude.value ?: 0.0
-                )
+                ).toInt()
             )
         }
         direction.apply {
