@@ -10,26 +10,22 @@ import com.ict.mito.gootravel.spot.model.SpotData
 fun calcDirection(
     destinationSpot: SpotData?,
     location: Location?
-) {
-    calcDirection(
-        destinationSpot?.longitude ?: 0.0,
-        destinationSpot?.latitude ?: 0.0,
-        location?.longitude ?: 0.0,
-        location?.latitude ?: 0.0
-    )
-}
+): Double = calcDirection(
+    destinationSpot?.longitude ?: 0.0,
+    destinationSpot?.latitude ?: 0.0,
+    location?.longitude ?: 0.0,
+    location?.latitude ?: 0.0
+)
 
 fun calcDirectDistance(
     destinationSpot: SpotData?,
     location: Location?
-) {
-    calcDirectDistance(
-        destinationSpot?.longitude ?: 0.0,
-        destinationSpot?.latitude ?: 0.0,
-        location?.longitude ?: 0.0,
-        location?.latitude ?: 0.0
-    )
-}
+): Double = calcDirectDistance(
+    destinationSpot?.longitude ?: 0.0,
+    destinationSpot?.latitude ?: 0.0,
+    location?.longitude ?: 0.0,
+    location?.latitude ?: 0.0
+)
 
 fun calcDirectDistance(
     ax: Double,
