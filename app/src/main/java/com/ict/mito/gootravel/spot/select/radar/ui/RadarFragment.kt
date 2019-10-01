@@ -98,16 +98,12 @@ class RadarFragment : Fragment() {
             val displaySpotList = viewModel.filterSpotData()
             displaySpotList.forEach { destinationSpot ->
                 val distance = calcDirectDistance(
-                    destinationSpot.longitude,
-                    destinationSpot.latitude,
-                    viewModel.locationLiveData.value?.longitude ?: 0.0,
-                    viewModel.locationLiveData.value?.latitude ?: 0.0
+                    destinationSpot,
+                    viewModel.locationLiveData.value
                 )
                 val direction = calcDirection(
-                    destinationSpot.longitude,
-                    destinationSpot.latitude,
-                    viewModel.locationLiveData.value?.longitude ?: 0.0,
-                    viewModel.locationLiveData.value?.latitude ?: 0.0
+                    destinationSpot,
+                    viewModel.locationLiveData.value
                 )
 
                 val directionRad = deg2rad(
