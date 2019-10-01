@@ -34,6 +34,10 @@
                     android:name="spotId"
                     app:argType="long"
                     android:defaultValue="0L" />
+            <argument
+                    android:name="distance"
+                    app:argType="integer"
+                    android:defaultValue="0" />
     </fragment>
     <fragment android:id="@+id/registerFragment" android:name="com.ict.mito.gootravel.spot.register.ui.RegisterFragment"
               android:label="register_fragment" tools:layout="@layout/register_fragment"/>
