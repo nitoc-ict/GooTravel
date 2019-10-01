@@ -31,6 +31,11 @@ class SelectSpotBottomSheetFragment : BottomSheetDialogFragment() {
             false
         )
 
+        binding?.let {
+            it.viewmodel = viewmodel
+            it.lifecycleOwner = this
+        }
+
         val id: Int = arguments?.getInt("spotId") ?: 0
         viewmodel.also {
             it.navController = findNavController()
@@ -42,10 +47,6 @@ class SelectSpotBottomSheetFragment : BottomSheetDialogFragment() {
                     binding?.notifyChange()
                 }
             )
-        }
-        binding?.let {
-            it.viewmodel = viewmodel
-            it.lifecycleOwner = this
         }
         return binding?.root
     }
