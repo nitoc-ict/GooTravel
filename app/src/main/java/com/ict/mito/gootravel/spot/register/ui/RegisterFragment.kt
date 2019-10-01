@@ -35,18 +35,18 @@ class RegisterFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        SignIn.setOnClickListener {
-            var name: String = NameInput.text.toString()
-            var memo: String = MemoInput.text.toString()
+        done_button.setOnClickListener {
+            var name: String = name_input.text.toString()
+            var memo: String = memo_input.text.toString()
 
-            if (NameInput.length() != 0 && MemoInput.length() != 0) {
+            if (name_input.length() != 0 && memo_input.length() != 0) {
 
-                NameInput.setText("")
-                MemoInput.setText("")
+                name_input.setText("")
+                memo_input.setText("")
             }
         }
 
-        TimePicker.setOnClickListener {
+        set_notification_button.setOnClickListener {
             val calendar = Calendar.getInstance()
             val hour = calendar.get(Calendar.HOUR_OF_DAY)
             val minute = calendar.get(Calendar.MINUTE)
@@ -62,7 +62,7 @@ class RegisterFragment : Fragment() {
 
         val READ_REQUEST_CODE = 42
 
-        ImageInput.setOnClickListener {
+        set_image_button.setOnClickListener {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
             intent.addCategory(Intent.CATEGORY_OPENABLE)
             intent.type = "image/*"
@@ -89,7 +89,7 @@ class RegisterFragment : Fragment() {
                         context?.contentResolver,
                         uri
                     )
-                    ViewImage.setImageBitmap(bitmap)
+                    set_image_preview.setImageBitmap(bitmap)
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
