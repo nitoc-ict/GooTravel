@@ -31,7 +31,7 @@ class SelectSpotBottomSheetViewModel(private val repository: Repository) : ViewM
 
     fun goClick(view: View) {
         val action =
-            RadarFragmentDirections.actionRadarFragmentToNavigateFragment(view.id.toLong())
+            RadarFragmentDirections.actionRadarFragmentToNavigateFragment(_spotData.value?.id ?: 0)
         navController?.navigate(action)
         dialog?.dismiss()
     }
