@@ -3,7 +3,10 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        
+
+        <variable
+                name="viewmodel"
+                type="com.ict.mito.gootravel.spot.register.ui.RegisterViewModel" />
     </data>
 
     <ScrollView
