@@ -1,105 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<layout>
 
-    <EditText
-            android:id="@+id/name_input"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="60dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-            android:id="@+id/done_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SIGNIN"
-            android:textSize="12pt"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+        <EditText
+                android:id="@+id/name_input"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="60dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-
-    <EditText
-            android:id="@+id/memo_input"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="200dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name_input" />
-
-    <ImageButton
-            android:id="@+id/set_image_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/photo_image"
-            android:textSize="12pt"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/set_notification_button" />
-
-    <TextView
-            android:id="@+id/set_image_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="38dp"
-            android:background="#F9F9F9"
-            android:text="Add image"
-            android:textColor="#B3B3B3"
-            android:textSize="12pt"
-            app:layout_constraintStart_toEndOf="@id/set_image_button"
-            app:layout_constraintTop_toBottomOf="@id/set_notification_hint" />
-
-    <TextView
-            android:id="@+id/set_notification_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="25dp"
-            android:background="#F9F9F9"
-            android:text="Add notification timer"
-            android:textColor="#B3B3B3"
-            android:textSize="12pt"
-            app:layout_constraintStart_toEndOf="@id/set_notification_button"
-            app:layout_constraintTop_toBottomOf="@id/name_input" />
+        <Button
+                android:id="@+id/done_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SIGNIN"
+                android:textSize="12pt"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
 
-    <ImageView
-            android:id="@+id/set_image_preview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_preview_hint" />
+        <EditText
+                android:id="@+id/memo_input"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="200dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name_input" />
 
-    <TextView
-            android:id="@+id/image_preview_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="80dp"
-            android:text="IMAGE VIEW"
-            android:textSize="12pt"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/memo_input" />
+        <ImageButton
+                android:id="@+id/set_image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/photo_image"
+                android:textSize="12pt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/set_notification_button" />
 
-    <ImageButton
-            android:id="@+id/set_notification_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/alert_image"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name_input" />
+        <TextView
+                android:id="@+id/set_image_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="38dp"
+                android:background="#F9F9F9"
+                android:text="Add image"
+                android:textColor="#B3B3B3"
+                android:textSize="12pt"
+                app:layout_constraintStart_toEndOf="@id/set_image_button"
+                app:layout_constraintTop_toBottomOf="@id/set_notification_hint" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+                android:id="@+id/set_notification_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="25dp"
+                android:background="#F9F9F9"
+                android:text="Add notification timer"
+                android:textColor="#B3B3B3"
+                android:textSize="12pt"
+                app:layout_constraintStart_toEndOf="@id/set_notification_button"
+                app:layout_constraintTop_toBottomOf="@id/name_input" />
 
 
+        <ImageView
+                android:id="@+id/set_image_preview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_preview_hint" />
+
+        <TextView
+                android:id="@+id/image_preview_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="80dp"
+                android:text="IMAGE VIEW"
+                android:textSize="12pt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/memo_input" />
+
+        <ImageButton
+                android:id="@+id/set_notification_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/alert_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name_input" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
