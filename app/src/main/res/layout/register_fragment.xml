@@ -12,8 +12,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
                 android:layout_marginTop="60dp"
+                android:layout_marginEnd="10dp"
                 android:hint="@string/name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -35,14 +35,25 @@
                 app:layout_constraintEnd_toEndOf="parent" />
 
 
-        <EditText
-                android:id="@+id/memo_input"
-                android:layout_width="300dp"
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/memo_input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="200dp"
+                android:layout_marginEnd="10dp"
+                android:hint="@string/memo"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/name_input_layout" />
+                app:layout_constraintTop_toBottomOf="@id/name_input_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/memo_input_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="10" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <ImageButton
                 android:id="@+id/set_image_button"
@@ -100,7 +111,7 @@
                 android:text="IMAGE VIEW"
                 android:textSize="12pt"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/memo_input" />
+                app:layout_constraintTop_toBottomOf="@id/memo_input_layout" />
 
         <ImageButton
                 android:id="@+id/set_notification_button"
