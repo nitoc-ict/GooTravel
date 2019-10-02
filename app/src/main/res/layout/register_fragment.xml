@@ -4,16 +4,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <TextView
-            android:id="@+id/name_hint_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:text="NAME"
-            android:textSize="12pt"
-            app:layout_constraintBottom_toTopOf="@id/name_input"
-            app:layout_constraintStart_toStartOf="parent" />
-
     <EditText
             android:id="@+id/name_input"
             android:layout_width="300dp"
@@ -41,16 +31,6 @@
             android:layout_marginTop="200dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name_input" />
-
-    <TextView
-            android:id="@+id/memo_hint_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="MEMO"
-            android:textSize="12pt"
-            app:layout_constraintBottom_toTopOf="@id/memo_input"
-            app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
             android:id="@+id/set_image_button"
