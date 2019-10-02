@@ -1,7 +1,6 @@
 package com.ict.mito.gootravel.spot.register.ui
 
 import android.app.Activity
-import android.app.TimePickerDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -14,7 +13,6 @@ import com.ict.mito.gootravel.R
 import kotlinx.android.synthetic.main.register_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.IOException
-import java.util.*
 
 class RegisterFragment : Fragment() {
 
@@ -34,21 +32,6 @@ class RegisterFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-
-        set_notification_button.setOnClickListener {
-            val calendar = Calendar.getInstance()
-            val hour = calendar.get(Calendar.HOUR_OF_DAY)
-            val minute = calendar.get(Calendar.MINUTE)
-            val dialog = TimePickerDialog(
-                context,
-                TimePickerDialog.OnTimeSetListener { _, _, _ -> },
-                hour,
-                minute,
-                true
-            )
-            dialog.show()
-        }
 
         val READ_REQUEST_CODE = 42
 
