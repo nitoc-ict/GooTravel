@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.ict.mito.gootravel.R
+import com.ict.mito.gootravel.databinding.RegisterFragmentBinding
 import kotlinx.android.synthetic.main.register_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.IOException
@@ -17,6 +18,7 @@ import java.io.IOException
 class RegisterFragment : Fragment() {
 
     private val viewmodel: RegisterViewModel by viewModel()
+    private var binding: RegisterFragmentBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
