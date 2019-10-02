@@ -21,6 +21,13 @@ class RegisterFragment : Fragment() {
     private val viewmodel: RegisterViewModel by viewModel()
     private var binding: RegisterFragmentBinding? = null
 
+    private val setImageClickListener = View.OnClickListener {
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+        intent.addCategory(Intent.CATEGORY_OPENABLE)
+        intent.type = "image/*"
+        startActivityForResult(intent, READ_REQUEST_CODE)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,12 +46,6 @@ class RegisterFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        set_image_button.setOnClickListener {
-            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
-            intent.addCategory(Intent.CATEGORY_OPENABLE)
-            intent.type = "image/*"
-            startActivityForResult(intent, READ_REQUEST_CODE)
-        }
     }
 
     val READ_REQUEST_CODE = 42
