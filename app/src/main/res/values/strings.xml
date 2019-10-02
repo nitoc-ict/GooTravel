@@ -18,4 +18,7 @@
     <string name="cancel">CANCEL</string>
     <string name="appbar_language_title">Language</string>
     <string name="spot_image">Spot image</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name</string>
 </resources>
