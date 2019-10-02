@@ -21,7 +21,7 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="name">Name</string>
-    <string name="memo">Memo</string>
+    <string name="memo">memo</string>
     <string name="done">Done</string>
     <string name="add_notification_hint">Add notification timer</string>
     <string name="set_image_hin">Add image</string>
