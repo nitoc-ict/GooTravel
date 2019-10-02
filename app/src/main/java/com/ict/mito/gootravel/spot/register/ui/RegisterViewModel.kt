@@ -17,11 +17,6 @@ class RegisterViewModel : ViewModel() {
         val spotName = _registerPointLiveData.value?.name ?: return@OnClickListener
 
         if (spotName.isNotEmpty()) {
-            _registerPointLiveData.postValue(
-                _registerPointLiveData.value?.copy(
-                    name = ""
-                )
-            )
         }
     }
 
