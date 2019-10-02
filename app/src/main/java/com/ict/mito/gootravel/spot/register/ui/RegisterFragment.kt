@@ -26,7 +26,10 @@ class RegisterFragment : Fragment() {
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
         intent.addCategory(Intent.CATEGORY_OPENABLE)
         intent.type = "image/*"
-        startActivityForResult(intent, READ_REQUEST_CODE)
+        startActivityForResult(
+            intent,
+            READ_REQUEST_CODE
+        )
     }
 
     override fun onCreateView(
@@ -56,7 +59,7 @@ class RegisterFragment : Fragment() {
         return binding?.root
     }
 
-    val READ_REQUEST_CODE = 42
+    private val READ_REQUEST_CODE = 42
 
     override fun onActivityResult(
         requestCode: Int,
@@ -69,7 +72,7 @@ class RegisterFragment : Fragment() {
         ) {
             val uri: Uri?
             if (resultData != null) {
-                uri = resultData.getData()
+                uri = resultData.data
                 try {
                     val bitmap = MediaStore.Images.Media.getBitmap(
                         context?.contentResolver,
