@@ -45,12 +45,16 @@
                         android:id="@+id/set_notification_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/base_margin"
+                        android:layout_marginEnd="@dimen/base_margin"
                         android:background="@drawable/ic_add_alert_black_24dp" />
 
                 <TextView
                         android:id="@+id/set_notification_hint"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/base_margin"
+                        android:layout_marginEnd="@dimen/base_margin"
                         android:text="@string/add_notification_hint"
                         android:textColor="@color/gray" />
 
@@ -71,12 +75,16 @@
                         android:id="@+id/set_image_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/base_margin"
+                        android:layout_marginEnd="@dimen/base_margin"
                         android:background="@drawable/ic_insert_photo_black_24dp" />
 
                 <TextView
                         android:id="@+id/set_image_hint"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/base_margin"
+                        android:layout_marginEnd="@dimen/base_margin"
                         android:text="@string/set_image_hin"
                         android:textColor="@color/gray" />
             </LinearLayout>
