@@ -71,7 +71,7 @@
                         android:id="@+id/set_image_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/photo_image" />
+                        android:background="@drawable/ic_insert_photo_black_24dp" />
 
                 <TextView
                         android:id="@+id/set_image_hint"
