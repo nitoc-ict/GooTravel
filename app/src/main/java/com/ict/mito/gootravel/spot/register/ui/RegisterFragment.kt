@@ -48,11 +48,6 @@ class RegisterFragment : Fragment() {
         return binding?.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-    }
-
     val READ_REQUEST_CODE = 42
 
     override fun onActivityResult(
