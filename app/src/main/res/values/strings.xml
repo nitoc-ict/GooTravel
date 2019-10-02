@@ -23,4 +23,6 @@
     <string name="name">Name</string>
     <string name="memo">Memo</string>
     <string name="done">Done</string>
+    <string name="add_notification_hint">Add notification timer</string>
+    <string name="set_image_hin">Add image</string>
 </resources>
