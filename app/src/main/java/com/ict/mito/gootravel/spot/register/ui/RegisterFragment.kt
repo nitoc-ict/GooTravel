@@ -40,6 +40,11 @@ class RegisterFragment : Fragment() {
             false
         )
 
+        binding?.let {
+            it.viewmodel = viewmodel
+            it.setImageClickListener = setImageClickListener
+        }
+
         return binding?.root
     }
 
