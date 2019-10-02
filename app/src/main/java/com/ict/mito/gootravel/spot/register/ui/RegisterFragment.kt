@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RegisterFragmentBinding
+import com.ict.mito.gootravel.util.READ_REQUEST_CODE
 import kotlinx.android.synthetic.main.register_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.IOException
@@ -58,8 +59,6 @@ class RegisterFragment : Fragment() {
 
         return binding?.root
     }
-
-    private val READ_REQUEST_CODE = 42
 
     override fun onActivityResult(
         requestCode: Int,
