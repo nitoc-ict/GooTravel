@@ -3,4 +3,15 @@
     <string name="navigatearrow">NavigateArrow</string>
     <string name="my_location">MyLocation</string>
     <string name="radar_oval">RadarOval</string>
+    <string name="appbar_list_title">List</string>
+    <string name="appbar_radar_title">Radar</string>
+    <string name="appbar_search_title">Search</string>
+    <string name="appbar_other_title">Other</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name</string>
+    <string name="memo">memo</string>
+    <string name="done">Done</string>
+    <string name="add_notification_hint">Add notification timer</string>
+    <string name="set_image_hin">Add image</string>
 </resources>

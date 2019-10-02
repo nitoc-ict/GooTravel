@@ -10,12 +10,14 @@ import androidx.core.content.PermissionChecker
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.ict.mito.gootravel.R
+import kotlinx.android.synthetic.main.activity_spot.*
 
 class SpotActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_spot)
+        bottom_appbar.replaceMenu(R.menu.radar_bottomappbar_menu)
 
         val resultCode = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this)
         val requestCode = 10001

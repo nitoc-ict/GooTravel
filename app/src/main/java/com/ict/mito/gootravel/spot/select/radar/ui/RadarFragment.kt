@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RadarFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
+import kotlinx.android.synthetic.main.activity_spot.*
 import kotlinx.android.synthetic.main.radar_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -24,6 +25,24 @@ class RadarFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        activity?.bottom_appbar?.let {
+            it.replaceMenu(R.menu.radar_bottomappbar_menu)
+            activity?.bottom_appbar?.setOnMenuItemClickListener { menu ->
+                when (menu.itemId) {
+                    R.id.appbar_list -> {
+                        findNavController().navigate(R.id.action_radarFragment_to_listFragment)
+                    }
+                    R.id.appbar_search -> {
+                        findNavController().navigate(R.id.action_radarFragment_to_searchFragment)
+                    }
+                    else -> {
+                        findNavController().navigate(R.id.action_radarFragment_to_registerFragment)
+                    }
+                }
+                true
+            }
+        }
+
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.radar_fragment,
@@ -48,12 +67,6 @@ class RadarFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         // TODO: Use the ViewModel
-        button_to_list.setOnClickListener {
-            findNavController().navigate(R.id.action_radarFragment_to_listFragment)
-        }
-        button_to_search.setOnClickListener {
-            findNavController().navigate(R.id.action_radarFragment_to_searchFragment)
-        }
         button_to_register.setOnClickListener {
             findNavController().navigate(R.id.action_radarFragment_to_registerFragment)
         }
