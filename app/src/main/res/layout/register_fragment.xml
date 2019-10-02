@@ -7,6 +7,10 @@
         <variable
                 name="viewmodel"
                 type="com.ict.mito.gootravel.spot.register.ui.RegisterViewModel" />
+
+        <variable
+                name="setImageClickListener"
+                type="android.view.View.OnClickListener" />
     </data>
 
     <ScrollView
