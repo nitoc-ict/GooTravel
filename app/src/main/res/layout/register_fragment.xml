@@ -29,14 +29,6 @@
                         android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                    android:id="@+id/done_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/done"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
 
             <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/memo_input_layout"
@@ -95,6 +87,15 @@
                     app:layout_constraintStart_toEndOf="@id/set_notification_button"
                     app:layout_constraintTop_toBottomOf="@id/name_input_layout" />
 
+            <ImageButton
+                    android:id="@+id/set_notification_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/ic_add_alert_black_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/name_input_layout" />
 
             <ImageView
                     android:id="@+id/set_image_preview"
@@ -105,26 +106,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/image_preview_hint" />
 
-            <TextView
-                    android:id="@+id/image_preview_hint"
+            <Button
+                    android:id="@+id/done_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="80dp"
-                    android:text="IMAGE VIEW"
-                    android:textSize="12pt"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/memo_input_layout" />
-
-            <ImageButton
-                    android:id="@+id/set_notification_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/ic_add_alert_black_24dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/name_input_layout" />
+                    android:text="@string/done"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
