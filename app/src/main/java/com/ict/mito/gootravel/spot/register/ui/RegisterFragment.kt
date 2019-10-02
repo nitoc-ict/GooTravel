@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RegisterFragmentBinding
 import kotlinx.android.synthetic.main.register_fragment.*
@@ -38,6 +39,13 @@ class RegisterFragment : Fragment() {
             R.layout.register_fragment,
             container,
             false
+        )
+
+        viewmodel.registerPointLiveData.observe(
+            this,
+            Observer {
+                binding?.notifyChange()
+            }
         )
 
         binding?.let {
