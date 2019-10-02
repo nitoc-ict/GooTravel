@@ -35,16 +35,6 @@ class RegisterFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        done_button.setOnClickListener {
-            var name: String = name_input.text.toString()
-            var memo: String = memo_input.text.toString()
-
-            if (name_input.length() != 0 && memo_input.length() != 0) {
-
-                name_input.setText("")
-                memo_input.setText("")
-            }
-        }
 
         set_notification_button.setOnClickListener {
             val calendar = Calendar.getInstance()
