@@ -9,8 +9,8 @@ data class RegisterPointData(
     val id: Int,
     val latitude: Double,
     val longitude: Double,
-    val name: String,
-    val memo: String,
-    val notificationTime: Int,
-    val spotBitmap: Bitmap
+    var name: String,
+    var memo: String,
+    var notificationTime: Int,
+    var spotBitmap: Bitmap
 )

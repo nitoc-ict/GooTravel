@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools">
 
     <data>
 
@@ -37,7 +38,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/name_input_edit"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="@={viewmodel.registerPointLiveData.name}" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -49,6 +51,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="@dimen/base_margin"
                     android:gravity="center_vertical"
+                    android:onClick="@{viewmodel.setNotificationClick}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/name_input_layout">
@@ -80,6 +83,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="@dimen/base_margin"
                     android:gravity="center_vertical"
+                    android:onClick="@{setImageClickListener}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/set_notification">
@@ -119,7 +123,8 @@
                         android:id="@+id/memo_input_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:maxLines="10" />
+                        android:maxLines="10"
+                        android:text="@={viewmodel.registerPointLiveData.memo}" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageView
@@ -130,6 +135,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="@dimen/base_margin"
                     android:layout_marginBottom="50dp"
+                    bind:imageBitmap="@{viewmodel.registerPointLiveData.spotBitmap}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/set_image" />
 
@@ -139,6 +145,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="@dimen/base_margin"
+                    android:onClick="@{viewmodel.doneClick}"
                     android:text="@string/done"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
