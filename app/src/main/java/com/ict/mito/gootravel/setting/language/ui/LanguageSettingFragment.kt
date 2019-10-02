@@ -18,6 +18,12 @@ class LanguageSettingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val view = inflater.inflate(
+            R.layout.language_setting_fragment,
+            container,
+            false
+        )
         val recyclerView = (R.id.recyclerView) as RecyclerView
 
         val languages = ArrayList<language>()
@@ -30,5 +36,6 @@ class LanguageSettingFragment : Fragment() {
         val adapter = CustomAdapter(languages)
 
         recyclerView.adapter = adapter
+        return view
     }
 }
