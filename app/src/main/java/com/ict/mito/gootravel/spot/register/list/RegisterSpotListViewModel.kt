@@ -13,7 +13,12 @@ class RegisterSpotListViewModel(private val repository: Repository) : ViewModel(
     var adapter: RegisterSpotListAdapter =
         RegisterSpotListAdapter(registerSpotList.value ?: listOf())
 
-    lateinit var navController: NavController
+    var navController: NavController? = null
+        set(value) {
+            if (value == null) return
+            field = value
+            adapter.navController = value
+        }
 
     init {
         repository.getAllRegisterLocation().subscribeBy(
