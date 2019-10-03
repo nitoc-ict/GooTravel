@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.ict.mito.gootravel.db.DataBaseConverter
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.RegisterPointData
 import java.util.*
@@ -18,6 +19,11 @@ class RegisterViewModel(private val repository: Repository) : ViewModel() {
         val spotName = _registerPointLiveData.value?.name ?: return@OnClickListener
 
         if (spotName.isNotEmpty()) {
+            _registerPointLiveData.value?.let {
+                repository.add(
+                    DataBaseConverter().convert2RoomRegisterLocation(it)
+                )
+            }
         }
     }
 
