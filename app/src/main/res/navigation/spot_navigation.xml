@@ -6,6 +6,10 @@
 
     <fragment android:id="@+id/radarFragment" android:name="com.ict.mito.gootravel.spot.select.radar.ui.RadarFragment"
               android:label="radar_fragment" tools:layout="@layout/radar_fragment">
+        <argument
+                android:name="spotId"
+                app:argType="long"
+                android:defaultValue="0L" />
         <action android:id="@+id/action_radarFragment_to_listFragment" app:destination="@id/listFragment"/>
         <action android:id="@+id/action_radarFragment_to_searchFragment" app:destination="@id/searchFragment"/>
         <action android:id="@+id/action_radarFragment_to_navigateFragment" app:destination="@id/navigateFragment">
