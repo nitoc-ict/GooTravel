@@ -6,8 +6,8 @@
     <data>
 
         <variable
-                name="viewmodel"
-                type="com.ict.mito.gootravel.spot.register.list.RegisterSpotListViewModel" />
+                name="registerPoint"
+                type="com.ict.mito.gootravel.spot.model.RegisterPointData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
