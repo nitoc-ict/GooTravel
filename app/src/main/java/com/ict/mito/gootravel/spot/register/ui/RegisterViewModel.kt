@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
+import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.db.DataBaseConverter
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.RegisterPointData
@@ -43,6 +44,7 @@ class RegisterViewModel(private val repository: Repository) : ViewModel() {
                 )
             }
         }
+        navController.navigate(R.id.action_registerFragment_to_radarFragment)
     }
 
     val setNotificationClick = View.OnClickListener { view ->
