@@ -1,6 +1,7 @@
 package com.ict.mito.gootravel.spot.register.ui
 
 import android.app.TimePickerDialog
+import android.graphics.Bitmap
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -17,6 +18,10 @@ class RegisterViewModel(private val repository: Repository) : ViewModel() {
 
     val nameLiveData = MutableLiveData<String>()
     val memoLiveData = MutableLiveData<String>()
+
+    fun setImage(bitmap: Bitmap) {
+        _registerPointLiveData.postValue(_registerPointLiveData.value?.copy(spotBitmap = bitmap))
+    }
 
     val doneClick = View.OnClickListener {
         val spotName = nameLiveData.value ?: ""
