@@ -1,7 +1,9 @@
 package com.ict.mito.gootravel.spot.register.list
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.gootravel.spot.model.RegisterPointData
 
@@ -10,6 +12,9 @@ import com.ict.mito.gootravel.spot.model.RegisterPointData
  */
 class RegisterSpotListAdapter(private val registerSpotList: List<RegisterPointData>) :
     RecyclerView.Adapter<RegisterSpotListViewHolder>() {
+
+    lateinit var navController: NavController
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -25,6 +30,16 @@ class RegisterSpotListAdapter(private val registerSpotList: List<RegisterPointDa
         holder: RegisterSpotListViewHolder,
         position: Int
     ) {
-        holder.bind(registerSpotList[position])
+        holder.apply {
+            bind(registerSpotList[position])
+            setToRootOnClickListener(View.OnClickListener {
+                val action =
+                    RegisterSpotListFragmentDirections.actionRegisterSpotListFragmentToRadarFragment(
+                        registerSpotList[position].id.toLong()
+                    )
+                navController.navigate(action)
+
+            })
+        }
     }
 }
