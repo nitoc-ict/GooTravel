@@ -63,6 +63,9 @@ class RadarFragment : Fragment() {
                     )
                 )
             }
+            R.id.app_bar_register -> {
+                findNavController().navigate(R.id.action_radarFragment_to_registerSpotListFragment)
+            }
             else -> {
                 findNavController().navigate(R.id.action_radarFragment_to_registerFragment)
             }
