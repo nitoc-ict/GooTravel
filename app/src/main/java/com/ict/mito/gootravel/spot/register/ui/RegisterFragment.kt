@@ -55,6 +55,7 @@ class RegisterFragment : Fragment() {
         binding?.let {
             it.viewmodel = viewmodel
             it.setImageClickListener = setImageClickListener
+            it.lifecycleOwner = this
         }
 
         return binding?.root
