@@ -145,6 +145,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="@dimen/base_margin"
+                    android:background="@drawable/done_button_style"
                     android:onClick="@{viewmodel.doneClick}"
                     android:text="@string/done"
                     app:layout_constraintBottom_toBottomOf="parent"
