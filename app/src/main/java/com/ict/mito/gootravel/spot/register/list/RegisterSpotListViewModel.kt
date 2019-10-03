@@ -1,7 +1,8 @@
 package com.ict.mito.gootravel.spot.register.list
 
 import androidx.lifecycle.ViewModel
+import com.ict.mito.gootravel.spot.model.RegisterPointData
 
 class RegisterSpotListViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+    lateinit var registerSpotList: List<RegisterPointData>
 }
