@@ -5,4 +5,5 @@ import com.ict.mito.gootravel.spot.model.RegisterPointData
 
 class RegisterSpotListViewModel : ViewModel() {
     private lateinit var registerSpotList: List<RegisterPointData>
+    lateinit var adapter: RegisterSpotListAdapter
 }
