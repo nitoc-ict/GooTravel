@@ -24,7 +24,7 @@ class LanguageSettingFragment : Fragment() {
             container,
             false
         )
-        val recyclerView = (R.id.recyclerView) as RecyclerView
+        val recyclerView = findViewById(R.id.recyclerView) as RecyclerView
 
         val languages = ArrayList<language>()
 
@@ -37,5 +37,10 @@ class LanguageSettingFragment : Fragment() {
 
         recyclerView.adapter = adapter
         return view
+    }
+
+    private fun findViewById(recyclerView: Int) {
+
+
     }
 }
