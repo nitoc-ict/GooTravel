@@ -16,7 +16,8 @@ object BindingAdapter {
 
 
     @BindingAdapter("bind:imageBitmap")
-    fun ImageView.loadImage(bitmap: Bitmap) {
+    @JvmStatic
+    fun ImageView.loadImage(bitmap: Bitmap?) {
         this.setImageBitmap(bitmap)
     }
 }
