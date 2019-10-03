@@ -19,6 +19,7 @@ class SpotActivity : AppCompatActivity(R.layout.activity_spot) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bottom_appbar.replaceMenu(R.menu.radar_bottomappbar_menu)
+        setSupportActionBar(toolbar)
 
         val resultCode = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this)
         val requestCode = 10001
