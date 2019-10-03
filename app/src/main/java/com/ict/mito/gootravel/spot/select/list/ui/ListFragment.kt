@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
@@ -58,5 +59,17 @@ class ListFragment : Fragment() {
             container,
             false
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        activity?.bottom_appbar?.replaceMenu(R.menu.list_bottomappbar_menu)
+
+        val appCompatActivity = activity as AppCompatActivity?
+        appCompatActivity?.supportActionBar?.let {
+            it.title = getString(R.string.wifi_spot)
+            it.setDisplayHomeAsUpEnabled(false)
+            it.setHomeButtonEnabled(false)
+        }
     }
 }

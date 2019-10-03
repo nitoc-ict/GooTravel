@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.PermissionChecker
+import androidx.navigation.findNavController
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.ict.mito.gootravel.R
@@ -53,4 +54,7 @@ class SpotActivity : AppCompatActivity(R.layout.activity_spot) {
             )
         }
     }
+
+    override fun onSupportNavigateUp(): Boolean = findNavController(R.id.navhost).navigateUp()
+
 }
