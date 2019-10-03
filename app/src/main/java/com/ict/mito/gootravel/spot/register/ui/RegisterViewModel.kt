@@ -16,7 +16,7 @@ class RegisterViewModel(private val repository: Repository) : ViewModel() {
         get() = _registerPointLiveData
 
     val doneClick = View.OnClickListener {
-        val spotName = _registerPointLiveData.value?.name ?: return@OnClickListener
+        val spotName = registerPointLiveData.value?.name ?: ""
 
         if (spotName.isNotEmpty()) {
             _registerPointLiveData.value?.let {
