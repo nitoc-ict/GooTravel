@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RegisterFragmentBinding
 import com.ict.mito.gootravel.util.READ_REQUEST_CODE
+import kotlinx.android.synthetic.main.activity_spot.*
 import kotlinx.android.synthetic.main.register_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.IOException
@@ -84,6 +85,11 @@ class RegisterFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        activity?.bottom_appbar?.replaceMenu(R.menu.empty_menu)
     }
 
     override fun onDestroy() {

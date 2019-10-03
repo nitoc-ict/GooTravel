@@ -25,4 +25,5 @@
     <string name="done">Done</string>
     <string name="add_notification_hint">Add notification timer</string>
     <string name="set_image_hin">Add image</string>
+    <string name="register_fragment_title">Registration point</string>
 </resources>
