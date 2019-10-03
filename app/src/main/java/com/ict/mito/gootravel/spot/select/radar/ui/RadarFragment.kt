@@ -191,7 +191,7 @@ class RadarFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        activity?.bottom_appbar?.replaceMenu(R.menu.empty_menu)
+        activity?.bottom_appbar?.replaceMenu(R.menu.radar_bottomappbar_menu)
 
         val appCompatActivity = activity as AppCompatActivity?
         appCompatActivity?.supportActionBar?.let {
