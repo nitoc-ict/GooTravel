@@ -5,10 +5,11 @@ import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.RegisterPointData
 import java.util.*
 
-class RegisterViewModel : ViewModel() {
+class RegisterViewModel(private val repository: Repository) : ViewModel() {
     private val _registerPointLiveData = MutableLiveData<RegisterPointData>()
     val registerPointLiveData: LiveData<RegisterPointData>
         get() = _registerPointLiveData
