@@ -48,6 +48,11 @@ class SearchFragment : Fragment() {
                             )
                         )
                     }
+                    R.id.app_bar_register -> {
+                        findNavController().navigate(
+                            R.id.action_searchFragment_to_registerSpotListFragment
+                        )
+                    }
                 }
                 true
             }

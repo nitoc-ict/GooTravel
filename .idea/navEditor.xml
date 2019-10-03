@@ -166,6 +166,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="registerSpotListFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-314" />
+                            <option name="y" value="288" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="searchFragment">
                     <value>
                       <LayoutPositions>

@@ -38,8 +38,7 @@ class SelectSpotBottomSheetViewModel(private val repository: Repository) : ViewM
     }
 
     fun registerClick(view: View) {
-       navController?.navigate(R.id.action_radarFragment_to_registerFragment)
+        navController?.navigate(R.id.action_radarFragment_to_registerFragment)
         dialog?.dismiss()
-
     }
 }

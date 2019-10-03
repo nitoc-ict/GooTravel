@@ -50,6 +50,11 @@ class ListFragment : Fragment() {
                             )
                         )
                     }
+                    R.id.app_bar_register -> {
+                        findNavController().navigate(
+                            R.id.action_listFragment_to_registerSpotListFragment
+                        )
+                    }
                 }
                 true
             }
