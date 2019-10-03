@@ -53,15 +53,17 @@ class App : Application() {
         }
         viewModel { RegisterViewModel(get()) }
         viewModel { ListViewModel() }
-        viewModel { RadarViewModel(
-            get(),
-            get(),
-            get()
-        ) }
+        viewModel {
+            RadarViewModel(
+                get(),
+                get(),
+                get()
+            )
+        }
         viewModel { SearchViewModel() }
         viewModel { SelectSpotBottomSheetViewModel(get()) }
         viewModel { SpotViewModel(get()) }
-        viewModel { RegisterSpotListViewModel() }
+        viewModel { RegisterSpotListViewModel(get()) }
     }
 
     private val liveDataModule: Module = module {
