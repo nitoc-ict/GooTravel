@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RegisterFragmentBinding
 import com.ict.mito.gootravel.util.READ_REQUEST_CODE
@@ -52,6 +53,7 @@ class RegisterFragment : Fragment() {
                 binding?.notifyChange()
             }
         )
+        viewmodel.navController = findNavController()
 
         binding?.let {
             it.viewmodel = viewmodel

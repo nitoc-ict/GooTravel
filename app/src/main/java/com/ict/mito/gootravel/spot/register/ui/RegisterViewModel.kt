@@ -6,6 +6,7 @@ import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
 import com.ict.mito.gootravel.db.DataBaseConverter
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.RegisterPointData
@@ -18,6 +19,8 @@ class RegisterViewModel(private val repository: Repository) : ViewModel() {
 
     val nameLiveData = MutableLiveData<String>()
     val memoLiveData = MutableLiveData<String>()
+
+    lateinit var navController: NavController
 
     fun setImage(bitmap: Bitmap) {
         _registerPointLiveData.postValue(_registerPointLiveData.value?.copy(spotBitmap = bitmap))
