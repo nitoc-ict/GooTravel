@@ -80,7 +80,6 @@ class RegisterFragment : Fragment() {
                         uri
                     )
                     viewmodel.setImage(bitmap)
-                    binding?.notifyChange()
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
