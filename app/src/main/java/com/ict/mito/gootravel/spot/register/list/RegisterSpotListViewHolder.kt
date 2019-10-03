@@ -1,5 +1,7 @@
 package com.ict.mito.gootravel.spot.register.list
 
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.gootravel.databinding.RegisterSpotListRowBinding
 import com.ict.mito.gootravel.spot.model.RegisterPointData
@@ -19,5 +21,20 @@ class RegisterSpotListViewHolder(private val binding: RegisterSpotListRowBinding
 
     fun unbind() {
         binding.unbind()
+    }
+
+    companion object {
+        fun create(
+            inflater: LayoutInflater,
+            parent: ViewGroup,
+            attachToRoot: Boolean
+        ): RegisterSpotListViewHolder = RegisterSpotListViewHolder(
+            RegisterSpotListRowBinding.inflate(
+                inflater,
+                parent,
+                attachToRoot
+            )
+        )
+
     }
 }
