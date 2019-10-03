@@ -16,7 +16,6 @@ import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RegisterFragmentBinding
 import com.ict.mito.gootravel.util.READ_REQUEST_CODE
 import kotlinx.android.synthetic.main.activity_spot.*
-import kotlinx.android.synthetic.main.register_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.IOException
 
@@ -80,7 +79,8 @@ class RegisterFragment : Fragment() {
                         context?.contentResolver,
                         uri
                     )
-                    set_image_preview.setImageBitmap(bitmap)
+                    viewmodel.setImage(bitmap)
+                    binding?.notifyChange()
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
