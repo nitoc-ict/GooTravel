@@ -19,9 +19,16 @@ class RegisterViewModel(private val repository: Repository) : ViewModel() {
     val memoLiveData = MutableLiveData<String>()
 
     val doneClick = View.OnClickListener {
-        val spotName = registerPointLiveData.value?.name ?: ""
+        val spotName = nameLiveData.value ?: ""
+        val spotMemo = memoLiveData.value ?: ""
 
         if (spotName.isNotEmpty()) {
+            _registerPointLiveData.postValue(
+                _registerPointLiveData.value?.copy(
+                    name = spotName,
+                    memo = spotMemo
+                )
+            )
             _registerPointLiveData.value?.let {
                 repository.add(
                     DataBaseConverter().convert2RoomRegisterLocation(it)
