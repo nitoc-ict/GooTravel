@@ -16,4 +16,8 @@ class RegisterSpotListViewHolder(private val binding: RegisterSpotListRowBinding
             it.notifyChange()
         }
     }
+
+    fun unbind() {
+        binding.unbind()
+    }
 }
