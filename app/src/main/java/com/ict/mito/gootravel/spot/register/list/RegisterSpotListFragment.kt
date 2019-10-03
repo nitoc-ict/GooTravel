@@ -26,6 +26,11 @@ class RegisterSpotListFragment : Fragment() {
             false
         )
 
+        binding?.let {
+            it.viewmodel = viewmodel
+            it.lifecycleOwner = this
+        }
+
         return binding?.root
     }
 }
