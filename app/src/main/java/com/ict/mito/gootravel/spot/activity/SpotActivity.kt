@@ -56,5 +56,4 @@ class SpotActivity : AppCompatActivity(R.layout.activity_spot) {
     }
 
     override fun onSupportNavigateUp(): Boolean = findNavController(R.id.navhost).navigateUp()
-
 }

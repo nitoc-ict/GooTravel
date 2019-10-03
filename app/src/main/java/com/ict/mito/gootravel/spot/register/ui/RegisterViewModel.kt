@@ -11,7 +11,7 @@ import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.db.DataBaseConverter
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.RegisterPointData
-import java.util.*
+import java.util.Calendar
 
 class RegisterViewModel(private val repository: Repository) : ViewModel() {
     private val _registerPointLiveData = MutableLiveData<RegisterPointData>()
@@ -63,6 +63,5 @@ class RegisterViewModel(private val repository: Repository) : ViewModel() {
             true
         )
         dialog.show()
-
     }
 }
