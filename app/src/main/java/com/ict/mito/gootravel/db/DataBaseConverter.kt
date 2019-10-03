@@ -1,16 +1,21 @@
 package com.ict.mito.gootravel.db
 
+import android.graphics.Bitmap
 import com.ict.mito.gootravel.spot.model.RegisterPointData
-import java.nio.ByteBuffer
+import java.io.ByteArrayOutputStream
 
 /**
  * Created by mitohato14 on 2019-08-28.
  */
 class DataBaseConverter {
     fun convert2RoomRegisterLocation(registerPointData: RegisterPointData): RoomRegisterLocation {
-        val byteBuffer = ByteBuffer.allocate(registerPointData.spotBitmap.byteCount)
-        registerPointData.spotBitmap.copyPixelsToBuffer(byteBuffer)
-        val imageByteArray = byteBuffer.array()
+        val baos = ByteArrayOutputStream()
+        registerPointData.spotBitmap.compress(
+            Bitmap.CompressFormat.JPEG,
+            100,
+            baos
+        )
+        val imageByteArray = baos.toByteArray()
 
         return RoomRegisterLocation(
             name = registerPointData.name,
