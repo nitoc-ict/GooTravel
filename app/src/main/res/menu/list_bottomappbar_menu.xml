@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
             android:id="@+id/appbar_radar"
             android:icon="@drawable/ic_radar_black_24dp"
             android:title="@string/appbar_radar_title"
-            app:showAsAction="ifRoom"/>
+            app:showAsAction="ifRoom" />
 
     <item
             android:id="@+id/appbar_search"
             android:icon="@drawable/ic_search_black_36dp"
             android:title="@string/appbar_search_title"
-            app:showAsAction="ifRoom"/>
+            app:showAsAction="ifRoom" />
+
+    <item
+            android:id="@+id/app_bar_register"
+            android:title="@string/appbar_register_point_title"
+            app:showAsAction="ifRoom" />
 
     <item
             android:id="@+id/app_bar_manual"
             android:icon="@drawable/ic_manual_black_24dp"
             android:title="@string/appbar_manual_title"
-            app:showAsAction="ifRoom"/>
+            app:showAsAction="ifRoom" />
+
+    <item
+            android:id="@+id/app_bar_refuge"
+            android:title="@string/appbar_refuge_title"
+            app:showAsAction="ifRoom" />
 
     <item
             android:id="@+id/app_bar_language"

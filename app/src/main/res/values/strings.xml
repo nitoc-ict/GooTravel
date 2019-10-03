@@ -28,5 +28,6 @@
     <string name="register_fragment_title">Registration point</string>
     <string name="navigate">Navigate</string>
     <string name="wifi_spot">Wi-Fi Spot</string>
-    <string name="register_point">Register Point</string>
+    <string name="appbar_register_point_title">Register Point</string>
+    <string name="appbar_refuge_title">Refuge</string>
 </resources>
