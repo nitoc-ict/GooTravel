@@ -135,9 +135,9 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="@dimen/base_margin"
                     android:layout_marginBottom="50dp"
-                    bind:imageBitmap="@{viewmodel.registerPointLiveData.spotBitmap}"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/set_image" />
+                    app:layout_constraintTop_toBottomOf="@id/set_image"
+                    bind:imageBitmap="@{viewmodel.registerPointLiveData.spotBitmap}" />
 
             <Button
                     android:id="@+id/done_button"
