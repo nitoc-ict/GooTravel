@@ -50,7 +50,7 @@ class App : Application() {
                 get()
             )
         }
-        viewModel { RegisterViewModel() }
+        viewModel { RegisterViewModel(get()) }
         viewModel { ListViewModel() }
         viewModel { RadarViewModel(
             get(),

@@ -5,3 +5,5 @@ package com.ict.mito.gootravel.util
  */
 
 const val RADAR_DISPLAY_RANGE = 0.003703707
+const val READ_REQUEST_CODE = 42
+
