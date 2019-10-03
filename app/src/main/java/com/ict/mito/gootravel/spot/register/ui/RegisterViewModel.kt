@@ -45,12 +45,16 @@ class RegisterViewModel(private val repository: Repository) : ViewModel() {
     val setNotificationClick = View.OnClickListener { view ->
         val calendar = Calendar.getInstance()
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
-        val minute = calendar.get(Calendar.MINUTE)
+        val minuteNow = calendar.get(Calendar.MINUTE)
         val dialog = TimePickerDialog(
             view.context,
-            TimePickerDialog.OnTimeSetListener { _, _, _ -> },
+            TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
+                _registerPointLiveData.postValue(
+                    _registerPointLiveData.value?.copy(notificationTime = hourOfDay * 100 + minute)
+                )
+            },
             hour,
-            minute,
+            minuteNow,
             true
         )
         dialog.show()
