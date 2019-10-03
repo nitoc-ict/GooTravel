@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.SpotData
 import com.ict.mito.gootravel.spot.select.radar.ui.RadarFragmentDirections
@@ -34,5 +35,11 @@ class SelectSpotBottomSheetViewModel(private val repository: Repository) : ViewM
             RadarFragmentDirections.actionRadarFragmentToNavigateFragment(_spotData.value?.id ?: 0)
         navController?.navigate(action)
         dialog?.dismiss()
+    }
+
+    fun registerClick(view: View) {
+       navController?.navigate(R.id.action_radarFragment_to_registerFragment)
+        dialog?.dismiss()
+
     }
 }
