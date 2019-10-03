@@ -148,6 +148,7 @@
                     android:background="@drawable/done_button_style"
                     android:onClick="@{viewmodel.doneClick}"
                     android:text="@string/done"
+                    android:textColor="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/memo_input_layout" />
