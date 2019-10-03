@@ -15,6 +15,9 @@ class RegisterViewModel(private val repository: Repository) : ViewModel() {
     val registerPointLiveData: LiveData<RegisterPointData>
         get() = _registerPointLiveData
 
+    val nameLiveData = MutableLiveData<String>()
+    val memoLiveData = MutableLiveData<String>()
+
     val doneClick = View.OnClickListener {
         val spotName = registerPointLiveData.value?.name ?: ""
 
