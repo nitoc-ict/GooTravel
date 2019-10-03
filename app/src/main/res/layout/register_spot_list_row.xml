@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,6 +12,7 @@
                 android:layout_width="@dimen/row_icon_size"
                 android:layout_height="@dimen/row_icon_size"
                 android:layout_margin="@dimen/base_margin"
+                android:contentDescription="@string/register_point_icon"
                 android:src="@drawable/ic_location_on_black_36dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
