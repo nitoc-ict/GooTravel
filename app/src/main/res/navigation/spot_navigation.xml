@@ -72,7 +72,9 @@
             tools:layout="@layout/register_spot_list_fragment" >
         <action
                 android:id="@+id/action_registerSpotListFragment_to_radarFragment"
-                app:destination="@id/radarFragment" />
+                app:destination="@id/radarFragment" >
+            <argument android:defaultValue="0L" android:name="spotId" />
+        </action>
         <action
                 android:id="@+id/action_registerSpotListFragment_to_listFragment"
                 app:destination="@id/listFragment" />
