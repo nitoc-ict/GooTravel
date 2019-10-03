@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -186,6 +187,18 @@ class RadarFragment : Fragment() {
 
         spotButton.setOnClickListener(viewModel.spotClickListener)
         viewModel.showSpotViewList.add(spotButton)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        activity?.bottom_appbar?.replaceMenu(R.menu.empty_menu)
+
+        val appCompatActivity = activity as AppCompatActivity?
+        appCompatActivity?.supportActionBar?.let {
+            it.title = getString(R.string.wifi_spot)
+            it.setDisplayHomeAsUpEnabled(false)
+            it.setHomeButtonEnabled(false)
+        }
     }
 
     override fun onDestroy() {

@@ -26,4 +26,6 @@
     <string name="add_notification_hint">Add notification timer</string>
     <string name="set_image_hin">Add image</string>
     <string name="register_fragment_title">Registration point</string>
+    <string name="navigate">Navigate</string>
+    <string name="wifi_spot">Wi-Fi Spot</string>
 </resources>

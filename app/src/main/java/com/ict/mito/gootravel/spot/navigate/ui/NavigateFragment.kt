@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -25,7 +26,6 @@ class NavigateFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        activity?.bottom_appbar?.replaceMenu(R.menu.empty_menu)
 
         binding = DataBindingUtil.inflate(
             inflater,
@@ -96,6 +96,18 @@ class NavigateFragment : Fragment() {
 
         view.startAnimation(rotate)
         prevRotation = currentRotation
+    }
+
+    override fun onResume() {
+        super.onResume()
+        activity?.bottom_appbar?.replaceMenu(R.menu.empty_menu)
+
+        val appCompatActivity = activity as AppCompatActivity?
+        appCompatActivity?.supportActionBar?.let {
+            it.title = getString(R.string.navigate)
+            it.setDisplayHomeAsUpEnabled(true)
+            it.setHomeButtonEnabled(true)
+        }
     }
 
     override fun onDestroy() {
