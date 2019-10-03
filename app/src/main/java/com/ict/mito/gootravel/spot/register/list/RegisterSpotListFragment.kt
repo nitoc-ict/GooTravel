@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RegisterSpotListFragmentBinding
 import kotlinx.android.synthetic.main.activity_spot.*
@@ -27,6 +28,8 @@ class RegisterSpotListFragment : Fragment() {
             container,
             false
         )
+
+        viewmodel.navController = findNavController()
 
         binding?.let {
             it.viewmodel = viewmodel
