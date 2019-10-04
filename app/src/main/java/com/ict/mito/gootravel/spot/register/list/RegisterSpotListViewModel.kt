@@ -1,17 +1,19 @@
 package com.ict.mito.gootravel.spot.register.list
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.ict.mito.gootravel.db.DataBaseConverter
 import com.ict.mito.gootravel.repo.Repository
-import com.ict.mito.gootravel.spot.model.RegisterPointData
+import com.ict.mito.gootravel.spot.model.RegisterSpotListLiveData
 import io.reactivex.rxkotlin.subscribeBy
 
-class RegisterSpotListViewModel(private val repository: Repository) : ViewModel() {
-    var registerSpotList: MutableLiveData<List<RegisterPointData>> = MutableLiveData()
+class RegisterSpotListViewModel(
+    private val repository: Repository,
+    val registerSpotListLiveData: RegisterSpotListLiveData
+) : ViewModel() {
+//    var registerSpotList: MutableLiveData<List<RegisterPointData>> = MutableLiveData()
     var adapter: RegisterSpotListAdapter =
-        RegisterSpotListAdapter(registerSpotList.value ?: listOf())
+        RegisterSpotListAdapter(registerSpotListLiveData.value ?: listOf())
 
     var navController: NavController? = null
         set(value) {
@@ -23,7 +25,8 @@ class RegisterSpotListViewModel(private val repository: Repository) : ViewModel(
     init {
         repository.getAllRegisterLocation().subscribeBy(
             onSuccess = {
-                registerSpotList.postValue(DataBaseConverter().convert2RegisterPointDataList(it))
+                registerSpotListLiveData.value = listOf()
+                registerSpotListLiveData.postValue(DataBaseConverter().convert2RegisterPointDataList(it))
             }
         )
     }
