@@ -10,10 +10,14 @@ import com.ict.mito.gootravel.spot.model.RegisterPointData
 /**
  * Created by mitohato14 on 2019-10-03.
  */
-class RegisterSpotListAdapter(private val registerSpotList: List<RegisterPointData>) :
+class RegisterSpotListAdapter(private var registerSpotList: List<RegisterPointData>) :
     RecyclerView.Adapter<RegisterSpotListViewHolder>() {
 
     lateinit var navController: NavController
+
+    fun setSpotList(spotList: List<RegisterPointData>) {
+        registerSpotList = spotList
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
