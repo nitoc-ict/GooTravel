@@ -11,7 +11,6 @@ class RegisterSpotListViewModel(
     private val repository: Repository,
     val registerSpotListLiveData: RegisterSpotListLiveData
 ) : ViewModel() {
-//    var registerSpotList: MutableLiveData<List<RegisterPointData>> = MutableLiveData()
     var adapter: RegisterSpotListAdapter =
         RegisterSpotListAdapter(registerSpotListLiveData.value ?: listOf())
 
