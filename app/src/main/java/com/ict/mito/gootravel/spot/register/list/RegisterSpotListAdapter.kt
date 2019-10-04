@@ -17,6 +17,7 @@ class RegisterSpotListAdapter(private var registerSpotList: List<RegisterPointDa
 
     fun setSpotList(spotList: List<RegisterPointData>) {
         registerSpotList = spotList
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(
