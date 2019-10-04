@@ -14,7 +14,7 @@ import com.ict.mito.gootravel.spot.model.RegisterSpotLiveData
 
 class RegisterViewModel(
     private val repository: Repository,
-    private val registerPointLiveData: RegisterSpotLiveData
+    val registerPointLiveData: RegisterSpotLiveData
 ) : ViewModel() {
 
     val nameLiveData = MutableLiveData<String>()
