@@ -69,6 +69,7 @@ class App : Application() {
     private val liveDataModule: Module = module {
         factory { OrientationLiveData(applicationContext) }
         factory { LocationLiveData(applicationContext) }
+        factory { RegisterSpotListLiveData() }
     }
 
     private val databaseModule: Module = module {
