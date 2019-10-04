@@ -82,7 +82,7 @@ class App : Application() {
         factory { OrientationLiveData(applicationContext) }
         factory { LocationLiveData(applicationContext) }
         factory { RegisterSpotListLiveData() }
-        factory { RegisterSpotLiveData(applicationContext) }
+        factory { RegisterSpotLiveData() }
     }
 
     private val databaseModule: Module = module {
