@@ -3,20 +3,19 @@ package com.ict.mito.gootravel.spot.register.ui
 import android.app.TimePickerDialog
 import android.graphics.Bitmap
 import android.view.View
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.db.DataBaseConverter
 import com.ict.mito.gootravel.repo.Repository
-import com.ict.mito.gootravel.spot.model.RegisterPointData
 import java.util.Calendar
+import com.ict.mito.gootravel.spot.model.RegisterSpotLiveData
 
-class RegisterViewModel(private val repository: Repository) : ViewModel() {
-    private val _registerPointLiveData = MutableLiveData<RegisterPointData>()
-    val registerPointLiveData: LiveData<RegisterPointData>
-        get() = _registerPointLiveData
+class RegisterViewModel(
+    private val repository: Repository,
+    private val registerPointLiveData: RegisterSpotLiveData
+) : ViewModel() {
 
     val nameLiveData = MutableLiveData<String>()
     val memoLiveData = MutableLiveData<String>()
@@ -24,7 +23,7 @@ class RegisterViewModel(private val repository: Repository) : ViewModel() {
     lateinit var navController: NavController
 
     fun setImage(bitmap: Bitmap) {
-        _registerPointLiveData.postValue(_registerPointLiveData.value?.copy(spotBitmap = bitmap))
+        registerPointLiveData.postValue(registerPointLiveData.value?.copy(spotBitmap = bitmap))
     }
 
     val doneClick = View.OnClickListener {
@@ -32,13 +31,13 @@ class RegisterViewModel(private val repository: Repository) : ViewModel() {
         val spotMemo = memoLiveData.value ?: ""
 
         if (spotName.isNotEmpty()) {
-            _registerPointLiveData.postValue(
-                _registerPointLiveData.value?.copy(
+            registerPointLiveData.postValue(
+                registerPointLiveData.value?.copy(
                     name = spotName,
                     memo = spotMemo
                 )
             )
-            _registerPointLiveData.value?.let {
+            registerPointLiveData.value?.let {
                 repository.add(
                     DataBaseConverter().convert2RoomRegisterLocation(it)
                 )
@@ -54,8 +53,8 @@ class RegisterViewModel(private val repository: Repository) : ViewModel() {
         val dialog = TimePickerDialog(
             view.context,
             TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
-                _registerPointLiveData.postValue(
-                    _registerPointLiveData.value?.copy(notificationTime = hourOfDay * 100 + minute)
+                registerPointLiveData.postValue(
+                    registerPointLiveData.value?.copy(notificationTime = hourOfDay * 100 + minute)
                 )
             },
             hour,
