@@ -23,9 +23,9 @@ class RegisterSpotListViewModel(
         }
 
     init {
+        registerSpotListLiveData.value = listOf()
         repository.getAllRegisterLocation().subscribeBy(
             onSuccess = {
-                registerSpotListLiveData.value = listOf()
                 registerSpotListLiveData.postValue(DataBaseConverter().convert2RegisterPointDataList(it))
             }
         )
