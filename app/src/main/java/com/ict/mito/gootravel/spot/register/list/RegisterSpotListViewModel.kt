@@ -22,6 +22,10 @@ class RegisterSpotListViewModel(
             adapter.navController = value
         }
 
+    init {
+        syncListWithRoom()
+    }
+
     fun syncListWithRoom() {
         repository.getAllRegisterLocation().subscribeBy(
             onSuccess = {
