@@ -31,12 +31,11 @@ class RegisterViewModel(
         val spotMemo = memoLiveData.value ?: ""
 
         if (spotName.isNotEmpty()) {
-            registerPointLiveData.postValue(
-                registerPointLiveData.value?.copy(
-                    name = spotName,
-                    memo = spotMemo
-                )
+            registerPointLiveData.value = registerPointLiveData.value?.copy(
+                name = spotName,
+                memo = spotMemo
             )
+
             registerPointLiveData.value?.let {
                 repository.add(
                     DataBaseConverter().convert2RoomRegisterLocation(it)
