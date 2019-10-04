@@ -11,7 +11,7 @@ import com.ict.mito.gootravel.R
 
 class LanguageSettingFragment : Fragment() {
 
-    private lateinit var viewModel: LanguageSettingViewModel
+    private lateinit var viewmodel: LanguageSettingViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +24,7 @@ class LanguageSettingFragment : Fragment() {
             container,
             false
         )
-        val recyclerView = findViewById(R.id.recyclerView) as RecyclerView
+        val recyclerView =view.findViewById(R.id.recyclerView) as RecyclerView
 
         val languages = ArrayList<language>()
 
@@ -37,10 +37,5 @@ class LanguageSettingFragment : Fragment() {
 
         recyclerView.adapter = adapter
         return view
-    }
-
-    private fun findViewById(recyclerView: Int) {
-
-
     }
 }
