@@ -78,6 +78,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_listFragment_to_registerSpotListFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_listFragment_to_searchFragment">
                               <value>
                                 <LayoutPositions />
@@ -135,6 +140,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_radarFragment_to_registerSpotListFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_radarFragment_to_searchFragment">
                               <value>
                                 <LayoutPositions />
@@ -175,6 +185,25 @@
                             <option name="y" value="288" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_registerSpotListFragment_to_listFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_registerSpotListFragment_to_radarFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_registerSpotListFragment_to_searchFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -200,6 +229,11 @@
                               </value>
                             </entry>
                             <entry key="action_searchFragment_to_radarFragment2">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_searchFragment_to_registerSpotListFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

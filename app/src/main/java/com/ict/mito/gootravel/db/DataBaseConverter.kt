@@ -43,4 +43,26 @@ class DataBaseConverter {
             )
         )
     }
+
+    fun convert2RoomRegisterLocationList(
+        registerPointDataList: List<RegisterPointData>
+    ): List<RoomRegisterLocation> {
+        val array: ArrayList<RoomRegisterLocation> = arrayListOf()
+        registerPointDataList.map {
+            array.add(convert2RoomRegisterLocation(it))
+        }
+
+        return array.toList()
+    }
+
+    fun convert2RegisterPointDataList(
+        roomRegisterLocationList: List<RoomRegisterLocation>
+    ): List<RegisterPointData> {
+        val array: ArrayList<RegisterPointData> = arrayListOf()
+        roomRegisterLocationList.map {
+            array.add(convert2RegisterPointData(it))
+        }
+
+        return array.toList()
+    }
 }

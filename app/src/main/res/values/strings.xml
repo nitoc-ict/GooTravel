@@ -25,9 +25,10 @@
     <string name="done">Done</string>
     <string name="add_notification_hint">Add notification timer</string>
     <string name="set_image_hin">Add image</string>
-    <string name="register_fragment_title">Registration point</string>
+    <string name="register_fragment_title">Registration Point</string>
     <string name="navigate">Navigate</string>
     <string name="wifi_spot">Wi-Fi Spot</string>
     <string name="appbar_register_point_title">Register Point</string>
     <string name="appbar_refuge_title">Refuge</string>
+    <string name="register_point_icon">register point icon</string>
 </resources>

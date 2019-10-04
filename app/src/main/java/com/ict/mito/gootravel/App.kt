@@ -9,6 +9,7 @@ import com.ict.mito.gootravel.repo.impl.RepositoryImpl
 import com.ict.mito.gootravel.spot.activity.SpotViewModel
 import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.OrientationLiveData
+import com.ict.mito.gootravel.spot.model.RegisterSpotListLiveData
 import com.ict.mito.gootravel.spot.navigate.ui.NavigateViewModel
 import com.ict.mito.gootravel.spot.register.list.RegisterSpotListViewModel
 import com.ict.mito.gootravel.spot.register.ui.RegisterViewModel
@@ -53,20 +54,28 @@ class App : Application() {
         }
         viewModel { RegisterViewModel(get()) }
         viewModel { ListViewModel() }
-        viewModel { RadarViewModel(
-            get(),
-            get(),
-            get()
-        ) }
+        viewModel {
+            RadarViewModel(
+                get(),
+                get(),
+                get()
+            )
+        }
         viewModel { SearchViewModel() }
         viewModel { SelectSpotBottomSheetViewModel(get()) }
         viewModel { SpotViewModel(get()) }
-        viewModel { RegisterSpotListViewModel() }
+        viewModel {
+            RegisterSpotListViewModel(
+                get(),
+                get()
+            )
+        }
     }
 
     private val liveDataModule: Module = module {
         factory { OrientationLiveData(applicationContext) }
         factory { LocationLiveData(applicationContext) }
+        factory { RegisterSpotListLiveData() }
     }
 
     private val databaseModule: Module = module {
