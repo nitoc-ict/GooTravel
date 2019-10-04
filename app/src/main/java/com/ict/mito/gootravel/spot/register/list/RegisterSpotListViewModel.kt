@@ -22,11 +22,15 @@ class RegisterSpotListViewModel(
             adapter.navController = value
         }
 
-    init {
+    fun syncListWithRoom() {
         registerSpotListLiveData.value = listOf()
         repository.getAllRegisterLocation().subscribeBy(
             onSuccess = {
-                registerSpotListLiveData.postValue(DataBaseConverter().convert2RegisterPointDataList(it))
+                registerSpotListLiveData.postValue(
+                    DataBaseConverter().convert2RegisterPointDataList(
+                        it
+                    )
+                )
             }
         )
     }
