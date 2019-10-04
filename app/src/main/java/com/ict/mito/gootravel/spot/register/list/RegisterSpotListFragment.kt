@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RegisterSpotListFragmentBinding
@@ -29,8 +30,15 @@ class RegisterSpotListFragment : Fragment() {
             false
         )
 
-        viewmodel.navController = findNavController()
-
+        viewmodel.also {
+            it.navController = findNavController()
+            it.registerSpotList.observe(
+                this,
+                Observer { list ->
+                    it.adapter.setSpotList(list)
+                }
+            )
+        }
         binding?.let {
             it.viewmodel = viewmodel
             it.lifecycleOwner = this

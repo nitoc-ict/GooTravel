@@ -9,7 +9,7 @@ import com.ict.mito.gootravel.spot.model.RegisterPointData
 import io.reactivex.rxkotlin.subscribeBy
 
 class RegisterSpotListViewModel(private val repository: Repository) : ViewModel() {
-    private var registerSpotList: MutableLiveData<List<RegisterPointData>> = MutableLiveData()
+    var registerSpotList: MutableLiveData<List<RegisterPointData>> = MutableLiveData()
     var adapter: RegisterSpotListAdapter =
         RegisterSpotListAdapter(registerSpotList.value ?: listOf())
 
