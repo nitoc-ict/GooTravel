@@ -40,5 +40,6 @@ class RegisterSpotListViewModel(
                 }
             }
         )
+        adapter.setSpotList(registerSpotListLiveData.value ?: listOf())
     }
 }
