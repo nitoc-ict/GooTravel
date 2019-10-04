@@ -23,7 +23,6 @@ class RegisterSpotListViewModel(
         }
 
     fun syncListWithRoom() {
-        registerSpotListLiveData.value = listOf()
         repository.getAllRegisterLocation().subscribeBy(
             onSuccess = {
                 if (registerSpotListLiveData.value == null) {
