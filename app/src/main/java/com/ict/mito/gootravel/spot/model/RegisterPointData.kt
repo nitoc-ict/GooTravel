@@ -12,5 +12,5 @@ data class RegisterPointData(
     var name: String,
     var memo: String,
     var notificationTime: Int,
-    var spotBitmap: Bitmap
+    var spotBitmap: Bitmap?
 )

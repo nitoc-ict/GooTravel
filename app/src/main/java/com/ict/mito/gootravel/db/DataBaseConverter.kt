@@ -11,7 +11,7 @@ import java.io.ByteArrayOutputStream
 class DataBaseConverter {
     fun convert2RoomRegisterLocation(registerPointData: RegisterPointData): RoomRegisterLocation {
         val baos = ByteArrayOutputStream()
-        registerPointData.spotBitmap.compress(
+        registerPointData.spotBitmap?.compress(
             Bitmap.CompressFormat.JPEG,
             100,
             baos
