@@ -43,7 +43,6 @@ class RegisterSpotListAdapter(private var registerSpotList: List<RegisterPointDa
                         registerSpotList[position].id.toLong()
                     )
                 navController.navigate(action)
-
             })
         }
     }

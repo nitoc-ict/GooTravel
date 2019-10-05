@@ -40,6 +40,5 @@ class RegisterSpotListViewHolder(private val binding: RegisterSpotListRowBinding
                 attachToRoot
             )
         )
-
     }
 }
