@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.gootravel.R
 
@@ -36,6 +37,7 @@ class LanguageSettingFragment : Fragment() {
         val adapter = CustomAdapter(languages)
 
         recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
         return view
     }
 }
