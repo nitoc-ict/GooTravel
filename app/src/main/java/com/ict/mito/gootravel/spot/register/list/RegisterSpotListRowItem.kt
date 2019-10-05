@@ -12,7 +12,10 @@ class RegisterSpotListRowItem(val registerSpotData: RegisterPointData) :
     BindableItem<RegisterSpotListRowBinding>() {
     override fun getLayout(): Int = R.layout.register_spot_list_row
 
-    override fun bind(viewBinding: RegisterSpotListRowBinding, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun bind(
+        viewBinding: RegisterSpotListRowBinding,
+        position: Int
+    ) {
+        viewBinding.registerPoint = registerSpotData
     }
 }
