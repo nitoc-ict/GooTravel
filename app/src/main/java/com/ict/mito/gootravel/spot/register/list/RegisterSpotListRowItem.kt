@@ -9,4 +9,11 @@ import com.xwray.groupie.databinding.BindableItem
  */
 class RegisterSpotListRowItem(val registerSpotData: RegisterPointData) :
     BindableItem<RegisterSpotListRowBinding>() {
+    override fun getLayout(): Int {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun bind(viewBinding: RegisterSpotListRowBinding, position: Int) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }
