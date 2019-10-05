@@ -6,6 +6,8 @@ import androidx.navigation.NavController
 import com.ict.mito.gootravel.db.DataBaseConverter
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.RegisterSpotListLiveData
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.databinding.ViewHolder
 import io.reactivex.rxkotlin.subscribeBy
 
 class RegisterSpotListViewModel(
@@ -15,6 +17,7 @@ class RegisterSpotListViewModel(
     var adapter: RegisterSpotListAdapter =
         RegisterSpotListAdapter(registerSpotListLiveData.value ?: listOf())
     val rowBindableItemList: MutableLiveData<List<RegisterSpotListRowItem>> = MutableLiveData()
+    val groupAdapter: GroupAdapter<ViewHolder<*>> = GroupAdapter()
 
     var navController: NavController? = null
         set(value) {
