@@ -1,5 +1,6 @@
 package com.ict.mito.gootravel.spot.register.list
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.ict.mito.gootravel.db.DataBaseConverter
@@ -13,6 +14,7 @@ class RegisterSpotListViewModel(
 ) : ViewModel() {
     var adapter: RegisterSpotListAdapter =
         RegisterSpotListAdapter(registerSpotListLiveData.value ?: listOf())
+    val rowBindableItemList: MutableLiveData<List<RegisterSpotListRowItem>> = MutableLiveData()
 
     var navController: NavController? = null
         set(value) {
