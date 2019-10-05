@@ -22,9 +22,9 @@ class CustomAdapter(val languageList: ArrayList<language>) : RecyclerView.Adapte
         return languageList.size
     }
 
-    class ViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bindItems(language: language) {
-            val textViewName = itemView.findViewById(R.id.textViewlanguage) as TextView
+            val textViewName = view.findViewById(R.id.textViewlanguage) as TextView
             textViewName.text = language.name
         }
     }
