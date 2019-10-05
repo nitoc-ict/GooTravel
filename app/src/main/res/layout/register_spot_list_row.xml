@@ -16,7 +16,7 @@
 
         <ImageView
                 android:id="@+id/icon"
-                bind:imageBitmap="@{registerPoint.spotBitmap}"
+                android:background="@drawable/ic_location_on_black_36dp"
                 android:layout_width="@dimen/row_icon_size"
                 android:layout_height="@dimen/row_icon_size"
                 android:layout_margin="@dimen/base_margin"
@@ -41,9 +41,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base_margin"
-                android:text="@{registerPoint.memo}"
+                android:text="150m"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/spot_name"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="140m" />
     </androidx.constraintlayout.widget.ConstraintLayout>
