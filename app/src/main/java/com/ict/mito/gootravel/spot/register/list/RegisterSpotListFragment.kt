@@ -38,6 +38,13 @@ class RegisterSpotListFragment : Fragment() {
                     it.adapter.setSpotList(list)
                 }
             )
+            it.rowBindableItemList.observe(
+                this,
+                Observer {
+                    viewmodel.groupAdapter.update(it)
+                    binding?.notifyChange()
+                }
+            )
         }
         binding?.let {
             it.viewmodel = viewmodel
