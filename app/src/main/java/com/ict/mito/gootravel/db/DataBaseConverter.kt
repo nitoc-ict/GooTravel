@@ -19,6 +19,7 @@ class DataBaseConverter {
         val imageByteArray = baos.toByteArray()
 
         return RoomRegisterLocation(
+            id = registerPointData.id.toLong(),
             name = registerPointData.name,
             latitude = registerPointData.latitude,
             longitude = registerPointData.longitude,
