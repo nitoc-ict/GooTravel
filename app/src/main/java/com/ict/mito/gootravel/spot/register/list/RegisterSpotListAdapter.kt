@@ -39,7 +39,7 @@ class RegisterSpotListAdapter(private var registerSpotList: List<RegisterPointDa
             bind(registerSpotList[position])
             setToRootOnClickListener(View.OnClickListener {
                 val action =
-                    RegisterSpotListFragmentDirections.actionRegisterSpotListFragmentToRadarFragment(
+                    RegisterSpotListFragmentDirections.actionRegisterSpotListFragmentToNavigateFragment(
                         registerSpotList[position].id.toLong()
                     )
                 navController.navigate(action)

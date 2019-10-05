@@ -192,6 +192,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_registerSpotListFragment_to_navigateFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_registerSpotListFragment_to_radarFragment">
                               <value>
                                 <LayoutPositions />
