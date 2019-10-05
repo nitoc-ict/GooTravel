@@ -11,6 +11,7 @@ import com.ict.mito.gootravel.db.DataBaseConverter
 import com.ict.mito.gootravel.repo.Repository
 import java.util.Calendar
 import com.ict.mito.gootravel.spot.model.RegisterSpotLiveData
+import com.ict.mito.gootravel.spot.model.SpotData
 
 class RegisterViewModel(
     private val repository: Repository,
@@ -20,10 +21,17 @@ class RegisterViewModel(
     val nameLiveData = MutableLiveData<String>()
     val memoLiveData = MutableLiveData<String>()
 
+    lateinit var destination: SpotData
     lateinit var navController: NavController
 
     fun setImage(bitmap: Bitmap) {
         registerPointLiveData.postValue(registerPointLiveData.value?.copy(spotBitmap = bitmap))
+    }
+
+    fun setId(id: Long) {
+        repository.getSpotDataById(id).map {
+            destination = it
+        }.subscribe()
     }
 
     val doneClick = View.OnClickListener {
@@ -32,6 +40,9 @@ class RegisterViewModel(
 
         if (spotName.isNotEmpty()) {
             registerPointLiveData.value = registerPointLiveData.value?.copy(
+                id = destination.id.toInt(),
+                latitude = destination.latitude,
+                longitude = destination.longitude,
                 name = spotName,
                 memo = spotMemo
             )

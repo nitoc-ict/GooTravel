@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RegisterFragmentBinding
+import com.ict.mito.gootravel.spot.navigate.ui.NavigateFragmentArgs
 import com.ict.mito.gootravel.util.READ_REQUEST_CODE
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -47,6 +48,9 @@ class RegisterFragment : Fragment() {
             false
         )
 
+        val args = arguments ?: return null
+        val safeArgs = NavigateFragmentArgs.fromBundle(args)
+
         viewmodel.registerPointLiveData.observe(
             this,
             Observer {
@@ -54,6 +58,7 @@ class RegisterFragment : Fragment() {
             }
         )
         viewmodel.navController = findNavController()
+        viewmodel.setId(safeArgs.spotId)
 
         binding?.let {
             it.viewmodel = viewmodel
