@@ -32,12 +32,6 @@ class RegisterSpotListFragment : Fragment() {
 
         viewmodel.also {
             it.navController = findNavController()
-            it.registerSpotListLiveData.observe(
-                this,
-                Observer { list ->
-                    it.adapter.setSpotList(list)
-                }
-            )
             it.rowBindableItemList.observe(
                 this,
                 Observer {

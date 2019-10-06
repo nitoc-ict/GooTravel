@@ -5,14 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.ict.mito.gootravel.db.DataBaseConverter
 import com.ict.mito.gootravel.repo.Repository
-import com.ict.mito.gootravel.spot.model.RegisterSpotListLiveData
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.databinding.ViewHolder
 import io.reactivex.rxkotlin.subscribeBy
 
 class RegisterSpotListViewModel(
-    private val repository: Repository,
-    val registerSpotListLiveData: RegisterSpotListLiveData
+    private val repository: Repository
 ) : ViewModel() {
     val rowBindableItemList: MutableLiveData<List<RegisterSpotListRowItem>> = MutableLiveData()
     val groupAdapter: GroupAdapter<ViewHolder<*>> = GroupAdapter()
@@ -42,17 +40,6 @@ class RegisterSpotListViewModel(
                 }
 
                 rowBindableItemList.postValue(array)
-
-                if (registerSpotListLiveData.value == null) {
-                    registerSpotListLiveData.value =
-                        DataBaseConverter().convert2RegisterPointDataList(it)
-                } else {
-                    registerSpotListLiveData.postValue(
-                        DataBaseConverter().convert2RegisterPointDataList(
-                            it
-                        )
-                    )
-                }
             }
         )
     }
