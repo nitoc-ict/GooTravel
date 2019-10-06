@@ -14,8 +14,6 @@ class RegisterSpotListViewModel(
     private val repository: Repository,
     val registerSpotListLiveData: RegisterSpotListLiveData
 ) : ViewModel() {
-    var adapter: RegisterSpotListAdapter =
-        RegisterSpotListAdapter(registerSpotListLiveData.value ?: listOf())
     val rowBindableItemList: MutableLiveData<List<RegisterSpotListRowItem>> = MutableLiveData()
     val groupAdapter: GroupAdapter<ViewHolder<*>> = GroupAdapter()
 
@@ -23,7 +21,6 @@ class RegisterSpotListViewModel(
         set(value) {
             if (value == null) return
             field = value
-            adapter.navController = value
         }
 
     init {
@@ -58,6 +55,5 @@ class RegisterSpotListViewModel(
                 }
             }
         )
-        adapter.setSpotList(registerSpotListLiveData.value ?: listOf())
     }
 }
