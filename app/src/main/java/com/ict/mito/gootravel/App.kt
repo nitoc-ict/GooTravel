@@ -33,7 +33,7 @@ class App : Application() {
         startKoin {
             androidContext(this@App)
             modules(
-                arrayListOf(
+                listOf(
                     viewModelModule,
                     liveDataModule,
                     databaseModule,
