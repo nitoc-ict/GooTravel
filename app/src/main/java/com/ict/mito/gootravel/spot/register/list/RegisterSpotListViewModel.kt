@@ -33,6 +33,19 @@ class RegisterSpotListViewModel(
     fun syncListWithRoom() {
         repository.getAllRegisterLocation().subscribeBy(
             onSuccess = {
+                val array = arrayListOf<RegisterSpotListRowItem>()
+                it.forEach { spot ->
+                    array.add(
+                        RegisterSpotListRowItem(
+                            DataBaseConverter().convert2RegisterPointData(
+                                spot
+                            )
+                        )
+                    )
+                }
+
+                rowBindableItemList.postValue(array)
+
                 if (registerSpotListLiveData.value == null) {
                     registerSpotListLiveData.value =
                         DataBaseConverter().convert2RegisterPointDataList(it)
