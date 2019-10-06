@@ -20,13 +20,15 @@ class RegisterSpotListRowItem(
         viewBinding: RegisterSpotListRowBinding,
         position: Int
     ) {
-        viewBinding.registerPoint = registerSpotData
-        viewBinding.root.setOnClickListener {
-            val action =
-                RegisterSpotListFragmentDirections.actionRegisterSpotListFragmentToNavigateFragment(
-                    registerSpotData.id.toLong()
-                )
-            navController.navigate(action)
+        viewBinding.also {
+            it.registerPoint = registerSpotData
+            it.root.setOnClickListener {
+                val action =
+                    RegisterSpotListFragmentDirections.actionRegisterSpotListFragmentToNavigateFragment(
+                        registerSpotData.id.toLong()
+                    )
+                navController.navigate(action)
+            }
         }
     }
 }
