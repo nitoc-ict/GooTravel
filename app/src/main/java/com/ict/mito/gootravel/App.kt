@@ -33,7 +33,7 @@ class App : Application() {
         startKoin {
             androidContext(this@App)
             modules(
-                arrayListOf(
+                listOf(
                     viewModelModule,
                     liveDataModule,
                     databaseModule,
@@ -70,12 +70,7 @@ class App : Application() {
         viewModel { SearchViewModel() }
         viewModel { SelectSpotBottomSheetViewModel(get()) }
         viewModel { SpotViewModel(get()) }
-        viewModel {
-            RegisterSpotListViewModel(
-                get(),
-                get()
-            )
-        }
+        viewModel { RegisterSpotListViewModel(get()) }
     }
 
     private val liveDataModule: Module = module {
