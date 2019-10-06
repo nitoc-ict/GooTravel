@@ -8,7 +8,9 @@ import com.xwray.groupie.databinding.BindableItem
 /**
  * Created by mitohato14 on 2019-10-05.
  */
-class RegisterSpotListRowItem(val registerSpotData: RegisterPointData) :
+class RegisterSpotListRowItem(
+    private val registerSpotData: RegisterPointData
+) :
     BindableItem<RegisterSpotListRowBinding>() {
     override fun getLayout(): Int = R.layout.register_spot_list_row
 
