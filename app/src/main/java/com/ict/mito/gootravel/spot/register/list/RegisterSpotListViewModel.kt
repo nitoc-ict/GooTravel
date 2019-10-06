@@ -19,6 +19,7 @@ class RegisterSpotListViewModel(
         set(value) {
             if (value == null) return
             field = value
+            syncListWithRoom()
         }
 
     init {
@@ -34,7 +35,8 @@ class RegisterSpotListViewModel(
                         RegisterSpotListRowItem(
                             DataBaseConverter().convert2RegisterPointData(
                                 spot
-                            )
+                            ),
+                            navController ?: return@subscribeBy
                         )
                     )
                 }
