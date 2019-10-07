@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
+import com.ict.mito.gootravel.setting.activity.SettingActivity
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -37,6 +38,19 @@ class SearchFragment : Fragment() {
                                 context,
                                 ManualActivity::class.java
                             )
+                        )
+                    }
+                    R.id.app_bar_language -> {
+                        startActivity(
+                            Intent(
+                                context,
+                                SettingActivity::class.java
+                            )
+                        )
+                    }
+                    R.id.app_bar_register -> {
+                        findNavController().navigate(
+                            R.id.action_searchFragment_to_registerSpotListFragment
                         )
                     }
                 }

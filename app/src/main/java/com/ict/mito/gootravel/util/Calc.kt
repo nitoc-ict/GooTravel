@@ -1,15 +1,31 @@
 package com.ict.mito.gootravel.util
 
-import android.content.res.Resources
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Matrix
 import android.location.Location
-import com.ict.mito.gootravel.R
+import com.ict.mito.gootravel.spot.model.SpotData
 
 /**
  * Created by mitohato14 on 2019-07-28.
  */
+
+fun calcDirection(
+    destinationSpot: SpotData?,
+    location: Location?
+): Double = calcDirection(
+    destinationSpot?.longitude ?: 0.0,
+    destinationSpot?.latitude ?: 0.0,
+    location?.longitude ?: 0.0,
+    location?.latitude ?: 0.0
+)
+
+fun calcDirectDistance(
+    destinationSpot: SpotData?,
+    location: Location?
+): Double = calcDirectDistance(
+    destinationSpot?.longitude ?: 0.0,
+    destinationSpot?.latitude ?: 0.0,
+    location?.longitude ?: 0.0,
+    location?.latitude ?: 0.0
+)
 
 fun calcDirectDistance(
     ax: Double,
@@ -46,33 +62,12 @@ fun calcDirection(
     return results[1].toDouble()
 }
 
-fun rotateImage(
-    resources: Resources,
-    angle: Double
-): Bitmap {
-    val image = BitmapFactory.decodeResource(
-        resources,
-        R.drawable.arrow
-    )
-    val matrix = Matrix()
-    matrix.setRotate(
-        angle.toFloat(),
-        image.width / 2f,
-        image.height / 4f
-    )
-    return Bitmap.createBitmap(
-        image,
-        0,
-        0,
-        image.width,
-        image.height,
-        matrix,
-        true
-    )
-}
-
 fun rad2deg(rad: Float): Float {
     return (rad * 180.0f / Math.PI).toFloat()
+}
+
+fun deg2rad(deg: Float): Float {
+    return deg * (Math.PI / 180f).toFloat()
 }
 
 fun normalizeRange(angle: Float): Float {

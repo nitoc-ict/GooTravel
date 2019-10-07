@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/setting_navigation"
+        app:startDestination="@id/languageSettingFragment">
+
+    <fragment
+            android:id="@+id/languageSettingFragment"
+            android:name="com.ict.mito.gootravel.setting.language.ui.LanguageSettingFragment"
+            android:label="language_setting_fragment"
+            tools:layout="@layout/language_setting_fragment" />
+</navigation>

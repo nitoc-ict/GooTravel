@@ -6,10 +6,22 @@
 
     <fragment android:id="@+id/radarFragment" android:name="com.ict.mito.gootravel.spot.select.radar.ui.RadarFragment"
               android:label="radar_fragment" tools:layout="@layout/radar_fragment">
+        <argument
+                android:name="spotId"
+                app:argType="long"
+                android:defaultValue="0L" />
         <action android:id="@+id/action_radarFragment_to_listFragment" app:destination="@id/listFragment"/>
         <action android:id="@+id/action_radarFragment_to_searchFragment" app:destination="@id/searchFragment"/>
-        <action android:id="@+id/action_radarFragment_to_navigateFragment" app:destination="@id/navigateFragment"/>
-        <action android:id="@+id/action_radarFragment_to_registerFragment" app:destination="@id/registerFragment"/>
+        <action android:id="@+id/action_radarFragment_to_navigateFragment" app:destination="@id/navigateFragment">
+                <argument android:defaultValue="0L" android:name="spotId" />
+                <argument android:defaultValue="0" android:name="distance" />
+        </action>
+        <action android:id="@+id/action_radarFragment_to_registerFragment" app:destination="@id/registerFragment">
+            <argument android:defaultValue="0L" android:name="spotId" />
+        </action>
+        <action
+                android:id="@+id/action_radarFragment_to_registerSpotListFragment"
+                app:destination="@id/registerSpotListFragment" />
     </fragment>
     <fragment android:id="@+id/listFragment" android:name="com.ict.mito.gootravel.spot.select.list.ui.ListFragment"
               android:label="list_fragment" tools:layout="@layout/list_fragment">
@@ -17,6 +29,9 @@
         <action android:id="@+id/action_listFragment_to_navigateFragment" app:destination="@id/navigateFragment"/>
         <action android:id="@+id/action_listFragment_to_searchFragment" app:destination="@id/searchFragment"/>
         <action android:id="@+id/action_listFragment_to_registerFragment" app:destination="@id/registerFragment"/>
+        <action
+                android:id="@+id/action_listFragment_to_registerSpotListFragment"
+                app:destination="@id/registerSpotListFragment" />
     </fragment>
     <fragment android:id="@+id/searchFragment"
               android:name="com.ict.mito.gootravel.spot.select.search.ui.SearchFragment" android:label="search_fragment"
@@ -25,9 +40,57 @@
         <action
                 android:id="@+id/action_searchFragment_to_listFragment"
                 app:destination="@id/listFragment" />
+        <action
+                android:id="@+id/action_searchFragment_to_radarFragment2"
+                app:destination="@id/radarFragment" />
+        <action
+                android:id="@+id/action_searchFragment_to_registerSpotListFragment"
+                app:destination="@id/registerSpotListFragment" />
     </fragment>
     <fragment android:id="@+id/navigateFragment" android:name="com.ict.mito.gootravel.spot.navigate.ui.NavigateFragment"
-              android:label="navigate_fragment" tools:layout="@layout/navigate_fragment"/>
+              android:label="navigate_fragment" tools:layout="@layout/navigate_fragment">
+            <argument
+                    android:name="spotId"
+                    app:argType="long"
+                    android:defaultValue="0L" />
+            <argument
+                    android:name="distance"
+                    app:argType="integer"
+                    android:defaultValue="0" />
+        <action
+                android:id="@+id/action_navigateFragment_to_radarFragment"
+                app:destination="@id/radarFragment" />
+    </fragment>
     <fragment android:id="@+id/registerFragment" android:name="com.ict.mito.gootravel.spot.register.ui.RegisterFragment"
-              android:label="register_fragment" tools:layout="@layout/register_fragment"/>
+              android:label="register_fragment" tools:layout="@layout/register_fragment">
+        <argument
+                android:name="spotId"
+                app:argType="long"
+                android:defaultValue="0L" />
+        <action
+                android:id="@+id/action_registerFragment_to_radarFragment"
+                app:destination="@id/radarFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/registerSpotListFragment"
+            android:name="com.ict.mito.gootravel.spot.register.list.RegisterSpotListFragment"
+            android:label="register_spot_list_fragment"
+            tools:layout="@layout/register_spot_list_fragment" >
+        <action
+                android:id="@+id/action_registerSpotListFragment_to_radarFragment"
+                app:destination="@id/radarFragment" >
+            <argument android:defaultValue="0L" android:name="spotId" />
+        </action>
+        <action
+                android:id="@+id/action_registerSpotListFragment_to_listFragment"
+                app:destination="@id/listFragment" />
+        <action
+                android:id="@+id/action_registerSpotListFragment_to_searchFragment"
+                app:destination="@id/searchFragment" />
+        <action
+                android:id="@+id/action_registerSpotListFragment_to_navigateFragment"
+                app:destination="@id/navigateFragment" >
+            <argument android:defaultValue="0L" android:name="spotId" />
+        </action>
+    </fragment>
 </navigation>

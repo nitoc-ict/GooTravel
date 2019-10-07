@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.ListFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
+import com.ict.mito.gootravel.setting.activity.SettingActivity
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -47,6 +49,19 @@ class ListFragment : Fragment() {
                             )
                         )
                     }
+                    R.id.app_bar_language -> {
+                        startActivity(
+                            Intent(
+                                context,
+                                SettingActivity::class.java
+                            )
+                        )
+                    }
+                    R.id.app_bar_register -> {
+                        findNavController().navigate(
+                            R.id.action_listFragment_to_registerSpotListFragment
+                        )
+                    }
                 }
                 true
             }
@@ -76,7 +91,7 @@ class ListFragment : Fragment() {
 
         return view
     }
-
+  
     private fun createDataList(): List<ListRowItem> {
 
         val dataList = mutableListOf<ListRowItem>()
@@ -87,4 +102,15 @@ class ListFragment : Fragment() {
         return dataList
     }
 
+    override fun onResume() {
+        super.onResume()
+        activity?.bottom_appbar?.replaceMenu(R.menu.list_bottomappbar_menu)
+
+        val appCompatActivity = activity as AppCompatActivity?
+        appCompatActivity?.supportActionBar?.let {
+            it.title = getString(R.string.wifi_spot)
+            it.setDisplayHomeAsUpEnabled(false)
+            it.setHomeButtonEnabled(false)
+        }
+    }
 }

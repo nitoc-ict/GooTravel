@@ -1,14 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".spot.register.ui.RegisterFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+
+        <variable
+                name="viewmodel"
+                type="com.ict.mito.gootravel.spot.register.ui.RegisterViewModel" />
+
+        <variable
+                name="setImageClickListener"
+                type="android.view.View.OnClickListener" />
+    </data>
+
+    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Register"/>
+            android:layout_height="match_parent">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/name_input_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/base_margin"
+                    android:layout_marginTop="@dimen/between_view"
+                    android:layout_marginEnd="@dimen/base_margin"
+                    android:hint="@string/name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/name_input_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewmodel.nameLiveData}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <LinearLayout
+                    android:id="@+id/set_notification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/base_margin"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="@dimen/base_margin"
+                    android:gravity="center_vertical"
+                    android:onClick="@{viewmodel.setNotificationClick}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/name_input_layout">
+
+                <ImageButton
+                        android:id="@+id/set_notification_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/base_margin"
+                        android:layout_marginEnd="@dimen/base_margin"
+                        android:background="@drawable/ic_add_alert_black_24dp" />
+
+                <TextView
+                        android:id="@+id/set_notification_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/base_margin"
+                        android:layout_marginEnd="@dimen/base_margin"
+                        android:text="@string/add_notification_hint"
+                        android:textColor="@color/gray" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/set_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/base_margin"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="@dimen/base_margin"
+                    android:gravity="center_vertical"
+                    android:onClick="@{setImageClickListener}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/set_notification">
+
+                <ImageButton
+                        android:id="@+id/set_image_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/base_margin"
+                        android:layout_marginEnd="@dimen/base_margin"
+                        android:background="@drawable/ic_insert_photo_black_24dp" />
+
+                <TextView
+                        android:id="@+id/set_image_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/base_margin"
+                        android:layout_marginEnd="@dimen/base_margin"
+                        android:text="@string/set_image_hin"
+                        android:textColor="@color/gray" />
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/memo_input_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/base_margin"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="@dimen/base_margin"
+                    android:hint="@string/memo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/set_image">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/memo_input_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="10"
+                        android:text="@={viewmodel.memoLiveData}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                    android:id="@+id/set_image_preview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/base_margin"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="@dimen/base_margin"
+                    android:layout_marginBottom="50dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/set_image"
+                    bind:imageBitmap="@{viewmodel.registerPointLiveData.spotBitmap}" />
+
+            <Button
+                    android:id="@+id/done_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="@dimen/base_margin"
+                    android:background="@drawable/done_button_style"
+                    android:onClick="@{viewmodel.doneClick}"
+                    android:text="@string/done"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/memo_input_layout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
