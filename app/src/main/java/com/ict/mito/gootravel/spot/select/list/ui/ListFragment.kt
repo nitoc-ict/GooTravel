@@ -81,6 +81,7 @@ class ListFragment : Fragment() {
                     it.calcSpotDistance()
                 }
             )
+            it.navController = findNavController()
         }
 
         return view
