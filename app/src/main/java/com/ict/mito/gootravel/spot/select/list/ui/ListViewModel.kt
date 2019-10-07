@@ -6,12 +6,13 @@ class ListViewModel : ViewModel() {
     // TODO: Implement the ViewModel
 
     private var i : Int = 20
-    var ListItems : List<ListRowItemx> = getItems(i)
+    var listItems : List<ListRowItem> = getItems(i)
+    val adapter: ListViewAdapter = ListViewAdapter(listItems)
 
-    private fun getItems(i : Int) : List<ListRowItemx> {
-        val Items : MutableList<ListRowItemx> = mutableListOf()
+    private fun getItems(i : Int) : List<ListRowItem> {
+        val Items : MutableList<ListRowItem> = mutableListOf()
         for  (i in 0..20) {
-            Items[i] = ListRowItemx("place$i", "" + i, "" + i)
+            Items[i] = ListRowItem("place$i", "" + i, "" + i)
         }
         return Items
     }

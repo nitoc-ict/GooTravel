@@ -5,20 +5,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.ict.mito.gootravel.R
+import com.ict.mito.gootravel.databinding.ListFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
 import kotlinx.android.synthetic.main.activity_spot.*
-import kotlinx.android.synthetic.main.list_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class ListFragment : Fragment() {
 
     private val viewModel: ListViewModel by viewModel()
+    private var binding: ListFragmentBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,37 +52,39 @@ class ListFragment : Fragment() {
             }
         }
 
-        val view = inflater.inflate(
+//        val view = inflater.inflate(
+//            R.layout.list_fragment,
+//            container,
+//            false
+//        )
+
+        binding = DataBindingUtil.inflate(
+            inflater,
             R.layout.list_fragment,
             container,
             false
         )
 
-        val recyclerView: RecyclerView = view.findViewById(R.id.spot_list_view)
-        val adapter = ListViewAdapter(createDataList(), object : ListViewAdapter.ListListener {
-            override fun onClickRow(tappedView : View, rowItem : ListRowItemx) {
-                this@ListFragment.onClickRow(tappedView, rowItem)
-            }
-        })
+        //val listFragmentBinding = DataBindingUtil.setContentView<ListFragmentBinding>(, R.layout.list_fragment)
+
+        //val recyclerView: RecyclerView = view.findViewById(R.id.spot_list_view)
+        val recyclerView
+        val adapter = ListViewAdapter(createDataList())
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(activity)
 
-
         return view
     }
 
-    private fun createDataList(): List<ListRowItemx> {
+    private fun createDataList(): List<ListRowItem> {
 
-        val dataList = mutableListOf<ListRowItemx>()
+        val dataList = mutableListOf<ListRowItem>()
         for (i in 0..49) {
-            val data: ListRowItemx = ListRowItemx("" + i + "番目の場所", "" + i + "m", "")
+            val data: ListRowItem = ListRowItem("${i}番目の場所", "${i}m", "")
             dataList.add(data)
         }
         return dataList
     }
 
-    fun onClickRow(tappedView : View, rowItem : ListRowItemx) {
-        Snackbar.make(tappedView, "tapped ${rowItem.place_name}", Snackbar.LENGTH_LONG).setAction("Action", null).show()
-    }
 }
