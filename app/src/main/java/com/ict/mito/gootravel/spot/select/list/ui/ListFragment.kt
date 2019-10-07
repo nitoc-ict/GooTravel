@@ -78,7 +78,9 @@ class ListFragment : Fragment() {
             it.calcSpotDistance()
             it.locationLiveData.observe(
                 this,
-                Observer { }
+                Observer { _ ->
+                    it.calcSpotDistance()
+                }
             )
             it.rowBindableItem.observe(
                 this,
