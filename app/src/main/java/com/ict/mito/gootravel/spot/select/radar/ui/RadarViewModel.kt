@@ -53,7 +53,6 @@ class RadarViewModel(
                 bottomSheet.tag
             )
         }
-
     }
 
     fun filterSpotData(): List<SpotData> {
