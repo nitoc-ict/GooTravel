@@ -1,6 +1,7 @@
 package com.ict.mito.gootravel.spot.select.list.ui
 
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.WiFiSpotListItem
@@ -12,6 +13,11 @@ class ListViewModel(
     val locationLiveData: LocationLiveData
 ) : ViewModel() {
     var spotdataList: List<WiFiSpotListItem> = listOf()
+    var navController: NavController? = null
+        set(value) {
+            if (value == null) return
+            field = value
+        }
 
     init {
         syncSpotData()
