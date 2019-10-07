@@ -59,7 +59,12 @@ class App : Application() {
                 get()
             )
         }
-        viewModel { ListViewModel() }
+        viewModel {
+            ListViewModel(
+                get(),
+                get()
+            )
+        }
         viewModel {
             RadarViewModel(
                 get(),
