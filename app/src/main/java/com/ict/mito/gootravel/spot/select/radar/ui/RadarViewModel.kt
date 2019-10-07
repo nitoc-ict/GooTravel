@@ -24,7 +24,11 @@ class RadarViewModel(
     lateinit var fragmentManager: FragmentManager
 
     val spotClickListener = View.OnClickListener { view ->
-        val clickSpot = spotdataList.first { it.id.toInt() == view.id }
+
+    }
+
+    fun transitionBottomSheet(id: Int) {
+        val clickSpot = spotdataList.first { it.id.toInt() == id }
 
         val args = Bundle()
         args.apply {
@@ -49,6 +53,7 @@ class RadarViewModel(
                 bottomSheet.tag
             )
         }
+
     }
 
     fun filterSpotData(): List<SpotData> {
@@ -61,7 +66,7 @@ class RadarViewModel(
 
         return spotdataList.filter { spot ->
             spot.latitude in latitudeRange &&
-            spot.longitude in longitudeRange
+                    spot.longitude in longitudeRange
         }
     }
 
