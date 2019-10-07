@@ -3,13 +3,13 @@
 <layout>
 
     <data>
+
         <variable
-                name="listrowItem"
-                type="com.ict.mito.gootravel.spot.select.list.ui.ListRowItem" />
+                name="spot"
+                type="com.ict.mito.gootravel.spot.model.WiFiSpotListItem" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="48dp">
@@ -28,8 +28,8 @@
                 android:id="@+id/place_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{listrowItem.place_name}"
                 android:layout_marginStart="16dp"
+                android:text="@{listrowItem.place_name}"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/icon_image"
@@ -39,8 +39,8 @@
                 android:id="@+id/distance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{listrowItem.place_name}"
                 android:layout_marginEnd="13dp"
+                android:text="@{listrowItem.place_name}"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
