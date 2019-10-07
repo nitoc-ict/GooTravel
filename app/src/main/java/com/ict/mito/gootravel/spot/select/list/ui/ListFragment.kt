@@ -75,6 +75,7 @@ class ListFragment : Fragment() {
         )
 
         viewModel.also {
+            it.calcSpotDistance()
             it.locationLiveData.observe(
                 this,
                 Observer { }
