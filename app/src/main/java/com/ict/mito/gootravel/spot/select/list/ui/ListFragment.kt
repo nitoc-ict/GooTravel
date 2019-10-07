@@ -97,7 +97,7 @@ class ListFragment : Fragment() {
             it.lifecycleOwner = this
         }
 
-        return view
+        return binding?.root
     }
 
     override fun onResume() {
