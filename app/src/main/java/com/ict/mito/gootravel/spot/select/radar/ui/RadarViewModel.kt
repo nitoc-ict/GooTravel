@@ -24,7 +24,7 @@ class RadarViewModel(
     lateinit var fragmentManager: FragmentManager
 
     val spotClickListener = View.OnClickListener { view ->
-
+        transitionBottomSheet(view.id)
     }
 
     fun transitionBottomSheet(id: Int) {
