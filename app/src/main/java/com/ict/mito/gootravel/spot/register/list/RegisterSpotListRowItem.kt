@@ -24,7 +24,7 @@ class RegisterSpotListRowItem(
             it.registerPoint = registerSpotData
             it.root.setOnClickListener {
                 val action =
-                    RegisterSpotListFragmentDirections.actionRegisterSpotListFragmentToNavigateFragment(
+                    RegisterSpotListFragmentDirections.actionRegisterSpotListFragmentToRadarFragment(
                         registerSpotData.id.toLong()
                     )
                 navController.navigate(action)
