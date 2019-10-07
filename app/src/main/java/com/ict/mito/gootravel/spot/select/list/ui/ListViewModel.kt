@@ -18,6 +18,8 @@ class ListViewModel(
     val rowBindableItem: MutableLiveData<List<ListRowItem>> = MutableLiveData()
     val groupAdapter: GroupAdapter<ViewHolder<*>> = GroupAdapter()
 
+    private var isInitialized: Boolean = false
+
     var navController: NavController? = null
         set(value) {
             if (value == null) return
@@ -27,6 +29,15 @@ class ListViewModel(
 
     init {
         syncSpotData()
+    }
+
+    fun updateDistanceOnce() {
+        if (isInitialized) {
+            return
+        } else {
+            calcSpotDistance()
+            isInitialized = true
+        }
     }
 
     fun calcSpotDistance() {
