@@ -1,9 +1,10 @@
 package com.ict.mito.gootravel.spot.select.list.ui
 
 import androidx.lifecycle.ViewModel
+import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.SpotData
 
-class ListViewModel : ViewModel() {
+class ListViewModel(private val repository: Repository) : ViewModel() {
 
     var spotdataList: List<SpotData> = listOf()
     var listItems : List<ListRowItem> = listOf()
