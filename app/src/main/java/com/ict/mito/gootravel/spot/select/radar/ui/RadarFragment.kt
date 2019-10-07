@@ -84,8 +84,6 @@ class RadarFragment : Fragment() {
             it.setOnMenuItemClickListener(onMenuItemClickListener)
         }
 
-        checkArgument()
-
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.radar_fragment,
@@ -149,6 +147,8 @@ class RadarFragment : Fragment() {
             it.viewmodel = viewModel
             it.lifecycleOwner = this
         }
+
+        checkArgument()
 
         return binding?.root
     }
