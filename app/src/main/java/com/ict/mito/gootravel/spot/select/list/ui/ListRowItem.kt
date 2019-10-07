@@ -11,4 +11,12 @@ import com.xwray.groupie.databinding.BindableItem
 class ListRowItem(
     private val wiFiSpotListItem: WiFiSpotListItem,
     private val navController: NavController
-) : BindableItem<ListRowItemBinding>()
+) : BindableItem<ListRowItemBinding>() {
+    override fun getLayout(): Int {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun bind(viewBinding: ListRowItemBinding, position: Int) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+}
