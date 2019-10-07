@@ -34,7 +34,7 @@ class RadarViewModel(
         args.apply {
             putInt(
                 "spotId",
-                view.id
+                id
             )
             putInt(
                 "distance",
