@@ -13,9 +13,6 @@ class ListViewModel(
 ) : ViewModel() {
     var spotdataList: List<WiFiSpotListItem> = listOf()
 
-    var listItems: List<ListRowItem> = listOf()
-    val adapter: ListViewAdapter = ListViewAdapter(listItems)
-
     init {
         syncSpotData()
     }
