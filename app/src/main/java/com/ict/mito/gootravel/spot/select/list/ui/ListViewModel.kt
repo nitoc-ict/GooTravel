@@ -18,7 +18,6 @@ class ListViewModel(
     val rowBindableItem: MutableLiveData<List<ListRowItem>> = MutableLiveData()
     val groupAdapter: GroupAdapter<ViewHolder<*>> = GroupAdapter()
 
-    var spotdataList: List<WiFiSpotListItem> = listOf()
     var navController: NavController? = null
         set(value) {
             if (value == null) return
@@ -30,28 +29,31 @@ class ListViewModel(
     }
 
     fun calcSpotDistance() {
-        spotdataList.map { spot ->
+        rowBindableItem.value?.map { spot ->
             val distance = calcDirectDistance(
-                spot.spotData,
+                spot.wiFiSpotListItem.spotData,
                 locationLiveData.value
             ).toInt()
-            spot.distance = distance
+            spot.wiFiSpotListItem.distance = distance
         }
     }
 
     fun syncSpotData() {
         repository.getAllSpotData().subscribeBy(
             onSuccess = {
-                val spotDataArray: ArrayList<WiFiSpotListItem> = arrayListOf()
+                val spotDataArray: ArrayList<ListRowItem> = arrayListOf()
                 it.forEach { spot ->
                     spotDataArray.add(
-                        WiFiSpotListItem(
-                            spot,
-                            0
+                        ListRowItem(
+                            WiFiSpotListItem(
+                                spot,
+                                0
+                            ),
+                            navController ?: return@subscribeBy
                         )
                     )
                 }
-                spotdataList = spotDataArray
+                rowBindableItem.postValue(spotDataArray)
             }
         )
     }

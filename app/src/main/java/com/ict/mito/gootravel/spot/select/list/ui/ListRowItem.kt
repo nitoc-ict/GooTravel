@@ -10,7 +10,7 @@ import com.xwray.groupie.databinding.BindableItem
  * Created by mitohato14 on 2019-07-24.
  */
 class ListRowItem(
-    private val wiFiSpotListItem: WiFiSpotListItem,
+    val wiFiSpotListItem: WiFiSpotListItem,
     private val navController: NavController
 ) : BindableItem<ListRowItemBinding>() {
     override fun getLayout(): Int = R.layout.list_row_item
