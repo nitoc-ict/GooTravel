@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.WiFiSpotListItem
+import com.ict.mito.gootravel.util.calcDirectDistance
 import io.reactivex.rxkotlin.subscribeBy
 
 class ListViewModel(
@@ -17,6 +18,16 @@ class ListViewModel(
 
     init {
         syncSpotData()
+    }
+
+    fun calcSpotDistance() {
+        spotdataList.map { spot ->
+            val distance = calcDirectDistance(
+                spot.spotData,
+                locationLiveData.value
+            ).toInt()
+            spot.distance = distance
+        }
     }
 
     fun syncSpotData() {
