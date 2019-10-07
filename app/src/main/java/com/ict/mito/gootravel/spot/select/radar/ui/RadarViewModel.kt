@@ -37,7 +37,7 @@ class RadarViewModel(
                 id
             )
             putInt(
-                "distance",
+                "distanceString",
                 calcDirectDistance(
                     clickSpot,
                     locationLiveData.value
