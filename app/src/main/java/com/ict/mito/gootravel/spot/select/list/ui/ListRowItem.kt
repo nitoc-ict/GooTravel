@@ -15,7 +15,18 @@ class ListRowItem(
 ) : BindableItem<ListRowItemBinding>() {
     override fun getLayout(): Int = R.layout.list_row_item
 
-    override fun bind(viewBinding: ListRowItemBinding, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun bind(
+        viewBinding: ListRowItemBinding,
+        position: Int
+    ) {
+        viewBinding.also {
+            it.spot = wiFiSpotListItem
+            it.root.setOnClickListener {
+                val action = ListFragmentDirections.actionListFragmentToRadarFragment(
+                    wiFiSpotListItem.spotData.id
+                )
+                navController.navigate(action)
+            }
+        }
     }
 }
