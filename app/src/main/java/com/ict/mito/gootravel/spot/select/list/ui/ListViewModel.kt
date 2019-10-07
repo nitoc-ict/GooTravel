@@ -22,6 +22,7 @@ class ListViewModel(
         set(value) {
             if (value == null) return
             field = value
+            syncSpotData()
         }
 
     init {
