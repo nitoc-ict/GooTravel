@@ -25,8 +25,7 @@ class ListViewAdapter(
         holder.apply {
             bind(list[position])
             setToRootOnClickListener(View.OnClickListener {
-                //ここにタップの挙動?
-
+                // ここにタップの挙動?
             })
         }
     }

@@ -7,6 +7,4 @@ class ListRowItem(
     val place_name: String = "",
     val distance: String = "",
     val type: String = ""
-) {
-
-}
+)

@@ -77,9 +77,9 @@ class ListFragment : Fragment() {
             false
         )
 
-        //val listFragmentBinding = DataBindingUtil.setContentView<ListFragmentBinding>(, R.layout.list_fragment)
+        // val listFragmentBinding = DataBindingUtil.setContentView<ListFragmentBinding>(, R.layout.list_fragment)
 
-        //val recyclerView: RecyclerView = view.findViewById(R.id.spot_list_view)
+        // val recyclerView: RecyclerView = view.findViewById(R.id.spot_list_view)
         val recyclerView
         val adapter = ListViewAdapter(createDataList())
 

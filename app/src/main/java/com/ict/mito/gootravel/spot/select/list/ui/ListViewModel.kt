@@ -42,6 +42,5 @@ class ListViewModel(
                 spotdataList = spotDataArray
             }
         )
-
     }
 }
