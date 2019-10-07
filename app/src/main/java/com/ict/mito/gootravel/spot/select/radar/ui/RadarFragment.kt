@@ -153,14 +153,12 @@ class RadarFragment : Fragment() {
         return binding?.root
     }
 
-    private fun checkArgument() {
-        val args = arguments ?: return
+    private fun checkArgument(): Boolean {
+        val args = arguments ?: return false
         val safeArgs = NavigateFragmentArgs.fromBundle(args)
         val id = safeArgs.spotId.toInt()
 
-        if (id < 0) {
-            return
-        }
+        return id >= 0
 
         viewModel.transitionBottomSheet(safeArgs.spotId.toInt())
     }
