@@ -5,5 +5,5 @@ package com.ict.mito.gootravel.spot.model
  */
 data class WiFiSpotListItem(
     val spotData: SpotData,
-    var distance: Int
+    var distanceString: String
 )

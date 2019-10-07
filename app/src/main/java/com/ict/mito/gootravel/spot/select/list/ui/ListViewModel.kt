@@ -35,7 +35,7 @@ class ListViewModel(
                 spot.wiFiSpotListItem.spotData,
                 locationLiveData.value
             ).toInt()
-            spot.wiFiSpotListItem.distance = distance
+            spot.wiFiSpotListItem.distanceString = distance.toString()
         }
     }
 
@@ -48,7 +48,7 @@ class ListViewModel(
                         ListRowItem(
                             WiFiSpotListItem(
                                 spot,
-                                0
+                                "-"
                             ),
                             navController ?: return@subscribeBy
                         )
