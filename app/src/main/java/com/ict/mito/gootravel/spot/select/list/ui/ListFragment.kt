@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.ListFragmentBinding
@@ -22,7 +23,7 @@ class ListFragment : Fragment() {
     private val viewModel: ListViewModel by viewModel()
     private var binding: ListFragmentBinding? = null
 
-    private val menuItemClickListener = Toolbar.OnMenuItemClickListener{ menu ->
+    private val menuItemClickListener = Toolbar.OnMenuItemClickListener { menu ->
         when (menu.itemId) {
             R.id.appbar_radar -> {
                 findNavController().navigate(R.id.action_listFragment_to_radarFragment)
@@ -72,6 +73,15 @@ class ListFragment : Fragment() {
             container,
             false
         )
+
+        viewModel.also {
+            it.locationLiveData.observe(
+                this,
+                Observer { _ ->
+                    it.calcSpotDistance()
+                }
+            )
+        }
 
         return view
     }
