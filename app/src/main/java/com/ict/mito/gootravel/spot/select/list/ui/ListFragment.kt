@@ -87,7 +87,6 @@ class ListFragment : Fragment() {
                 Observer { list ->
                     it.groupAdapter.update(list)
                     binding?.notifyChange()
-
                 }
             )
             it.navController = findNavController()
