@@ -81,6 +81,14 @@ class ListFragment : Fragment() {
                     it.calcSpotDistance()
                 }
             )
+            it.rowBindableItem.observe(
+                this,
+                Observer { list ->
+                    it.groupAdapter.update(list)
+                    binding?.notifyChange()
+
+                }
+            )
             it.navController = findNavController()
         }
 
