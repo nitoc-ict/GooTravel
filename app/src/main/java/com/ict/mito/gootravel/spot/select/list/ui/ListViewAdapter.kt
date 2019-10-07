@@ -4,10 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ict.mito.gootravel.R
 
 class ListViewAdapter(
-    private val list : List<ListRowItem>
+    private val list: List<ListRowItem>
 ) : RecyclerView.Adapter<ListViewHolder>() {
 
     override fun onCreateViewHolder(
