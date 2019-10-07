@@ -77,9 +77,7 @@ class ListFragment : Fragment() {
         viewModel.also {
             it.locationLiveData.observe(
                 this,
-                Observer { _ ->
-                    it.calcSpotDistance()
-                }
+                Observer { }
             )
             it.rowBindableItem.observe(
                 this,
