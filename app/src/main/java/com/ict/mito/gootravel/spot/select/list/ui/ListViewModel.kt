@@ -15,6 +15,10 @@ class ListViewModel(
     var listItems: List<ListRowItem> = listOf()
     val adapter: ListViewAdapter = ListViewAdapter(listItems)
 
+    init {
+        syncSpotData()
+    }
+
     fun syncSpotData() {
         repository.getAllSpotData().subscribeBy(
             onSuccess = {
