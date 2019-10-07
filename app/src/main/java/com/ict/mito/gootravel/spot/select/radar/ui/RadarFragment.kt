@@ -148,12 +148,12 @@ class RadarFragment : Fragment() {
             it.lifecycleOwner = this
         }
 
-        checkArgument()
+        checkArgumentAndTransition()
 
         return binding?.root
     }
 
-    private fun checkArgument() {
+    private fun checkArgumentAndTransition() {
         val args = arguments ?: return
         val safeArgs = NavigateFragmentArgs.fromBundle(args)
         val id = safeArgs.spotId.toInt()
