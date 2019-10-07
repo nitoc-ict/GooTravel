@@ -84,6 +84,11 @@ class ListFragment : Fragment() {
             it.navController = findNavController()
         }
 
+        binding?.let {
+            it.viewmodel = viewModel
+            it.lifecycleOwner = this
+        }
+
         return view
     }
 
