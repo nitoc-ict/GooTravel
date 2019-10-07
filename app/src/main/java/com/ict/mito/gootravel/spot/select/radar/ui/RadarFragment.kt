@@ -153,7 +153,7 @@ class RadarFragment : Fragment() {
         return binding?.root
     }
 
-    fun checkArgument() {
+    private fun checkArgument() {
         val args = arguments ?: return
         val safeArgs = NavigateFragmentArgs.fromBundle(args)
 
