@@ -1,17 +1,23 @@
 package com.ict.mito.gootravel.spot.select.list.ui
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.WiFiSpotListItem
 import com.ict.mito.gootravel.util.calcDirectDistance
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.databinding.ViewHolder
 import io.reactivex.rxkotlin.subscribeBy
 
 class ListViewModel(
     private val repository: Repository,
     val locationLiveData: LocationLiveData
 ) : ViewModel() {
+    val rowBindableItem: MutableLiveData<List<ListRowItem>> = MutableLiveData()
+    val groupAdapter: GroupAdapter<ViewHolder<*>> = GroupAdapter()
+
     var spotdataList: List<WiFiSpotListItem> = listOf()
     var navController: NavController? = null
         set(value) {
