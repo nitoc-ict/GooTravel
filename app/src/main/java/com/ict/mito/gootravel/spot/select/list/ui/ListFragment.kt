@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.ListFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
@@ -64,12 +63,6 @@ class ListFragment : Fragment() {
             }
         }
 
-//        val view = inflater.inflate(
-//            R.layout.list_fragment,
-//            container,
-//            false
-//        )
-
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.list_fragment,
@@ -77,26 +70,7 @@ class ListFragment : Fragment() {
             false
         )
 
-        // val listFragmentBinding = DataBindingUtil.setContentView<ListFragmentBinding>(, R.layout.list_fragment)
-
-        // val recyclerView: RecyclerView = view.findViewById(R.id.spot_list_view)
-        val recyclerView
-        val adapter = ListViewAdapter(createDataList())
-
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-
         return view
-    }
-
-    private fun createDataList(): List<ListRowItem> {
-
-        val dataList = mutableListOf<ListRowItem>()
-        for (i in 0..49) {
-            val data: ListRowItem = ListRowItem("${i}番目の場所", "${i}m", "")
-            dataList.add(data)
-        }
-        return dataList
     }
 
     override fun onResume() {
