@@ -156,6 +156,11 @@ class RadarFragment : Fragment() {
     private fun checkArgument() {
         val args = arguments ?: return
         val safeArgs = NavigateFragmentArgs.fromBundle(args)
+        val id = safeArgs.spotId.toInt()
+
+        if (id < 0) {
+            return
+        }
 
         viewModel.transitionBottomSheet(safeArgs.spotId.toInt())
     }
