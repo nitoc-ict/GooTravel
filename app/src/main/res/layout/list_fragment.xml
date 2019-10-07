@@ -19,7 +19,7 @@
                 android:id="@+id/spot_list_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:adapter="@{viewmodel.adapter}"
+                app:adapter="@{viewmodel.groupAdapter}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
