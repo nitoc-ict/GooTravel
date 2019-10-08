@@ -34,7 +34,7 @@ class LanguageSettingAdapter(val languageList: ArrayList<Language>) : RecyclerVi
 
     class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bindItems(language: Language) {
-            val textViewName = view.findViewById(R.id.textViewlanguage) as TextView
+            val textViewName = view.findViewById(R.id.textView_language) as TextView
             textViewName.text = language.name
         }
     }
