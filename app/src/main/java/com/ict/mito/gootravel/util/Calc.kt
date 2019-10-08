@@ -48,9 +48,7 @@ fun calcDirectDistance(
     val m = (rx * (1 - e * e)) / (w * w * w)
     val n = rx / w
 
-    val distance = sqrt((dy * m) * (dy * m) + (dx * n * cos(p)) * (dx * n * cos(p)))
-
-    return distance
+    return sqrt((dy * m) * (dy * m) + (dx * n * cos(p)) * (dx * n * cos(p)))
 
 //    val results = FloatArray(3)
 //    Location.distanceBetween(
