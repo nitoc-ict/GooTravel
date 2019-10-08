@@ -25,7 +25,7 @@ class LanguageSettingFragment : Fragment() {
             container,
             false
         )
-        val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
+        val recyclerView = view.findViewById(R.id.recyclerView_language) as RecyclerView
 
         val languages = ArrayList<Language>()
 
@@ -34,7 +34,7 @@ class LanguageSettingFragment : Fragment() {
         languages.add(Language(getString(R.string.kantaiji)))
         languages.add(Language(getString(R.string.kankokugo)))
 
-        val adapter = CustomAdapter(languages)
+        val adapter = LanguageSettingAdapter(languages)
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
