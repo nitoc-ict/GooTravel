@@ -19,7 +19,6 @@ import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RadarFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
 import com.ict.mito.gootravel.setting.activity.SettingActivity
-import com.ict.mito.gootravel.spot.navigate.ui.NavigateFragmentArgs
 import com.ict.mito.gootravel.util.calcDirectDistance
 import com.ict.mito.gootravel.util.calcDirection
 import com.ict.mito.gootravel.util.deg2rad
@@ -155,14 +154,18 @@ class RadarFragment : Fragment() {
 
     private fun checkArgumentAndTransition() {
         val args = arguments ?: return
-        val safeArgs = NavigateFragmentArgs.fromBundle(args)
+        val safeArgs = RadarFragmentArgs.fromBundle(args)
         val id = safeArgs.spotId.toInt()
+        val distance = safeArgs.distance
 
         if (id < 0) {
             return
         }
 
-        viewModel.transitionBottomSheet(safeArgs.spotId.toInt())
+        viewModel.transitionBottomSheet(
+            safeArgs.spotId.toInt(),
+            distance
+        )
     }
 
     private fun addWiFiSpotButton(

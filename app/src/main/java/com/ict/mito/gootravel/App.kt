@@ -75,7 +75,12 @@ class App : Application() {
         viewModel { SearchViewModel() }
         viewModel { SelectSpotBottomSheetViewModel(get()) }
         viewModel { SpotViewModel(get()) }
-        viewModel { RegisterSpotListViewModel(get()) }
+        viewModel {
+            RegisterSpotListViewModel(
+                get(),
+                get()
+            )
+        }
     }
 
     private val liveDataModule: Module = module {
