@@ -2,10 +2,7 @@ package com.ict.mito.gootravel.util
 
 import android.location.Location
 import com.ict.mito.gootravel.spot.model.SpotData
-import kotlin.math.abs
-import kotlin.math.cos
-import kotlin.math.sin
-import kotlin.math.sqrt
+import kotlin.math.*
 
 /**
  * Created by mitohato14 on 2019-07-28.
@@ -67,16 +64,19 @@ fun calcDirection(
     bx: Double,
     by: Double
 ): Double {
-    val results = FloatArray(3)
-    Location.distanceBetween(
-        ax,
-        ay,
-        bx,
-        by,
-        results
-    )
 
-    return results[1].toDouble()
+    return (90 - atan(2 * ((sin(ax - bx)) / (cos(by) * tan(ay) - sin(by) * cos(ax - bx)))))
+
+//    val results = FloatArray(3)
+//    Location.distanceBetween(
+//        ax,
+//        ay,
+//        bx,
+//        by,
+//        results
+//    )
+//
+//    return results[1].toDouble()
 }
 
 fun rad2deg(rad: Float): Float {
