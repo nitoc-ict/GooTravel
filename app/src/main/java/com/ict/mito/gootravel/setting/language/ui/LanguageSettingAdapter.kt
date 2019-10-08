@@ -7,30 +7,29 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.gootravel.R
 
-class CustomAdapter(val LanguageList: ArrayList<Language>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class LanguageSettingAdapter(val languageList: ArrayList<Language>) : RecyclerView.Adapter<LanguageSettingAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): CustomAdapter.
-    ViewHolder {
-        val v = LayoutInflater.from(parent.context).
-            inflate(
+    ): LanguageSettingAdapter.ViewHolder {
+        val v = LayoutInflater.from(parent.context).inflate(
             R.layout.list_layout,
             parent,
-            false)
+            false
+        )
         return ViewHolder(v)
     }
 
     override fun onBindViewHolder(
-        holder: CustomAdapter.ViewHolder,
+        holder: LanguageSettingAdapter.ViewHolder,
         position: Int
     ) {
-        holder.bindItems(LanguageList[position])
+        holder.bindItems(languageList[position])
     }
 
     override fun getItemCount(): Int {
-        return LanguageList.size
+        return languageList.size
     }
 
     class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
