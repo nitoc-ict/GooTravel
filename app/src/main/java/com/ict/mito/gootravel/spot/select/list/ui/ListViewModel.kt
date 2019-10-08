@@ -46,7 +46,7 @@ class ListViewModel(
                 spot.wiFiSpotListItem.spotData,
                 locationLiveData.value
             ).toInt()
-            spot.wiFiSpotListItem.distanceString = "${distance}m"
+            spot.wiFiSpotListItem.distanceString = "$distance"
         }
     }
 

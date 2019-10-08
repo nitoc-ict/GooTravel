@@ -11,9 +11,9 @@ import com.xwray.groupie.databinding.BindableItem
  */
 class RegisterSpotListRowItem(
     private val registerSpotData: RegisterPointData,
-    private val navController: NavController
-) :
-    BindableItem<RegisterSpotListRowBinding>() {
+    private val navController: NavController,
+    private val distance: Long
+) : BindableItem<RegisterSpotListRowBinding>() {
     override fun getLayout(): Int = R.layout.register_spot_list_row
 
     override fun bind(
@@ -22,10 +22,12 @@ class RegisterSpotListRowItem(
     ) {
         viewBinding.also {
             it.registerPoint = registerSpotData
+            it.distance = "$distance"
             it.root.setOnClickListener {
                 val action =
                     RegisterSpotListFragmentDirections.actionRegisterSpotListFragmentToRadarFragment(
-                        registerSpotData.id.toLong()
+                        registerSpotData.id.toLong(),
+                        distance
                     )
                 navController.navigate(action)
             }

@@ -88,7 +88,7 @@ class NavigateFragment : Fragment() {
             RotateAnimation.RELATIVE_TO_SELF,
             0.5f,
             RotateAnimation.RELATIVE_TO_SELF,
-            0.7f
+            0.68f
         )
 
         rotate.fillAfter = true

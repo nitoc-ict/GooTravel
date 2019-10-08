@@ -8,6 +8,9 @@
         <variable
                 name="registerPoint"
                 type="com.ict.mito.gootravel.spot.model.RegisterPointData" />
+        <variable
+                name="distance"
+                type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base_margin"
-                android:text="150m"
+                android:text="@{distance + 'm'}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

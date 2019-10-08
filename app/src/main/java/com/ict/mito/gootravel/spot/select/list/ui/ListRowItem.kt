@@ -23,7 +23,8 @@ class ListRowItem(
             it.spot = wiFiSpotListItem
             it.root.setOnClickListener {
                 val action = ListFragmentDirections.actionListFragmentToRadarFragment(
-                    wiFiSpotListItem.spotData.id
+                    wiFiSpotListItem.spotData.id,
+                    wiFiSpotListItem.distanceString.toLong()
                 )
                 navController.navigate(action)
             }

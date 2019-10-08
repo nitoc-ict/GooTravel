@@ -27,7 +27,10 @@ class RadarViewModel(
         transitionBottomSheet(view.id)
     }
 
-    fun transitionBottomSheet(id: Int) {
+    fun transitionBottomSheet(
+        id: Int,
+        distanse: Long = -1L
+    ) {
         val clickSpot = spotdataList.first { it.id.toInt() == id }
 
         val args = Bundle()
@@ -36,13 +39,20 @@ class RadarViewModel(
                 "spotId",
                 id
             )
-            putInt(
-                "distanceString",
-                calcDirectDistance(
-                    clickSpot,
-                    locationLiveData.value
-                ).toInt()
-            )
+            if (distanse == -1L) {
+                putInt(
+                    "distanceString",
+                    calcDirectDistance(
+                        clickSpot,
+                        locationLiveData.value
+                    ).toInt()
+                )
+            } else {
+                putLong(
+                    "distanceString",
+                    distanse
+                )
+            }
         }
 
         val bottomSheet = SelectSpotBottomSheetFragment()

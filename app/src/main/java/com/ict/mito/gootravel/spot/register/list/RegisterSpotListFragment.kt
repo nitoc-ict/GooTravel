@@ -39,6 +39,12 @@ class RegisterSpotListFragment : Fragment() {
                     binding?.notifyChange()
                 }
             )
+            it.locationLiveData.observe(
+                this,
+                Observer { _ ->
+                    it.update()
+                }
+            )
         }
         binding?.let {
             it.viewmodel = viewmodel
