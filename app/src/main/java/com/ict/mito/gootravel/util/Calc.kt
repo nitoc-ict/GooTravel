@@ -2,6 +2,10 @@ package com.ict.mito.gootravel.util
 
 import android.location.Location
 import com.ict.mito.gootravel.spot.model.SpotData
+import kotlin.math.abs
+import kotlin.math.cos
+import kotlin.math.sin
+import kotlin.math.sqrt
 
 /**
  * Created by mitohato14 on 2019-07-28.
@@ -33,15 +37,30 @@ fun calcDirectDistance(
     bx: Double,
     by: Double
 ): Double {
-    val results = FloatArray(3)
-    Location.distanceBetween(
-        ax,
-        ay,
-        bx,
-        by,
-        results
-    )
-    return results[0].toDouble()
+    val dx = abs(ax - bx)
+    val dy = abs(ay - by)
+
+    val p = (ay + by) / 2.0
+    val rx = SEMIMAJOR_AXIS
+    val ry = SEMIMINOR_AXIS
+    val e = sqrt((rx * rx - ry * ry) / (rx * rx))
+    val w = sqrt(1 - e * e * (sin(p) * sin(p)))
+    val m = (rx * (1 - e * e)) / (w * w * w)
+    val n = rx / w
+
+    val distance = sqrt((dy * m) * (dy * m) + (dx * n * cos(p)) * (dx * n * cos(p)))
+
+    return distance
+
+//    val results = FloatArray(3)
+//    Location.distanceBetween(
+//        ax,
+//        ay,
+//        bx,
+//        by,
+//        results
+//    )
+//    return results[0].toDouble()
 }
 
 fun calcDirection(
