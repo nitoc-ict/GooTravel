@@ -38,6 +38,7 @@ fun calcDirectDistance(
     val x2 = deg2rad(bx.toFloat())
     val y1 = deg2rad(ay.toFloat())
     val y2 = deg2rad(by.toFloat())
+
     val dx = abs(x1 - x2)
     val dy = abs(y1 - y2)
 
@@ -50,16 +51,6 @@ fun calcDirectDistance(
     val n = rx / w
 
     return sqrt((dy * m) * (dy * m) + (dx * n * cos(p)) * (dx * n * cos(p)))
-
-//    val results = FloatArray(3)
-//    Location.distanceBetween(
-//        ax,
-//        ay,
-//        bx,
-//        by,
-//        results
-//    )
-//    return results[0].toDouble()
 }
 
 fun calcDirection(
@@ -68,19 +59,7 @@ fun calcDirection(
     bx: Double,
     by: Double
 ): Double {
-
     return (90 - atan(2 * ((sin(ax - bx)) / (cos(by) * tan(ay) - sin(by) * cos(ax - bx)))))
-
-//    val results = FloatArray(3)
-//    Location.distanceBetween(
-//        ax,
-//        ay,
-//        bx,
-//        by,
-//        results
-//    )
-//
-//    return results[1].toDouble()
 }
 
 fun rad2deg(rad: Float): Float {
