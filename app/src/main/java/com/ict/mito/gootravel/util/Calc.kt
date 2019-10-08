@@ -34,10 +34,14 @@ fun calcDirectDistance(
     bx: Double,
     by: Double
 ): Double {
-    val dx = abs(ax - bx)
-    val dy = abs(ay - by)
+    val x1 = deg2rad(ax.toFloat())
+    val x2 = deg2rad(bx.toFloat())
+    val y1 = deg2rad(ay.toFloat())
+    val y2 = deg2rad(by.toFloat())
+    val dx = abs(x1) - deg2rad(x2)
+    val dy = abs(y1) - deg2rad(y2)
 
-    val p = (ay + by) / 2.0
+    val p = (y1 + y2) / 2.0
     val rx = SEMIMAJOR_AXIS
     val ry = SEMIMINOR_AXIS
     val e = sqrt((rx * rx - ry * ry) / (rx * rx))
