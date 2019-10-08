@@ -23,6 +23,7 @@ class RegisterSpotListRowItem(
     ) {
         viewBinding.also {
             it.registerPoint = registerSpotData
+            it.distance = "$distance"
             it.root.setOnClickListener {
                 val action =
                     RegisterSpotListFragmentDirections.actionRegisterSpotListFragmentToRadarFragment(
