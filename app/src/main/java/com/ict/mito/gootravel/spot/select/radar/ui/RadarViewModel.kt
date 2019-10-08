@@ -52,7 +52,6 @@ class RadarViewModel(
                     "distanceString",
                     distanse
                 )
-
             }
         }
 

@@ -13,8 +13,7 @@ class RegisterSpotListRowItem(
     private val registerSpotData: RegisterPointData,
     private val navController: NavController,
     private val distance: Long
-) :
-    BindableItem<RegisterSpotListRowBinding>() {
+) : BindableItem<RegisterSpotListRowBinding>() {
     override fun getLayout(): Int = R.layout.register_spot_list_row
 
     override fun bind(
