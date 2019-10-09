@@ -7,7 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.gootravel.R
 
-class LanguageSettingAdapter(val languageList: ArrayList<Language>) : RecyclerView.Adapter<LanguageSettingAdapter.ViewHolder>() {
+class LanguageSettingAdapter(
+    val languageList: ArrayList<Language>
+) : RecyclerView.Adapter<LanguageSettingAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
