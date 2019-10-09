@@ -29,6 +29,7 @@ class LanguageSettingFragment : Fragment() {
 
         val languages = ArrayList<Language>()
 
+        languages.add(Language(getString(R.string.japanese)))
         languages.add(Language(getString(R.string.english)))
         languages.add(Language(getString(R.string.traditional_chinese)))
         languages.add(Language(getString(R.string.simplified_chinese)))
