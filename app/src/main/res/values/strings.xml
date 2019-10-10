@@ -32,4 +32,5 @@
     <string name="appbar_refuge_title">Refuge</string>
     <string name="register_point_icon">register point icon</string>
     <string name="spot_icon">spot icon</string>
+    <string name="register_spot_list_button">Register Spot List Button</string>
 </resources>
