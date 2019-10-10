@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toolbar
-import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
@@ -57,11 +56,8 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        activity?.bottom_appbar?.let {
-            it.replaceMenu(R.menu.search_bottomappbar_menu)
-            activity?.bottom_appbar?.setOnMenuItemClickListener { menu ->
-            }
-        }
+        activity?.bottom_appbar?.replaceMenu(R.menu.search_bottomappbar_menu)
+
         return inflater.inflate(
             R.layout.search_fragment,
             container,
