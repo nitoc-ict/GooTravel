@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toolbar
+import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
@@ -16,6 +18,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class SearchFragment : Fragment() {
 
     private val viewModel: SearchViewModel by viewModel()
+
+    private val onMenuItemClickListener = Toolbar.OnMenuItemClickListener { menu ->
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
