@@ -17,7 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class SearchFragment : Fragment() {
 
     private val viewModel: SearchViewModel by viewModel()
-    private val binding: SearchFragmentBinding? = null
+    private var binding: SearchFragmentBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
