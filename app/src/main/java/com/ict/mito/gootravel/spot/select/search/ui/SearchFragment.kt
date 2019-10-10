@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
+import com.ict.mito.gootravel.databinding.SearchFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
 import com.ict.mito.gootravel.setting.activity.SettingActivity
 import kotlinx.android.synthetic.main.activity_spot.*
@@ -16,6 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class SearchFragment : Fragment() {
 
     private val viewModel: SearchViewModel by viewModel()
+    private val binding: SearchFragmentBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
