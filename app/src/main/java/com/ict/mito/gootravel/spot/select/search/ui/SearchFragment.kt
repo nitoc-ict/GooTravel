@@ -67,6 +67,11 @@ class SearchFragment : Fragment() {
             false
         )
 
+        binding?.let {
+            it.viewmodel = viewModel
+            it.lifecycleOwner = this
+        }
+
         return binding?.root
     }
 }
