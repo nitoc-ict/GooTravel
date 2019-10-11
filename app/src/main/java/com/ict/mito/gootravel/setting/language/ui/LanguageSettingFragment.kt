@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.gootravel.R
+import java.util.Collections.list
 
 
 class LanguageSettingFragment : Fragment() {
@@ -27,14 +28,14 @@ class LanguageSettingFragment : Fragment() {
         )
         val recyclerView = view.findViewById(R.id.recyclerView_language) as RecyclerView
 
-        val languages = ArrayList<Language>()
+        val languages = listOf(
 
-        languages.add(Language(getString(R.string.japanese)))
-        languages.add(Language(getString(R.string.english)))
-        languages.add(Language(getString(R.string.traditional_chinese)))
-        languages.add(Language(getString(R.string.simplified_chinese)))
-        languages.add(Language(getString(R.string.korean)))
-
+            Language(getString(R.string.japanese)),
+            Language(getString(R.string.english)),
+            Language(getString(R.string.traditional_chinese)),
+            Language(getString(R.string.simplified_chinese)),
+                    Language(getString(R.string.korean))
+        )
         val adapter = LanguageSettingAdapter(languages)
 
         recyclerView.adapter = adapter
