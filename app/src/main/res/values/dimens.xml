@@ -4,4 +4,5 @@
     <dimen name="between_view">60dp</dimen>
     <dimen name="row_icon_size">30dp</dimen>
     <dimen name="register_point_navigate_button_height">100dp</dimen>
+    <dimen name="history_row_icon_size">30dp</dimen>
 </resources>
