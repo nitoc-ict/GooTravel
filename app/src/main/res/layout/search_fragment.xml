@@ -52,6 +52,17 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/register_point_text"
                     app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                    android:id="@+id/line"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_margin="@dimen/base_margin"
+                    android:contentDescription="@string/line"
+                    android:src="@color/gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/register_icon" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView

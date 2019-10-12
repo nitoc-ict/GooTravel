@@ -34,4 +34,5 @@
     <string name="spot_icon">spot icon</string>
     <string name="register_spot_list_button">Register Spot List Button</string>
     <string name="history_row_icon">history row icon</string>
+    <string name="line">line</string>
 </resources>
