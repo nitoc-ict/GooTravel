@@ -34,7 +34,7 @@ class LanguageSettingFragment : Fragment() {
             Language(getString(R.string.english)),
             Language(getString(R.string.traditional_chinese)),
             Language(getString(R.string.simplified_chinese)),
-                    Language(getString(R.string.korean))
+            Language(getString(R.string.korean))
         )
         val adapter = LanguageSettingAdapter(languages)
 
