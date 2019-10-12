@@ -22,4 +22,20 @@
     <string name="traditional_chinese">中国語(繫体字)</string>
     <string name="simplified_chinese">中国語(簡体字)</string>
     <string name="korean">韓国語</string>
+
+    <string name="spot_image">Spot image</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name</string>
+    <string name="memo">memo</string>
+    <string name="done">Done</string>
+    <string name="add_notification_hint">Add notification timer</string>
+    <string name="set_image_hin">Add image</string>
+    <string name="register_fragment_title">Registration Point</string>
+    <string name="navigate">Navigate</string>
+    <string name="wifi_spot">Wi-Fi Spot</string>
+    <string name="appbar_register_point_title">Register Point</string>
+    <string name="appbar_refuge_title">Refuge</string>
+    <string name="register_point_icon">register point icon</string>
+    <string name="spot_icon">spot icon</string>
 </resources>

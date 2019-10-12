@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
-import com.ict.mito.gootravel.spot.model.SpotData
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -26,7 +26,6 @@ class NavigateFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        activity?.bottom_appbar?.replaceMenu(R.menu.empty_menu)
 
         binding = DataBindingUtil.inflate(
             inflater,
@@ -36,21 +35,27 @@ class NavigateFragment : Fragment() {
 
         )
 
-        val viewmodelObserver = Observer<Double> {
-            binding?.let {
-                rotateNavigateImageView(it.arrowImage)
-                it.notifyChange()
-            }
-        }
+        val args = arguments ?: return null
+        val safeArgs = NavigateFragmentArgs.fromBundle(args)
 
         viewModel.also {
             it.direction.observe(
                 this,
-                viewmodelObserver
+                Observer {
+                    binding?.let { binding ->
+                        rotateNavigateImageView(binding.arrowImage)
+                        binding.notifyChange()
+                    }
+                }
             )
             it.distance.observe(
                 this,
-                viewmodelObserver
+                Observer {
+                    binding?.let { binding ->
+                        rotateNavigateImageView(binding.arrowImage)
+                        binding.notifyChange()
+                    }
+                }
             )
             it.orientationLiveData.observe(
                 this,
@@ -65,14 +70,7 @@ class NavigateFragment : Fragment() {
                     it.longitude.postValue(location.longitude)
                 }
             )
-            it.spotData = SpotData(
-                "Dummy",
-                0.0,
-                0.0,
-                0,
-                "",
-                ""
-            )
+            it.setId(safeArgs.spotId)
         }
 
         binding?.let {
@@ -90,7 +88,7 @@ class NavigateFragment : Fragment() {
             RotateAnimation.RELATIVE_TO_SELF,
             0.5f,
             RotateAnimation.RELATIVE_TO_SELF,
-            0.7f
+            0.68f
         )
 
         rotate.fillAfter = true
@@ -98,6 +96,18 @@ class NavigateFragment : Fragment() {
 
         view.startAnimation(rotate)
         prevRotation = currentRotation
+    }
+
+    override fun onResume() {
+        super.onResume()
+        activity?.bottom_appbar?.replaceMenu(R.menu.empty_menu)
+
+        val appCompatActivity = activity as AppCompatActivity?
+        appCompatActivity?.supportActionBar?.let {
+            it.title = getString(R.string.navigate)
+            it.setDisplayHomeAsUpEnabled(true)
+            it.setHomeButtonEnabled(true)
+        }
     }
 
     override fun onDestroy() {

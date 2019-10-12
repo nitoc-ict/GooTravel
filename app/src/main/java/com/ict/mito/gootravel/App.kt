@@ -9,7 +9,10 @@ import com.ict.mito.gootravel.repo.impl.RepositoryImpl
 import com.ict.mito.gootravel.spot.activity.SpotViewModel
 import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.OrientationLiveData
+import com.ict.mito.gootravel.spot.model.RegisterSpotListLiveData
+import com.ict.mito.gootravel.spot.model.RegisterSpotLiveData
 import com.ict.mito.gootravel.spot.navigate.ui.NavigateViewModel
+import com.ict.mito.gootravel.spot.register.list.RegisterSpotListViewModel
 import com.ict.mito.gootravel.spot.register.ui.RegisterViewModel
 import com.ict.mito.gootravel.spot.select.list.ui.ListViewModel
 import com.ict.mito.gootravel.spot.select.radar.ui.RadarViewModel
@@ -30,7 +33,7 @@ class App : Application() {
         startKoin {
             androidContext(this@App)
             modules(
-                arrayListOf(
+                listOf(
                     viewModelModule,
                     liveDataModule,
                     databaseModule,
@@ -46,20 +49,45 @@ class App : Application() {
         viewModel {
             NavigateViewModel(
                 get(),
+                get(),
                 get()
             )
         }
-        viewModel { RegisterViewModel() }
-        viewModel { ListViewModel() }
-        viewModel { RadarViewModel() }
+        viewModel {
+            RegisterViewModel(
+                get(),
+                get()
+            )
+        }
+        viewModel {
+            ListViewModel(
+                get(),
+                get()
+            )
+        }
+        viewModel {
+            RadarViewModel(
+                get(),
+                get(),
+                get()
+            )
+        }
         viewModel { SearchViewModel() }
         viewModel { SelectSpotBottomSheetViewModel(get()) }
         viewModel { SpotViewModel(get()) }
+        viewModel {
+            RegisterSpotListViewModel(
+                get(),
+                get()
+            )
+        }
     }
 
     private val liveDataModule: Module = module {
         factory { OrientationLiveData(applicationContext) }
         factory { LocationLiveData(applicationContext) }
+        factory { RegisterSpotListLiveData() }
+        factory { RegisterSpotLiveData() }
     }
 
     private val databaseModule: Module = module {
