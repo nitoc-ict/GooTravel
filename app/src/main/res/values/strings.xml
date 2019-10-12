@@ -17,6 +17,12 @@
     <string name="connect">CONNECT</string>
     <string name="cancel">CANCEL</string>
     <string name="appbar_language_title">Language</string>
+    <string name="japanese">日本語</string>
+    <string name="english">英語</string>
+    <string name="traditional_chinese">中国語(繫体字)</string>
+    <string name="simplified_chinese">中国語(簡体字)</string>
+    <string name="korean">韓国語</string>
+
     <string name="spot_image">Spot image</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
