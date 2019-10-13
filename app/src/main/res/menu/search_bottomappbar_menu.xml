@@ -15,6 +15,7 @@
 
     <item
             android:id="@+id/app_bar_register"
+            android:icon="@drawable/ic_playlist_add_check_black_36dp"
             android:title="@string/appbar_register_point_title"
             app:showAsAction="ifRoom" />
 
@@ -26,6 +27,7 @@
 
     <item
             android:id="@+id/app_bar_refuge"
+            android:icon="@drawable/ic_directions_run_black_24dp"
             android:title="@string/appbar_refuge_title"
             app:showAsAction="ifRoom" />
     <item
