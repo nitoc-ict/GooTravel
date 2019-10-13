@@ -73,7 +73,7 @@ class RadarFragment : Fragment() {
         true
     }
 
-    private val myPositionOnClickListener = View.OnClickListener {
+    val myPositionOnClickListener = View.OnClickListener {
     }
 
     override fun onCreateView(
