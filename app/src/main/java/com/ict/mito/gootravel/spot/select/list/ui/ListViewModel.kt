@@ -59,7 +59,7 @@ class ListViewModel(
                         ListRowItem(
                             WiFiSpotListItem(
                                 spot,
-                                "-"
+                                "0"
                             ),
                             navController ?: return@subscribeBy
                         )

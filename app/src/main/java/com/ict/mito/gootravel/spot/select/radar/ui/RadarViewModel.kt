@@ -39,12 +39,12 @@ class RadarViewModel(
                 id
             )
             if (distanse == -1L) {
-                putInt(
+                putLong(
                     "distanceString",
                     calcDirectDistance(
                         clickSpot,
                         locationLiveData.value
-                    ).toInt()
+                    ).toLong()
                 )
             } else {
                 putLong(
@@ -72,7 +72,7 @@ class RadarViewModel(
                 spot,
                 location
             )
-            distance <= 500
+            distance <= 1000
         }
     }
 
