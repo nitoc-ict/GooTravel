@@ -74,6 +74,7 @@ class RadarFragment : Fragment() {
     }
 
     val myPositionOnClickListener = View.OnClickListener {
+        viewModel.transitionBottomSheet(-1)
     }
 
     override fun onCreateView(
