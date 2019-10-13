@@ -30,7 +30,7 @@ class RadarViewModel(
         id: Int,
         distance: Long = -1L
     ) {
-        val clickSpot = spotdataList.first { it.id.toInt() == id }
+        val clickSpot = spotdataList.firstOrNull { it.id.toInt() == id }
 
         val args = Bundle()
         args.apply {
