@@ -71,6 +71,12 @@
     </fragment>
     <fragment android:id="@+id/registerFragment" android:name="com.ict.mito.gootravel.spot.register.ui.RegisterFragment"
               android:label="register_fragment" tools:layout="@layout/register_fragment">
+        <argument android:name="latitude"
+                app:argType="float"
+                android:defaultValue="-1" />
+        <argument android:name="longitude"
+                app:argType="float"
+                android:defaultValue="-1" />
         <argument
                 android:name="spotId"
                 app:argType="long"
