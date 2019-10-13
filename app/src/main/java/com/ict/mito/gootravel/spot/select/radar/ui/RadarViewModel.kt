@@ -26,6 +26,11 @@ class RadarViewModel(
         transitionBottomSheet(view.id)
     }
 
+    val myPositionOnClickListener = View.OnClickListener {
+        transitionBottomSheet(-1)
+    }
+
+
     fun transitionBottomSheet(
         id: Int,
         distance: Long = -1L
