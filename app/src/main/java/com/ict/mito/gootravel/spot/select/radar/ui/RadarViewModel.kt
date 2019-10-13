@@ -30,7 +30,8 @@ class RadarViewModel(
     }
 
     val myPositionOnClickListener = View.OnClickListener {
-        transitionBottomSheet(-1)
+        val action = RadarFragmentDirections.actionRadarFragmentToRegisterFragment()
+        navController.navigate(action)
     }
 
 
