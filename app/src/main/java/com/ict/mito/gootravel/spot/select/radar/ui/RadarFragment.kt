@@ -73,6 +73,9 @@ class RadarFragment : Fragment() {
         true
     }
 
+    private val myPositionOnClickListener = View.OnClickListener {
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
