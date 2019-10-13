@@ -22,6 +22,7 @@
         </action>
         <action android:id="@+id/action_radarFragment_to_registerFragment" app:destination="@id/registerFragment">
             <argument android:defaultValue="-1L" android:name="spotId" />
+            <argument android:defaultValue="-1" android:name="mode" />
         </action>
         <action
                 android:id="@+id/action_radarFragment_to_registerSpotListFragment"
@@ -75,6 +76,10 @@
                 android:name="spotId"
                 app:argType="long"
                 android:defaultValue="-1L" />
+        <argument
+                android:name="mode"
+                app:argType="integer"
+                android:defaultValue="0" />
         <action
                 android:id="@+id/action_registerFragment_to_radarFragment"
                 app:destination="@id/radarFragment" />
