@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.OrientationLiveData
@@ -19,6 +20,8 @@ class RadarViewModel(
 ) : ViewModel() {
     var spotdataList: List<SpotData> = listOf()
     var showSpotViewList: ArrayList<View> = arrayListOf()
+
+    lateinit var navController: NavController
 
     lateinit var fragmentManager: FragmentManager
 
