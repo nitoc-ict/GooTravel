@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.OrientationLiveData
@@ -20,17 +21,25 @@ class RadarViewModel(
     var spotdataList: List<SpotData> = listOf()
     var showSpotViewList: ArrayList<View> = arrayListOf()
 
+    lateinit var navController: NavController
+
     lateinit var fragmentManager: FragmentManager
 
     val spotClickListener = View.OnClickListener { view ->
         transitionBottomSheet(view.id)
     }
 
+    val myPositionOnClickListener = View.OnClickListener {
+        val action = RadarFragmentDirections.actionRadarFragmentToRegisterFragment()
+        navController.navigate(action)
+    }
+
+
     fun transitionBottomSheet(
         id: Int,
-        distanse: Long = -1L
+        distance: Long = -1L
     ) {
-        val clickSpot = spotdataList.first { it.id.toInt() == id }
+        val clickSpot = spotdataList.firstOrNull { it.id.toInt() == id }
 
         val args = Bundle()
         args.apply {
@@ -38,7 +47,7 @@ class RadarViewModel(
                 "spotId",
                 id
             )
-            if (distanse == -1L) {
+            if (distance == -1L) {
                 putLong(
                     "distanceString",
                     calcDirectDistance(
@@ -49,7 +58,7 @@ class RadarViewModel(
             } else {
                 putLong(
                     "distanceString",
-                    distanse
+                    distance
                 )
             }
         }

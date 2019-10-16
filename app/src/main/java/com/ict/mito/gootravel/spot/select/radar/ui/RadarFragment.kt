@@ -140,6 +140,7 @@ class RadarFragment : Fragment() {
                 this,
                 Observer { }
             )
+            it.navController = findNavController()
         }
 
         binding?.let {
