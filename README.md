@@ -104,7 +104,7 @@ https://github.com/mitohato/MVVM-Sample
 ## ライブラリ等
 - Groupie
 - Google Play Services
-- AncdroidX
+- AndroidX
 - DataBinding
 - Koin
 - Navigation
