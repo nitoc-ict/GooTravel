@@ -3,4 +3,39 @@
     <string name="navigatearrow">NavigateArrow</string>
     <string name="my_location">MyLocation</string>
     <string name="radar_oval">RadarOval</string>
+    <string name="location_request_dialog_title">位置情報サービスが無効です</string>
+    <string name="location_request_dialog_body">GooTravelでは現在地情報を使用します。位置情報サービスを有効にしてください。</string>
+    <string name="appbar_list_title">List</string>
+    <string name="appbar_radar_title">Radar</string>
+    <string name="appbar_search_title">Search</string>
+    <string name="appbar_manual_title">Manual</string>
+    <string name="appbar_other_title">Other</string>
+    <string name="register">REGISTER</string>
+    <string name="go">GO</string>
+    <string name="refuge">REFUGE</string>
+    <string name="manual">MANUAL</string>
+    <string name="connect">CONNECT</string>
+    <string name="cancel">CANCEL</string>
+    <string name="appbar_language_title">Language</string>
+    <string name="japanese">日本語</string>
+    <string name="english">英語</string>
+    <string name="traditional_chinese">中国語(繫体字)</string>
+    <string name="simplified_chinese">中国語(簡体字)</string>
+    <string name="korean">韓国語</string>
+
+    <string name="spot_image">Spot image</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name</string>
+    <string name="memo">memo</string>
+    <string name="done">Done</string>
+    <string name="add_notification_hint">Add notification timer</string>
+    <string name="set_image_hin">Add image</string>
+    <string name="register_fragment_title">Registration Point</string>
+    <string name="navigate">Navigate</string>
+    <string name="wifi_spot">Wi-Fi Spot</string>
+    <string name="appbar_register_point_title">Register Point</string>
+    <string name="appbar_refuge_title">Refuge</string>
+    <string name="register_point_icon">register point icon</string>
+    <string name="spot_icon">spot icon</string>
 </resources>

@@ -1,13 +1,22 @@
 package com.ict.mito.gootravel
 
 import android.app.Application
+import com.ict.mito.gootravel.csv.CSVReader
+import com.ict.mito.gootravel.db.GooTravelDataRoomDataBase
 import com.ict.mito.gootravel.disaster.manual.ui.ManualViewModel
+import com.ict.mito.gootravel.repo.Repository
+import com.ict.mito.gootravel.repo.impl.RepositoryImpl
+import com.ict.mito.gootravel.spot.activity.SpotViewModel
 import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.OrientationLiveData
+import com.ict.mito.gootravel.spot.model.RegisterSpotListLiveData
+import com.ict.mito.gootravel.spot.model.RegisterSpotLiveData
 import com.ict.mito.gootravel.spot.navigate.ui.NavigateViewModel
+import com.ict.mito.gootravel.spot.register.list.RegisterSpotListViewModel
 import com.ict.mito.gootravel.spot.register.ui.RegisterViewModel
 import com.ict.mito.gootravel.spot.select.list.ui.ListViewModel
 import com.ict.mito.gootravel.spot.select.radar.ui.RadarViewModel
+import com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetViewModel
 import com.ict.mito.gootravel.spot.select.search.ui.SearchViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -24,9 +33,12 @@ class App : Application() {
         startKoin {
             androidContext(this@App)
             modules(
-                arrayListOf(
+                listOf(
                     viewModelModule,
-                    liveDataModule
+                    liveDataModule,
+                    databaseModule,
+                    repositoryModule,
+                    readerModule
                 )
             )
         }
@@ -37,17 +49,64 @@ class App : Application() {
         viewModel {
             NavigateViewModel(
                 get(),
+                get(),
                 get()
             )
         }
-        viewModel { RegisterViewModel() }
-        viewModel { ListViewModel() }
-        viewModel { RadarViewModel() }
+        viewModel {
+            RegisterViewModel(
+                get(),
+                get()
+            )
+        }
+        viewModel {
+            ListViewModel(
+                get(),
+                get()
+            )
+        }
+        viewModel {
+            RadarViewModel(
+                get(),
+                get(),
+                get()
+            )
+        }
         viewModel { SearchViewModel() }
+        viewModel { SelectSpotBottomSheetViewModel(get()) }
+        viewModel { SpotViewModel(get()) }
+        viewModel {
+            RegisterSpotListViewModel(
+                get(),
+                get()
+            )
+        }
     }
 
     private val liveDataModule: Module = module {
         factory { OrientationLiveData(applicationContext) }
         factory { LocationLiveData(applicationContext) }
+        factory { RegisterSpotListLiveData() }
+        factory { RegisterSpotLiveData() }
+    }
+
+    private val databaseModule: Module = module {
+        single { GooTravelDataRoomDataBase.getDataBase(applicationContext) }
+        single { get<GooTravelDataRoomDataBase>().registerDataDAO() }
+        single { get<GooTravelDataRoomDataBase>().spotDataDAO() }
+    }
+
+    private val repositoryModule: Module = module {
+        single {
+            RepositoryImpl(
+                get(),
+                get(),
+                get()
+            ) as Repository
+        }
+    }
+
+    private val readerModule: Module = module {
+        single { CSVReader(applicationContext.resources.assets) }
     }
 }

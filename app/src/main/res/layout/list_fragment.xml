@@ -1,42 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".spot.select.list.ui.ListFragment">
+        xmlns:tools="http://schemas.android.com/tools">
 
-    <Button
-            android:id="@+id/button_to_radar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="RADAR"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    <Button
-            android:id="@+id/button_to_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SEARCH"
-            app:layout_constraintTop_toBottomOf="@id/button_to_radar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    <Button
-            android:id="@+id/button_to_navigate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NAVIGATE"
-            app:layout_constraintTop_toBottomOf="@id/button_to_search"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    <Button
-            android:id="@+id/button_to_register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="REGISTER"
-            app:layout_constraintTop_toBottomOf="@id/button_to_navigate"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+        <variable
+                name="viewmodel"
+                type="com.ict.mito.gootravel.spot.select.list.ui.ListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".spot.select.list.ui.ListFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/spot_list_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/base_margin"
+                app:adapter="@{viewmodel.groupAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

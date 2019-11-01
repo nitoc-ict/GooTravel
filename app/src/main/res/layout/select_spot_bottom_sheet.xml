@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="viewmodel"
+                type="com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite">
+
+        <TextView
+                android:id="@+id/spot_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/base_margin"
+                android:text="@{viewmodel.spotData.name}"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tool:text="Name" />
+
+        <TextView
+                android:id="@+id/spot_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/base_margin"
+                android:text="@{viewmodel.spotData.spotTypeDetail}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spot_name"
+                tool:text="convenience store" />
+
+        <TextView
+                android:id="@+id/distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/base_margin"
+                android:text="@{viewmodel.distance}"
+                app:layout_constraintBottom_toBottomOf="@id/spot_name"
+                app:layout_constraintStart_toEndOf="@id/spot_name"
+                app:layout_constraintTop_toTopOf="@id/spot_name"
+                tool:text="250m" />
+
+        <Button
+                android:id="@+id/register_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/popup_register_button_style"
+                android:drawableStart="@drawable/ic_location_popup_24dp"
+                android:onClick="@{viewmodel::registerClick}"
+                android:text="@string/register"
+                android:textColor="@color/colorSub"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/go_button"
+                app:layout_constraintTop_toBottomOf="@id/spot_type" />
+
+        <Button
+                android:id="@+id/go_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/popup_go_button_style"
+                android:drawableStart="@drawable/ic_directions_white_24dp"
+                android:onClick="@{viewmodel::goClick}"
+                android:text="@string/go"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spot_type" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
