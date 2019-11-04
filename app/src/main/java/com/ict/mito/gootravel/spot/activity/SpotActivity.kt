@@ -1,6 +1,7 @@
 package com.ict.mito.gootravel.spot.activity
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -40,6 +41,7 @@ class SpotActivity : AppCompatActivity(R.layout.activity_spot) {
         viewmodel.syncSpotData()
     }
 
+    @SuppressLint("WrongConstant")
     @RequiresApi(Build.VERSION_CODES.M)
     fun checkPermission() {
         if (
