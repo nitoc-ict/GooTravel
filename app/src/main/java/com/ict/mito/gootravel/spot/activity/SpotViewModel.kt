@@ -12,9 +12,9 @@ class SpotViewModel(private val repository: Repository) : ViewModel() {
     fun syncSpotData() {
         repository.getAllSpotData().subscribeBy(
             onSuccess = {
-//                if (it.isEmpty()) {
+                if (it.isEmpty()) {
                     addSpotDataToRoomFromCSV()
-//                }
+                }
             },
             onError = {
             }
