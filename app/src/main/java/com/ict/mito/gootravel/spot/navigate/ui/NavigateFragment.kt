@@ -12,12 +12,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
+import com.ict.mito.gootravel.spot.model.SpotFragmentType
+import com.ict.mito.gootravel.spot.model.SpotSharedViewModel
 import kotlinx.android.synthetic.main.activity_spot.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NavigateFragment : Fragment() {
 
     private val viewModel: NavigateViewModel by viewModel()
+    private val sharedViewModel: SpotSharedViewModel by sharedViewModel()
     private var binding: NavigateFragmentBinding? = null
     private var prevRotation: Int = 0
 
@@ -73,6 +77,8 @@ class NavigateFragment : Fragment() {
             it.setId(safeArgs.spotId)
         }
 
+        sharedViewModel.fragmentType.postValue(SpotFragmentType.NAVIGATE)
+
         binding?.let {
             it.viewmodel = viewModel
             it.lifecycleOwner = this
@@ -96,18 +102,6 @@ class NavigateFragment : Fragment() {
 
         view.startAnimation(rotate)
         prevRotation = currentRotation
-    }
-
-    override fun onResume() {
-        super.onResume()
-        activity?.bottom_appbar?.replaceMenu(R.menu.empty_menu)
-
-        val appCompatActivity = activity as AppCompatActivity?
-        appCompatActivity?.supportActionBar?.let {
-            it.title = getString(R.string.navigate)
-            it.setDisplayHomeAsUpEnabled(true)
-            it.setHomeButtonEnabled(true)
-        }
     }
 
     override fun onDestroy() {

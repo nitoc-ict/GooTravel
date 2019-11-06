@@ -7,10 +7,7 @@ import com.ict.mito.gootravel.disaster.manual.ui.ManualViewModel
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.repo.impl.RepositoryImpl
 import com.ict.mito.gootravel.spot.activity.SpotViewModel
-import com.ict.mito.gootravel.spot.model.LocationLiveData
-import com.ict.mito.gootravel.spot.model.OrientationLiveData
-import com.ict.mito.gootravel.spot.model.RegisterSpotListLiveData
-import com.ict.mito.gootravel.spot.model.RegisterSpotLiveData
+import com.ict.mito.gootravel.spot.model.*
 import com.ict.mito.gootravel.spot.navigate.ui.NavigateViewModel
 import com.ict.mito.gootravel.spot.register.list.RegisterSpotListViewModel
 import com.ict.mito.gootravel.spot.register.ui.RegisterViewModel
@@ -45,6 +42,7 @@ class App : Application() {
     }
 
     private val viewModelModule: Module = module {
+        viewModel { SpotSharedViewModel() }
         viewModel { ManualViewModel() }
         viewModel {
             NavigateViewModel(
