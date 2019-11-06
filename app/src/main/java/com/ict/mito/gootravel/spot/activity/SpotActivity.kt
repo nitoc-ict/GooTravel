@@ -8,6 +8,7 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.PermissionChecker
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
@@ -41,6 +42,18 @@ class SpotActivity : AppCompatActivity(R.layout.activity_spot) {
         }
 
         viewmodel.syncSpotData()
+        sharedViewModel.fragmentType.observe(
+            this,
+            Observer { type ->
+                type ?: return@Observer
+                bottom_appbar?.replaceMenu(type.menuId)
+                supportActionBar?.let {
+                    it.title = getString(type.titleId)
+                    it.setDisplayHomeAsUpEnabled(type.enableBack)
+                    it.setHomeButtonEnabled(type.enableBack)
+                }
+            }
+        )
     }
 
     @SuppressLint("WrongConstant")
