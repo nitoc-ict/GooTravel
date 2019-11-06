@@ -35,7 +35,7 @@ enum class SpotFragmentType(
         R.menu.empty_menu,
         true
     ),
-    RAGISTER(
+    REGISTER(
         R.string.register_fragment_title,
         R.menu.empty_menu,
         true
