@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -78,13 +77,13 @@ class ListFragment : Fragment() {
         viewModel.also {
             it.calcSpotDistance()
             it.locationLiveData.observe(
-                this,
+                viewLifecycleOwner,
                 Observer { _ ->
                     it.updateDistanceOnce()
                 }
             )
             it.rowBindableItem.observe(
-                this,
+                viewLifecycleOwner,
                 Observer { list ->
                     it.groupAdapter.update(list)
                     binding?.notifyChange()

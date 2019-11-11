@@ -8,7 +8,6 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -19,7 +18,6 @@ import com.ict.mito.gootravel.spot.model.SpotFragmentType
 import com.ict.mito.gootravel.spot.model.SpotSharedViewModel
 import com.ict.mito.gootravel.spot.navigate.ui.NavigateFragmentArgs
 import com.ict.mito.gootravel.util.READ_REQUEST_CODE
-import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.IOException
@@ -56,7 +54,7 @@ class RegisterFragment : Fragment() {
         val safeArgs = NavigateFragmentArgs.fromBundle(args)
 
         viewmodel.registerPointLiveData.observe(
-            this,
+            viewLifecycleOwner,
             Observer {
                 binding?.notifyChange()
             }

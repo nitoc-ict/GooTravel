@@ -35,14 +35,14 @@ class RegisterSpotListFragment : Fragment() {
         viewmodel.also {
             it.navController = findNavController()
             it.rowBindableItemList.observe(
-                this,
+                viewLifecycleOwner,
                 Observer {
                     viewmodel.groupAdapter.update(it)
                     binding?.notifyChange()
                 }
             )
             it.locationLiveData.observe(
-                this,
+                viewLifecycleOwner,
                 Observer { _ ->
                     it.update()
                 }

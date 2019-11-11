@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -14,7 +13,6 @@ import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
 import com.ict.mito.gootravel.spot.model.SpotFragmentType
 import com.ict.mito.gootravel.spot.model.SpotSharedViewModel
-import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -44,7 +42,7 @@ class NavigateFragment : Fragment() {
 
         viewModel.also {
             it.direction.observe(
-                this,
+                viewLifecycleOwner,
                 Observer {
                     binding?.let { binding ->
                         rotateNavigateImageView(binding.arrowImage)
@@ -53,7 +51,7 @@ class NavigateFragment : Fragment() {
                 }
             )
             it.distance.observe(
-                this,
+                viewLifecycleOwner,
                 Observer {
                     binding?.let { binding ->
                         rotateNavigateImageView(binding.arrowImage)
@@ -62,13 +60,13 @@ class NavigateFragment : Fragment() {
                 }
             )
             it.orientationLiveData.observe(
-                this,
+                viewLifecycleOwner,
                 Observer { orientation ->
                     it.azimuth.postValue(orientation.azimuth.toDouble())
                 }
             )
             it.locationLiveData.observe(
-                this,
+                viewLifecycleOwner,
                 Observer { location ->
                     it.latitude.postValue(location.latitude)
                     it.longitude.postValue(location.longitude)

@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -134,11 +133,11 @@ class RadarFragment : Fragment() {
         viewModel.also {
             it.fragmentManager = parentFragmentManager
             it.locationLiveData.observe(
-                this,
+                viewLifecycleOwner,
                 Observer { }
             )
             it.orientationLiveData.observe(
-                this,
+                viewLifecycleOwner,
                 Observer { }
             )
             it.navController = findNavController()
