@@ -34,7 +34,6 @@ class RadarViewModel(
         navController.navigate(action)
     }
 
-
     fun transitionBottomSheet(
         id: Int,
         distance: Long = -1L

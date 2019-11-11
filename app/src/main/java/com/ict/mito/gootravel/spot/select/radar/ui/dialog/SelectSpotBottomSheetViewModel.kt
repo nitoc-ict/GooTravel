@@ -37,7 +37,8 @@ class SelectSpotBottomSheetViewModel(private val repository: Repository) : ViewM
     }
 
     fun registerClick(view: View) {
-        val action = RadarFragmentDirections.actionRadarFragmentToRegisterFragment(_spotData.value?.id ?: 0)
+        val action =
+            RadarFragmentDirections.actionRadarFragmentToRegisterFragment(_spotData.value?.id ?: 0)
         navController?.navigate(action)
         dialog?.dismiss()
     }
