@@ -63,6 +63,12 @@ class RegisterFragment : Fragment() {
         if (safeArgs.spotId != -1L) {
             viewmodel.setId(safeArgs.spotId)
         }
+        viewmodel.locationLiveData.observe(
+            viewLifecycleOwner,
+            Observer {
+                binding?.notifyChange()
+            }
+        )
 
         sharedViewModel.fragmentType.postValue(SpotFragmentType.REGISTER)
 
