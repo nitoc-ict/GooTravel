@@ -60,7 +60,9 @@ class RegisterFragment : Fragment() {
             }
         )
         viewmodel.navController = findNavController()
-        viewmodel.setId(safeArgs.spotId)
+        if (safeArgs.spotId != -1L) {
+            viewmodel.setId(safeArgs.spotId)
+        }
 
         sharedViewModel.fragmentType.postValue(SpotFragmentType.REGISTER)
 

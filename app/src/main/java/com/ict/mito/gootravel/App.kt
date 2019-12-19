@@ -54,6 +54,7 @@ class App : Application() {
         viewModel {
             RegisterViewModel(
                 get(),
+                get(),
                 get()
             )
         }

@@ -9,13 +9,16 @@ import androidx.navigation.NavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.db.DataBaseConverter
 import com.ict.mito.gootravel.repo.Repository
-import java.util.Calendar
+import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.RegisterSpotLiveData
 import com.ict.mito.gootravel.spot.model.SpotData
+import java.util.Calendar
+import kotlin.random.Random
 
 class RegisterViewModel(
     private val repository: Repository,
-    val registerPointLiveData: RegisterSpotLiveData
+    val registerPointLiveData: RegisterSpotLiveData,
+    val locationLiveData: LocationLiveData
 ) : ViewModel() {
 
     val nameLiveData = MutableLiveData<String>()
@@ -37,6 +40,18 @@ class RegisterViewModel(
     val doneClick = View.OnClickListener {
         val spotName = nameLiveData.value ?: ""
         val spotMemo = memoLiveData.value ?: ""
+
+        if (!::destination.isInitialized) {
+            destination = SpotData(
+                id = Random.nextLong(),
+                name = spotName,
+                latitude = locationLiveData.value?.latitude ?: 0.0,
+                longitude = locationLiveData.value?.longitude ?: 0.0,
+                spotType = 0,
+                spotTypeDetail = "",
+                address = ""
+            )
+        }
 
         if (spotName.isNotEmpty()) {
             registerPointLiveData.value = registerPointLiveData.value?.copy(
