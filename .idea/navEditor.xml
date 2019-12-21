@@ -119,8 +119,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="744" />
-                            <option name="y" value="298" />
+                            <option name="x" value="24" />
+                            <option name="y" value="539" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -146,6 +146,11 @@
                               </value>
                             </entry>
                             <entry key="action_radarFragment_to_searchFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_radarFragment_to_searchFragment2">
                               <value>
                                 <LayoutPositions />
                               </value>

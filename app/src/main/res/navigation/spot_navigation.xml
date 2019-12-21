@@ -27,6 +27,9 @@
         <action
                 android:id="@+id/action_radarFragment_to_registerSpotListFragment"
                 app:destination="@id/registerSpotListFragment" />
+        <action
+                android:id="@+id/action_radarFragment_to_searchFragment2"
+                app:destination="@id/searchFragment" />
     </fragment>
     <fragment android:id="@+id/listFragment" android:name="com.ict.mito.gootravel.spot.select.list.ui.ListFragment"
               android:label="list_fragment" tools:layout="@layout/list_fragment">
