@@ -34,6 +34,10 @@ class RadarViewModel(
         navController.navigate(action)
     }
 
+    val meetingClick = View.OnClickListener {
+        transitionBottomSheet(1)
+    }
+
     fun transitionBottomSheet(
         id: Int,
         distance: Long = -1L
