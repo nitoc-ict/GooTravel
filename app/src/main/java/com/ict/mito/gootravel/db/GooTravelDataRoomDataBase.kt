@@ -16,7 +16,7 @@ import com.ict.mito.gootravel.spot.model.SpotData
         RoomRegisterLocation::class,
         SpotData::class
     ],
-    version = 3,
+    version = 1,
     exportSchema = false
 )
 abstract class GooTravelDataRoomDataBase : RoomDatabase() {
