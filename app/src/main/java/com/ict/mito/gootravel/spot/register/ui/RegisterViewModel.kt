@@ -12,6 +12,7 @@ import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.LocationLiveData
 import com.ict.mito.gootravel.spot.model.RegisterSpotLiveData
 import com.ict.mito.gootravel.spot.model.SpotData
+import io.reactivex.schedulers.Schedulers
 import java.util.Calendar
 import kotlin.random.Random
 
@@ -32,9 +33,12 @@ class RegisterViewModel(
     }
 
     fun setId(id: Long) {
-        repository.getSpotDataById(id).map {
-            destination = it
-        }.subscribe()
+        repository.getSpotDataById(id)
+            .map {
+                destination = it
+            }
+            .subscribeOn(Schedulers.io())
+            .subscribe()
     }
 
     val doneClick = View.OnClickListener {

@@ -10,6 +10,7 @@ import com.ict.mito.gootravel.util.calcDirectDistance
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.databinding.ViewHolder
 import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 
 class ListViewModel(
     private val repository: Repository,
@@ -51,7 +52,9 @@ class ListViewModel(
     }
 
     fun syncSpotData() {
-        repository.getAllSpotData().subscribeBy(
+        repository.getAllSpotData()
+            .subscribeOn(Schedulers.io())
+            .subscribeBy(
             onSuccess = {
                 val spotDataArray: ArrayList<ListRowItem> = arrayListOf()
                 it.forEach { spot ->

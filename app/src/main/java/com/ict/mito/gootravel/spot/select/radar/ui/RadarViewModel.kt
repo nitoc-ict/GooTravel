@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.LocationLiveData
@@ -13,8 +12,7 @@ import com.ict.mito.gootravel.spot.model.SpotData
 import com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetFragment
 import com.ict.mito.gootravel.util.calcDirectDistance
 import io.reactivex.rxkotlin.subscribeBy
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import io.reactivex.schedulers.Schedulers
 
 class RadarViewModel(
     repository: Repository,
@@ -92,12 +90,14 @@ class RadarViewModel(
     }
 
     init {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.getAllSpotData().subscribeBy(
+//        viewModelScope.launch(Dispatchers.IO) {
+            repository.getAllSpotData()
+                .subscribeOn(Schedulers.io())
+                .subscribeBy(
                 onSuccess = {
                     spotdataList = it
                 }
             )
-        }
+//        }
     }
 }

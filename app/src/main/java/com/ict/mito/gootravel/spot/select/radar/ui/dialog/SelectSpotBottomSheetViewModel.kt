@@ -9,6 +9,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.spot.model.SpotData
 import com.ict.mito.gootravel.spot.select.radar.ui.RadarFragmentDirections
+import io.reactivex.schedulers.Schedulers
 
 /**
  * Created by mitohato14 on 2019-09-05.
@@ -24,9 +25,12 @@ class SelectSpotBottomSheetViewModel(private val repository: Repository) : ViewM
     var dialog: BottomSheetDialogFragment? = null
 
     fun setId(id: Long) {
-        repository.getSpotDataById(id).map {
-            _spotData.postValue(it)
-        }.subscribe()
+        repository.getSpotDataById(id)
+            .map {
+                _spotData.postValue(it)
+            }
+            .subscribeOn(Schedulers.io())
+            .subscribe()
     }
 
     fun goClick(view: View) {

@@ -10,6 +10,7 @@ import com.ict.mito.gootravel.util.calcDirectDistance
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.databinding.ViewHolder
 import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 
 class RegisterSpotListViewModel(
     private val repository: Repository,
@@ -34,7 +35,9 @@ class RegisterSpotListViewModel(
     }
 
     fun syncListWithRoom() {
-        repository.getAllRegisterLocation().subscribeBy(
+        repository.getAllRegisterLocation()
+            .subscribeOn(Schedulers.io())
+            .subscribeBy(
             onSuccess = {
                 val rowItemArray = arrayListOf<RegisterSpotListRowItem>()
                 it.forEach { spot ->
