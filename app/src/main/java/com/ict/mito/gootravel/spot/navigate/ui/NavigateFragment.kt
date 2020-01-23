@@ -72,6 +72,12 @@ class NavigateFragment : Fragment() {
                     it.longitude.postValue(location.longitude)
                 }
             )
+            it.destination.observe(
+                viewLifecycleOwner,
+                Observer {
+                    binding?.notifyChange()
+                }
+            )
             it.setId(safeArgs.spotId)
         }
 

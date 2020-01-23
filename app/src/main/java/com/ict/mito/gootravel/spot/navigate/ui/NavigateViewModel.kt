@@ -24,13 +24,15 @@ class NavigateViewModel(
     var direction: MediatorLiveData<Double> = MediatorLiveData()
     var distance: MediatorLiveData<Int> = MediatorLiveData()
 
-    lateinit var destination: SpotData
+    val destination: LiveData<SpotData>
+        get() = _destination
+    private val _destination: MutableLiveData<SpotData> = MutableLiveData()
 
     fun setId(id: Long) {
         runBlocking {
             repository.getSpotDataById(id)
                 .map {
-                    destination = it
+                    _destination.postValue(it)
                 }
                 .subscribeOn(Schedulers.io())
                 .subscribe()
@@ -41,16 +43,16 @@ class NavigateViewModel(
         val observer = Observer<Double> {
             direction.postValue(
                 calcDirection(
-                    destination.longitude,
-                    destination.latitude,
+                    destination.value?.longitude ?: 0.0,
+                    destination.value?.latitude ?: 0.0,
                     longitude.value ?: 0.0,
                     latitude.value ?: 0.0
                 ) - (azimuth.value ?: 0.0)
             )
             distance.postValue(
                 calcDirectDistance(
-                    destination.longitude,
-                    destination.latitude,
+                    destination.value?.longitude ?: 0.0,
+                    destination.value?.latitude ?: 0.0,
                     longitude.value ?: 0.0,
                     latitude.value ?: 0.0
                 ).toInt()
