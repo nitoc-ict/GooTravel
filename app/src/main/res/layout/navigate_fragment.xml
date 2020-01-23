@@ -19,7 +19,7 @@
                 android:id="@+id/spot_image"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/no_image"
+                android:src="@drawable/curry"
                 tool:layout_constraintTop_toTopOf="parent"
                 tool:layout_constraintStart_toStartOf="parent"
                 tool:layout_constraintEnd_toEndOf="parent"

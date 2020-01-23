@@ -10,6 +10,8 @@ import com.ict.mito.gootravel.spot.model.OrientationLiveData
 import com.ict.mito.gootravel.spot.model.SpotData
 import com.ict.mito.gootravel.util.calcDirectDistance
 import com.ict.mito.gootravel.util.calcDirection
+import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.runBlocking
 
 class NavigateViewModel(
     val orientationLiveData: OrientationLiveData,
@@ -25,9 +27,14 @@ class NavigateViewModel(
     lateinit var destination: SpotData
 
     fun setId(id: Long) {
-        repository.getSpotDataById(id).map {
-            destination = it
-        }.subscribe()
+        runBlocking {
+            repository.getSpotDataById(id)
+                .map {
+                    destination = it
+                }
+                .subscribeOn(Schedulers.io())
+                .subscribe()
+        }
     }
 
     init {

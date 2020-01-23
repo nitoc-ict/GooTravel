@@ -8,22 +8,24 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RegisterFragmentBinding
+import com.ict.mito.gootravel.spot.model.SpotFragmentType
+import com.ict.mito.gootravel.spot.model.SpotSharedViewModel
 import com.ict.mito.gootravel.spot.navigate.ui.NavigateFragmentArgs
 import com.ict.mito.gootravel.util.READ_REQUEST_CODE
-import kotlinx.android.synthetic.main.activity_spot.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.IOException
 
 class RegisterFragment : Fragment() {
 
     private val viewmodel: RegisterViewModel by viewModel()
+    private val sharedViewModel: SpotSharedViewModel by sharedViewModel()
     private var binding: RegisterFragmentBinding? = null
 
     private val setImageClickListener = View.OnClickListener {
@@ -52,13 +54,23 @@ class RegisterFragment : Fragment() {
         val safeArgs = NavigateFragmentArgs.fromBundle(args)
 
         viewmodel.registerPointLiveData.observe(
-            this,
+            viewLifecycleOwner,
             Observer {
                 binding?.notifyChange()
             }
         )
         viewmodel.navController = findNavController()
-        viewmodel.setId(safeArgs.spotId)
+        if (safeArgs.spotId != -1L) {
+            viewmodel.setId(safeArgs.spotId)
+        }
+        viewmodel.locationLiveData.observe(
+            viewLifecycleOwner,
+            Observer {
+                binding?.notifyChange()
+            }
+        )
+
+        sharedViewModel.fragmentType.postValue(SpotFragmentType.REGISTER)
 
         binding?.let {
             it.viewmodel = viewmodel
@@ -91,18 +103,6 @@ class RegisterFragment : Fragment() {
                     e.printStackTrace()
                 }
             }
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        activity?.bottom_appbar?.replaceMenu(R.menu.empty_menu)
-
-        val appCompatActivity = activity as AppCompatActivity?
-        appCompatActivity?.supportActionBar?.let {
-            it.title = getString(R.string.register_fragment_title)
-            it.setDisplayHomeAsUpEnabled(true)
-            it.setHomeButtonEnabled(true)
         }
     }
 

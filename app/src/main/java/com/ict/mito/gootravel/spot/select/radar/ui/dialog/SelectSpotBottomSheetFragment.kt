@@ -44,7 +44,7 @@ class SelectSpotBottomSheetFragment : BottomSheetDialogFragment() {
             it.distance = "${distance}m"
             it.setId(id.toLong())
             it.spotData.observe(
-                this,
+                viewLifecycleOwner,
                 Observer {
                     binding?.notifyChange()
                 }

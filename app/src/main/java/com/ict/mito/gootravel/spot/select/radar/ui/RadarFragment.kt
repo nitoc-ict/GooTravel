@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -19,11 +18,14 @@ import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RadarFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
 import com.ict.mito.gootravel.setting.activity.SettingActivity
+import com.ict.mito.gootravel.spot.model.SpotFragmentType
+import com.ict.mito.gootravel.spot.model.SpotSharedViewModel
 import com.ict.mito.gootravel.util.calcDirectDistance
 import com.ict.mito.gootravel.util.calcDirection
 import com.ict.mito.gootravel.util.deg2rad
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.jetbrains.anko.dip
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.math.cos
 import kotlin.math.sin
@@ -31,6 +33,7 @@ import kotlin.math.sin
 class RadarFragment : Fragment() {
 
     private val viewModel: RadarViewModel by viewModel()
+    private val sharedViewModel: SpotSharedViewModel by sharedViewModel()
     private var binding: RadarFragmentBinding? = null
 
     private lateinit var constraintLayout: ConstraintLayout
@@ -78,10 +81,7 @@ class RadarFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        activity?.bottom_appbar?.let {
-            it.replaceMenu(R.menu.radar_bottomappbar_menu)
-            it.setOnMenuItemClickListener(onMenuItemClickListener)
-        }
+        activity?.bottom_appbar?.setOnMenuItemClickListener(onMenuItemClickListener)
 
         binding = DataBindingUtil.inflate(
             inflater,
@@ -133,15 +133,17 @@ class RadarFragment : Fragment() {
         viewModel.also {
             it.fragmentManager = parentFragmentManager
             it.locationLiveData.observe(
-                this,
+                viewLifecycleOwner,
                 Observer { }
             )
             it.orientationLiveData.observe(
-                this,
+                viewLifecycleOwner,
                 Observer { }
             )
             it.navController = findNavController()
         }
+
+        sharedViewModel.fragmentType.postValue(SpotFragmentType.RADAR)
 
         binding?.let {
             it.viewmodel = viewModel
@@ -209,18 +211,6 @@ class RadarFragment : Fragment() {
 
         spotButton.setOnClickListener(viewModel.spotClickListener)
         viewModel.showSpotViewList.add(spotButton)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        activity?.bottom_appbar?.replaceMenu(R.menu.radar_bottomappbar_menu)
-
-        val appCompatActivity = activity as AppCompatActivity?
-        appCompatActivity?.supportActionBar?.let {
-            it.title = getString(R.string.wifi_spot)
-            it.setDisplayHomeAsUpEnabled(false)
-            it.setHomeButtonEnabled(false)
-        }
     }
 
     override fun onDestroy() {

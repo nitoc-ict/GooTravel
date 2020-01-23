@@ -3,6 +3,7 @@ package com.ict.mito.gootravel.spot.activity
 import androidx.lifecycle.ViewModel
 import com.ict.mito.gootravel.repo.Repository
 import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 
 /**
  * Created by mitohato14 on 2019-09-21.
@@ -10,15 +11,17 @@ import io.reactivex.rxkotlin.subscribeBy
 class SpotViewModel(private val repository: Repository) : ViewModel() {
 
     fun syncSpotData() {
-        repository.getAllSpotData().subscribeBy(
-            onSuccess = {
-//                if (it.isEmpty()) {
-                    addSpotDataToRoomFromCSV()
-//                }
-            },
-            onError = {
-            }
-        )
+        repository.getAllSpotData()
+            .subscribeOn(Schedulers.io())
+            .subscribeBy(
+                onSuccess = {
+                    if (it.isEmpty()) {
+                        addSpotDataToRoomFromCSV()
+                    }
+                },
+                onError = {
+                }
+            )
     }
 
     private fun addSpotDataToRoomFromCSV() {

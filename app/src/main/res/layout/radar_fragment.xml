@@ -71,5 +71,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+                android:id="@+id/meeting_point"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@color/colorSub"
+                android:onClick="@{viewmodel.meetingClick}"
+                android:text="@string/meeting_point"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

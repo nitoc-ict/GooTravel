@@ -37,7 +37,7 @@
                 app:fabAlignmentMode="center"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
             android:id="@+id/navhost"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"

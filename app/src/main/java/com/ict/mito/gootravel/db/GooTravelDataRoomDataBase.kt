@@ -34,7 +34,6 @@ abstract class GooTravelDataRoomDataBase : RoomDatabase() {
                     GooTravelDataRoomDataBase::class.java,
                     "gootravel_db"
                 )
-                    .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build()
 

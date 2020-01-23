@@ -10,12 +10,16 @@ import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
 import com.ict.mito.gootravel.setting.activity.SettingActivity
+import com.ict.mito.gootravel.spot.model.SpotFragmentType
+import com.ict.mito.gootravel.spot.model.SpotSharedViewModel
 import kotlinx.android.synthetic.main.activity_spot.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : Fragment() {
 
     private val viewModel: SearchViewModel by viewModel()
+    private val sharedViewModel: SpotSharedViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,7 +27,6 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         activity?.bottom_appbar?.let {
-            it.replaceMenu(R.menu.search_bottomappbar_menu)
             activity?.bottom_appbar?.setOnMenuItemClickListener { menu ->
                 when (menu.itemId) {
                     R.id.appbar_radar -> {
@@ -57,6 +60,9 @@ class SearchFragment : Fragment() {
                 true
             }
         }
+
+        sharedViewModel.fragmentType.postValue(SpotFragmentType.SEARCH)
+
         return inflater.inflate(
             R.layout.search_fragment,
             container,

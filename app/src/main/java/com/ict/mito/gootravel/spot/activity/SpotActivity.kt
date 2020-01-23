@@ -1,21 +1,25 @@
 package com.ict.mito.gootravel.spot.activity
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.PermissionChecker
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.ict.mito.gootravel.R
+import com.ict.mito.gootravel.spot.model.SpotSharedViewModel
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SpotActivity : AppCompatActivity(R.layout.activity_spot) {
     private val viewmodel: SpotViewModel by viewModel()
+    private val sharedViewModel: SpotSharedViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,8 +42,21 @@ class SpotActivity : AppCompatActivity(R.layout.activity_spot) {
         }
 
         viewmodel.syncSpotData()
+        sharedViewModel.fragmentType.observe(
+            this,
+            Observer { type ->
+                type ?: return@Observer
+                bottom_appbar?.replaceMenu(type.menuId)
+                supportActionBar?.let {
+                    it.title = getString(type.titleId)
+                    it.setDisplayHomeAsUpEnabled(type.enableBack)
+                    it.setHomeButtonEnabled(type.enableBack)
+                }
+            }
+        )
     }
 
+    @SuppressLint("WrongConstant")
     @RequiresApi(Build.VERSION_CODES.M)
     fun checkPermission() {
         if (

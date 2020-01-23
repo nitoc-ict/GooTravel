@@ -58,7 +58,8 @@ class LocationLiveData(
             Looper.myLooper()
         )
 
-        val locationManager = context.getSystemService(Activity.LOCATION_SERVICE) as LocationManager?
+        val locationManager =
+            context.getSystemService(Activity.LOCATION_SERVICE) as LocationManager?
         if (locationManager?.isProviderEnabled(LocationManager.GPS_PROVIDER) != true) {
             LocationRequestAlertDialog().showsDialog
         }
