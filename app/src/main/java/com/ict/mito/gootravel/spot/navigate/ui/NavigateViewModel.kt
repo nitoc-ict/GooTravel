@@ -1,5 +1,6 @@
 package com.ict.mito.gootravel.spot.navigate.ui
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
