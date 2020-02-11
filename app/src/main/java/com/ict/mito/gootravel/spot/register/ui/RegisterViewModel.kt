@@ -9,8 +9,8 @@ import androidx.navigation.NavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.db.DataBaseConverter
 import com.ict.mito.gootravel.repo.Repository
-import com.ict.mito.gootravel.spot.model.LocationLiveData
-import com.ict.mito.gootravel.spot.model.RegisterSpotLiveData
+import com.ict.mito.gootravel.spot.model.livrdata.LocationLiveData
+import com.ict.mito.gootravel.spot.model.livrdata.RegisterSpotLiveData
 import com.ict.mito.gootravel.spot.model.SpotData
 import io.reactivex.schedulers.Schedulers
 import java.util.Calendar

@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.ict.mito.gootravel.repo.Repository
-import com.ict.mito.gootravel.spot.model.LocationLiveData
-import com.ict.mito.gootravel.spot.model.OrientationLiveData
+import com.ict.mito.gootravel.spot.model.livrdata.LocationLiveData
+import com.ict.mito.gootravel.spot.model.livrdata.OrientationLiveData
 import com.ict.mito.gootravel.spot.model.SpotData
 import com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetFragment
 import com.ict.mito.gootravel.util.calcDirectDistance
@@ -91,9 +91,9 @@ class RadarViewModel(
 
     init {
 //        viewModelScope.launch(Dispatchers.IO) {
-            repository.getAllSpotData()
-                .subscribeOn(Schedulers.io())
-                .subscribeBy(
+        repository.getAllSpotData()
+            .subscribeOn(Schedulers.io())
+            .subscribeBy(
                 onSuccess = {
                     spotdataList = it
                 }

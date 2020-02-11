@@ -15,7 +15,7 @@ import com.ict.mito.gootravel.databinding.ListFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
 import com.ict.mito.gootravel.setting.activity.SettingActivity
 import com.ict.mito.gootravel.spot.model.SpotFragmentType
-import com.ict.mito.gootravel.spot.model.SpotSharedViewModel
+import com.ict.mito.gootravel.spot.model.viewmodel.SpotSharedViewModel
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel

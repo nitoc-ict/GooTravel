@@ -1,13 +1,14 @@
 package com.ict.mito.gootravel.spot.navigate.ui
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.ict.mito.gootravel.repo.Repository
-import com.ict.mito.gootravel.spot.model.LocationLiveData
-import com.ict.mito.gootravel.spot.model.OrientationLiveData
 import com.ict.mito.gootravel.spot.model.SpotData
+import com.ict.mito.gootravel.spot.model.livrdata.LocationLiveData
+import com.ict.mito.gootravel.spot.model.livrdata.OrientationLiveData
 import com.ict.mito.gootravel.util.calcDirectDistance
 import com.ict.mito.gootravel.util.calcDirection
 import io.reactivex.schedulers.Schedulers

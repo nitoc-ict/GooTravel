@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.ict.mito.gootravel.repo.Repository
-import com.ict.mito.gootravel.spot.model.LocationLiveData
+import com.ict.mito.gootravel.spot.model.livrdata.LocationLiveData
 import com.ict.mito.gootravel.spot.model.WiFiSpotListItem
 import com.ict.mito.gootravel.util.calcDirectDistance
 import com.xwray.groupie.GroupAdapter
@@ -55,21 +55,21 @@ class ListViewModel(
         repository.getAllSpotData()
             .subscribeOn(Schedulers.io())
             .subscribeBy(
-            onSuccess = {
-                val spotDataArray: ArrayList<ListRowItem> = arrayListOf()
-                it.forEach { spot ->
-                    spotDataArray.add(
-                        ListRowItem(
-                            WiFiSpotListItem(
-                                spot,
-                                "0"
-                            ),
-                            navController ?: return@subscribeBy
+                onSuccess = {
+                    val spotDataArray: ArrayList<ListRowItem> = arrayListOf()
+                    it.forEach { spot ->
+                        spotDataArray.add(
+                            ListRowItem(
+                                WiFiSpotListItem(
+                                    spot,
+                                    "0"
+                                ),
+                                navController ?: return@subscribeBy
+                            )
                         )
-                    )
+                    }
+                    rowBindableItem.postValue(spotDataArray)
                 }
-                rowBindableItem.postValue(spotDataArray)
-            }
-        )
+            )
     }
 }

@@ -19,7 +19,7 @@ import com.ict.mito.gootravel.databinding.RadarFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
 import com.ict.mito.gootravel.setting.activity.SettingActivity
 import com.ict.mito.gootravel.spot.model.SpotFragmentType
-import com.ict.mito.gootravel.spot.model.SpotSharedViewModel
+import com.ict.mito.gootravel.spot.model.viewmodel.SpotSharedViewModel
 import com.ict.mito.gootravel.util.calcDirectDistance
 import com.ict.mito.gootravel.util.calcDirection
 import com.ict.mito.gootravel.util.deg2rad

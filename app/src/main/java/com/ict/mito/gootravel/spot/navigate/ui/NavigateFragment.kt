@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.NavigateFragmentBinding
 import com.ict.mito.gootravel.spot.model.SpotFragmentType
-import com.ict.mito.gootravel.spot.model.SpotSharedViewModel
+import com.ict.mito.gootravel.spot.model.viewmodel.SpotSharedViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

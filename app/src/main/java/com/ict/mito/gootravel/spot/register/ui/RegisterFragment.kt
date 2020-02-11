@@ -15,7 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RegisterFragmentBinding
 import com.ict.mito.gootravel.spot.model.SpotFragmentType
-import com.ict.mito.gootravel.spot.model.SpotSharedViewModel
+import com.ict.mito.gootravel.spot.model.viewmodel.SpotSharedViewModel
 import com.ict.mito.gootravel.spot.navigate.ui.NavigateFragmentArgs
 import com.ict.mito.gootravel.util.READ_REQUEST_CODE
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel

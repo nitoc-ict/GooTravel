@@ -13,7 +13,7 @@ import androidx.navigation.findNavController
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.ict.mito.gootravel.R
-import com.ict.mito.gootravel.spot.model.SpotSharedViewModel
+import com.ict.mito.gootravel.spot.model.viewmodel.SpotSharedViewModel
 import kotlinx.android.synthetic.main.activity_spot.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

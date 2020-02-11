@@ -1,4 +1,4 @@
-package com.ict.mito.gootravel.spot.model
+package com.ict.mito.gootravel.spot.model.livrdata
 
 import android.annotation.SuppressLint
 import android.app.Activity
