@@ -44,6 +44,18 @@ class CalcKtTest {
             -57.29578f,
             rad2deg(-1f)
         )
+        assertEquals(
+            85.94367f,
+            rad2deg(1.5f)
+        )
+        assertEquals(
+            -85.94367f,
+            rad2deg(-1.5f)
+        )
+        assertEquals(
+            13178.029f,
+            rad2deg(230f)
+        )
     }
 
     @Test
