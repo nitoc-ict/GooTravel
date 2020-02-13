@@ -23,7 +23,7 @@ import com.ict.mito.gootravel.spot.model.viewmodel.SpotSharedViewModel
 import com.ict.mito.gootravel.util.calcDirectDistance
 import com.ict.mito.gootravel.util.calcDirection
 import com.ict.mito.gootravel.util.deg2rad
-import kotlinx.android.synthetic.main.activity_spot.*
+import kotlinx.android.synthetic.main.activity_spot.bottom_appbar
 import org.jetbrains.anko.dip
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -111,7 +111,7 @@ class RadarFragment : Fragment() {
                 )
 
                 val directionRad = deg2rad(
-                    direction.toFloat() +
+                    direction +
                             (viewModel.orientationLiveData.value?.azimuth ?: 0f)
                 )
 
