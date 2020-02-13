@@ -95,6 +95,6 @@ class OrientationLiveData(
             orientationAngles
         )
         val angle = rad2deg(orientationAngles[0])
-        orientationAngles[0] = normalizeRange(angle)
+        orientationAngles[0] = normalizeRange(angle.toDouble()).toFloat()
     }
 }
