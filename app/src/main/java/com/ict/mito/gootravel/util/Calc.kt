@@ -75,6 +75,6 @@ fun rad2deg(rad: Float): Float {
     return (rad * 180.0f / Math.PI).toFloat()
 }
 
-fun normalizeRange(angle: Float): Float {
-    return angle % 360f
+fun normalizeRange(angle: Double): Double {
+    return angle % 360.0
 }
