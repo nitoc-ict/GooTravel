@@ -1,5 +1,6 @@
 package com.ict.mito.gootravel.util
 
+import android.graphics.Bitmap
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 
@@ -11,5 +12,11 @@ object BindingAdapter {
     @JvmStatic
     fun ImageView.imageResource(resource: Int) {
         this.setImageResource(resource)
+    }
+
+    @BindingAdapter("bind:imageBitmap")
+    @JvmStatic
+    fun ImageView.loadImage(bitmap: Bitmap?) {
+        this.setImageBitmap(bitmap)
     }
 }

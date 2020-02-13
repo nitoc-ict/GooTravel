@@ -8,12 +8,11 @@ import androidx.room.PrimaryKey
  */
 @Entity
 data class SpotData(
+    @PrimaryKey var id: Long = 0,
     val name: String,
     val latitude: Double,
     val longitude: Double,
     val spotType: Int,
-    val spotTypeDetail: String
-) {
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0
-}
+    val spotTypeDetail: String,
+    val address: String
+)

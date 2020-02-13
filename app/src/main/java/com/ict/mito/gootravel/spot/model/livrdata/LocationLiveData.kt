@@ -1,4 +1,4 @@
-package com.ict.mito.gootravel.spot.model
+package com.ict.mito.gootravel.spot.model.livrdata
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -14,7 +14,6 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.ict.mito.gootravel.util.LocationRequestAlertDialog
-import timber.log.Timber
 
 /**
  * Created by mitohato14 on 2019-08-01.
@@ -26,17 +25,13 @@ class LocationLiveData(
     private lateinit var locationRequest: LocationRequest
 
     private val googleConnectionFailedListener = GoogleApiClient.OnConnectionFailedListener {
-        Timber.d("ConnectionFailed")
-        Timber.d(it.errorCode.toString())
     }
 
     private val googleApiClientConnectionCallbacks = object : GoogleApiClient.ConnectionCallbacks {
         override fun onConnected(p0: Bundle?) {
-            Timber.d("onConnected")
         }
 
         override fun onConnectionSuspended(p0: Int) {
-            Timber.d("onConnectionSuspended")
             googleApiClient.connect()
         }
     }
@@ -63,7 +58,8 @@ class LocationLiveData(
             Looper.myLooper()
         )
 
-        val locationManager = context.getSystemService(Activity.LOCATION_SERVICE) as LocationManager?
+        val locationManager =
+            context.getSystemService(Activity.LOCATION_SERVICE) as LocationManager?
         if (locationManager?.isProviderEnabled(LocationManager.GPS_PROVIDER) != true) {
             LocationRequestAlertDialog().showsDialog
         }
@@ -80,8 +76,6 @@ class LocationLiveData(
     }
 
     private fun updateLocationInfo(location: Location) {
-        Timber.d("latitude:${location.latitude}")
-        Timber.d("longitude:${location.longitude}")
         value = location
     }
 

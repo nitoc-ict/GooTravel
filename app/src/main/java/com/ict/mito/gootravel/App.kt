@@ -6,9 +6,14 @@ import com.ict.mito.gootravel.db.GooTravelDataRoomDataBase
 import com.ict.mito.gootravel.disaster.manual.ui.ManualViewModel
 import com.ict.mito.gootravel.repo.Repository
 import com.ict.mito.gootravel.repo.impl.RepositoryImpl
-import com.ict.mito.gootravel.spot.model.LocationLiveData
-import com.ict.mito.gootravel.spot.model.OrientationLiveData
+import com.ict.mito.gootravel.spot.activity.SpotViewModel
+import com.ict.mito.gootravel.spot.model.livrdata.LocationLiveData
+import com.ict.mito.gootravel.spot.model.livrdata.OrientationLiveData
+import com.ict.mito.gootravel.spot.model.livrdata.RegisterSpotListLiveData
+import com.ict.mito.gootravel.spot.model.livrdata.RegisterSpotLiveData
+import com.ict.mito.gootravel.spot.model.viewmodel.SpotSharedViewModel
 import com.ict.mito.gootravel.spot.navigate.ui.NavigateViewModel
+import com.ict.mito.gootravel.spot.register.list.RegisterSpotListViewModel
 import com.ict.mito.gootravel.spot.register.ui.RegisterViewModel
 import com.ict.mito.gootravel.spot.select.list.ui.ListViewModel
 import com.ict.mito.gootravel.spot.select.radar.ui.RadarViewModel
@@ -29,7 +34,7 @@ class App : Application() {
         startKoin {
             androidContext(this@App)
             modules(
-                arrayListOf(
+                listOf(
                     viewModelModule,
                     liveDataModule,
                     databaseModule,
@@ -41,23 +46,59 @@ class App : Application() {
     }
 
     private val viewModelModule: Module = module {
+        viewModel { SpotSharedViewModel() }
         viewModel { ManualViewModel() }
         viewModel {
             NavigateViewModel(
                 get(),
+                get(),
                 get()
             )
         }
-        viewModel { RegisterViewModel() }
-        viewModel { ListViewModel() }
-        viewModel { RadarViewModel() }
+        viewModel {
+            RegisterViewModel(
+                get(),
+                get(),
+                get()
+            )
+        }
+        viewModel {
+            ListViewModel(
+                get(),
+                get()
+            )
+        }
+        viewModel {
+            RadarViewModel(
+                get(),
+                get(),
+                get()
+            )
+        }
         viewModel { SearchViewModel() }
         viewModel { SelectSpotBottomSheetViewModel(get()) }
+        viewModel { SpotViewModel(get()) }
+        viewModel {
+            RegisterSpotListViewModel(
+                get(),
+                get()
+            )
+        }
     }
 
     private val liveDataModule: Module = module {
-        factory { OrientationLiveData(applicationContext) }
-        factory { LocationLiveData(applicationContext) }
+        factory {
+            OrientationLiveData(
+                applicationContext
+            )
+        }
+        factory {
+            LocationLiveData(
+                applicationContext
+            )
+        }
+        factory { RegisterSpotListLiveData() }
+        factory { RegisterSpotLiveData() }
     }
 
     private val databaseModule: Module = module {
@@ -77,6 +118,6 @@ class App : Application() {
     }
 
     private val readerModule: Module = module {
-        single { CSVReader(applicationContext) }
+        single { CSVReader(applicationContext.resources.assets) }
     }
 }

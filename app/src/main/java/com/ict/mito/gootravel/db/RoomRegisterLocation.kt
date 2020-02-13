@@ -14,10 +14,9 @@ data class RoomRegisterLocation(
     val longitude: Double,
     val notificationTime: Double,
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB) val image: ByteArray,
-    val memo: String
+    val memo: String,
+    @PrimaryKey var id: Long = 0
 ) {
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
