@@ -111,8 +111,7 @@ class RadarFragment : Fragment() {
                 )
 
                 val directionRad = deg2rad(
-                    direction +
-                            (viewModel.orientationLiveData.value?.azimuth ?: 0f)
+                    direction + (viewModel.orientationLiveData.value?.azimuth ?: 0f)
                 )
 
                 addWiFiSpotButton(
