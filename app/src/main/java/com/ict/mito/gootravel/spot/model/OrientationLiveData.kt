@@ -94,7 +94,7 @@ class OrientationLiveData(
             remapCoordinateArray,
             orientationAngles
         )
-        val angle = rad2deg(orientationAngles[0])
-        orientationAngles[0] = normalizeRange(angle.toDouble()).toFloat()
+        val angle = rad2deg(orientationAngles[0].toDouble())
+        orientationAngles[0] = normalizeRange(angle).toFloat()
     }
 }

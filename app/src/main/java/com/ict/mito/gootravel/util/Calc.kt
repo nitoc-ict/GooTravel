@@ -71,8 +71,8 @@ fun rotateImage(
     )
 }
 
-fun rad2deg(rad: Float): Float {
-    return (rad * 180.0f / Math.PI).toFloat()
+fun rad2deg(rad: Double): Double {
+    return (rad * 180.0f / Math.PI)
 }
 
 fun normalizeRange(angle: Double): Double {
