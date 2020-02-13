@@ -18,6 +18,7 @@ import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.RadarFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
 import com.ict.mito.gootravel.setting.activity.SettingActivity
+import com.ict.mito.gootravel.spot.model.SpotData
 import com.ict.mito.gootravel.spot.model.SpotFragmentType
 import com.ict.mito.gootravel.spot.model.viewmodel.SpotSharedViewModel
 import com.ict.mito.gootravel.util.calcDirectDistance
@@ -94,32 +95,9 @@ class RadarFragment : Fragment() {
         constraintSet.clone(constraintLayout)
 
         runnable = Runnable {
-            viewModel.showSpotViewList.forEach { button ->
-                constraintLayout.removeView(button)
-            }
-            viewModel.showSpotViewList.clear()
+            removeSpotButton()
+            displaySpotButton()
 
-            val displaySpotList = viewModel.filterSpotData()
-            displaySpotList.forEach { destinationSpot ->
-                val distance = calcDirectDistance(
-                    destinationSpot,
-                    viewModel.locationLiveData.value
-                )
-                val direction = calcDirection(
-                    destinationSpot,
-                    viewModel.locationLiveData.value
-                )
-
-                val directionRad = deg2rad(
-                    direction + (viewModel.orientationLiveData.value?.azimuth ?: 0f)
-                )
-
-                addWiFiSpotButton(
-                    destinationSpot.id.toInt(),
-                    (distance * sin(directionRad)).toInt(),
-                    (distance * cos(directionRad)).toInt()
-                )
-            }
             constraintSet.applyTo(constraintLayout)
 
             handler.postDelayed(
@@ -152,6 +130,45 @@ class RadarFragment : Fragment() {
         checkArgumentAndTransition()
 
         return binding?.root
+    }
+
+    private fun displaySpotButton() {
+        val displaySpotList = viewModel.filterSpotData()
+        displaySpotList.forEach { destinationSpot ->
+            val distance = getDirectDistance(destinationSpot)
+            val directionRad = getDirectionRad(destinationSpot)
+
+            addWiFiSpotButton(
+                destinationSpot.id.toInt(),
+                (distance * sin(directionRad)).toInt(),
+                (distance * cos(directionRad)).toInt()
+            )
+        }
+    }
+
+    private fun getDirectDistance(destinationSpot: SpotData): Double {
+        return calcDirectDistance(
+            destinationSpot,
+            viewModel.locationLiveData.value
+        )
+    }
+
+    private fun getDirectionRad(destinationSpot: SpotData): Double {
+        val direction = calcDirection(
+            destinationSpot,
+            viewModel.locationLiveData.value
+        )
+
+        return deg2rad(
+            direction + (viewModel.orientationLiveData.value?.azimuth ?: 0f)
+        )
+    }
+
+    private fun removeSpotButton() {
+        viewModel.showSpotViewList.forEach { button ->
+            constraintLayout.removeView(button)
+        }
+        viewModel.showSpotViewList.clear()
     }
 
     private fun checkArgumentAndTransition() {
