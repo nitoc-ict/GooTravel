@@ -60,5 +60,45 @@ class CalcKtTest {
 
     @Test
     fun normalizeRange() {
+        assertEquals(
+            180f,
+            normalizeRange(180.0).toFloat()
+        )
+        assertEquals(
+            0f,
+            normalizeRange(0.0).toFloat()
+        )
+        assertEquals(
+            0f,
+            normalizeRange(360.0).toFloat()
+        )
+        assertEquals(
+            60f,
+            normalizeRange(420.0).toFloat()
+        )
+        assertEquals(
+            0f,
+            normalizeRange(720.0).toFloat()
+        )
+        assertEquals(
+            -60f,
+            normalizeRange(-60.0).toFloat()
+        )
+        assertEquals(
+            -60f,
+            normalizeRange(-420.0).toFloat()
+        )
+        assertEquals(
+            -0f,
+            normalizeRange(-720.0).toFloat()
+        )
+        assertEquals(
+            60.462f,
+            normalizeRange(420.462).toFloat()
+        )
+        assertEquals(
+            -80.234f,
+            normalizeRange(-440.234).toFloat()
+        )
     }
 }
