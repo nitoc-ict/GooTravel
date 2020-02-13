@@ -25,8 +25,14 @@ class SpotViewModel(private val repository: Repository) : ViewModel() {
     }
 
     private fun addSpotDataToRoomFromCSV() {
-        repository.getSpotDataByCSV().forEach {
-            repository.add(it)
-        }
+        repository.getSpotDataByCSV()
+            .observeOn(Schedulers.io())
+            .subscribeBy(
+                onSuccess = { list ->
+                    list.forEach {
+                        repository.add(it)
+                    }
+                }
+            )
     }
 }

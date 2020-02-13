@@ -90,6 +90,7 @@ dependencies {
 
     // for test
     testImplementation('junit:junit:4.13-rc-2')
+    testImplementation("org.assertj:assertj-core:3.10.0")
     androidTestImplementation('androidx.test:runner:1.3.0-alpha02')
     androidTestImplementation('androidx.test.espresso:espresso-core:3.3.0-alpha02')
 

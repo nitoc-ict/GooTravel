@@ -62,21 +62,10 @@ fun calcDirection(
     return (90 - atan(2 * ((sin(ax - bx)) / (cos(by) * tan(ay) - sin(by) * cos(ax - bx)))))
 }
 
-fun rad2deg(rad: Float): Float {
-    return (rad * 180.0f / Math.PI).toFloat()
+fun rad2deg(rad: Double): Double {
+    return (rad * 180.0f / Math.PI)
 }
 
-fun deg2rad(deg: Float): Float {
-    return deg * (Math.PI / 180f).toFloat()
-}
-
-fun normalizeRange(angle: Float): Float {
-    val f = angle / 360f
-    val i = if (f >= 0.0f) {
-        f.toInt()
-    } else {
-        f.toInt() - 1
-    }
-
-    return (f - i.toFloat()) * 360f
+fun normalizeRange(angle: Double): Double {
+    return angle % 360.0
 }
