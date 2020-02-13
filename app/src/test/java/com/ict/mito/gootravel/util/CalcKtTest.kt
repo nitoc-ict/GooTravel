@@ -30,31 +30,31 @@ class CalcKtTest {
     fun rad2deg() {
         assertEquals(
             57.29578f,
-            rad2deg(1f)
+            rad2deg(1.0).toFloat()
         )
         assertEquals(
             0f,
-            rad2deg(0f)
+            rad2deg(0.0).toFloat()
         )
         assertEquals(
             114.59156f,
-            rad2deg(2f)
+            rad2deg(2.0).toFloat()
         )
         assertEquals(
             -57.29578f,
-            rad2deg(-1f)
+            rad2deg(-1.0).toFloat()
         )
         assertEquals(
             85.94367f,
-            rad2deg(1.5f)
+            rad2deg(1.5).toFloat()
         )
         assertEquals(
             -85.94367f,
-            rad2deg(-1.5f)
+            rad2deg(-1.5).toFloat()
         )
         assertEquals(
             13178.029f,
-            rad2deg(230f)
+            rad2deg(230.0).toFloat()
         )
     }
 
