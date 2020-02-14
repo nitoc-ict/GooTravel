@@ -2,7 +2,6 @@ package com.ict.mito.gootravel.spot.select.radar.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,23 +24,32 @@ import com.ict.mito.gootravel.util.calcDirectDistance
 import com.ict.mito.gootravel.util.calcDirection
 import com.ict.mito.gootravel.util.deg2rad
 import kotlinx.android.synthetic.main.activity_spot.bottom_appbar
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.jetbrains.anko.dip
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import kotlin.coroutines.CoroutineContext
 import kotlin.math.cos
 import kotlin.math.sin
 
 class RadarFragment : Fragment() {
+    private val job = Job()
+    private val coroutineContext: CoroutineContext
+        get() = job + Dispatchers.Default
+    private val coroutineScope = CoroutineScope(coroutineContext)
 
-    private val viewModel: RadarViewModel by viewModel()
+    val viewModel: RadarViewModel by viewModel()
     private val sharedViewModel: SpotSharedViewModel by sharedViewModel()
     private var binding: RadarFragmentBinding? = null
 
     private lateinit var constraintLayout: ConstraintLayout
     private val constraintSet = ConstraintSet()
-
-    private val handler = Handler()
-    private var runnable: Runnable? = null
 
     private val onMenuItemClickListener = Toolbar.OnMenuItemClickListener { menu ->
         when (menu.itemId) {
@@ -94,18 +102,17 @@ class RadarFragment : Fragment() {
         constraintLayout = binding?.root as ConstraintLayout
         constraintSet.clone(constraintLayout)
 
-        runnable = Runnable {
-            removeSpotButton()
-            displaySpotButton()
+        coroutineScope.launch {
+            while (true) {
+                withContext(Dispatchers.Main) {
+                    removeSpotButton()
+                    displaySpotButton()
 
-            constraintSet.applyTo(constraintLayout)
-
-            handler.postDelayed(
-                runnable,
-                5000
-            )
+                    constraintSet.applyTo(constraintLayout)
+                }
+                delay(5000L)
+            }
         }
-        handler.post(runnable)
 
         viewModel.also {
             it.fragmentManager = parentFragmentManager
@@ -231,7 +238,7 @@ class RadarFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        handler.removeCallbacks(runnable)
+        coroutineScope.cancel()
         binding = null
     }
 }
