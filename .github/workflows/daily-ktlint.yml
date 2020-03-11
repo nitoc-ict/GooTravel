@@ -23,12 +23,3 @@ jobs:
         continue-on-error: true
         run: ./gradlew --no-daemon -Dorg.gradle.parallel=false -Dorg.gradle.configureondemand=false ktlintFormat 
         
-      - name: Create Pull Request
-        uses: cats-oss/create-pull-request@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-          PULL_REQUEST_BRANCH: daily-ktlint
-          COMMIT_MESSAGE: Auto-modify files by daily ktlint
-          PULL_REQUEST_TITLE: Changes from daily ktlint
-          PULL_REQUEST_BODY: This is an auto-generated PR with changes from daily ktlint
