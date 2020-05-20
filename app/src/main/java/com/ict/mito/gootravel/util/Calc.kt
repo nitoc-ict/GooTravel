@@ -2,7 +2,6 @@ package com.ict.mito.gootravel.util
 
 import android.location.Location
 import com.ict.mito.gootravel.spot.model.SpotData
-import kotlin.math.abs
 import kotlin.math.atan
 import kotlin.math.cos
 import kotlin.math.sin
@@ -44,18 +43,25 @@ fun calcDirectDistance(
     val y1 = deg2rad(ay)
     val y2 = deg2rad(by)
 
-    val dx = abs(x1 - x2)
-    val dy = abs(y1 - y2)
+    val dx = x1 - x2
+    val dy = y1 - y2
 
     val p = (y1 + y2) / 2.0
-    val rx = SEMIMAJOR_AXIS
-    val ry = SEMIMINOR_AXIS
-    val e = sqrt((rx * rx - ry * ry) / (rx * rx))
-    val w = sqrt(1 - e * e * (sin(p) * sin(p)))
-    val m = (rx * (1 - e * e)) / (w * w * w)
-    val n = rx / w
+    val a = SEMIMAJOR_AXIS
+    val b = SEMIMINOR_AXIS
+    val e = (a * a - b * b) / (a * a)
+    val ale = a * (1 - e)
 
-    return sqrt((dy * m) * (dy * m) + (dx * n * cos(p)) * (dx * n * cos(p)))
+    val sinY = sin(p)
+
+    val w = 1 - e * (sinY * sinY)
+    val m = ale / (sqrt(w) * w)
+    val n = a / sqrt(w)
+
+    val t1 = m * dy
+    val t2 = n * cos(p) * dx
+
+    return sqrt((t1 * t1) + (t2 * t2))
 }
 
 fun calcDirection(
