@@ -2,7 +2,12 @@ package com.ict.mito.gootravel.util
 
 import android.location.Location
 import com.ict.mito.gootravel.spot.model.SpotData
-import kotlin.math.*
+import kotlin.math.abs
+import kotlin.math.atan
+import kotlin.math.cos
+import kotlin.math.sin
+import kotlin.math.sqrt
+import kotlin.math.tan
 
 /**
  * Created by mitohato14 on 2019-07-28.
@@ -34,10 +39,10 @@ fun calcDirectDistance(
     bx: Double,
     by: Double
 ): Double {
-    val x1 = deg2rad(ax.toFloat())
-    val x2 = deg2rad(bx.toFloat())
-    val y1 = deg2rad(ay.toFloat())
-    val y2 = deg2rad(by.toFloat())
+    val x1 = deg2rad(ax)
+    val x2 = deg2rad(bx)
+    val y1 = deg2rad(ay)
+    val y2 = deg2rad(by)
 
     val dx = abs(x1 - x2)
     val dy = abs(y1 - y2)
@@ -62,21 +67,14 @@ fun calcDirection(
     return (90 - atan(2 * ((sin(ax - bx)) / (cos(by) * tan(ay) - sin(by) * cos(ax - bx)))))
 }
 
-fun rad2deg(rad: Float): Float {
-    return (rad * 180.0f / Math.PI).toFloat()
+fun rad2deg(rad: Double): Double {
+    return (rad * 180.0f / Math.PI)
 }
 
-fun deg2rad(deg: Float): Float {
-    return deg * (Math.PI / 180f).toFloat()
+fun deg2rad(deg: Double): Double {
+    return deg * (Math.PI / 180f)
 }
 
-fun normalizeRange(angle: Float): Float {
-    val f = angle / 360f
-    val i = if (f >= 0.0f) {
-        f.toInt()
-    } else {
-        f.toInt() - 1
-    }
-
-    return (f - i.toFloat()) * 360f
+fun normalizeRange(angle: Double): Double {
+    return angle % 360.0
 }

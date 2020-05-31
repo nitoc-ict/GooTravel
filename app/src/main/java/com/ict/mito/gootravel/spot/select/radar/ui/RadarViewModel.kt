@@ -6,12 +6,13 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.ict.mito.gootravel.repo.Repository
-import com.ict.mito.gootravel.spot.model.LocationLiveData
-import com.ict.mito.gootravel.spot.model.OrientationLiveData
+import com.ict.mito.gootravel.spot.model.livrdata.LocationLiveData
+import com.ict.mito.gootravel.spot.model.livrdata.OrientationLiveData
 import com.ict.mito.gootravel.spot.model.SpotData
 import com.ict.mito.gootravel.spot.select.radar.ui.dialog.SelectSpotBottomSheetFragment
 import com.ict.mito.gootravel.util.calcDirectDistance
 import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 
 class RadarViewModel(
     repository: Repository,
@@ -34,6 +35,9 @@ class RadarViewModel(
         navController.navigate(action)
     }
 
+    val meetingClick = View.OnClickListener {
+        transitionBottomSheet(1)
+    }
 
     fun transitionBottomSheet(
         id: Int,
@@ -86,10 +90,14 @@ class RadarViewModel(
     }
 
     init {
-        repository.getAllSpotData().subscribeBy(
-            onSuccess = {
-                spotdataList = it
-            }
-        )
+//        viewModelScope.launch(Dispatchers.IO) {
+        repository.getAllSpotData()
+            .subscribeOn(Schedulers.io())
+            .subscribeBy(
+                onSuccess = {
+                    spotdataList = it
+                }
+            )
+//        }
     }
 }

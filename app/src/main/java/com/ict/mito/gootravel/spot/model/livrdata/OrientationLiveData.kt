@@ -1,4 +1,4 @@
-package com.ict.mito.gootravel.spot.model
+package com.ict.mito.gootravel.spot.model.livrdata
 
 import android.content.Context
 import android.hardware.Sensor
@@ -6,6 +6,7 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import androidx.lifecycle.LiveData
+import com.ict.mito.gootravel.spot.model.OrientationData
 import com.ict.mito.gootravel.util.normalizeRange
 import com.ict.mito.gootravel.util.rad2deg
 
@@ -94,7 +95,7 @@ class OrientationLiveData(
             remapCoordinateArray,
             orientationAngles
         )
-        val angle = rad2deg(orientationAngles[0])
-        orientationAngles[0] = normalizeRange(angle)
+        val angle = rad2deg(orientationAngles[0].toDouble())
+        orientationAngles[0] = normalizeRange(angle).toFloat()
     }
 }

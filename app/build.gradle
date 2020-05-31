@@ -4,6 +4,7 @@ apply plugin: "kotlin-android-extensions"
 apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: "kotlin-kapt"
 apply plugin: 'deploygate'
+apply plugin: "org.jlleitschuh.gradle.ktlint"
 
 android {
     compileSdkVersion 28
@@ -36,8 +37,10 @@ dependencies {
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation('androidx.lifecycle:lifecycle-extensions:2.1.0')
     implementation('androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha05')
+    implementation("androidx.lifecycle:lifecycle-runtime:2.1.0")
+    implementation("androidx.lifecycle:lifecycle-reactivestreams:2.1.0")
     implementation("androidx.activity:activity-ktx:1.1.0-alpha03")
-    implementation('androidx.fragment:fragment-ktx:1.2.0-alpha04')
+    implementation('androidx.fragment:fragment-ktx:1.2.0-rc01')
 
     // Navigation
     // for move screen
@@ -86,9 +89,10 @@ dependencies {
     implementation("com.xwray:groupie-databinding:$groupie_version")
 
     // for test
-    testImplementation("junit:junit:4.12")
-    androidTestImplementation("androidx.test:runner:1.2.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+    testImplementation('junit:junit:4.12')
+    testImplementation("org.assertj:assertj-core:3.10.0")
+    androidTestImplementation('androidx.test:runner:1.2.0')
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.2.0')
 
 //    debugImplementation("com.willowtreeapps.hyperion:hyperion-core:0.9.27")
 //    debugImplementation("com.willowtreeapps.hyperion:hyperion-attr:0.9.27")

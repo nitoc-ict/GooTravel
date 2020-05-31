@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -15,12 +14,16 @@ import com.ict.mito.gootravel.R
 import com.ict.mito.gootravel.databinding.ListFragmentBinding
 import com.ict.mito.gootravel.disaster.manual.ui.ManualActivity
 import com.ict.mito.gootravel.setting.activity.SettingActivity
+import com.ict.mito.gootravel.spot.model.SpotFragmentType
+import com.ict.mito.gootravel.spot.model.viewmodel.SpotSharedViewModel
 import kotlinx.android.synthetic.main.activity_spot.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ListFragment : Fragment() {
 
     private val viewModel: ListViewModel by viewModel()
+    private val sharedViewModel: SpotSharedViewModel by sharedViewModel()
     private var binding: ListFragmentBinding? = null
 
     private val menuItemClickListener = Toolbar.OnMenuItemClickListener { menu ->
@@ -62,10 +65,7 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        activity?.bottom_appbar?.let {
-            it.replaceMenu(R.menu.list_bottomappbar_menu)
-            it.setOnMenuItemClickListener(menuItemClickListener)
-        }
+        activity?.bottom_appbar?.setOnMenuItemClickListener(menuItemClickListener)
 
         binding = DataBindingUtil.inflate(
             inflater,
@@ -77,13 +77,13 @@ class ListFragment : Fragment() {
         viewModel.also {
             it.calcSpotDistance()
             it.locationLiveData.observe(
-                this,
+                viewLifecycleOwner,
                 Observer { _ ->
                     it.updateDistanceOnce()
                 }
             )
             it.rowBindableItem.observe(
-                this,
+                viewLifecycleOwner,
                 Observer { list ->
                     it.groupAdapter.update(list)
                     binding?.notifyChange()
@@ -92,23 +92,13 @@ class ListFragment : Fragment() {
             it.navController = findNavController()
         }
 
+        sharedViewModel.fragmentType.postValue(SpotFragmentType.LIST)
+
         binding?.let {
             it.viewmodel = viewModel
             it.lifecycleOwner = this
         }
 
         return binding?.root
-    }
-
-    override fun onResume() {
-        super.onResume()
-        activity?.bottom_appbar?.replaceMenu(R.menu.list_bottomappbar_menu)
-
-        val appCompatActivity = activity as AppCompatActivity?
-        appCompatActivity?.supportActionBar?.let {
-            it.title = getString(R.string.wifi_spot)
-            it.setDisplayHomeAsUpEnabled(false)
-            it.setHomeButtonEnabled(false)
-        }
     }
 }

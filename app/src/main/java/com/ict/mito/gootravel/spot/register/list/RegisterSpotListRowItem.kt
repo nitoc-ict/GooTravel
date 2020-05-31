@@ -24,13 +24,15 @@ class RegisterSpotListRowItem(
             it.registerPoint = registerSpotData
             it.distance = "$distance"
             it.root.setOnClickListener {
-                val action =
-                    RegisterSpotListFragmentDirections.actionRegisterSpotListFragmentToRadarFragment(
-                        registerSpotData.id.toLong(),
-                        distance
-                    )
+                val action = createAction()
                 navController.navigate(action)
             }
         }
     }
+
+    private fun createAction() =
+        RegisterSpotListFragmentDirections.actionRegisterSpotListFragmentToRadarFragment(
+            registerSpotData.id.toLong(),
+            distance
+        )
 }
